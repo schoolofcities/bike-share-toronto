@@ -1,0 +1,24 @@
+@font-face {
+    font-family: TradeGothicBold;
+    src: url("Trade Gothic LT Bold.ttf");
+}
+
+:root {
+    font-family: Roboto, sans-serif;
+    --brandDarkBlue: #1E3765;
+    --brandMedBlue: #007FA3;
+    --brandLightBlue: #6FC7EA;
+    --brandPurple: #6D247A;
+    --brandPink: #AB1368;
+    --brandDarkGreen: #0D534D;
+    --brandMedGreen: #00A189;
+    --brandLightGreen: #8DBF2E;
+    --brandRed: #DC4633; 
+    --brandYellow: #F1C500;
+    --brandBlack: #000000;
+    --brandWhite: #ffffff;
+    --brandGray: #D0D1C9;
+    --brandGray70: #4d4d4d;
+    --brandGray80: #333333;
+    --brandGray90: #191919;
+}
