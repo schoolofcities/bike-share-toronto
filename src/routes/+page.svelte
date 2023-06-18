@@ -36,14 +36,14 @@
 		.domain([0, xTicks.length])
 		.range([padding.left, width - padding.right]);
 
-	$: yScale = scaleLinear()
+	$: yStationScale = scaleLinear()
 		.domain([0, Math.max.apply(null, yTicksStation)])
 		.range([height - padding.bottom, padding.top]);
 
-	$: yScale1 = scaleLinear()
+	$: yTripScale = scaleLinear()
 		.domain([0, Math.max.apply(null, yTicksTrip)])
 		.range([height - padding.bottom, padding.top]);
-	$: yScale2 = scaleLinear()
+	$: yBikeScale = scaleLinear()
 		.domain([0, Math.max.apply(null, yTicksBike)])
 		.range([height - padding.bottom, padding.top]);
 
@@ -66,10 +66,14 @@
 	and was taken over by the Toronto Parking Authority in 2014. (Copied from
 	Wikepedia, only for testing)
 </p>
+
+
+
 <h1>Rapidly Expanding Service</h1>
 
-<h2>Bikeshare Station Count By Month 2017 - 2022</h2>
+
 <!-- chart 1-->
+<h2>Bikeshare Station Count By Month 2017 - 2022</h2>
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg>
 		<!-- y axis -->
@@ -77,12 +81,12 @@
 			{#each yTicksStation as tick}
 				<g
 					class="tick tick-{tick}"
-					transform="translate(0, {yScale(tick)})"
+					transform="translate(0, {yStationScale(tick)})"
 				>
 					<line x2="100%" />
 					<text y="-4"
 						>{tick}
-						{tick === 20 ? " per 1,000 population" : ""}</text
+						</text
 					>
 				</g>
 			{/each}
@@ -107,9 +111,9 @@
 				width: controls the spacing between the bars-->
 				<rect
 					x={xScale(i) + 0}
-					y={yScale(bike.StationCount)}
+					y={yStationScale(bike.StationCount)}
 					width={barWidth - 1}
-					height={yScale(0) - yScale(bike.StationCount)}
+					height={yStationScale(0) - yStationScale(bike.StationCount)}
 				/>
 			{/each}
 		</g>
@@ -117,6 +121,7 @@
 </div>
 
 <!-- chart 2-->
+<h2>Bikeshare Trip Count By Month 2017 - 2022</h2>
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg>
 		<!-- y axis -->
@@ -124,12 +129,12 @@
 			{#each yTicksTrip as tick}
 				<g
 					class="tick tick-{tick}"
-					transform="translate(0, {yScale1(tick)})"
+					transform="translate(0, {yTripScale(tick)})"
 				>
 					<line x2="100%" />
 					<text y="-4"
 						>{tick}
-						{tick === 20 ? " per 1,000 population" : ""}</text
+						</text
 					>
 				</g>
 			{/each}
@@ -154,9 +159,9 @@
 				width: controls the spacing between the bars-->
 				<rect
 					x={xScale(i) + 0}
-					y={yScale1(bike.TripCount)}
+					y={yTripScale(bike.TripCount)}
 					width={barWidth - 1}
-					height={yScale1(0) - yScale1(bike.TripCount)}
+					height={yTripScale(0) - yTripScale(bike.TripCount)}
 				/>
 			{/each}
 		</g>
@@ -164,6 +169,7 @@
 </div>
 
 <!-- chart 3-->
+<h2>Bikeshare Bike Count By Month 2017 - 2022</h2>
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg>
 		<!-- y axis -->
@@ -171,18 +177,33 @@
 			{#each yTicksBike as tick}
 				<g
 					class="tick tick-{tick}"
-					transform="translate(0, {yScale2(tick)})"
+					transform="translate(0, {yBikeScale(tick)})"
 				>
 					<line x2="100%" />
 					<text y="-4"
 						>{tick}
-						{tick === 20 ? " per 1,000 population" : ""}</text
+						</text
 					>
 				</g>
 			{/each}
 		</g>
 
 		<!-- x axis -->
+		
+
+		<g class="bars">
+			{#each bikeshareData as bike, i}
+				<!-- Controls the width of the bar graph, 
+				width: controls the spacing between the bars-->
+				<rect
+					x={xScale(i) + 0}
+					y={yBikeScale(bike.BikeCount)}
+					width={barWidth - 1}
+					height={yBikeScale(0) - yBikeScale(bike.BikeCount)}
+				/>
+			{/each}
+		</g>
+
 		<g class="axis x-axis">
 			{#each bikeshareData as bike, i}
 				<g class="tick" transform="translate({xScale(i)},{height})">
@@ -191,29 +212,24 @@
 							? bike.Month
 							: formatMobile(bike.Month)}</text
 					>
+					
 				</g>
-			{/each}
+				{/each}
 		</g>
-
-		<g class="bars">
+		<g class="axis x-axis-label">
 			{#each bikeshareData as bike, i}
-				<!-- Controls the width of the bar graph, 
-				width: controls the spacing between the bars-->
-				<rect
-					x={xScale(i) + 0}
-					y={yScale2(bike.BikeCount)}
-					width={barWidth - 1}
-					height={yScale2(0) - yScale2(bike.BikeCount)}
-				/>
+			  <text x={xScale(i) + barWidth / 2} y={height + 30} class="x-axis-label">
+				{width > 380 ? bike.BikeCount : formatMobile(bike.BikeCount)}
+			  </text>
 			{/each}
-		</g>
+		  </g>
 	</svg>
 </div>
 
 <style>
 	:global(body) {
 		margin: 0px;
-		background-color: var(--brandWhite);
+		background-color: #F8F6F0;
 	}
 
 	main {
@@ -227,6 +243,8 @@
 		font-size: 35px;
 		font-weight: normal;
 		color: var(--brandYellow);
+		padding-left: 10%;
+		padding-right: 10%;
 	}
 
 	p {
@@ -262,6 +280,7 @@
 		font-size: 0.725em;
 		font-weight: 200;
 	}
+	
 
 	.tick line {
 		stroke: red;
@@ -271,7 +290,7 @@
 	.tick text {
 		fill: #ccc;
 		text-anchor: start;
-		font-size: 8px;
+		font-size: 15px;
 	}
 
 	.tick.tick-0 line {
@@ -280,6 +299,14 @@
 
 	.x-axis .tick text {
 		text-anchor: middle;
+	}
+	.x-axis.label{
+		font-family: Helvetica, Arial;
+		font-size: 0.725em;
+		font-weight: 200;
+		writing-mode: vertical-rl; /* Rotate 90 degrees */
+  		transform: rotate(180deg); /* Flip vertically */
+		font-size: 50px;
 	}
 
 	.bars rect {
