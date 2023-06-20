@@ -1,52 +1,45 @@
 <script>
-    import { scaleLinear } from "d3-scale";
+	import { scaleLinear } from "d3-scale";
 
-    export let data;
-    export let variable;
-    export let yTicks;
+	export let data;
+	export let variable;
+	export let yTicks;
 
-    let width = 1000;
-	let height = 1000;
+	let width = 100;
+	let height = 2000;
 
-    var monthList = data.map(function (obj) {
+	var monthList = data.map(function (obj) {
 		return obj.Month;
-	}); 
+	});
 
-    const xTicks = monthList;
+	const xTicks = monthList;
 	const padding = { top: 20, right: 15, bottom: 20, left: 25 };
 
-    
+	function formatMobile(tick) {
+		return "'" + tick.toString().slice(-2);
+	}
 
-    function formatMobile(tick) {
-        return "'" + tick.toString().slice(-2);
-    }
-    console.log(xTicks);
-    $: xScale = scaleLinear()
-        .domain([0, xTicks.length])
-        .range([padding.left, width - padding.right]);
+	$: xScale = scaleLinear()
+		.domain([0, xTicks.length])
+		.range([padding.left, width - padding.right]);
 
-    $: yScale = scaleLinear()
-        .domain([0, Math.max.apply(null, yTicks)])
-        .range([height - padding.bottom, padding.top]);
+	$: yScale = scaleLinear()
+		.domain([0, Math.max.apply(null, yTicks)])
+		.range([height - padding.bottom, padding.top]);
 
-    $: innerWidth = width - (padding.left + padding.right);
+	$: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length;
+	$: barWidth = innerWidth / xTicks.length;
 </script>
+
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
-	<svg>
+	<svg width={xTicks.length * barWidth} height={height}>
 		<!-- y axis -->
 		<g class="axis y-axis">
 			{#each yTicks as tick}
-				<g
-					class="tick tick-{tick}"
-					transform="translate(0, {yScale(tick)})"
-				>
+				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick)})">
 					<line x2="100%" />
-					<text y="-4"
-						>{tick}
-						</text
-					>
+					<text y="-4">{tick} </text>
 				</g>
 			{/each}
 		</g>
@@ -55,11 +48,7 @@
 		<g class="axis x-axis">
 			{#each data as bike, i}
 				<g class="tick" transform="translate({xScale(i)},{height})">
-					<text x={barWidth / 2} y="-4"
-						>{width > 380
-							? bike.Month
-							: formatMobile(bike.Month)}</text
-					>
+					<text x={barWidth / 2 + 10} y="-4">{width > 380 ? bike.Month : formatMobile(bike.Month)}</text>
 				</g>
 			{/each}
 		</g>
@@ -69,20 +58,31 @@
 				<!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
 				<rect
-					x={xScale(i) + 0}
+					x={xScale(i) + 10}
 					y={yScale(bike[variable])}
 					width={barWidth - 1}
 					height={yScale(0) - yScale(bike[variable])}
 				/>
 			{/each}
 		</g>
+
+		<!-- Bar Labels  -->
+		<g class="x-axis">
+			{#each data as bike, i}
+				<g class="tick" transform="translate({xScale(i) + barWidth / 2 + 25},{yScale(bike[variable]) + 22})">
+					<text class="x-label">{width > 380 ? bike[variable] : formatMobile(bike[variable])}</text>
+				</g>
+			{/each}
+		</g>
 	</svg>
 </div>
+
 <style>
 	.chart {
 		width: 100%;
 		max-width: 80%;
 		margin: 0 auto;
+		overflow-x: scroll;
 	}
 
 	svg {
@@ -96,15 +96,12 @@
 		font-size: 0.725em;
 		font-weight: 200;
 	}
-	
 
 	.tick line {
-		stroke: Gray;
-		stroke-dasharray: 2;
+		stroke: #404b
 	}
-
 	.tick text {
-		fill: #ccc;
+		fill: #4b4b4b;
 		text-anchor: start;
 		font-size: 15px;
 	}
@@ -117,17 +114,18 @@
 		text-anchor: middle;
 	}
 
-	.x-axis.label{
-		font-family: Helvetica, Arial;
-		font-size: 0.725em;
-		font-weight: 200;
-		writing-mode: vertical-rl; /* Rotate 90 degrees */
-  		transform: rotate(180deg); /* Flip vertically */
-		font-size: 50px;
+	.x-label {
+		text-anchor: middle;
+		transform: translate(-10px, 0px) rotate(-90deg);
+		
+	}
+	.x-label.tick text{
+		font-size: 10px; /* Adjust the font size as desired */
+		fill: #000000; /* Adjust the font color as desired */
 	}
 
 	.bars rect {
-		fill: #006C00;
+		fill: #ABA89E;
 		stroke: none;
 		opacity: 0.65;
 	}

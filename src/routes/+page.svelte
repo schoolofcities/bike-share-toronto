@@ -7,27 +7,22 @@
 
 	// returns a list of years for the x axis
 
-  let trip = "TripCount"
-  let stationCount = "StationCount"
-  let bikeCount = "BikeCount"
-  let averageTripDuration = "AverageTripDuration"
+	let trip = "TripCount";
+	let stationCount = "StationCount";
+	let bikeCount = "BikeCount";
+	let averageTripDuration = "AverageTripDuration";
 
 	const yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
-	const yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
-	const yTicksBike = [0, 2500, 3500, 4500, 5500, 6500]
-  const yTicksDuration = [0,5,10,15,20,25, 30]
+	const yTicksTrip = [
+		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
+	];
+	const yTicksBike = [0, 2500, 3500, 4500, 5500, 6500];
+	const yTicksDuration = [0, 5, 10, 15, 20, 25, 30];
 	// formats the numbers when it is shown on mobile i.e. 2007 --> '07
-	
 </script>
-<BarChart data = {bikeshareData} variable = {trip} yTicks = {yTicksTrip}/>
-<BarChart data = {bikeshareData} variable = {stationCount} yTicks = {yTicksStation}/>
-<BarChart data = {bikeshareData} variable = {bikeCount} yTicks = {yTicksBike}/>
-<BarChart data = {bikeshareData} variable = {averageTripDuration} yTicks = {yTicksDuration}/>
 
 <h1>A City on Bikes: The Growth Story of Bike Share Toronto</h1>
-
-<p>Charts and text on the growth of bike share ridership in Toronto</p>
-<h1>A Brief History</h1>
+<h2>A Brief History</h2>
 <p>
 	edited: Bike Share Toronto is a bicycle-sharing system in Toronto, Canada.
 	The system consists of 6850 bicycles and 625 stations, and covers over 200
@@ -39,15 +34,28 @@
 	Wikepedia, only for testing)
 </p>
 
-
-
 <h1>Rapidly Expanding Service</h1>
 
+<h2>Trip Count by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
+
+<h2>Station Count by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
+
+<h2>Bike Count by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={bikeCount} yTicks={yTicksBike} />
+
+<h2>Average Trip Duration by Month 2017 - 2023</h2>
+<BarChart
+	data={bikeshareData}
+	variable={averageTripDuration}
+	yTicks={yTicksDuration}
+/>
 
 <style>
 	:global(body) {
 		margin: 0px;
-		background-color: #F8F6F0;
+		background-color: #f8f6f0;
 	}
 
 	main {
@@ -80,5 +88,4 @@
 		text-align: center;
 		color: "blue";
 	}
-
 </style>
