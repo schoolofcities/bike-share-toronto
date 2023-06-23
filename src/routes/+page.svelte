@@ -3,7 +3,7 @@
 	import "../assets/global-styles.css";
 	import BarChart from "/src/routes/BarChart.svelte";
 
-	import bikeshareData from "/src/data/data.json"; //importing bikeshare data
+	import bikeshareData from "/src/data/data1.json"; //importing bikeshare data
 
 	// returns a list of years for the x axis
 
@@ -11,13 +11,18 @@
 	let stationCount = "StationCount";
 	let bikeCount = "BikeCount";
 	let averageTripDuration = "AverageTripDuration";
+	let AverageBikeUsage = "AverageBikeUsage"
+	let AverageStationUsage = "AverageStationUsage"
 
 	const yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
 	const yTicksTrip = [
 		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
 	];
 	const yTicksBike = [0, 2500, 3500, 4500, 5500, 6500];
-	const yTicksDuration = [0, 5, 10, 15, 20, 25, 30];
+	const yTicksDuration = [0, 5, 10, 15, 20, 25];
+
+	const yTicksBikeUsage = [0, 10, 20, 30, 40, 50, 60,70,80, 90,100, 110]
+	const yTicksStationUsage = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600]
 	// formats the numbers when it is shown on mobile i.e. 2007 --> '07
 </script>
 
@@ -38,19 +43,27 @@
 
 <h2>Trip Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
-
+<p>
+	The number of trips have increased over the years
+</p>
 <h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
+<h2>Average Station Usage (Trips Per Station) by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageStationUsage} yTicks={yTicksStationUsage}/>
+
 
 <h2>Bike Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={bikeCount} yTicks={yTicksBike} />
+<h2>Average Bike Usage (Trips Per Bike) by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageBikeUsage} yTicks={yTicksBikeUsage}/>
+
+
+
 
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
-<BarChart
-	data={bikeshareData}
-	variable={averageTripDuration}
-	yTicks={yTicksDuration}
-/>
+<BarChart data={bikeshareData} variable={averageTripDuration} yTicks={yTicksDuration}/>
+
+
 
 <style>
 	:global(body) {

@@ -30,14 +30,24 @@
 	$: innerWidth = width - (padding.left + padding.right);
 
 	$: barWidth = innerWidth / xTicks.length;
+
+	function handleMouseOver(value) {
+		const tooltip = document.getElementById("tooltip");
+		tooltip.textContent = value;
+		tooltip.style.display = "block";
+	}
+	handleMouseOver(data.variable)
 </script>
 
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
-	<svg width={xTicks.length * barWidth} height={height}>
+	<svg width={xTicks.length * barWidth} {height}>
 		<!-- y axis -->
 		<g class="axis y-axis">
 			{#each yTicks as tick}
-				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick)})">
+				<g
+					class="tick tick-{tick}"
+					transform="translate(0, {yScale(tick)})"
+				>
 					<line x2="100%" />
 					<text y="-4">{tick} </text>
 				</g>
@@ -48,7 +58,11 @@
 		<g class="axis x-axis">
 			{#each data as bike, i}
 				<g class="tick" transform="translate({xScale(i)},{height})">
-					<text x={barWidth / 2 + 10} y="-4">{width > 380 ? bike.Month : formatMobile(bike.Month)}</text>
+					<text x={barWidth / 2 + 10} y="-4"
+						>{width > 380
+							? bike.Month
+							: formatMobile(bike.Month)}</text
+					>
 				</g>
 			{/each}
 		</g>
@@ -62,6 +76,7 @@
 					y={yScale(bike[variable])}
 					width={barWidth - 1}
 					height={yScale(0) - yScale(bike[variable])}
+					onmouseover={() => handleMouseOver(bike[variable])}
 				/>
 			{/each}
 		</g>
@@ -69,13 +84,23 @@
 		<!-- Bar Labels  -->
 		<g class="x-axis">
 			{#each data as bike, i}
-				<g class="tick" transform="translate({xScale(i) + barWidth / 2 + 25},{yScale(bike[variable]) + 22})">
-					<text class="x-label">{width > 380 ? bike[variable] : formatMobile(bike[variable])}</text>
+				<g
+					class="tick"
+					transform="translate({xScale(i) +
+						barWidth / 2 +
+						25},{yScale(bike[variable]) + 22})"
+				>
+					<text class="x-label"
+						>{width > 380
+							? bike[variable]
+							: formatMobile(bike[variable])}</text
+					>
 				</g>
 			{/each}
 		</g>
 	</svg>
 </div>
+<div id="tooltip" class="tooltip" />
 
 <style>
 	.chart {
@@ -98,7 +123,7 @@
 	}
 
 	.tick line {
-		stroke: #404b
+		stroke: #404b;
 	}
 	.tick text {
 		fill: #4b4b4b;
@@ -117,16 +142,23 @@
 	.x-label {
 		text-anchor: middle;
 		transform: translate(-10px, 0px) rotate(-90deg);
-		
 	}
-	.x-label.tick text{
+	.x-label.tick text {
 		font-size: 10px; /* Adjust the font size as desired */
 		fill: #000000; /* Adjust the font color as desired */
 	}
 
 	.bars rect {
-		fill: #ABA89E;
+		fill: #aba89e;
 		stroke: none;
 		opacity: 0.65;
+	}
+	.tooltip {
+		position: absolute;
+		pointer-events: none;
+		background-color: rgba(0, 0, 0, 0.7);
+		color: #fff;
+		padding: 5px;
+		font-size: 12px;
 	}
 </style>
