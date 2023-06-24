@@ -39,6 +39,18 @@
 <h2>Trip Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
 
+<p> Trips have increased over the years. Data also shows that bike trips shows a 
+	seasonal pattern, with more rides in the warmer months and fewer rides during 
+	the colder months. August is the month with the most rides of the year while 
+	February tends to have the fewest rides.   
+</p>
+
+<p>
+	While the number of trips tend to increase after February, it was not the case in 
+	2020. After a small growth of ridership in March, the Province went into a lockdown 
+	on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed 
+	ridership drop from March.  
+</p>
 <h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
 
