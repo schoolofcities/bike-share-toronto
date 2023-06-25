@@ -1,5 +1,6 @@
 <script>
 	import { scaleLinear } from "d3-scale";
+	import * as d3 from 'd3';
 
 	export let data;
 	export let variable;
@@ -30,9 +31,12 @@
 	$: innerWidth = width - (padding.left + padding.right);
 
 	$: barWidth = innerWidth / xTicks.length;
+
+
+
 </script>
 
-<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
+<div id = "barchart" class="chart" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg width={xTicks.length * barWidth} height={height}>
 		<!-- y axis -->
 		<g class="axis y-axis">
@@ -67,7 +71,7 @@
 		</g>
 
 		<!-- Bar Labels  -->
-		<g class="x-axis">
+		<g id = "bars" class="x-axis">
 			{#each data as bike, i}
 				<g class="tick" transform="translate({xScale(i) + barWidth / 2 + 25},{yScale(bike[variable]) + 22})">
 					<text class="x-label">{width > 380 ? bike[variable] : formatMobile(bike[variable])}</text>
@@ -76,6 +80,9 @@
 		</g>
 	</svg>
 </div>
+
+
+
 
 <style>
 	.chart {
