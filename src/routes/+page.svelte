@@ -1,5 +1,5 @@
 <script>
-	import { scaleLinear } from "d3-scale";
+	
 	import "../assets/global-styles.css";
 	import BarChart from "/src/routes/BarChart.svelte";
 	import bikeshareData from "/src/data/data.json"; //importing bikeshare data
@@ -59,4 +59,35 @@
 
 
 <style>
-	:global(body) {
+    :global(body) {
+      margin: 0;
+      background-color: var(--brandWhite);
+    }
+  
+    main {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+  
+    h1 {
+      font-family: TradeGothicBold, sans-serif;
+      font-size: 35px;
+      font-weight: normal;
+      color: var(--brandYellow);
+    }
+  
+    p {
+      /* should pick a consistent font here probably */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--brandBlack);
+      text-align: left;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  
+    h2 {
+      text-align: center;
+      color: blue;
+    }
+  </style>

@@ -31,12 +31,6 @@
 
 	$: barWidth = innerWidth / xTicks.length;
 
-	function handleMouseOver(value) {
-		const tooltip = document.getElementById("tooltip");
-		tooltip.textContent = value;
-		tooltip.style.display = "block";
-	}
-	handleMouseOver(data.variable)
 </script>
 
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
@@ -76,7 +70,6 @@
 					y={yScale(bike[variable])}
 					width={barWidth - 1}
 					height={yScale(0) - yScale(bike[variable])}
-					onmouseover={() => handleMouseOver(bike[variable])}
 				/>
 			{/each}
 		</g>
