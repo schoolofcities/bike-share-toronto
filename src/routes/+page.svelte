@@ -24,6 +24,8 @@
 
 <h1> Toronto Bikeshare Usage Since 2017</h1>
 
+<img src ="https://github.com/schoolofcities/bike-share-toronto/blob/main/IMG_2140.jpg">
+
 <h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
 
@@ -45,11 +47,6 @@
 </p>
 
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
-<BarChart
-	data={bikeshareData}
-	variable={averageTripDuration}
-	yTicks={yTicksDuration}
-/>
 <BarChart data={bikeshareData} variable={averageTripDuration} yTicks={yTicksDuration}/>
 
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
