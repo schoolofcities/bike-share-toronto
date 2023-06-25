@@ -22,6 +22,8 @@
 	// formats the numbers when it is shown on mobile i.e. 2007 --> '07
 </script>
 
+<h1> Toronto Bikeshare Usage Since 2017</h1>
+
 <h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
 
@@ -75,6 +77,7 @@
       font-size: 35px;
       font-weight: normal;
       color: var(--brandYellow);
+	  padding-left: 10%;
     }
   
     p {
