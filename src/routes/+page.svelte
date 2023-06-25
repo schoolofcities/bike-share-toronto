@@ -1,9 +1,10 @@
 <script>
-	import { scaleLinear } from "d3-scale";
+
 	import "../assets/global-styles.css";
 	import BarChart from "/src/routes/BarChart.svelte";
 
-	import bikeshareData from "/src/data/data1.json"; //importing bikeshare data
+	import bikeshareData from "/src/data/data.json"; //importing bikeshare data
+
 
 	// returns a list of years for the x axis
 
@@ -12,16 +13,16 @@
 	let bikeCount = "BikeCount";
 	let averageTripDuration = "AverageTripDuration";
 	let AverageBikeUsage = "AverageBikeUsage"
-	let AverageStationUsage = "AverageStationUsage"
+  	let AverageStationUsage = "AverageStationUsage"
 
 	const yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
 	const yTicksTrip = [
 		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
 	];
 	const yTicksBike = [0, 2500, 3500, 4500, 5500, 6500];
-	const yTicksDuration = [0, 5, 10, 15, 20, 25];
+	const yTicksDuration = [0, 5, 10, 15, 20, 25, 30];
 
-	const yTicksBikeUsage = [0, 10, 20, 30, 40, 50, 60,70,80, 90,100, 110]
+	const yTicksBikeUsage = [0, 0, 40, 60, 80, 100]
 	const yTicksStationUsage = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600]
 	// formats the numbers when it is shown on mobile i.e. 2007 --> '07
 </script>
@@ -43,25 +44,47 @@
 
 <h2>Trip Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
+
+<p> Trips have increased over the years. Data also shows that bike trips shows a 
+	seasonal pattern, with more rides in the warmer months and fewer rides during 
+	the colder months. August is the month with the most rides of the year while 
+	February tends to have the fewest rides.   
+</p>
+
 <p>
-	The number of trips have increased over the years
+	While the number of trips tend to increase after February, it was not the case in 
+	2020. After a small growth of ridership in March, the Province went into a lockdown 
+	on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed 
+	ridership drop from March.  
 </p>
 <h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
-<h2>Average Station Usage (Trips Per Station) by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={AverageStationUsage} yTicks={yTicksStationUsage}/>
 
+<p>
+	The Bikeshare system has been expanding, with 200 stations in 2017 and 659 stations in 2023. 
+	The data is btained by counting the number of unique station IDs each month. Based on what is 
+	shown from the data, major epansion usually happens in June and July. It is also interesting to 
+	observe small fluctions in the number of stations. It is likely due to constructions happening 
+	in various parts of the city, causing the stations to be temporarily removed. 
+</p>
 
 <h2>Bike Count by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={bikeCount} yTicks={yTicksBike} />
-<h2>Average Bike Usage (Trips Per Bike) by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={AverageBikeUsage} yTicks={yTicksBikeUsage}/>
 
-
-
+<p>
+	Each bike is given a unique ID, which makes it possible to count the number of bikes in the system. 
+	Data shows that the number of bikes also fluctuates seasonally, like the number of trips taken. 
+	The number of bikes is highest in August 2020, with 6,455 bikes counted in the system.  
+</p>
 
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
 <BarChart data={bikeshareData} variable={averageTripDuration} yTicks={yTicksDuration}/>
+
+<h2>Average Bike Usage by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageBikeUsage} yTicks={yTicksBikeUsage}/>
+
+<h2>Average Station Usage by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageStationUsage} yTicks={yTicksStationUsage}/>
 
 
 
