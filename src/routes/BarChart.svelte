@@ -31,12 +31,6 @@
 
 	$: barWidth = innerWidth / xTicks.length;
 
-	function handleMouseOver(value) {
-		const tooltip = document.getElementById("tooltip");
-		tooltip.textContent = value;
-		tooltip.style.display = "block";
-	}
-	handleMouseOver(data.variable)
 </script>
 
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
