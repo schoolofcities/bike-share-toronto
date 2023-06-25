@@ -1,50 +1,34 @@
 <script>
-  import { onMount } from 'svelte';
   import Chart from 'chart.js/auto';
+  import { onMount } from 'svelte';
 
-  let chart;
+  let chartValues = [20, 10, 5, 2, 20, 30, 45];
+  let chartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  let ctx;
+  let chartCanvas;
 
-  onMount(() => {
-    const renderChart = () => {
-      const ctx = document.getElementById('myChart').getContext('2d');
-
-      const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Italy', 'France', 'Spain', 'USA', 'Argentina'],
-          datasets: [
-            {
-              label: 'World Wine Production 2018',
-              data: [55, 49, 44, 24, 15],
-              backgroundColor: 'grey',
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-
-      chart = myChart;
-    };
-
-    // Delay chart rendering until canvas is available in the DOM
-    requestAnimationFrame(renderChart);
+  onMount(async () => {
+    ctx = chartCanvas.getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: chartLabels,
+        datasets: [{
+          label: 'Revenue',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: chartValues
+        }]
+      }
+    });
   });
 </script>
 
-<canvas id="myChart"></canvas>
+<canvas bind:this={chartCanvas} id="myChart"></canvas>
 
 <style>
   canvas {
-    width: 1000px;
-    max-width: 100px;
-    height: 1000px;
+    height: 400px;
+    width: 80%;
   }
 </style>
