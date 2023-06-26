@@ -63,7 +63,10 @@
   "AverageStationUsage": 1002.27},
  {"Year": 2017,
   "Month": 8,
+<<<<<<< HEAD
   "YearMonth": "2017.8",
+=======
+>>>>>>> 06e8560fe931a7b95aa745725fadd0878608d812
   "StationCount": 268,
   "BikeCount": "null",
   "TripCount": 211100,
@@ -99,7 +102,10 @@
   "AverageStationUsage": 432.64},
  {"Year": 2017,
   "Month": 12,
+<<<<<<< HEAD
   "YearMonth": "2017.12",
+=======
+>>>>>>> 06e8560fe931a7b95aa745725fadd0878608d812
   "StationCount": 269,
   "BikeCount": "null",
   "TripCount": 58011,
