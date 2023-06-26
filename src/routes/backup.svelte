@@ -43,9 +43,49 @@
 <h1>Rapidly Expanding Service</h1>
 
 <h2>Trip Count by Month 2017 - 2023</h2>
-<BarChart data = {bikeshareData} xKey = "TripCount" yKey = "YearMonth" colour = "blue"/>
-<BarChart data = {bikeshareData} xKey = "StationCount" yKey = "YearMonth" colour = "green"/>
-<BarChart data = {bikeshareData} xKey = "BikeCount" yKey = "YearMonth" colour = "orange"/>
+<BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
+
+<p> Trips have increased over the years. Data also shows that bike trips shows a 
+	seasonal pattern, with more rides in the warmer months and fewer rides during 
+	the colder months. August is the month with the most rides of the year while 
+	February tends to have the fewest rides.   
+</p>
+
+<p>
+	While the number of trips tend to increase after February, it was not the case in 
+	2020. After a small growth of ridership in March, the Province went into a lockdown 
+	on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed 
+	ridership drop from March.  
+</p>
+<h2>Station Count by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
+
+<p>
+	The Bikeshare system has been expanding, with 200 stations in 2017 and 659 stations in 2023. 
+	The data is btained by counting the number of unique station IDs each month. Based on what is 
+	shown from the data, major epansion usually happens in June and July. It is also interesting to 
+	observe small fluctions in the number of stations. It is likely due to constructions happening 
+	in various parts of the city, causing the stations to be temporarily removed. 
+</p>
+
+<h2>Bike Count by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={bikeCount} yTicks={yTicksBike} />
+
+<p>
+	Each bike is given a unique ID, which makes it possible to count the number of bikes in the system. 
+	Data shows that the number of bikes also fluctuates seasonally, like the number of trips taken. 
+	The number of bikes is highest in August 2020, with 6,455 bikes counted in the system.  
+</p>
+
+<h2>Average Trip Duration by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={averageTripDuration} yTicks={yTicksDuration}/>
+
+<h2>Average Bike Usage by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageBikeUsage} yTicks={yTicksBikeUsage}/>
+
+<h2>Average Station Usage by Month 2017 - 2023</h2>
+<BarChart data={bikeshareData} variable={AverageStationUsage} yTicks={yTicksStationUsage}/>
+
 
 
 <style>
