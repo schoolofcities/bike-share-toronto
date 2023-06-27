@@ -10,7 +10,7 @@
 	%sveltekit.head%
 </head>
 
-<body data-sveltekit-preload-data="hover">
+<body>
 	<div style="display: contents">%sveltekit.body%</div>
 
 	<h1> Toronto Bikeshare Usage Since 2017</h1>
@@ -35,15 +35,13 @@
 
 	<h2>Trip Count by Month 2017 - 2023</h2>
 
-	<canvas id="myChart1"></canvas>
+	<canvas id="TripCount"></canvas>
 
 	<p> Trips have increased over the years. Data also shows that bike trips shows a
 		seasonal pattern, with more rides in the warmer months and fewer rides during
 		the colder months. August is the month with the most rides of the year while
 		February tends to have the fewest rides.
-	</p>
 
-	<p>
 		While the number of trips tend to increase after February, it was not the case in
 		2020. After a small growth of ridership in March, the Province went into a lockdown
 		on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed
@@ -51,7 +49,7 @@
 	</p>
 
 	<h2>Station Count by Month 2017 - 2023</h2>
-	<canvas id="myChart"></canvas>
+	<canvas id="StationCount"></canvas>
 	<p>
 		The Bikeshare system has been expanding, with 200 stations in 2017 and 659 stations in 2023.
 		The data is btained by counting the number of unique station IDs each month. Based on what is
@@ -61,8 +59,8 @@
 	</p>
 
 	<h2>Bike Count by Month 2017 - 2023</h2>
-	<canvas id="myChart2"></canvas>
-
+	<canvas id="BikeCount"></canvas>
+	
 	<p>
 		Each bike is given a unique ID, which makes it possible to count the number of bikes in the system.
 		Data shows that the number of bikes also fluctuates seasonally, like the number of trips taken.
@@ -70,24 +68,58 @@
 	</p>
 
 	<h2>Average Trip Duration by Month 2017 - 2023</h2>
+	<canvas id="AverageTripDuration"></canvas>
 
+	<p>
+		The average trip duration also shows seasonality influence. Trip duration tend to be shorter in the colder months 
+		(January to March, November to December). Average trip duration tends to stay between 10 to 20 minutes, with 2020 and 2021
+		having longer average trip durations. The longest trip was in May 2020, when the average trip duration reaching 20.34 minutes.
 
+		
+
+	
+	</p>
+	<p>
+		First, in 2020 and 2021, the average bike duration is higher than previous years and 2022. This could be the bikes were
+		used for difference purposes during the two years. During the pandemic years of 2020 and 2021, bikes were likely to
+		be used as a method of exercise and for pleasure trips with no set destinations. On the other hand, bikes are used for 
+		commuting or travelling to a certain destination. This would explain why average trip duration decreased in 2022 when 
+		many businesses and institutions announced returning to workers, either full-time or part-time. 
+	</p>
+	<p>
+		Second, average trip duration might be affected by the ways bikes are charged. Bikeshare Toronto offers two usage plans, 
+		a 30-minute plan or a 45-minute plans. For members, it is unlimited 30-minute plan or unlimited 45-minute plan, meaning members 
+		can have borrow unlimited times, but have to return the bike to a dock after 30 minutes or 45 minutes, based on their plan. 
+
+		However, after April 2023, Bikeshare Toronto changed the fee structure 
+
+	</p>
+	<p>
+		Third, average trip 
+		duration did not shorten with the expansion of bikeshare stations. Despite the 
+	</p>
 
 	<h2>Average Bike Usage by Month 2017 - 2023</h2>
+	
+	<canvas id="AverageBikeUsage"></canvas>
 
 
 	<h2>Average Station Usage by Month 2017 - 2023</h2>
+	<canvas id="AverageStationUsage"></canvas>
 
 
 
 </body>
 <style>
+	body{
+		
+	}
 	canvas {
 		padding-left: 10%;
 		padding-right: 10%;
 		width: 80%;
 		height: 100px;
-		max-height: 300px;
+		max-height: 400px;
 	}
 
 	:global(body) {
@@ -105,9 +137,10 @@
 		font-family: TradeGothicBold, sans-serif;
 		font-size: 35px;
 		font-weight: normal;
-		color: var(--brandYellow);
-		padding-left: 10%;
-		padding-right: 10%;
+		color: #F1C500;
+		padding-left: 30%;
+		padding-right: 30%;
+		
 	}
 
 	p {
@@ -115,15 +148,20 @@
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 			Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
 			sans-serif;
-		color: var(--brandBlack);
+		color: #404040;
 		text-align: left;
-		padding-left: 10%;
-		padding-right: 10%;
+		padding-left: 30%;
+		padding-right: 30%;
+		padding-bottom: 40px;
+		
 	}
 
 	h2 {
 		text-align: center;
 		color: "blue";
+		color: green;
+		padding-left: 30%;
+		padding-right: 30%;
 	}
 </style>
 <script src="src/routes/chart.js"></script>
@@ -138,24 +176,22 @@
 
 	var StationCount = extractValues(data, "StationCount")
 
-	var Month = extractValues(data, "Month")
+	var Month = extractValues(data, "YearMonth")
 	var TripCount = extractValues(data, "TripCount")
 	var BikeCount = extractValues(data, "BikeCount")
-
-	console.log(Month)
-	chartFunction('myChart', Month, 'Station Count', StationCount, "#BFCCB5")
-	chartFunction('myChart1', Month, 'Trip Count', TripCount)
-	chartFunction('myChart2', Month, 'Bike Count', BikeCount)
-
-
+	var AverageTripDuration = extractValues(data, "AverageTripDuration")
+	var AverageBikeUsage = extractValues(data, "AverageBikeUsage")
+	var AverageStationUsage = extractValues(data, "AverageStationUsage")
+	console.log(AverageTripDuration)
+	
+	chartFunction('StationCount', Month, 'Station Count', StationCount, "#BFCCB5")
+	chartFunction('TripCount', Month, 'Trip Count', TripCount)
+	chartFunction('BikeCount', Month, 'Bike Count', BikeCount)
+	chartFunction('AverageTripDuration', Month, 'Average Trip Duration', AverageTripDuration)
+	chartFunction('AverageBikeUsage', Month, 'Average Bike Usage', AverageBikeUsage)
+	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage)
+	
 </script>
-
-
-<style>
-
-</style>
-
-
 
 
 </html>
