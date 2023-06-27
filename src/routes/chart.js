@@ -726,7 +726,8 @@ AverageStationUsage: 338.75}]
             beginAtZero: true
     
           }
-        }
+        },
+        backgroundColor: colour
       }
     });
   }

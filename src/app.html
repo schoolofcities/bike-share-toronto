@@ -75,9 +75,6 @@
 		(January to March, November to December). Average trip duration tends to stay between 10 to 20 minutes, with 2020 and 2021
 		having longer average trip durations. The longest trip was in May 2020, when the average trip duration reaching 20.34 minutes.
 
-		
-
-	
 	</p>
 	<p>
 		First, in 2020 and 2021, the average bike duration is higher than previous years and 2022. This could be the bikes were
@@ -90,14 +87,19 @@
 		Second, average trip duration might be affected by the ways bikes are charged. Bikeshare Toronto offers two usage plans, 
 		a 30-minute plan or a 45-minute plans. For members, it is unlimited 30-minute plan or unlimited 45-minute plan, meaning members 
 		can have borrow unlimited times, but have to return the bike to a dock after 30 minutes or 45 minutes, based on their plan. 
+	</p>
+	<p>
+		However, after April 2023, Bikeshare Toronto changed the fee structure. Non-member bike users who does not purchase a short-term or long-term
+		plan will be charged by minute instead of renting the bike for a 30 minute period. Members and those who purchase short-term plans can still use 
+		the bike for a 30 or 45-minute period, and will be charged by the minute if exceed the 30 or 45-minute period. 
 
-		However, after April 2023, Bikeshare Toronto changed the fee structure 
 
 	</p>
 	<p>
 		Third, average trip 
 		duration did not shorten with the expansion of bikeshare stations. Despite the 
 	</p>
+
 
 	<h2>Average Bike Usage by Month 2017 - 2023</h2>
 	
@@ -107,7 +109,9 @@
 	<h2>Average Station Usage by Month 2017 - 2023</h2>
 	<canvas id="AverageStationUsage"></canvas>
 
-
+	
+	<h2> About the Data </h2>
+	
 
 </body>
 <style>
@@ -120,6 +124,8 @@
 		width: 80%;
 		height: 100px;
 		max-height: 400px;
+		padding-bottom: 20px;
+		padding-top: 20px;
 	}
 
 	:global(body) {
@@ -141,6 +147,8 @@
 		padding-left: 30%;
 		padding-right: 30%;
 		
+		
+		
 	}
 
 	p {
@@ -152,16 +160,21 @@
 		text-align: left;
 		padding-left: 30%;
 		padding-right: 30%;
-		padding-bottom: 40px;
+		padding-bottom: 5px;
+		padding-top: 5px;
 		
 	}
 
 	h2 {
 		text-align: center;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+			Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+			sans-serif;
 		color: "blue";
 		color: green;
 		padding-left: 30%;
 		padding-right: 30%;
+		padding-top: 50px;
 	}
 </style>
 <script src="src/routes/chart.js"></script>
@@ -186,7 +199,7 @@
 	
 	chartFunction('StationCount', Month, 'Station Count', StationCount, "#BFCCB5")
 	chartFunction('TripCount', Month, 'Trip Count', TripCount)
-	chartFunction('BikeCount', Month, 'Bike Count', BikeCount)
+	chartFunction('BikeCount', Month, 'Bike Count', BikeCount,'#F28500')
 	chartFunction('AverageTripDuration', Month, 'Average Trip Duration', AverageTripDuration)
 	chartFunction('AverageBikeUsage', Month, 'Average Bike Usage', AverageBikeUsage)
 	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage)
