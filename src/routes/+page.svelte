@@ -30,9 +30,73 @@
 <img src ="https://github.com/schoolofcities/bike-share-toronto/blob/main/IMG_2140.jpg">
 
 <h2>Trip Count by Month 2017 - 2023</h2>
+
+
+
+
+<h1>A City on Bikes: The Growth Story of Bike Share Toronto</h1>
+<h2>A Brief History</h2>
+<p>
+	edited: Bike Share Toronto is a bicycle-sharing system in Toronto, Canada.
+	The system consists of 6850 bicycles and 625 stations, and covers over 200
+	square kilometres (80 square miles) of the city, from Finch Avenue in the
+	north, Rouge Park in the east, Lake Ontario to the south, and to Long Branch
+	to the west.[1][2] Bike Share Toronto recorded 3,575,000 trips in 2021.[3]
+	The system was launched in 2011 by PBSC Urban Solutions under the BIXI brand
+	and was taken over by the Toronto Parking Authority in 2014. (Copied from
+	Wikepedia, only for testing)
+</p>
+
+<h1>Rapidly Expanding Service</h1>
+
+<h2>Trip Count by Month 2017 - 2023</h2>
 <BarChart data = {bikeshareData} xKey = "TripCount" yKey = "YearMonth" colour = "blue"/>
+
+<p> Trips have increased over the years. Data also shows that bike trips shows a 
+	seasonal pattern, with more rides in the warmer months and fewer rides during 
+	the colder months. August is the month with the most rides of the year while 
+	February tends to have the fewest rides.   
+</p>
+
+<p>
+	While the number of trips tend to increase after February, it was not the case in 
+	2020. After a small growth of ridership in March, the Province went into a lockdown 
+	on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed 
+	ridership drop from March.  
+</p>
+<h2>Station Count by Month 2017 - 2023</h2>
 <BarChart data = {bikeshareData} xKey = "StationCount" yKey = "YearMonth" colour = "green"/>
+
+<p>
+	The Bikeshare system has been expanding, with 200 stations in 2017 and 659 stations in 2023. 
+	The data is btained by counting the number of unique station IDs each month. Based on what is 
+	shown from the data, major epansion usually happens in June and July. It is also interesting to 
+	observe small fluctions in the number of stations. It is likely due to constructions happening 
+	in various parts of the city, causing the stations to be temporarily removed. 
+</p>
+
+<h2>Bike Count by Month 2017 - 2023</h2>
 <BarChart data = {bikeshareData} xKey = "BikeCount" yKey = "YearMonth" colour = "orange"/>
+
+<p>
+	Each bike is given a unique ID, which makes it possible to count the number of bikes in the system. 
+	Data shows that the number of bikes also fluctuates seasonally, like the number of trips taken. 
+	The number of bikes is highest in August 2020, with 6,455 bikes counted in the system.  
+</p>
+
+<h2>Average Trip Duration by Month 2017 - 2023</h2>
+
+<BarChart data = {bikeshareData} xKey = "AverageTripDuration" yKey = "YearMonth" colour = "orange"/>
+
+
+<h2>Average Bike Usage by Month 2017 - 2023</h2>
+<BarChart data = {bikeshareData} xKey = "AverageBikeUsage" yKey = "YearMonth" colour = "orange"/>
+
+
+<h2>Average Station Usage by Month 2017 - 2023</h2>
+<BarChart data = {bikeshareData} xKey = "AverageStationUsage" yKey = "YearMonth" colour = "orange"/>
+
+
 
 
 <style>
