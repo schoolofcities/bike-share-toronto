@@ -50,7 +50,7 @@
 <h1>Rapidly Expanding Service</h1>
 
 <h2>Trip Count by Month 2017 - 2023</h2>
-<BarChart data = {bikeshareData} xKey = "TripCount" yKey = "YearMonth" colour = "blue"/>
+<BarChart data = {bikeshareData} xKey = "TripCount" yKey = "YearMonth" colour = #404B5D/>
 
 <p> Trips have increased over the years. Data also shows that bike trips shows a 
 	seasonal pattern, with more rides in the warmer months and fewer rides during 

@@ -14,18 +14,25 @@
 	let averageTripDuration = "AverageTripDuration";
 	let AverageBikeUsage = "AverageBikeUsage"
   	let AverageStationUsage = "AverageStationUsage"
-
 	const yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
 	const yTicksTrip = [
 		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
 	];
 	const yTicksBike = [0, 2500, 3500, 4500, 5500, 6500];
 	const yTicksDuration = [0, 5, 10, 15, 20, 25, 30];
-
 	const yTicksBikeUsage = [0, 0, 40, 60, 80, 100]
 	const yTicksStationUsage = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600]
 	// formats the numbers when it is shown on mobile i.e. 2007 --> '07
 </script>
+
+<h1> Toronto Bikeshare Usage Since 2017</h1>
+
+<img src ="https://github.com/schoolofcities/bike-share-toronto/blob/main/IMG_2140.jpg">
+
+<h2>Trip Count by Month 2017 - 2023</h2>
+
+
+
 
 <h1>A City on Bikes: The Growth Story of Bike Share Toronto</h1>
 <h2>A Brief History</h2>
@@ -43,7 +50,7 @@
 <h1>Rapidly Expanding Service</h1>
 
 <h2>Trip Count by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={trip} yTicks={yTicksTrip} />
+<BarChart data = {bikeshareData} xKey = "YearMonth" yKey = "TripCount" colour = #404B5D/>
 
 <p> Trips have increased over the years. Data also shows that bike trips shows a 
 	seasonal pattern, with more rides in the warmer months and fewer rides during 
@@ -58,7 +65,7 @@
 	ridership drop from March.  
 </p>
 <h2>Station Count by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={stationCount} yTicks={yTicksStation} />
+<BarChart data = {bikeshareData} xKey = "StationCount" yKey = "YearMonth" colour = "green"/>
 
 <p>
 	The Bikeshare system has been expanding, with 200 stations in 2017 and 659 stations in 2023. 
@@ -69,7 +76,7 @@
 </p>
 
 <h2>Bike Count by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={bikeCount} yTicks={yTicksBike} />
+<BarChart data = {bikeshareData} xKey = "BikeCount" yKey = "YearMonth" colour = "orange"/>
 
 <p>
 	Each bike is given a unique ID, which makes it possible to count the number of bikes in the system. 
@@ -78,13 +85,17 @@
 </p>
 
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={averageTripDuration} yTicks={yTicksDuration}/>
+
+<BarChart data = {bikeshareData} xKey = "AverageTripDuration" yKey = "YearMonth" colour = "orange"/>
+
 
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={AverageBikeUsage} yTicks={yTicksBikeUsage}/>
+<BarChart data = {bikeshareData} xKey = "AverageBikeUsage" yKey = "YearMonth" colour = "orange"/>
+
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
-<BarChart data={bikeshareData} variable={AverageStationUsage} yTicks={yTicksStationUsage}/>
+<BarChart data = {bikeshareData} xKey = "AverageStationUsage" yKey = "YearMonth" colour = "orange"/>
+
 
 
 
