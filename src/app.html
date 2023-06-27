@@ -5,16 +5,53 @@
 	<meta charset="utf-8" />
 	<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
 	<meta name="viewport" content="width=device-width" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Bike Share Toronto | School of Cities</title>
 	%sveltekit.head%
 </head>
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">%sveltekit.body%</div>
-
+	<canvas id = "myChart"></canvas>
+	<canvas id = "myChart1"></canvas>
+	<canvas id = "myChart2"></canvas>
 </body>
 <style>
+	canvas{
+		padding-left: 10%;
+		padding-right: 10%;
+		width: 80%;
+		height: 100px;
+		max-height: 300px;
+	}
+
+	p{
+
+	}
 	
 </style>
+<script src = "src/routes/chart.js"></script>
 
+
+<script>
+
+function extractValues(data, variable) {
+  const stationCounts = data.map((item) => item[variable]);
+  return stationCounts;
+}
+
+var StationCount = extractValues(data, "StationCount")
+
+var Month = extractValues(data, "Month")
+var TripCount = extractValues(data, "TripCount")
+var BikeCount = extractValues(data, "BikeCount")
+
+console.log(Month)
+chartFunction ('myChart', Month, 'Station Count', StationCount, "#BFCCB5")
+chartFunction ('myChart1', Month, 'Trip Count', TripCount)
+chartFunction ('myChart2', Month, 'Bike Count', BikeCount)
+
+</script>
+
+	
 </html>
