@@ -48,6 +48,11 @@
 		2020. After a small growth of ridership in March, the Province went into a lockdown
 		on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed
 		ridership drop from March.
+
+		An analysis on Toronto's Bikeshare ridership by 
+		<a href = "https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c"> 
+			 Sigli Mumuni </a> found positive correlations between temperature and ridership. --> continue to talk about the impact on the shoulder seasons, such 
+			 as november and earlier in the season, leading to recrod-breaking ridership. 
 	</p>
 	
 	
@@ -127,6 +132,7 @@
 	</p>
 
 </body>
+
 <style>
 	img{
 	max-height: 900px;
@@ -195,9 +201,10 @@
 		padding-top: 0px;
 	}
 </style>
-<script src="src/routes/chart.js"></script>
 
 
+<script src="src/routes/chart.js"></script> <!-- imports chart function-->
+<script src="src/routes/data.js"></script> <!-- imports data-->
 <script>
 
 	function extractValues(data, variable) {
@@ -217,12 +224,9 @@
 	
 	chartFunction('StationCount', Month, 'Station Count', StationCount, "#BFCCB5")
 	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage, "#BFCCB5")
-
 	chartFunction('TripCount', Month, 'Trip Count', TripCount)
-
 	chartFunction('BikeCount', Month, 'Bike Count', BikeCount,'#F28500')
 	chartFunction('AverageBikeUsage', Month, 'Average Bike Usage', AverageBikeUsage,'#F28500')
-
 	chartFunction('AverageTripDuration', Month, 'Average Trip Duration', AverageTripDuration)
 	
 	
