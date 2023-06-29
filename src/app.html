@@ -38,21 +38,31 @@
 	<p> 
 		Trips have increased over the years. Data also shows that bike trips shows a
 		seasonal pattern, with more rides in the warmer months and fewer rides during
-		the colder months. August is the month with the most rides of the year while
-		February tends to have the fewest rides. An interesting thing to note is the high number
-		of trips made in June, 2017, about 100 thousand more trips than either May or July 2017. This 
-		is likely because Bike Share Toronto starts offering "Free Ride Wednesdays"  
+		the colder months. August is the month with the highest ridership between 2019 and 2022 while 
+		February tends to have the lowest ridership. 
+
+		Since 2018, ridership has been breaking record each year. Currently, the highest monthly ridership was in August 2022, 
+		reaching almost 700,000 rides. This is over 200 thousand more trips made in the same period in 2021. Not only 
+		in August, the colder months (September to December) also have higher ridership than previous years. An analysis on Toronto's Bikeshare ridership by 
+		<a href = "https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c"> 
+		Sigli Mumuni </a> found positive correlations between temperature and ridership. This means that when 
+		the weather is warmer, ridership tends to be higher. Therefore, the higher ridership between September and December of 2022 could
+		be correlated to a warmer winter in 2022, with <a href = "https://globalnews.ca/news/9258382/canada-fall-weather-outlook-nov-2022/">
+		with  record breaking warmer temperature in November. </a>
+
 	</p>
 	<p> 
+		One interesting difference in the trip pattern is during the earliest month of the pandemic.
 		While the number of trips tend to increase after February, it was not the case in
 		2020. After a small growth of ridership in March, the Province went into a lockdown
 		on March 24, 2020. This impact is reflected in the ridership in April 2020, which showed
-		ridership drop from March.
+		ridership drop from March. It also caused the lowest May riderships across the 5 year period. However,
+		ridership quickly bounced back starting June, and ridership in July 2020 is higher than August 2019, the highest month 
+		of 2019. 
 
-		An analysis on Toronto's Bikeshare ridership by 
-		<a href = "https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c"> 
-			 Sigli Mumuni </a> found positive correlations between temperature and ridership. --> continue to talk about the impact on the shoulder seasons, such 
-			 as november and earlier in the season, leading to recrod-breaking ridership. 
+		
+
+		
 	</p>
 	
 	
@@ -94,8 +104,7 @@
 
 	<h1>Time on Bike</h1>
 	<h2>Average Trip Duration by Month 2017 - 2023</h2>
-	<canvas id="AverageTripDuration"></canvas>
-
+	
 	<p>
 		The average trip duration also shows seasonality influence. Trip duration tend to be shorter in the colder months 
 		(January to March, November to December). Average trip duration tends to stay between 10 to 20 minutes, with 2020 and 2021
@@ -118,6 +127,8 @@
 		short-term plans can still use the bike for a 30 or 45-minute period, and will be charged by the minute if exceed the 30 or 
 		45-minute period. This change in fee structure could have impact on average trip duration in the future. 
 	</p>
+	<canvas id="AverageTripDuration"></canvas>
+
 
 	
 	<h2> About the Data </h2>
@@ -181,12 +192,13 @@
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 			Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
 			sans-serif;
-		color: #333333;
+		color: #4d4d4d;
 		text-align: left;
 		padding-left: 30%;
 		padding-right: 30%;
 		padding-bottom: 5px;
 		padding-top: 5px;
+		line-height: 150%;
 		
 	}
 
