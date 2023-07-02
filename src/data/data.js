@@ -1,4 +1,4 @@
-var data = [{Year: 2017,
+export let data = [{Year: 2017,
     Month: 1,
     YearMonth:  "2017;1",
     StationCount: 200,
