@@ -2,7 +2,8 @@
 	import Top from "/src/routes/TopSofC.svelte";
 	import testing from "/src/charting/testing.svelte";
 	import data from '/src/data/data.json';
-
+	import BarChart from "/src/charting/BarChart.svelte"
+	/*
 	console.log(data)
 	console.log("Here")
 	// import {data} from "/src/data/data.js";
@@ -10,7 +11,7 @@
 	//import Charts from "/src/charting/chart.svelte"
 	//import BarChart from "../charting/BarChart.svelte";
 
-	/*
+	
 	function extractValues(data, variable) {
 		const stationCounts = data.map((item) => item[variable]);
 		return stationCounts;
@@ -157,7 +158,7 @@
 	temporarily removed.
 </p>
 
-<!--<BarChart variable = "TripCount" ></BarChart>-->
+<BarChart variable = "StationCount" ></BarChart>
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
 

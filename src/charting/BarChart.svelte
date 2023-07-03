@@ -12,9 +12,9 @@
 
     var dataTypeSubset;
     $: dataTypeSubset = data.filter(item => item.t === type);
-    */
+    
 
-    var dataChart;
+    
 
     // this code is to find matching records between the dataType Subset in dataAll DAtes
     
@@ -25,16 +25,13 @@
         console.log(obj.y)
         
         return { ...obj, ...matchingObj };
-    });*/
-
+    });
+*/
     // find a way to add data to dataChart
-    
+    var dataChart;
+
     dataChart = data
-
-
-    console.log(dataChart)
-
-    console.log(data)
+    
     var monthList = data.map(function (obj) {
 		return obj.Month;
 	});
@@ -43,12 +40,18 @@
 		return obj.Year;
 	});
 
-    
+    var returnList = data.map(function(obj){
+        return obj[variable];
+    }) //returns a list of values that is specified in the "variable" (i.e. Trip Count)
+    console.log(yearList)
+    console.log(monthList)
+    console.log(returnList)
+
 
     var maxValue;
-    $: maxValue = max((item) => item[variable]);
+    $: maxValue = max(returnList);// iterate through returnList and grab the max value
     
-    console.log(maxValue);
+    $: console.log(maxValue);
 
     
     let divWidth;    
@@ -63,6 +66,7 @@
     $: console.log(grids);
 
     let selected_datapoint = undefined;
+    
 	let mouse_x, mouse_y;
 	const setMousePosition = function (event) {
 		mouse_x = event.clientX;
@@ -87,7 +91,7 @@
                     class="label" 
                     x = "{10 + index * barSpacing - barSpacing /2}" 
                     y = "{svgHeight - 25}"
-                >{d.y}</text>
+                >{d.Year}</text>
             {/if}
 
             <!-- Add a thick separation tick between each year-->
@@ -157,7 +161,7 @@
     
     #barChart {
         margin: 0 auto;
-        max-width: 820px;
+        max-width: 80%;
         min-width: 375px;
     }
 
