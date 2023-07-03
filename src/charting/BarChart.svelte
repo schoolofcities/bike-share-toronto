@@ -7,11 +7,13 @@
 
     export let type;
     export let metric;
-
+    /*
     let dataAllDates = data.filter(item => item.t === "All").map(({ y, m }) => ({ y, m }));
 
     var dataTypeSubset;
     $: dataTypeSubset = data.filter(item => item.t === type);
+    
+
 
     var dataChart;
     $: dataChart = dataAllDates.map((obj) => {
@@ -20,6 +22,8 @@
         ) || { c: 0, s: 0 };
         return { ...obj, ...matchingObj };
     });
+
+    */
 
     const years = ['2018','2019','2020','2021','2022'];
 
