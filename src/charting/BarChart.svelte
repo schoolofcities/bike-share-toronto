@@ -2,34 +2,53 @@
 
     import {yGrids} from './YGrids.js';
 
-    import data from '../data/subway-delay-year-month.json';
+    import data from '/src/data/data.json';
     import { max } from "d3-array";
 
-    export let type;
-    export let metric;
+   // export let type;
+    export let variable;
     /*
     let dataAllDates = data.filter(item => item.t === "All").map(({ y, m }) => ({ y, m }));
 
     var dataTypeSubset;
     $: dataTypeSubset = data.filter(item => item.t === type);
-    
-
+    */
 
     var dataChart;
+
+    // this code is to find matching records between the dataType Subset in dataAll DAtes
+    
     $: dataChart = dataAllDates.map((obj) => {
         const matchingObj = dataTypeSubset.find(
             (o) => o.y === obj.y && o.m === obj.m
         ) || { c: 0, s: 0 };
+        console.log(obj.y)
+        
         return { ...obj, ...matchingObj };
-    });
+    });*/
 
-    */
+    // find a way to add data to dataChart
+    
+    dataChart = data
 
-    const years = ['2018','2019','2020','2021','2022'];
+
+    console.log(dataChart)
+
+    console.log(data)
+    var monthList = data.map(function (obj) {
+		return obj.Month;
+	});
+
+    var yearList = data.map(function (obj) {
+		return obj.Year;
+	});
+
+    
 
     var maxValue;
-    $: maxValue = max(dataChart, d => d[metric]);
-    $: console.log(maxValue);
+    $: maxValue = max((item) => item[variable]);
+    
+    console.log(maxValue);
 
     
     let divWidth;    
@@ -62,7 +81,7 @@
         
         
         {#each dataChart as d, index}
-
+            <!-- label Years in June-->
             {#if index % 6 === 0 && index % 12 !== 0}
                 <text 
                     class="label" 
@@ -71,6 +90,7 @@
                 >{d.y}</text>
             {/if}
 
+            <!-- Add a thick separation tick between each year-->
             {#if index % 12 === 0 && index > 0}
                 <line class="year-tick" x1="{50 + index * barSpacing - barSpacing/2}" y1="{svgHeight - 30}" x2="{50 + index * barSpacing - barSpacing/2}" y2="{svgHeight - 40}" stroke="white" />
 
@@ -78,12 +98,12 @@
             {/if}
 
 
-            {#if d[metric] > 0}
+            {#if d[variable] > 0}
                 <g>
                     <line 
                     class="bar-line" 
                     x1="{50 + index * barSpacing}" 
-                    y1="{(svgHeight - 40) * (1 - d[metric] / maxValue)}" 
+                    y1="{(svgHeight - 40) * (1 - d[variable] / maxValue)}" 
                     x2="{50 + index * barSpacing}" 
                     y2="{svgHeight - 40}"  
                     on:mouseover={(event) => {
@@ -127,7 +147,7 @@
 
 {#if selected_datapoint != undefined}
     <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
-        {selected_datapoint.y.toLocaleString() + "/" + selected_datapoint.m.toLocaleString() + ": " +  selected_datapoint[metric].toLocaleString()}
+        {selected_datapoint.Year.toLocaleString() + "/" + selected_datapoint.Month.toLocaleString() + ": " +  selected_datapoint[variable].toLocaleString()}
     </div>
 {/if}
 

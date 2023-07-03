@@ -1,10 +1,16 @@
 <script>
 	import Top from "/src/routes/TopSofC.svelte";
-	// import {data} from "/src/data/data.js";
-	 import Charts from "/src/charting/chart.js"
-	//import Charts from "/src/charting/chart.svelte"
+	import testing from "/src/charting/testing.svelte";
+	import data from '/src/data/data.json';
 
-	
+	console.log(data)
+	console.log("Here")
+	// import {data} from "/src/data/data.js";
+	 //import Charts from "/src/charting/chart.js"
+	//import Charts from "/src/charting/chart.svelte"
+	//import BarChart from "../charting/BarChart.svelte";
+
+	/*
 	function extractValues(data, variable) {
 		const stationCounts = data.map((item) => item[variable]);
 		return stationCounts;
@@ -18,7 +24,7 @@
 	var AverageTripDuration = extractValues(data, "AverageTripDuration")
 	var AverageBikeUsage = extractValues(data, "AverageBikeUsage")
 	var AverageStationUsage = extractValues(data, "AverageStationUsage")
-	/*
+	
 	chartFunction('StationCount', Month, 'Station Count', StationCount, "#BFCCB5")
 	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage, "#BFCCB5")
 	chartFunction('TripCount', Month, 'Trip Count', TripCount)
@@ -99,7 +105,6 @@
 	usage in Toronto, showing various aspects of how the system has been used
 	since 2017, with data from the City of Toronto.
 </p>
-<Charts chartName = "TripCount" labelList = {Month} labelName = 'Average Trip Duration' dataList = {TripCount} colour = "#000000"></Charts>
 
 <h1>Bikeshare Usage: Number of Trips Made</h1>
 <h2>Ridership by Month 2017 - 2023</h2>
@@ -151,6 +156,8 @@
 	happening in various parts of the city, causing the stations to be
 	temporarily removed.
 </p>
+
+<!--<BarChart variable = "TripCount" ></BarChart>-->
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
 
@@ -205,6 +212,7 @@
 	average trip duration in the future.
 </p>
 
+	
 <h2>About the Data</h2>
 <p>
 	The data for bikeshare usage is shared on <a
@@ -224,9 +232,7 @@ canvas {
     width: 80%;
   }
   
-	.banner{
-		padding-top: 40px;
-	}
+	
 	canvas {
 		padding-left: 10%;
 		padding-right: 10%;
