@@ -22,6 +22,8 @@
           ],
         },
         options: {
+          responsive: true,
+        maintainAspectRatio: false,
           scales: {
             x: {
               ticks: {
@@ -31,6 +33,10 @@
                   var year = realLabel.split(";")[0];
                   return month;
                 },
+                grid:{
+                  borderWidth: 5,
+                  lineWidth: 0.2,
+                }
                 
               },
             },
@@ -56,7 +62,8 @@
             y: {
               beginAtZero: true,
               grid:{
-                borderWidth: 5
+                borderWidth: 5,
+                lineWidth: 0.2,
               }
               
             },
@@ -96,9 +103,4 @@
     width: 90vw;
   }
 }
-  .myChart {
-    
-    height: 400px;
-    width: 500px;
-  }
 </style>
