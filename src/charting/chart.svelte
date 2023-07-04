@@ -17,15 +17,20 @@
           datasets: [
             {
               data: dataList,
-              borderWidth: 1,
+              borderWidth: 0,
             },
           ],
         },
         options: {
           responsive: true,
-        maintainAspectRatio: false,
+          maintainAspectRatio: false,
           scales: {
             x: {
+              grid: {
+                drawOnChartArea: false,
+                borderWidth: 50,
+                width:20,
+              },
               ticks: {
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
@@ -33,19 +38,12 @@
                   var year = realLabel.split(";")[0];
                   return month;
                 },
-                grid:{
-                  borderWidth: 5,
-                  lineWidth: 0.2,
-                }
                 
               },
             },
             xAxis2: {
               type: "category",
-              grid: {
-                drawOnChartArea: false,
-                
-              },
+              
               ticks: {
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
@@ -61,19 +59,18 @@
             },
             y: {
               beginAtZero: true,
-              grid:{
+              grid: {
                 borderWidth: 5,
-                lineWidth: 0.2,
-              }
-              
+                lineWidth: 0
+              },
             },
           },
           backgroundColor: colour,
-          plugins:{
-            legend:{
+          plugins: {
+            legend: {
               display: false,
-            }
-          }
+            },
+          },
         },
       });
     }
@@ -97,10 +94,10 @@
   }
   @media screen and (max-width: 1300px) {
     div {
-    height: 60vh;
-    padding-left: 1%;
-    padding-right: 5%;
-    width: 90vw;
+      height: 60vh;
+      padding-left: 1%;
+      padding-right: 5%;
+      width: 90vw;
+    }
   }
-}
 </style>
