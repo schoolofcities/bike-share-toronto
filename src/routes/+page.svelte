@@ -1,8 +1,12 @@
 <script>
 	import Top from "/src/routes/TopSofC.svelte";
-	import testing from "/src/charting/testing.svelte";
+	//import testing from "/src/charting/testing.svelte";
 	import data from '/src/data/data.json';
-	import BarChart from "/src/charting/BarChart.svelte"
+	//import BarChart from "/src/charting/BarChart.svelte"
+	//import {chartFunction} from '/src/charting/chart.js'
+	import Chart from '/src/charting/chart.svelte'
+
+	var yTicks = [0, 100,200,300,400,500,600,700]
 	/*
 	console.log(data)
 	console.log("Here")
@@ -11,7 +15,7 @@
 	//import Charts from "/src/charting/chart.svelte"
 	//import BarChart from "../charting/BarChart.svelte";
 
-	
+	*/
 	function extractValues(data, variable) {
 		const stationCounts = data.map((item) => item[variable]);
 		return stationCounts;
@@ -26,71 +30,25 @@
 	var AverageBikeUsage = extractValues(data, "AverageBikeUsage")
 	var AverageStationUsage = extractValues(data, "AverageStationUsage")
 	
-	chartFunction('StationCount', Month, 'Station Count', StationCount, "#BFCCB5")
+	//chartFunction('StationCount', Month, StationCount, "#BFCCB5")
+	/*
 	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage, "#BFCCB5")
 	chartFunction('TripCount', Month, 'Trip Count', TripCount)
 	chartFunction('BikeCount', Month, 'Bike Count', BikeCount,'#F28500')
 	chartFunction('AverageBikeUsage', Month, 'Average Bike Usage', AverageBikeUsage,'#F28500')
 	chartFunction('AverageTripDuration', Month, 'Average Trip Duration', AverageTripDuration)
-	
-	//console.log(data)
+	*/
 
-	import { onMount } from "svelte";
-	import Chart from "chart.js/auto";
-
-	let portfolio;
-	const data = {
-		labels: ["Expenses", "Savings", "Investments"],
-		datasets: [
-			{
-				label: "My First Dataset",
-				data: [300, 50, 100],
-				backgroundColor: ["#7000e1", "#fc8800", "#00b0e8"],
-				// hoverOffset: 4,
-				borderWidth: 0,
-			},
-		],
-	};
-	const config = {
-		type: "doughnut",
-		data: data,
-		options: {
-			borderRadius: "30",
-			responsive: true,
-			cutout: "95%",
-			spacing: 2,
-			plugins: {
-				legend: {
-					position: "bottom",
-					display: true,
-					labels: {
-						usePointStyle: true,
-						padding: 20,
-						font: {
-							size: 14,
-						},
-					},
-				},
-				title: {
-					display: true,
-					text: "My Personal Portfolio",
-				},
-			},
-		},
-	};
-	onMount(() => {
-		const ctx = portfolio.getContext("2d");
-		// Initialize chart using default config set
-		var myChart = new Chart(ctx, config);
-	});*/
 </script>
-
 <Top />
-<!--<canvas bind:this={portfolio} width={400} height={400} />-->
-
-
+<!--<canvas bind:this={portfolio} width={400} height={400} />
+{chartFunction(Month, StationCount, "#BFCCB5")}
+<canvas class = "myChart"></canvas>
+<canvas id ="myChart2"></canvas>-->
 <h1>Toronto on Bikes: Toronto Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
+
+<Chart labelList = {Month} dataList = {TripCount} colour = "#DC4633"></Chart>
 
 <h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
 <p>
@@ -158,7 +116,6 @@
 	temporarily removed.
 </p>
 
-<BarChart variable = "StationCount" ></BarChart>
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
 
@@ -228,11 +185,7 @@
 
 <style>
 
-canvas {
-    min-height: 400px;
-    width: 80%;
-  }
-  
+
 	
 	canvas {
 		padding-left: 10%;
@@ -240,7 +193,7 @@ canvas {
 		width: 80%;
 		height: 100px;
 		max-height: 500px;
-		padding-bottom: 20px;
+		padding-bottom: 30px;
 		padding-top: 20px;
 	}
 
@@ -261,8 +214,8 @@ canvas {
 		font-size: 35px;
 		
 		color: #333333;
-		padding-left: 30%;
-		padding-right: 30%;
+		padding-left: 20%;
+		padding-right: 20%;
 		padding-top: 10px;
 		
 	}
@@ -274,11 +227,12 @@ canvas {
 			sans-serif;
 		color: #4d4d4d;
 		text-align: left;
-		padding-left: 30%;
-		padding-right: 30%;
+		padding-left: 20%;
+		padding-right: 20%;
 		padding-bottom: 5px;
 		padding-top: 5px;
 		line-height: 150%;
+		font-size: 15px;
 		
 	}
 
@@ -288,8 +242,53 @@ canvas {
 		font-weight: bold;
 		color: "blue";
 		color: #333333;
-		padding-left: 30%;
-		padding-right: 30%;
+		padding-left: 20%;
+		padding-right: 20%;
+		padding-top: 20px;
+	}
+	@media screen and (max-width: 1300px) {
+        h1 {
+		font-size: 35px;
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-top: 5px;
+		
+	}
+
+	p {
+		/* should pick a consistent font here probably */
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-bottom: 5px;
+		
+		
+	}
+
+	h2 {
+		padding-left: 5%;
+		padding-right: 5%;
 		padding-top: 0px;
 	}
+	canvas {
+		padding-left: 5%;
+		padding-right: 5%;
+		width: 90%;
+		
+	}
+
+    }
+	@media screen and (max-width: 415px) {
+        h1 {
+		font-size: 25px;
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-top: 5px;
+		
+	}
+	h2 {
+		font-size: 20px;
+	}
+
+}
+	
 </style>

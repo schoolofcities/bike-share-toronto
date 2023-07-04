@@ -1,72 +1,104 @@
 <script>
-  import Chart from 'chart.js/auto';
-  import { onMount } from 'svelte';
+  import Chart from "chart.js/auto";
+  import { onMount } from "svelte";
 
-  export let chartName;
   export let labelList; // x-axis labels
   export let dataList; // the list of data
-  export let label; 
   export let colour;
-  
-  const ctx = chartName.getContext('2d')
-  
-  new Chart(ctx, {
-    type: "bar",
-    
-    data: {
-      labels: labelList,
-      datasets: [{
-        data: dataList,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        x: {
-          ticks: {
-            callback: function(label) {
-              let realLabel = this.getLabelForValue(label)
-              var month = realLabel.split(";")[1];
-              var year = realLabel.split(";")[0];
-              return month;
-            }
-          }
+
+  onMount(() => {
+    const ctx = document.getElementById("myChart");
+
+    if (labelList && dataList) {
+      var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labelList,
+          datasets: [
+            {
+              data: dataList,
+              borderWidth: 1,
+            },
+          ],
         },
-        xAxis2: {
-          type: "category",
-          grid: {
-            drawOnChartArea: false, // only want the grid lines for one axis to show up
-          },
-          ticks: {
-            callback: function(label) {
-              let realLabel = this.getLabelForValue(label)
-  
-              var month = realLabel.split(";")[1];
-              var year = realLabel.split(";")[0];
-              if (month === "1") {
-                return year;
-              } else {
-                return "";
+        options: {
+          scales: {
+            x: {
+              ticks: {
+                callback: function (label) {
+                  let realLabel = this.getLabelForValue(label);
+                  var month = realLabel.split(";")[1];
+                  var year = realLabel.split(";")[0];
+                  return month;
+                },
+                
+              },
+            },
+            xAxis2: {
+              type: "category",
+              grid: {
+                drawOnChartArea: false,
+                
+              },
+              ticks: {
+                callback: function (label) {
+                  let realLabel = this.getLabelForValue(label);
+                  var month = realLabel.split(";")[1];
+                  var year = realLabel.split(";")[0];
+                  if (month === "5") {
+                    return year;
+                  } else {
+                    return "";
+                  }
+                },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              grid:{
+                borderWidth: 5
               }
+              
+            },
+          },
+          backgroundColor: colour,
+          plugins:{
+            legend:{
+              display: false,
             }
           }
         },
-        y: {
-  
-          beginAtZero: true
-  
-        }
-      },
-      backgroundColor: colour
+      });
     }
   });
+
+  console.log(dataList);
+  console.log(labelList);
+  console.log(colour);
 </script>
 
-<canvas bind:this={chartName} id="myChart"></canvas>
+<div>
+  <canvas id="myChart" style="height: 400px; width: 100%;" />
+</div>
 
 <style>
-  canvas {
-    height: 400px;
+  div {
+    height: 50vh;
+    padding-left: 10%;
+    padding-right: 10%;
     width: 80%;
+  }
+  @media screen and (max-width: 1300px) {
+    div {
+    height: 60vh;
+    padding-left: 1%;
+    padding-right: 5%;
+    width: 90vw;
+  }
+}
+  .myChart {
+    
+    height: 400px;
+    width: 500px;
   }
 </style>
