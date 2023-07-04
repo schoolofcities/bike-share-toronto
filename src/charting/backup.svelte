@@ -1,6 +1,5 @@
 <script>
   import Chart from "chart.js/auto";
-  import data from "/src/data/data.json";
   import { onMount } from "svelte";
 
   export let labelList; // x-axis labels
@@ -9,16 +8,8 @@
 
   var w = window.innerWidth;
 
-  $: console.log(w);
+  $:console.log(w)
 
-  function extractValues(data, variable) {
-    const values = data.map((item) => item[variable]);
-    return values;
-  }
-  var YearList = extractValues(data, "Year");
-  let Year = [...new Set(YearList)]
-  console.log(Year)
-  var Month = extractValues(data, "Month");
 
   onMount(() => {
     const ctx = document.getElementById("myChart");
@@ -80,7 +71,6 @@
               },
             },
           },
-
           backgroundColor: colour,
           plugins: {
             legend: {
