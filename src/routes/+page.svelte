@@ -1,55 +1,17 @@
 <script>
 	import Top from "/src/routes/TopSofC.svelte";
 	import "../assets/global-styles.css"
-	//import testing from "/src/charting/testing.svelte";
 	import data from '/src/data/data.json';
-	//import BarChart from "/src/charting/BarChart.svelte"
-	//import {chartFunction} from '/src/charting/chart.js'
 	import Chart from '/src/charting/chart.svelte'
 
-	var yTicks = [0, 100,200,300,400,500,600,700]
-	/*
-	console.log(data)
-	console.log("Here")
-	// import {data} from "/src/data/data.js";
-	 //import Charts from "/src/charting/chart.js"
-	//import Charts from "/src/charting/chart.svelte"
-	//import BarChart from "../charting/BarChart.svelte";
-
-	*/
-	function extractValues(data, variable) {
-		const stationCounts = data.map((item) => item[variable]);
-		return stationCounts;
-	}
-
-	var StationCount = extractValues(data, "StationCount")
-
-	var Month = extractValues(data, "YearMonth")
-	var TripCount = extractValues(data, "TripCount")
-	var BikeCount = extractValues(data, "BikeCount")
-	var AverageTripDuration = extractValues(data, "AverageTripDuration")
-	var AverageBikeUsage = extractValues(data, "AverageBikeUsage")
-	var AverageStationUsage = extractValues(data, "AverageStationUsage")
-	
-	//chartFunction('StationCount', Month, StationCount, "#BFCCB5")
-	/*
-	chartFunction('AverageStationUsage', Month, 'Average Station Usage', AverageStationUsage, "#BFCCB5")
-	chartFunction('TripCount', Month, 'Trip Count', TripCount)
-	chartFunction('BikeCount', Month, 'Bike Count', BikeCount,'#F28500')
-	chartFunction('AverageBikeUsage', Month, 'Average Bike Usage', AverageBikeUsage,'#F28500')
-	chartFunction('AverageTripDuration', Month, 'Average Trip Duration', AverageTripDuration)
-	*/
 
 </script>
 <Top />
-<!--<canvas bind:this={portfolio} width={400} height={400} />
-{chartFunction(Month, StationCount, "#BFCCB5")}
-<canvas class = "myChart"></canvas>
-<canvas id ="myChart2"></canvas>-->
-<h1>Toronto on Bikes: Toronto Bikeshare Usage Since 2017</h1>
+
+<h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
 
-<Chart labelList = {Month} variable = "TripCount" colour = #0D534D></Chart>
+
 
 <h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
 <p>
@@ -68,6 +30,7 @@
 
 <h1>Bikeshare Usage: Number of Trips Made</h1>
 <h2>Ridership by Month 2017 - 2023</h2>
+<Chart chartName = "TripCount" variable = "TripCount" colour = #0D534D></Chart>
 <p>
 	Ridership have increased over the years. Data also shows that bike trips
 	shows a seasonal pattern, with more rides in the warmer months and fewer
@@ -107,6 +70,7 @@
 
 <h1>Rapidly Expanding Service</h1>
 <h2>Station Count by Month 2017 - 2023</h2>
+<Chart chartName = "StationCount" variable = "StationCount" colour = #0D534D></Chart>
 <p>
 	The Bikeshare system has been expanding, with 200 stations in 2017 and 659
 	stations in 2023. The data is btained by counting the number of unique
@@ -119,6 +83,7 @@
 
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
+<Chart chartName = "AverageStationUsage" variable = "AverageStationUsage" colour = #0D534D></Chart>
 
 <p>
 	Average station useage is calculated by dividing the number of trips per
@@ -133,12 +98,13 @@
 	in August 2020, with 6,455 bikes counted in the system.
 </p>
 <h2>Bike Count by Month 2017 - 2023</h2>
+<Chart chartName = "BikeCount" variable = "BikeCount" colour = #0D534D></Chart>
 
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
-
+<Chart chartName = "AverageBikeUsage" variable = "AverageBikeUsage" colour = #0D534D></Chart>
 <h1>Time on Bike</h1>
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
-
+<Chart chartName = "AverageTripDuration" variable = "AverageTripDuration" colour = #0D534D></Chart>
 <p>
 	The average trip duration also shows seasonality influence. Trip duration
 	tend to be shorter in the colder months (January to March, November to
@@ -185,9 +151,6 @@
 </p>
 
 <style>
-
-
-	
 	canvas {
 		padding-left: 10%;
 		padding-right: 10%;
