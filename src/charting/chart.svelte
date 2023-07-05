@@ -31,6 +31,7 @@
   var Month = extractValues(data, "Month");
   var dataList = extractValues(data, variable)
 
+  /*
 //multi-arbitrary line
 const multiArbitraryLine = {
   id: "multiArbitraryLine", 
@@ -46,8 +47,8 @@ const multiArbitraryLine = {
     ctx.stroke();
   }
 }
-
-
+*/
+function drawChart(){
   onMount(() => {
     const ctx = document.getElementById("myChart");
 
@@ -120,14 +121,14 @@ const multiArbitraryLine = {
           },
 
           backgroundColor: colour,
-          plugins: [multiArbitraryLine]
+          //plugins: [multiArbitraryLine]
           
         },
       });
     }
   });
-
-  
+}
+  drawChart()
 
 
   console.log(dataList);
