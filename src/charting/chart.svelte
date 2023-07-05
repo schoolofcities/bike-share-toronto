@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
 
   export let labelList; // x-axis labels
-  export let dataList; // the list of data
+  export let variable; // the list of data
   export let colour;
 
   var w = window.innerWidth;
@@ -19,6 +19,8 @@
   let Year = [...new Set(YearList)]
   console.log(Year)
   var Month = extractValues(data, "Month");
+
+  console.log(extractValues(data, "Month"))
   var dataList = extractValues(data, variable)
 
   /*
@@ -65,6 +67,9 @@ function drawChart(){
                 width:20,
               },
               ticks: {
+                autoSkip: false,
+                    maxRotation: 0,
+                    minRotation: 0,
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
                   var month = realLabel.split(";")[1];
@@ -78,6 +83,9 @@ function drawChart(){
               type: "category",
               
               ticks: {
+                autoSkip: false,
+                    maxRotation: 0,
+                    minRotation: 0,
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
                   var month = realLabel.split(";")[1];
@@ -108,12 +116,23 @@ function drawChart(){
     }
   });
 }
+
+window.onload = function (){
+  console.log(window.innerWidth)
+  if (window.innerWidth >= 1300){
+    Chart.defaults.font.size = 20;
+    
+  }
+  else{
+    Chart.defaults.font.size = 20;
+  }
+  //Chart.options.scales.ticks.display = true;
   drawChart()
+}
+  
 
 
-  console.log(dataList);
-  console.log(labelList);
-  console.log(colour);
+
 </script>
 
 <div>
