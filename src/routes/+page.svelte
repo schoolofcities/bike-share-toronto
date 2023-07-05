@@ -1,6 +1,5 @@
 <script>
 	import Top from "/src/routes/TopSofC.svelte";
-	import "../assets/global-styles.css"
 	//import testing from "/src/charting/testing.svelte";
 	import data from '/src/data/data.json';
 	//import BarChart from "/src/charting/BarChart.svelte"
@@ -49,7 +48,7 @@
 <h1>Toronto on Bikes: Toronto Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
 
-<Chart labelList = {Month} variable = "TripCount" colour = "#DC4633"></Chart>
+<Chart labelList = {Month} dataList = {TripCount} colour = "#DC4633"></Chart>
 
 <h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
 <p>
@@ -214,7 +213,7 @@
 		font-weight: bolder;
 		font-size: 35px;
 		
-		color: var(--brandYellow);
+		color: #333333;
 		padding-left: 20%;
 		padding-right: 20%;
 		padding-top: 10px;
@@ -242,7 +241,7 @@
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-weight: bold;
 		color: "blue";
-		color: var(--brandGray80);
+		color: #333333;
 		padding-left: 20%;
 		padding-right: 20%;
 		padding-top: 20px;

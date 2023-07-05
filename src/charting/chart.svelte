@@ -4,31 +4,22 @@
   import { onMount } from "svelte";
 
   export let labelList; // x-axis labels
-  export let variable;
+  export let dataList; // the list of data
   export let colour;
 
+  var w = window.innerWidth;
 
-  var width, height;
-  var displays;
-  window.onresize = window.onload = function () {
-    width = this.innerWidth;
-    height = this.innerHeight;
-    if (width < 1200){
-      console.log(width);
-      displays = false
-      console.log(displays)
-    }
-    else{
-      displays = true
-    }
-  };
+  $: console.log(w);
 
   function extractValues(data, variable) {
     const values = data.map((item) => item[variable]);
     return values;
   }
- 
+  var YearList = extractValues(data, "Year");
+  let Year = [...new Set(YearList)]
+  console.log(Year)
   var Month = extractValues(data, "Month");
+<<<<<<< HEAD
   var dataList = extractValues(data, variable)
 
   /*
@@ -49,6 +40,9 @@ const multiArbitraryLine = {
 }
 */
 function drawChart(){
+=======
+
+>>>>>>> parent of ceafb1e (Changes)
   onMount(() => {
     const ctx = document.getElementById("myChart");
 
@@ -69,67 +63,68 @@ function drawChart(){
           maintainAspectRatio: false,
           scales: {
             x: {
-              display: displays, 
               grid: {
                 drawOnChartArea: false,
-                color: 'black'
-                
-              },
-              border:{
-                width: 2
+                borderWidth: 50,
+                width:20,
               },
               ticks: {
-                autoSkip: false,
-                maxRotation: 0,
-                minRotation: 0,
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
                   var month = realLabel.split(";")[1];
                   return month;
                 },
-                align: "center",
+                align: 'center'
+                
               },
             },
-            x2: {
+            xAxis2: {
+              type: "category",
+              
               ticks: {
-                autoSkip: false,
-                maxRotation: 0,
-                minRotation: 0,
                 callback: function (label) {
                   let realLabel = this.getLabelForValue(label);
-                  
-                  var year = realLabel.split(";")[0];
-                  if (realLabel.split(";")[1] === "2") {
+                  var month = realLabel.split(";")[1];
+                  var year = realLabel.split(";")[0]-2000;
+                  if (month === "1") {
                     return year;
                   } else {
                     return "";
                   }
                 },
-                align: "end",
+                align: 'end'
               },
             },
             y: {
               beginAtZero: true,
               grid: {
                 borderWidth: 5,
-                lineWidth: 1,
+                lineWidth: 0
               },
-              border:{
-                width: 2
-              }
             },
           },
 
           backgroundColor: colour,
+<<<<<<< HEAD
           //plugins: [multiArbitraryLine]
           
+=======
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+>>>>>>> parent of ceafb1e (Changes)
         },
       });
     }
   });
+<<<<<<< HEAD
 }
   drawChart()
 
+=======
+>>>>>>> parent of ceafb1e (Changes)
 
   console.log(dataList);
   console.log(labelList);
