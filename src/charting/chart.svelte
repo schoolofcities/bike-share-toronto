@@ -19,7 +19,6 @@
   let Year = [...new Set(YearList)]
   console.log(Year)
   var Month = extractValues(data, "Month");
-<<<<<<< HEAD
   var dataList = extractValues(data, variable)
 
   /*
@@ -40,9 +39,6 @@ const multiArbitraryLine = {
 }
 */
 function drawChart(){
-=======
-
->>>>>>> parent of ceafb1e (Changes)
   onMount(() => {
     const ctx = document.getElementById("myChart");
 
@@ -105,26 +101,15 @@ function drawChart(){
           },
 
           backgroundColor: colour,
-<<<<<<< HEAD
           //plugins: [multiArbitraryLine]
           
-=======
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
->>>>>>> parent of ceafb1e (Changes)
         },
       });
     }
   });
-<<<<<<< HEAD
 }
   drawChart()
 
-=======
->>>>>>> parent of ceafb1e (Changes)
 
   console.log(dataList);
   console.log(labelList);
