@@ -45,7 +45,29 @@ const multiArbitraryLine = {
               {
                 data: dataList,
                 borderWidth: 0,
+                backgroundColor: "#00A189"
               },
+              {
+                type: "line",
+                borderColor: "black",
+                data: [
+                  {x: 1, y: null}, 
+                  {x: 2, y: null}, 
+                  {x: 2, y:0},
+                  {x: 4, y: null}, 
+                  {x: 5, y: null}, 
+                  {x: 6, y:null},
+                  {x: 7, y: null}, 
+                  {x: 8, y: null}, 
+                  {x: 9, y:null},
+                  {x: 10, y: null}, 
+                  {x: 11, y: null}, 
+                  {x: 12, y:700000},
+                  {x: 12, y: 0}, {x: 12, y: 0}, 
+                  {x: 14, y: null}, 
+                  {x: 15, y:700000},{x: 15, y: 0}, 
+                ]
+                }
             ],
           },
           options: {
@@ -56,24 +78,7 @@ const multiArbitraryLine = {
                 grid: {
                   drawOnChartArea: false,
                   borderWidth: 50,
-                  color: (context) =>{
-                    console.log(context)
-                    var i =0;
-                    while (i< labelList.length){
-                      console.log(context.tick.value)
-                      i++;
-                    }
-                    
-                    
-                    var tickIndex = context.index;
-                    
-                    if (context.index === 20){
-                      return "#DC4633";
-                    }
-                    else{
-                      return 'grey'
-                    }
-                  }
+                  
                 },
                 ticks: {
                   autoSkip: false,
@@ -112,20 +117,28 @@ const multiArbitraryLine = {
                 grid: {
                   borderWidth: 5,
                   lineWidth: 0,
+                  color: (context) => {
+                    console.log(context.tick);
+                    var tickIndex = context.index;
+
+                    if (context.tick.value === 500000) {
+                      return "red";
+                    } else {
+                      return "grey";
+                    }
+                  },
                 },
               },
             },
 
-            backgroundColor: colour =>{
+            backgroundColor: (colour) => {
               let colours;
-              if (Math.floor(colour.index/12)==0){
-                colours = '#1E3765'
-              }
-              else if (Math.floor(colour.index/12)==1){
-                colours = '#F1C500'
-              }
-              else {
-              colours = '#000000'
+              if (Math.floor(colour.index / 12) == 0) {
+                colours = "#1E3765";
+              } else if (Math.floor(colour.index / 12) == 1) {
+                colours = "#F1C500";
+              } else {
+                colours = "#000000";
               }
               return colours;
             },
@@ -146,7 +159,7 @@ const multiArbitraryLine = {
     if (window.innerWidth >= 1100) {
       Chart.defaults.font.size = 60;
       console.log(window.innerWidth);
-      drawChart()
+      drawChart();
     } else {
       Chart.defaults.font.size = 10;
       drawChart();
