@@ -56,7 +56,24 @@ const multiArbitraryLine = {
                 grid: {
                   drawOnChartArea: false,
                   borderWidth: 50,
-                  width: 20,
+                  color: (context) =>{
+                    console.log(context)
+                    var i =0;
+                    while (i< labelList.length){
+                      console.log(context.tick.value)
+                      i++;
+                    }
+                    
+                    
+                    var tickIndex = context.index;
+                    
+                    if (context.index === 20){
+                      return "#DC4633";
+                    }
+                    else{
+                      return 'grey'
+                    }
+                  }
                 },
                 ticks: {
                   autoSkip: false,
@@ -99,11 +116,23 @@ const multiArbitraryLine = {
               },
             },
 
-            backgroundColor: colour,
+            backgroundColor: colour =>{
+              let colours;
+              if (Math.floor(colour.index/12)==0){
+                colours = '#1E3765'
+              }
+              else if (Math.floor(colour.index/12)==1){
+                colours = '#F1C500'
+              }
+              else {
+              colours = '#000000'
+              }
+              return colours;
+            },
             //plugins: [multiArbitraryLine]
             plugins: {
               legend: {
-                display: false,
+                display: true,
               },
             },
           },
