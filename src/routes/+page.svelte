@@ -3,10 +3,14 @@
 	import "../assets/global-styles.css"
 	import data from '/src/data/data.json';
 	import Chart from '/src/charting/chart.svelte'
+	import BarChart from '/src/charting/BarChart.svelte'
 
 
+	let yTicks = [0, 100000,200000,300000,400000,500000,600000,700000]
 </script>
 <Top />
+
+
 
 <h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
@@ -31,6 +35,7 @@
 <h1>Bikeshare Usage: Number of Trips Made</h1>
 <h2>Ridership by Month 2017 - 2023</h2>
 <Chart chartName = "TripCount" variable = "TripCount" colour = #0D534D></Chart>
+<BarChart variable = "TripCount" yTicks = {yTicks}></BarChart>
 <p>
 	Ridership have increased over the years. Data also shows that bike trips
 	shows a seasonal pattern, with more rides in the warmer months and fewer
