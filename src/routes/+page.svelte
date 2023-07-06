@@ -34,7 +34,6 @@
 
 <h1>Bikeshare Usage: Number of Trips Made</h1>
 <h2>Ridership by Month 2017 - 2023</h2>
-<Chart chartName = "TripCount" variable = "TripCount" colour = #0D534D></Chart>
 <BarChart variable = "TripCount" yTicks = {yTicks}></BarChart>
 <p>
 	Ridership have increased over the years. Data also shows that bike trips
@@ -75,7 +74,6 @@
 
 <h1>Rapidly Expanding Service</h1>
 <h2>Station Count by Month 2017 - 2023</h2>
-<Chart chartName = "StationCount" variable = "StationCount" colour = #0D534D></Chart>
 <p>
 	The Bikeshare system has been expanding, with 200 stations in 2017 and 659
 	stations in 2023. The data is btained by counting the number of unique
@@ -88,7 +86,7 @@
 
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
-<Chart chartName = "AverageStationUsage" variable = "AverageStationUsage" colour = #0D534D></Chart>
+
 
 <p>
 	Average station useage is calculated by dividing the number of trips per
@@ -103,13 +101,10 @@
 	in August 2020, with 6,455 bikes counted in the system.
 </p>
 <h2>Bike Count by Month 2017 - 2023</h2>
-<Chart chartName = "BikeCount" variable = "BikeCount" colour = #0D534D></Chart>
 
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
-<Chart chartName = "AverageBikeUsage" variable = "AverageBikeUsage" colour = #0D534D></Chart>
 <h1>Time on Bike</h1>
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
-<Chart chartName = "AverageTripDuration" variable = "AverageTripDuration" colour = #0D534D></Chart>
 <p>
 	The average trip duration also shows seasonality influence. Trip duration
 	tend to be shorter in the colder months (January to March, November to

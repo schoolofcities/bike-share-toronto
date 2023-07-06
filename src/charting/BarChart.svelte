@@ -7,7 +7,7 @@
     export let yTicks;
 
     let width = 100;
-    let height = 2000;
+    let height = 30;
 
     var monthList = data.map(function (obj) {
         return obj.Month;
@@ -17,7 +17,7 @@
     });
 
     const xTicks = monthList;
-    const padding = { top: 20, right: 15, bottom: 20, left: 25 };
+    const padding = { top: 20, right: 15, bottom: 35, left: 25 };
 
     function formatMobile(tick) {
         return "'" + tick.toString().slice(-2);
@@ -42,6 +42,8 @@
         mouse_x = event.clientX;
         mouse_y = event.clientY;
     };
+
+    console.log(height)
 </script>
 
 <div
@@ -64,11 +66,23 @@
             {/each}
         </g>
 
-        <!-- x axis -->
+        <!-- Second x axis -->
         <g class="axis x-axis">
             {#each data as bike, i}
                 <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 10} y="-4"
+                    <text x={barWidth / 2 + 8} y="-4"
+                        >{width > 500
+                            ? bike.Year-2000
+                            : formatMobile(bike.Year)}</text
+                    >
+                </g>
+            {/each}
+        </g>
+        <!--  x axis -->
+        <g class="axis x-axis">
+            {#each data as bike, i}
+                <g class="tick" transform="translate({xScale(i)},{height})">
+                    <text x={barWidth / 2 + 8} y="-20"
                         >{width > 500
                             ? bike.Month
                             : formatMobile(bike.Month)}</text
@@ -76,6 +90,7 @@
                 </g>
             {/each}
         </g>
+
 
         <g class="bars">
             {#each data as bike, i}
@@ -118,7 +133,7 @@
     svg {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 500px;
     }
 
     .tick {
@@ -129,6 +144,7 @@
 
     .tick line {
         stroke: #404b;
+        stroke-width: 3px;
     }
     .tick text {
         fill: #4b4b4b;
@@ -142,7 +158,7 @@
 
     .x-axis .tick text {
         text-anchor: middle;
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .x-label {
@@ -150,7 +166,7 @@
         transform: translate(-10px, 0px) rotate(-90deg);
     }
     .x-label.tick text {
-        font-size: 10px; /* Adjust the font size as desired */
+        font-size: 20px; /* Adjust the font size as desired */
         fill: #000000; /* Adjust the font color as desired */
     }
 
@@ -167,7 +183,7 @@
         color: white;
         background-color: black;
         font-family: Roboto, sans-serif;
-        font-size: 12px;
+        font-size: 20px;
         border: solid 1px var(--brandGray);
         border-radius: 4px;
         padding: 5px;
