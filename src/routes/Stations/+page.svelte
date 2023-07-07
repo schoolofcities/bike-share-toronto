@@ -1,12 +1,11 @@
 <script>
 	import Top from "/src/CommonFormatting/TopSofC.svelte";
 	import Nav from "/src/CommonFormatting/Nav.svelte"
-	import "../assets/global-styles.css";
+	import "/src/assets/global-styles.css";
 	import data from "/src/data/data.json";
 	import Chart from "/src/charting/chart.svelte";
 	import BarChart from "/src/charting/BarChart.svelte";
 	import BarChart2 from "/src/charting/BarChart2.svelte";
-	
 
 	let yTicksTrip = [
 		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
@@ -21,37 +20,35 @@
 <Top />
 
 <Nav/>
-
 <h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
 
-<h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
+
+<h1>Rapidly Expanding Service</h1>
+<h2>Station Count by Month 2017 - 2023</h2>
+<BarChart variable="StationCount" yTicks={yTicksStation} colour="#0D534D" />
 <p>
-	Bike Share Toronto was originally branded as Bixi Bike, a branch of the
-	successful Bikeshare system in Montreal, when it first launched by PBSC
-	Urban Solutions in 2011. However, the success was not replicated. Bixi
-	suffered great financial losses and was unable to repay the City a $3.9
-	million loan. Toronto Parking Authority took over the bikeshare system and
-	rebranded as Bike Share Toronto. With funding from various sources over the
-	years, Bike Share Toronto tells a great comeback story of a bikeshare system
-	on the verge of shutting down that transformed into a popular method of
-	urban mobility in Toronto. This page visualizes the changes in bikeshare
-	usage in Toronto, showing various aspects of how the system has been used
-	since 2017, with data from the City of Toronto.
+	The Bikeshare system has been expanding, with 200 stations in 2017 and 659
+	stations in 2023. The data is btained by counting the number of unique
+	station IDs each month. Based on what is shown from the data, major epansion
+	usually happens in June and July. It is also interesting to observe small
+	fluctions in the number of stations. It is likely due to constructions
+	happening in various parts of the city, causing the stations to be
+	temporarily removed.
 </p>
 
+<h2>Average Station Usage by Month 2017 - 2023</h2>
+<BarChart
+	variable="AverageStationUsage"
+	yTicks={yTicksAvStation}
+	colour="#007FA3"
+/>
 
-<h2>About the Data</h2>
 <p>
-	The data for bikeshare usage is shared on <a
-		href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/"
-		>City of Toronto's Open Data Catalogue</a
-	>. Data stretches from 2014 to 2023 March at the time of writing. However,
-	data from 2014, 2015 and 2016 are incomplete. Data for 2014 is missing the
-	first 9 months, 2015 misses the months starting October, and 2016 data
-	misses Q1 and Q2 data. This is the reason why this analysis only visualize
-	bikeshare usages starting January 2017.
+	Average station useage is calculated by dividing the number of trips per
+	month by the number of bike station per month.
 </p>
+
 
 <style>
 	:global(body) {

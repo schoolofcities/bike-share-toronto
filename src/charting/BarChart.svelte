@@ -9,7 +9,7 @@
     export let colour;
 
     let width = 100;
-    let height = 30;
+    let height = 60;
 
     var monthList = data.map(function (obj) {
         return obj.Month;
@@ -72,19 +72,19 @@
                 {#if i % 12 === 0 && i > 0}
                     <line
                         class="year-tick"
-                        x1={40 + i * barWidth - barWidth / 2}
+                        x1={30 + i * barWidth - barWidth / 2}
                         y1={height - 30}
-                        x2={40 + i * barWidth - barWidth / 2}
-                        y2={height - 40}
-                        stroke="blue"
+                        x2={30 + i * barWidth - barWidth / 2}
+                        y2={height - 10}
+                        stroke="grey"
                     />
                     <line
                         class="year-grid"
-                        x1={40 + i * barWidth - barWidth / 2}
+                        x1={30 + i * barWidth - barWidth / 2}
                         y1={height - 30}
-                        x2={40 + i * barWidth - barWidth / 2}
+                        x2={30 + i * barWidth - barWidth / 2}
                         y2={0}
-                        stroke="gray"
+                        stroke="grey"
                     />
                 {/if}
             {/each}
