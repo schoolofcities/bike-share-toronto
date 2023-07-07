@@ -4,6 +4,7 @@
 	import data from '/src/data/data.json';
 	import Chart from '/src/charting/chart.svelte'
 	import BarChart from '/src/charting/BarChart.svelte'
+	import BarChart2 from '/src/charting/BarChart2.svelte'
 
 
 	let yTicksTrip = [0, 100000,200000,300000,400000,500000,600000,700000]
@@ -38,8 +39,10 @@
 </p>
 
 <h1>Bikeshare Usage: Number of Trips Made</h1>
+
+<BarChart2></BarChart2>
 <h2>Ridership by Month 2017 - 2023</h2>
-<BarChart variable = "TripCount" yTicks = {yTicksTrip}></BarChart>
+<BarChart variable = "TripCount" yTicks = {yTicksTrip} colour = #AB1368></BarChart>
 <p>
 	Ridership have increased over the years. Data also shows that bike trips
 	shows a seasonal pattern, with more rides in the warmer months and fewer
@@ -79,7 +82,7 @@
 
 <h1>Rapidly Expanding Service</h1>
 <h2>Station Count by Month 2017 - 2023</h2>
-<BarChart variable = "StationCount" yTicks = {yTicksStation}></BarChart>
+<BarChart variable = "StationCount" yTicks = {yTicksStation} colour = #0D534D></BarChart>
 <p>
 	The Bikeshare system has been expanding, with 200 stations in 2017 and 659
 	stations in 2023. The data is btained by counting the number of unique
@@ -92,7 +95,7 @@
 
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
-<BarChart variable = "AverageStationUsage" yTicks = {yTicksAvStation}></BarChart>
+<BarChart variable = "AverageStationUsage" yTicks = {yTicksAvStation} colour = #007FA3></BarChart>
 
 <p>
 	Average station useage is calculated by dividing the number of trips per
@@ -107,9 +110,9 @@
 	in August 2020, with 6,455 bikes counted in the system.
 </p>
 <h2>Bike Count by Month 2017 - 2023</h2>
-<BarChart variable = "BikeCount" yTicks = {yTicksBike}></BarChart>
+<BarChart variable = "BikeCount" yTicks = {yTicksBike} colour = #DC4633></BarChart>
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
-<BarChart variable = "AverageBikeUsage" yTicks = {yTicksAvBikeUsage}></BarChart>
+<BarChart variable = "AverageBikeUsage" yTicks = {yTicksAvBikeUsage} colour = #0D534D></BarChart>
 <h1>Time on Bike</h1>
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
 <p>
@@ -143,7 +146,7 @@
 	or 45-minute period. This change in fee structure could have impact on
 	average trip duration in the future.
 </p>
-<BarChart variable = "AverageTripDuration" yTicks = {yTicksDuration}></BarChart>
+<BarChart variable = "AverageTripDuration" yTicks = {yTicksDuration} colour = #6D247A></BarChart>
 	
 <h2>About the Data</h2>
 <p>
@@ -154,19 +157,11 @@
 	data from 2014, 2015 and 2016 are incomplete. Data for 2014 is missing the
 	first 9 months, 2015 misses the months starting October, and 2016 data
 	misses Q1 and Q2 data. This is the reason why this analysis only visualize
-	bikeshare usages starting January 2017.
+	bikeshare usages starting January 2017. 
 </p>
 
 <style>
-	canvas {
-		padding-left: 10%;
-		padding-right: 10%;
-		width: 80%;
-		height: 100px;
-		max-height: 500px;
-		padding-bottom: 30px;
-		padding-top: 20px;
-	}
+
 
 	:global(body) {
 		margin: 0px;
@@ -240,12 +235,7 @@
 		padding-right: 5%;
 		padding-top: 0px;
 	}
-	canvas {
-		padding-left: 5%;
-		padding-right: 5%;
-		width: 90%;
-		
-	}
+
 
     }
 	@media screen and (max-width: 415px) {

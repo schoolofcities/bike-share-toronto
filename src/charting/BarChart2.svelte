@@ -1,31 +1,49 @@
 <script>
     import { scaleLinear } from "d3-scale";
-    import data from "/src/data/data.json";
 
-    //export let data;
-    export let variable;
-    export let yTicks;
-
+    var data = [
+        { "Year": 2015, "Ridership": 667000},
+        { "Year": 2016, "Ridership": 834235},
+        { "Year": 2017, "Ridership": 1510802},
+        { "Year": 2018, "Ridership": 1975384},
+        { "Year": 2019, "Ridership": 2400384},
+        { "Year": 2020, "Ridership": 2900000},
+        { "Year": 2021, "Ridership": 3575000},
+        { "Year": 2022,	"Ridership": 4600000}
+]
+    let variable = "Ridership"
+    let yTicks = [0, 500000, 1500000,2500000, 3500000, 4500000]
     let width = 100;
     let height = 30;
 
-    var monthList = data.map(function (obj) {
-        return obj.Month;
-    });
+
     var yearList = data.map(function (obj) {
         return obj.Year;
     });
 
-    const xTicks = monthList;
-    const padding = { top: 20, right: 15, bottom: 35, left: 25 };
+    const xTicks = yearList; // label the x axis with years
+    const padding = { top: 20, right: 35, bottom: 35, left: 25 };
 
     function formatMobile(tick) {
         return "'" + tick.toString().slice(-2);
     }
 
+    // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
+    function thousandToK(tick) {
+        var newtick;
+        if (tick > 1000 && tick < 1000000) {
+            newtick = tick / 1000 + "K";
+        } else if (tick > 1000000){
+            newtick = tick / 1000000 + "M";
+        } else{
+            newtick = tick
+        }
+        return newtick;
+    }
+
     $: xScale = scaleLinear()
         .domain([0, xTicks.length])
-        .range([padding.left, width - padding.right]);
+        .range([padding.left, width - padding.right-20]);
 
     $: yScale = scaleLinear()
         .domain([0, Math.max.apply(null, yTicks)])
@@ -33,7 +51,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length;
+    $: barWidth = innerWidth / xTicks.length -10;
 
     let selected_datapoint = undefined;
 
@@ -53,28 +71,7 @@
     bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
-        <g class="year-tick"> <!-- this is the year separation-->
-            {#each data as i}
-                {#if i % 12 === 0 && i > 0}
-                    <line
-                        class="year-tick"
-                        x1={44 + i * barWidth - barWidth / 2}
-                        y1={height - 30}
-                        x2={44 + i * barWidth - barWidth / 2}
-                        y2={height - 40}
-                        stroke="blue"
-                    />
-                    <line
-                        class="year-grid"
-                        x1={44 + i * barWidth - barWidth / 2}
-                        y1={height - 30}
-                        x2={44 + i * barWidth - barWidth / 2}
-                        y2={0}
-                        stroke="gray"
-                    />
-                {/if}
-            {/each}
-        </g>
+        
         <!-- y axis -->
         <g class="axis y-axis">
             {#each yTicks as tick}
@@ -83,45 +80,30 @@
                     transform="translate(0, {yScale(tick)})"
                 >
                     <line x2="100%" />
-                    <text y="-4">{tick} </text>
+                    <text y="-4">{thousandToK(tick)} </text>
                 </g>
             {/each}
         </g>
 
-        <!-- Second x axis -->
         <g class="axis x-axis">
             {#each data as bike, i}
                 <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 8} y="-20"
+                    <text x={barWidth / 2 + 48} y="-20"
                         >{width > 500
-                            ? bike.Month
+                            ? bike.Year
                             : formatMobile(bike.Year)}</text
                     >
                 </g>
             {/each}
         </g>
-        <!--  x axis -->
-        <g class="axis x-axis">
-            {#each data as bike, i}
-            {#if i % 12 === 0 && i > 0}
-                <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 8} y="-4"
-                        >{width > 500
-                            ? bike.Year
-                            : formatMobile(bike.Month)}</text
-                    >
-                </g>
-                {/if}
-            {/each}
-        </g>
-        
+    
 
         <g class="bars">
             {#each data as bike, i}
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
-                    x={xScale(i) + 10}
+                    x={xScale(i) + 50}
                     y={yScale(bike[variable])}
                     width={barWidth - 2}
                     height={yScale(0) - yScale(bike[variable])}
@@ -137,27 +119,28 @@
         </g>
     </svg>
 </div>
+
+<!-- tooltip-->
 {#if selected_datapoint != undefined}
     <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
-        {selected_datapoint.Year.toLocaleString() +
-            "/" +
-            selected_datapoint.Month.toLocaleString() +
-            ": " +
-            selected_datapoint[variable].toLocaleString()}
+        {selected_datapoint.Year.toString().toLocaleString() + // set year as the label
+            " : " +
+            selected_datapoint[variable].toLocaleString()} <!--set variable as the number it returns-->
+
     </div>
 {/if}
 
 <style>
     .chart {
         width: 100%;
-        max-width: 80%;
+        max-width: 30%;
         margin: 0 auto;
     }
 
     svg {
         position: relative;
         width: 100%;
-        height: 500px;
+        height: 300px;
     }
 
     .tick {
@@ -212,8 +195,5 @@
         border-radius: 4px;
         padding: 5px;
     }
-    .year-tick {
-        stroke-width: 2px;
-        z-index: 6;
-    }
+
 </style>

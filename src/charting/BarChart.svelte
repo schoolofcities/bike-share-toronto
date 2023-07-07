@@ -1,11 +1,12 @@
 <script>
     import { scaleLinear } from "d3-scale";
     import data from "/src/data/data.json";
-    import "../assets/global-styles.css"
+    import "../assets/global-styles.css";
 
     //export let data;
     export let variable;
     export let yTicks;
+    export let colour;
 
     let width = 100;
     let height = 30;
@@ -18,25 +19,25 @@
         return obj[variable];
     });
 
-    function roundValues(value) {
-        if (value < 1000) {
-            return Math.ceil(value / 100) * 100; // Round to the nearest hundreds
-        } else if (value < 10000) {
-            return Math.ceil(value / 1000) * 1000; // Round to the nearest thousands
-        } else {
-            return Math.ceil(value / 10000) * 10000; // Round to the nearest ten thousands
-        }
-    }
-
-    var maxValue = Math.max(...variableList);
-
-    const xTicks = monthList;
-    const padding = { top: 20, right: 15, bottom: 35, left: 25 };
+    const xTicks = monthList; 
+    const padding = { top: 20, right: 25, bottom: 35, left: 15 };
 
     function formatMobile(tick) {
         return "'" + tick.toString().slice(-2);
     }
 
+     // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
+     function thousandToK(tick) {
+        var newtick;
+        if (tick > 1000 && tick < 1000000) {
+            newtick = tick / 1000 + "K";
+        } else if (tick > 1000000){
+            newtick = tick / 1000000 + "M";
+        } else{
+            newtick = tick
+        }
+        return newtick;
+    }
     $: xScale = scaleLinear()
         .domain([0, xTicks.length])
         .range([padding.left, width - padding.right]);
@@ -65,8 +66,8 @@
     bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
+        <!-- this is the year separation lines-->
         <g class="year-tick">
-            <!-- this is the year separation-->
             {#each data as bike, i}
                 {#if i % 12 === 0 && i > 0}
                     <line
@@ -96,47 +97,59 @@
                     transform="translate(0, {yScale(tick)})"
                 >
                     <line x2="100%" />
-                    <text y="-4">{tick} </text>
+                    <text y="-4">{thousandToK(tick)} </text>
                 </g>
             {/each}
         </g>
 
-        <!-- Second x axis -->
+        <!-- Second x axis, only appears when the inner window width > 800 -->
         <g class="axis x-axis">
             {#each data as bike, i}
-                {#if i % 12 === 0 || i == 0}
+            {#if innerWidth > 800} 
+                {#if i % 12 === 0 || (i == 0)} <!-- show the "tick" every 12th bar-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
                         <text x={barWidth / 2 + 40} y="-4"
-                            >{width > 500
-                                ? bike.Year
-                                : formatMobile(bike.Month)}</text
+                            >{bike.Year}</text
                         >
                     </g>
+                {/if}
                 {/if}
             {/each}
         </g>
         <!--  x axis -->
         <g class="axis x-axis">
             {#each data as bike, i}
-                <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 8} y="-20"
-                        >{width > 500
-                            ? bike.Month
-                            : formatMobile(bike.Month)}</text
-                    >
-                </g>
+                {#if innerWidth > 800} <!-- if the inner window width > 800, show months as label-->
+                    <g class="tick" transform="translate({xScale(i)},{height})">
+                        <text x={barWidth / 2 + 8} y="-20"
+                            >{bike.Month}</text
+                        >
+                    </g>
+                {:else if innerWidth <= 800} <!-- if the inner window width <=800 show years only-->
+                    {#if i % 12 === 0 || i == 0}
+                        <g
+                            class="tick"
+                            transform="translate({xScale(i)},{height})"
+                        >
+                            <text x={barWidth / 2 + 30} y="-20"
+                                >{width > 1000
+                                    ? bike.Year
+                                    : formatMobile(bike.Year)}</text
+                            >
+                        </g>
+                    {/if}
+                {/if}
             {/each}
         </g>
 
-        <g class="bars">
+        <g class="bars" fill = {colour}>
             {#each data as bike, i}
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
                     x={xScale(i) + 10}
                     y={yScale(bike[variable])}
-                    width={barWidth-5}
-                        
+                    width={barWidth - 1}
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;
@@ -152,7 +165,7 @@
 </div>
 {#if selected_datapoint != undefined}
     <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
-        {selected_datapoint.Year.toLocaleString() +
+        {selected_datapoint.Year.toString().toLocaleString() +
             "/" +
             selected_datapoint.Month.toLocaleString() +
             ": " +
@@ -186,7 +199,7 @@
     .tick text {
         fill: var(--brandGray70);
         text-anchor: start;
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .tick.tick-0 line {
@@ -195,7 +208,9 @@
 
     .x-axis .tick text {
         text-anchor: middle;
-        font-size: 15px;
+        font-size: 12px;
+        text-align: right;
+
     }
 
     .x-label {
@@ -208,10 +223,9 @@
     }
 
     .bars rect {
-        fill: #0D534D;
+        
         stroke: none;
         opacity: 0.65;
-        
     }
     .bars rect:hover {
         stroke: red;
