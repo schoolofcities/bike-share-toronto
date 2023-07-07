@@ -1,67 +1,39 @@
 <script>
-    import { yGrids } from "./YGrids.js";
-
+    import { scaleLinear } from "d3-scale";
     import data from "/src/data/data.json";
-    import { max } from "d3-array";
 
-    // export let type;
+    //export let data;
     export let variable;
-    /*
-    let dataAllDates = data.filter(item => item.t === "All").map(({ y, m }) => ({ y, m }));
+    export let yTicks;
 
-    var dataTypeSubset;
-    $: dataTypeSubset = data.filter(item => item.t === type);
-    
-
-    
-
-    // this code is to find matching records between the dataType Subset in dataAll DAtes
-    
-    $: dataChart = dataAllDates.map((obj) => {
-        const matchingObj = dataTypeSubset.find(
-            (o) => o.y === obj.y && o.m === obj.m
-        ) || { c: 0, s: 0 };
-        console.log(obj.y)
-        
-        return { ...obj, ...matchingObj };
-    });
-*/
-    // find a way to add data to dataChart
-    var dataChart;
-
-    dataChart = data;
+    let width = 100;
+    let height = 30;
 
     var monthList = data.map(function (obj) {
         return obj.Month;
     });
-
     var yearList = data.map(function (obj) {
         return obj.Year;
     });
 
-    var returnList = data.map(function (obj) {
-        return obj[variable];
-    }); //returns a list of values that is specified in the "variable" (i.e. Trip Count)
-    console.log(yearList);
-    console.log(monthList);
-    console.log(returnList);
+    const xTicks = monthList;
+    const padding = { top: 20, right: 15, bottom: 35, left: 25 };
 
-    var maxValue;
-    $: maxValue = max(returnList); // iterate through returnList and grab the max value
+    function formatMobile(tick) {
+        return "'" + tick.toString().slice(-2);
+    }
 
-    $: console.log(dataChart.Year);
+    $: xScale = scaleLinear()
+        .domain([0, xTicks.length])
+        .range([padding.left, width - padding.right]);
 
-    let divWidth;
+    $: yScale = scaleLinear()
+        .domain([0, Math.max.apply(null, yTicks)])
+        .range([height - padding.bottom, padding.top]);
 
-    $: svgWidth = divWidth;
-    $: svgHeight = svgWidth / 2;
+    $: innerWidth = width - (padding.left + padding.right);
 
-    $: barSpacing = (svgWidth - 55) / 60;
-    $: console.log(barSpacing);
-    $: console.log(svgWidth);
-    let grids;
-    $: grids = yGrids(maxValue);
-    $: console.log(grids);
+    $: barWidth = innerWidth / xTicks.length;
 
     let selected_datapoint = undefined;
 
@@ -70,141 +42,178 @@
         mouse_x = event.clientX;
         mouse_y = event.clientY;
     };
+
+    console.log(height);
 </script>
 
-<div id="barChart" bind:offsetWidth={divWidth}>
-    <svg height={svgHeight} width={svgWidth} id="svgChart">
-        <!-- <line x1="{5}" y1="{svgHeight - 40}" x2="{svgWidth - 5}" y2="{svgHeight - 40}" stroke="white" /> -->
-
-        {#each dataChart as d, index}
-            <!-- label Years in June-->
-            {#if index % 6 === 0 && index % 12 !== 0}
-                <text
-                    class="label"
-                    x={10 + index * barSpacing - barSpacing / 2}
-                    y={svgHeight - 25}>{d.Year}</text
-                >
-            {/if}
-
-            <!-- Add a thick separation tick between each year-->
-            {#if index % 12 === 0 && index > 0}
-                <line
-                    class="year-tick"
-                    x1={50 + index * barSpacing - barSpacing / 2}
-                    y1={svgHeight - 30}
-                    x2={50 + index * barSpacing - barSpacing / 2}
-                    y2={svgHeight - 40}
-                    stroke="white"
-                />
-
-                <line
-                    class="year-grid"
-                    x1={50 + index * barSpacing - barSpacing / 2}
-                    y1={svgHeight - 30}
-                    x2={50 + index * barSpacing - barSpacing / 2}
-                    y2={0}
-                    stroke="gray"
-                />
-            {/if}
-
-            {#if d[variable] > 0}
-                <g>
+<div
+    id="barchart"
+    class="chart"
+    bind:clientWidth={width}
+    bind:clientHeight={height}
+>
+    <svg width={xTicks.length * barWidth} {height}>
+        <g class="year-tick"> <!-- this is the year separation-->
+            {#each data as i}
+                {#if i % 12 === 0 && i > 0}
                     <line
-                        class="bar-line"
-                        x1={50 + index * barSpacing}
-                        y1={(svgHeight - 40) * (1 - d[variable] / maxValue)}
-                        x2={50 + index * barSpacing}
-                        y2={svgHeight - 40}
-                        on:mouseover={(event) => {
-                            selected_datapoint = d;
-                            setMousePosition(event);
-                        }}
-                        on:mouseout={() => {
-                            selected_datapoint = undefined;
-                        }}
+                        class="year-tick"
+                        x1={44 + i * barWidth - barWidth / 2}
+                        y1={height - 30}
+                        x2={44 + i * barWidth - barWidth / 2}
+                        y2={height - 40}
+                        stroke="blue"
                     />
-                </g>
-            {/if}
-        {/each}
-
-        {#each grids as grid}
-            <line
-                class="amount-grid"
-                x1={5}
-                y1={0 + (svgHeight - 40) * (1 - grid / maxValue)}
-                x2={svgWidth - 5}
-                y2={0 + (svgHeight - 40) * (1 - grid / maxValue)}
-            />
-
-            {#if grid !== 0}
-                <text
-                    class="labelY"
-                    x="35"
-                    y={10 + (svgHeight - 40) * (1 - grid / maxValue)}
-                    >{grid}</text
+                    <line
+                        class="year-grid"
+                        x1={44 + i * barWidth - barWidth / 2}
+                        y1={height - 30}
+                        x2={44 + i * barWidth - barWidth / 2}
+                        y2={0}
+                        stroke="gray"
+                    />
+                {/if}
+            {/each}
+        </g>
+        <!-- y axis -->
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
                 >
-            {/if}
-        {/each}
+                    <line x2="100%" />
+                    <text y="-4">{tick} </text>
+                </g>
+            {/each}
+        </g>
 
-        <line
-            x1={5}
-            y1={svgHeight - 40}
-            x2={svgWidth - 5}
-            y2={svgHeight - 40}
-            stroke="white"
-        />
+        <!-- Second x axis -->
+        <g class="axis x-axis">
+            {#each data as bike, i}
+                <g class="tick" transform="translate({xScale(i)},{height})">
+                    <text x={barWidth / 2 + 8} y="-20"
+                        >{width > 500
+                            ? bike.Month
+                            : formatMobile(bike.Year)}</text
+                    >
+                </g>
+            {/each}
+        </g>
+        <!--  x axis -->
+        <g class="axis x-axis">
+            {#each data as bike, i}
+            {#if i % 12 === 0 && i > 0}
+                <g class="tick" transform="translate({xScale(i)},{height})">
+                    <text x={barWidth / 2 + 8} y="-4"
+                        >{width > 500
+                            ? bike.Year
+                            : formatMobile(bike.Month)}</text
+                    >
+                </g>
+                {/if}
+            {/each}
+        </g>
+        
+
+        <g class="bars">
+            {#each data as bike, i}
+                <!-- Controls the width of the bar graph, 
+				width: controls the spacing between the bars-->
+                <rect
+                    x={xScale(i) + 10}
+                    y={yScale(bike[variable])}
+                    width={barWidth - 2}
+                    height={yScale(0) - yScale(bike[variable])}
+                    on:mouseover={(event) => {
+                        selected_datapoint = bike;
+                        setMousePosition(event);
+                    }}
+                    on:mouseout={() => {
+                        selected_datapoint = undefined;
+                    }}
+                />
+            {/each}
+        </g>
     </svg>
 </div>
-
-
+{#if selected_datapoint != undefined}
+    <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
+        {selected_datapoint.Year.toLocaleString() +
+            "/" +
+            selected_datapoint.Month.toLocaleString() +
+            ": " +
+            selected_datapoint[variable].toLocaleString()}
+    </div>
+{/if}
 
 <style>
-    #barChart {
-        margin: 0 auto;
+    .chart {
+        width: 100%;
         max-width: 80%;
-        min-width: 375px;
+        margin: 0 auto;
     }
 
-    #svgChart {
-        background-color: var(--brandGray90);
+    svg {
+        position: relative;
+        width: 100%;
+        height: 500px;
     }
 
-    .bar-line {
-        stroke: var(--brandRed);
-        stroke-width: 5;
-        cursor: pointer;
-    }
-    .bar-line:hover {
-        stroke: var(--brandWhite);
+    .tick {
+        font-family: Helvetica, Arial;
+        font-size: 0.725em;
+        font-weight: 200;
     }
 
-    .label {
-        fill: var(--brandWhite);
-        font-size: 12px;
-        text-anchor: middle;
-    }
-    .labelY {
-        fill: var(--brandGray);
-        font-size: 12px;
-        text-anchor: end;
-    }
-
-    .year-grid {
-        stroke: var(--brandGray);
-    }
-    .amount-grid {
+    .tick line {
         stroke: var(--brandGray70);
-        stroke-width: 1;
+        stroke-width: 0.4px;
+    }
+    .tick text {
+        fill: var(--brandGray70);
+        text-anchor: start;
+        font-size: 15px;
     }
 
+    .tick.tick-0 line {
+        stroke-dasharray: 0;
+    }
+
+    .x-axis .tick text {
+        text-anchor: middle;
+        font-size: 15px;
+    }
+
+    .x-label {
+        text-anchor: middle;
+        transform: translate(-10px, 0px) rotate(-90deg);
+    }
+    .x-label.tick text {
+        font-size: 20px; /* Adjust the font size as desired */
+        fill: #000000; /* Adjust the font color as desired */
+    }
+
+    .bars rect {
+        fill: #aba89e;
+        stroke: none;
+        opacity: 0.65;
+    }
+    .bars rect:hover {
+        stroke: red;
+    }
     #tooltip {
         position: fixed;
         color: white;
-        background-color: var(--brandGray90);
+        background-color: black;
         font-family: Roboto, sans-serif;
-        font-size: 12px;
+        font-size: 20px;
         border: solid 1px var(--brandGray);
         border-radius: 4px;
         padding: 5px;
+    }
+    .year-tick {
+        stroke-width: 2px;
+        z-index: 6;
     }
 </style>

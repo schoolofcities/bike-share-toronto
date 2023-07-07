@@ -1,6 +1,7 @@
 <script>
     import { scaleLinear } from "d3-scale";
     import data from "/src/data/data.json";
+    import "../assets/global-styles.css"
 
     //export let data;
     export let variable;
@@ -12,9 +13,22 @@
     var monthList = data.map(function (obj) {
         return obj.Month;
     });
-    var yearList = data.map(function (obj) {
-        return obj.Year;
+
+    var variableList = data.map(function (obj) {
+        return obj[variable];
     });
+
+    function roundValues(value) {
+        if (value < 1000) {
+            return Math.ceil(value / 100) * 100; // Round to the nearest hundreds
+        } else if (value < 10000) {
+            return Math.ceil(value / 1000) * 1000; // Round to the nearest thousands
+        } else {
+            return Math.ceil(value / 10000) * 10000; // Round to the nearest ten thousands
+        }
+    }
+
+    var maxValue = Math.max(...variableList);
 
     const xTicks = monthList;
     const padding = { top: 20, right: 15, bottom: 35, left: 25 };
@@ -42,8 +56,6 @@
         mouse_x = event.clientX;
         mouse_y = event.clientY;
     };
-
-    console.log(height)
 </script>
 
 <div
@@ -53,6 +65,29 @@
     bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
+        <g class="year-tick">
+            <!-- this is the year separation-->
+            {#each data as bike, i}
+                {#if i % 12 === 0 && i > 0}
+                    <line
+                        class="year-tick"
+                        x1={40 + i * barWidth - barWidth / 2}
+                        y1={height - 30}
+                        x2={40 + i * barWidth - barWidth / 2}
+                        y2={height - 40}
+                        stroke="blue"
+                    />
+                    <line
+                        class="year-grid"
+                        x1={40 + i * barWidth - barWidth / 2}
+                        y1={height - 30}
+                        x2={40 + i * barWidth - barWidth / 2}
+                        y2={0}
+                        stroke="gray"
+                    />
+                {/if}
+            {/each}
+        </g>
         <!-- y axis -->
         <g class="axis y-axis">
             {#each yTicks as tick}
@@ -69,13 +104,15 @@
         <!-- Second x axis -->
         <g class="axis x-axis">
             {#each data as bike, i}
-                <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 8} y="-4"
-                        >{width > 500
-                            ? bike.Year-2000
-                            : formatMobile(bike.Year)}</text
-                    >
-                </g>
+                {#if i % 12 === 0 || i == 0}
+                    <g class="tick" transform="translate({xScale(i)},{height})">
+                        <text x={barWidth / 2 + 40} y="-4"
+                            >{width > 500
+                                ? bike.Year
+                                : formatMobile(bike.Month)}</text
+                        >
+                    </g>
+                {/if}
             {/each}
         </g>
         <!--  x axis -->
@@ -91,7 +128,6 @@
             {/each}
         </g>
 
-
         <g class="bars">
             {#each data as bike, i}
                 <!-- Controls the width of the bar graph, 
@@ -99,7 +135,8 @@
                 <rect
                     x={xScale(i) + 10}
                     y={yScale(bike[variable])}
-                    width={barWidth - 1}
+                    width={barWidth-5}
+                        
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;
@@ -143,11 +180,11 @@
     }
 
     .tick line {
-        stroke: #404b;
-        stroke-width: 3px;
+        stroke: var(--brandGray70);
+        stroke-width: 0.4px;
     }
     .tick text {
-        fill: #4b4b4b;
+        fill: var(--brandGray70);
         text-anchor: start;
         font-size: 15px;
     }
@@ -171,9 +208,10 @@
     }
 
     .bars rect {
-        fill: #aba89e;
+        fill: #0D534D;
         stroke: none;
         opacity: 0.65;
+        
     }
     .bars rect:hover {
         stroke: red;
@@ -188,5 +226,8 @@
         border-radius: 4px;
         padding: 5px;
     }
-    
+    .year-tick {
+        stroke-width: 2px;
+        z-index: 6;
+    }
 </style>

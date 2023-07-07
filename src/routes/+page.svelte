@@ -6,7 +6,12 @@
 	import BarChart from '/src/charting/BarChart.svelte'
 
 
-	let yTicks = [0, 100000,200000,300000,400000,500000,600000,700000]
+	let yTicksTrip = [0, 100000,200000,300000,400000,500000,600000,700000]
+	let yTicksStation = [0, 100,200,300,400,500,600,700]
+	let yTicksAvStation = [0,200,400,600,800,1000,1200,1400, 1600]
+	let yTicksBike = [0,1000,2000,3000,4000,5000,6000,7000]
+	let yTicksAvBikeUsage = [0,20,40,60,80,100,120]
+	let yTicksDuration = [0,10,20,30]
 </script>
 <Top />
 
@@ -34,7 +39,7 @@
 
 <h1>Bikeshare Usage: Number of Trips Made</h1>
 <h2>Ridership by Month 2017 - 2023</h2>
-<BarChart variable = "TripCount" yTicks = {yTicks}></BarChart>
+<BarChart variable = "TripCount" yTicks = {yTicksTrip}></BarChart>
 <p>
 	Ridership have increased over the years. Data also shows that bike trips
 	shows a seasonal pattern, with more rides in the warmer months and fewer
@@ -74,6 +79,7 @@
 
 <h1>Rapidly Expanding Service</h1>
 <h2>Station Count by Month 2017 - 2023</h2>
+<BarChart variable = "StationCount" yTicks = {yTicksStation}></BarChart>
 <p>
 	The Bikeshare system has been expanding, with 200 stations in 2017 and 659
 	stations in 2023. The data is btained by counting the number of unique
@@ -86,7 +92,7 @@
 
 
 <h2>Average Station Usage by Month 2017 - 2023</h2>
-
+<BarChart variable = "AverageStationUsage" yTicks = {yTicksAvStation}></BarChart>
 
 <p>
 	Average station useage is calculated by dividing the number of trips per
@@ -101,8 +107,9 @@
 	in August 2020, with 6,455 bikes counted in the system.
 </p>
 <h2>Bike Count by Month 2017 - 2023</h2>
-
+<BarChart variable = "BikeCount" yTicks = {yTicksBike}></BarChart>
 <h2>Average Bike Usage by Month 2017 - 2023</h2>
+<BarChart variable = "AverageBikeUsage" yTicks = {yTicksAvBikeUsage}></BarChart>
 <h1>Time on Bike</h1>
 <h2>Average Trip Duration by Month 2017 - 2023</h2>
 <p>
@@ -136,7 +143,7 @@
 	or 45-minute period. This change in fee structure could have impact on
 	average trip duration in the future.
 </p>
-
+<BarChart variable = "AverageTripDuration" yTicks = {yTicksDuration}></BarChart>
 	
 <h2>About the Data</h2>
 <p>
