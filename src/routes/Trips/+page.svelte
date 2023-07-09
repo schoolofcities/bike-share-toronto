@@ -1,12 +1,11 @@
 <script>
 	import Top from "/src/CommonFormatting/TopSofC.svelte";
 	import Nav from "/src/CommonFormatting/Nav.svelte"
-	import "../assets/global-styles.css";
+	import "/src/assets/global-styles.css";
 	import data from "/src/data/data.json";
 	import Chart from "/src/charting/chart.svelte";
 	import BarChart from "/src/charting/BarChart.svelte";
 	import BarChart2 from "/src/charting/BarChart2.svelte";
-	
 
 	let yTicksTrip = [
 		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
@@ -25,32 +24,47 @@
 <h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
 
-<h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
+
+<h1>Bikeshare Usage: Number of Trips Made</h1>
+
+<BarChart2 />
+<h2>Ridership by Month 2017 - 2023</h2>
+<BarChart variable="TripCount" yTicks={yTicksTrip} colour="#AB1368" />
 <p>
-	Bike Share Toronto was originally branded as Bixi Bike, a branch of the
-	successful Bikeshare system in Montreal, when it first launched by PBSC
-	Urban Solutions in 2011. However, the success was not replicated. Bixi
-	suffered great financial losses and was unable to repay the City a $3.9
-	million loan. Toronto Parking Authority took over the bikeshare system and
-	rebranded as Bike Share Toronto. With funding from various sources over the
-	years, Bike Share Toronto tells a great comeback story of a bikeshare system
-	on the verge of shutting down that transformed into a popular method of
-	urban mobility in Toronto. This page visualizes the changes in bikeshare
-	usage in Toronto, showing various aspects of how the system has been used
-	since 2017, with data from the City of Toronto.
+	Ridership have increased over the years. Data also shows that bike trips
+	shows a seasonal pattern, with more rides in the warmer months and fewer
+	rides during the colder months. August is the month with the highest
+	ridership between 2019 and 2022 while February tends to have the lowest
+	ridership. Since 2018, ridership has been breaking record each year.
+	Currently, the highest monthly ridership was in August 2022, reaching almost
+	700,000 rides. This is over 200 thousand more trips made in the same period
+	in 2021. Not only in August, the colder months (September to December) also
+	have higher ridership than previous years. An analysis on Toronto's
+	Bikeshare ridership by
+	<a
+		href="https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c"
+	>
+		Sigli Mumuni
+	</a>
+	found positive correlations between temperature and ridership. This means that
+	when the weather is warmer, ridership tends to be higher. Therefore, the higher
+	ridership between September and December of 2022 could be correlated to a warmer
+	winter in 2022, with
+	<a
+		href="https://globalnews.ca/news/9258382/canada-fall-weather-outlook-nov-2022/"
+	>
+		with record breaking warmer temperature in November.
+	</a>
 </p>
-
-
-<h2>About the Data</h2>
 <p>
-	The data for bikeshare usage is shared on <a
-		href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/"
-		>City of Toronto's Open Data Catalogue</a
-	>. Data stretches from 2014 to 2023 March at the time of writing. However,
-	data from 2014, 2015 and 2016 are incomplete. Data for 2014 is missing the
-	first 9 months, 2015 misses the months starting October, and 2016 data
-	misses Q1 and Q2 data. This is the reason why this analysis only visualize
-	bikeshare usages starting January 2017.
+	One interesting difference in the trip pattern is during the earliest month
+	of the pandemic. While the number of trips tend to increase after February,
+	it was not the case in 2020. After a small growth of ridership in March, the
+	Province went into a lockdown on March 24, 2020. This impact is reflected in
+	the ridership in April 2020, which showed ridership drop from March. It also
+	caused the lowest May riderships across the 5 year period. However,
+	ridership quickly bounced back starting June, and ridership in July 2020 is
+	higher than August 2019, the highest month of 2019.
 </p>
 
 <style>
@@ -102,25 +116,7 @@
 		padding-top: 20px;
 	}
 
-	nav {
-		position: relative;
-		display: flex;
-		gap: 1em;
-		padding: 1em;
-		background: var(--brandGray70);
-		z-index: 2;
-		margin: 0 0 1em 0;
-		
-	}
-
-	nav a {
-		text-decoration: none;
-		color: white;
-	}
-
-	nav a[aria-current="true"] {
-		border-bottom: 2px solid;
-	}
+	
 
 	@media screen and (max-width: 1300px) {
 		h1 {
