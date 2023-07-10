@@ -75,17 +75,17 @@
                 {#if i % 12 === 0 && i > 0}
                     <line
                         class="year-tick"
-                        x1={30 + i * barWidth - barWidth / 2}
+                        x1={xScale(i)+barPadding-1}
                         y1={height - 30}
-                        x2={30 + i * barWidth - barWidth / 2}
+                        x2={xScale(i)+barPadding-1}
                         y2={height - 10}
                         stroke="grey"
                     />
                     <line
                         class="year-grid"
-                        x1={30 + i * barWidth - barWidth / 2}
+                        x1={xScale(i)+barPadding-1}
                         y1={height - 30}
-                        x2={30 + i * barWidth - barWidth / 2}
+                        x2={xScale(i)+barPadding-1}
                         y2={-20}
                         stroke="grey"
                     />
@@ -111,7 +111,7 @@
             {#if innerWidth > 800} 
                 {#if i % 12 === 0 || (i == 0)} <!-- show the "tick" every 12th bar-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
-                        <text x={barWidth / 2 + 40} y="-4"
+                        <text x={barWidth / 2 + 20} y="-4"
                             >{bike.Year}</text
                         >
                     </g>
@@ -152,7 +152,7 @@
                 <rect
                     x={xScale(i)+barPadding}
                     y={yScale(bike[variable])}
-                    width={barWidth - 1}
+                    width={barWidth - 2}
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;
