@@ -29,7 +29,7 @@
      // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
      function thousandToK(tick) {
         var newtick;
-        if (tick > 1000 && tick < 1000000) {
+        if (tick >= 1000 && tick < 1000000) {
             newtick = tick / 1000 + "K";
         } else if (tick > 1000000){
             newtick = tick / 1000000 + "M";
@@ -57,6 +57,9 @@
         mouse_x = event.clientX;
         mouse_y = event.clientY;
     };
+
+
+    var barPadding = 10; // controls how much spacing the bars will be from the
 </script>
 
 <div
@@ -83,7 +86,7 @@
                         x1={30 + i * barWidth - barWidth / 2}
                         y1={height - 30}
                         x2={30 + i * barWidth - barWidth / 2}
-                        y2={0}
+                        y2={-20}
                         stroke="grey"
                     />
                 {/if}
@@ -131,7 +134,7 @@
                             class="tick"
                             transform="translate({xScale(i)},{height})"
                         >
-                            <text x={barWidth / 2 + 30} y="-20"
+                            <text x={barWidth / 2 + 15} y="-20"
                                 >{width > 1000
                                     ? bike.Year
                                     : formatMobile(bike.Year)}</text
@@ -147,7 +150,7 @@
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
-                    x={xScale(i) + 10}
+                    x={xScale(i)+barPadding}
                     y={yScale(bike[variable])}
                     width={barWidth - 1}
                     height={yScale(0) - yScale(bike[variable])}

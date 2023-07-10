@@ -1,5 +1,6 @@
 <script>
 	import logo from '/src/assets/top-logo-full.svg';
+	import "/src/assets/global-styles.css"
 </script>
 
 <div id="bar">
@@ -7,7 +8,7 @@
 	<div id="logo">
 		<a href="https://www.schoolofcities.utoronto.ca/"><img src={logo} alt="School of Cities"></a>
 	</div>
-
+	<p> School of Cities </p>
 </div>
 
 <style>
@@ -16,9 +17,9 @@
 		overflow: hidden;
    		top: 0px;
 		height: 50px;
-		background-color: #6FC7EA;
+		background-color: var(--brandYellow);
 		margin-bottom: 20px;
-		border-bottom: 1px solid #6FC7EA;
+		border-bottom: 0px solid var(--brandGray90);
 		width: 100%;
 		min-width: 200px;
 		padding-left: 0px;
@@ -52,5 +53,8 @@
 		height: 50px;
 		opacity: 0.5;
 		cursor: pointer;
+	}
+	p{
+		fill: white;
 	}
 </style>

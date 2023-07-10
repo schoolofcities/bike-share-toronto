@@ -2,20 +2,19 @@
     import { scaleLinear } from "d3-scale";
 
     var data = [
-        { "Year": 2015, "Ridership": 667000},
-        { "Year": 2016, "Ridership": 834235},
-        { "Year": 2017, "Ridership": 1510802},
-        { "Year": 2018, "Ridership": 1975384},
-        { "Year": 2019, "Ridership": 2400384},
-        { "Year": 2020, "Ridership": 2900000},
-        { "Year": 2021, "Ridership": 3575000},
-        { "Year": 2022,	"Ridership": 4600000}
-]
-    let variable = "Ridership"
-    let yTicks = [0, 500000, 1500000,2500000, 3500000, 4500000]
+        { Year: 2015, Ridership: 667000 },
+        { Year: 2016, Ridership: 834235 },
+        { Year: 2017, Ridership: 1510802 },
+        { Year: 2018, Ridership: 1975384 },
+        { Year: 2019, Ridership: 2400384 },
+        { Year: 2020, Ridership: 2900000 },
+        { Year: 2021, Ridership: 3575000 },
+        { Year: 2022, Ridership: 4600000 },
+    ];
+    let variable = "Ridership";
+    let yTicks = [0, 500000, 1500000, 2500000, 3500000, 4500000];
     let width = 100;
     let height = 30;
-
 
     var yearList = data.map(function (obj) {
         return obj.Year;
@@ -33,17 +32,17 @@
         var newtick;
         if (tick > 1000 && tick < 1000000) {
             newtick = tick / 1000 + "K";
-        } else if (tick > 1000000){
+        } else if (tick > 1000000) {
             newtick = tick / 1000000 + "M";
-        } else{
-            newtick = tick
+        } else {
+            newtick = tick;
         }
         return newtick;
     }
 
     $: xScale = scaleLinear()
         .domain([0, xTicks.length])
-        .range([padding.left, width - padding.right-20]);
+        .range([padding.left, width - padding.right - 20]);
 
     $: yScale = scaleLinear()
         .domain([0, Math.max.apply(null, yTicks)])
@@ -51,7 +50,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length -10;
+    $: barWidth = innerWidth / xTicks.length - 10;
 
     let selected_datapoint = undefined;
 
@@ -71,7 +70,6 @@
     bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
-        
         <!-- y axis -->
         <g class="axis y-axis">
             {#each yTicks as tick}
@@ -96,7 +94,6 @@
                 </g>
             {/each}
         </g>
-    
 
         <g class="bars">
             {#each data as bike, i}
@@ -125,15 +122,15 @@
     <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
         {selected_datapoint.Year.toString().toLocaleString() + // set year as the label
             " : " +
-            selected_datapoint[variable].toLocaleString()} <!--set variable as the number it returns-->
-
+            selected_datapoint[variable].toLocaleString()}
+        <!--set variable as the number it returns-->
     </div>
 {/if}
 
 <style>
     .chart {
         width: 100%;
-        max-width: 30%;
+        max-width: 60%;
         margin: 0 auto;
     }
 
@@ -195,5 +192,23 @@
         border-radius: 4px;
         padding: 5px;
     }
-
+    @media screen and (max-width: 900px) {
+        .chart {
+            max-width: 70%;
+        }
+    }
+    @media screen and (max-width: 415px) {
+        h1 {
+            font-size: 25px;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 5px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        .chart {
+            max-width: 70%;
+        }
+    }
 </style>
