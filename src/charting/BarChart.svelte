@@ -119,7 +119,7 @@
                 {/if}
             {/each}
         </g>
-        <!--  x axis -->
+        <!--  x axis - monthly-->
         <g class="axis x-axis">
             {#each data as bike, i}
                 {#if innerWidth > 800} <!-- if the inner window width > 800, show months as label-->
