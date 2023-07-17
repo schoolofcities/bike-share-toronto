@@ -1,45 +1,28 @@
 <script>
 	import Top from "/src/CommonFormatting/TopSofC.svelte";
-	import Nav from "/src/CommonFormatting/Nav.svelte"
+	import Nav from "/src/CommonFormatting/Nav.svelte";
 	import "../assets/global-styles.css";
-	import data from "/src/data/data.json";
-	import Chart from "/src/charting/chart.svelte";
-	import BarChart from "/src/charting/BarChart.svelte";
-	import BarChart2 from "/src/charting/BarChart2.svelte";
-	
-
-	let yTicksTrip = [
-		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
-	];
-	let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
-	let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
-	let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
-	let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120];
-	let yTicksDuration = [0, 10, 20, 30];
 </script>
 
 <Top />
 
-<Nav/>
+<Nav />
 
 <h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
 
 <h2>From Bixi Toronto to Bike Share Toronto: A Brief History</h2>
 <p>
-	Bike Share Toronto was originally branded as Bixi Bike, a branch of the
-	successful Bikeshare system in Montreal, when it first launched by PBSC
-	Urban Solutions in 2011. However, the success was not replicated. Bixi
-	suffered great financial losses and was unable to repay the City a $3.9
-	million loan. Toronto Parking Authority took over the bikeshare system and
-	rebranded as Bike Share Toronto. With funding from various sources over the
-	years, Bike Share Toronto tells a great comeback story of a bikeshare system
-	on the verge of shutting down that transformed into a popular method of
-	urban mobility in Toronto. This page visualizes the changes in bikeshare
-	usage in Toronto, showing various aspects of how the system has been used
-	since 2017, with data from the City of Toronto.
+	The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions
+	as Bixi Bike. While Bixi was successful in Montreal, it faced significant
+	financial losses in Toronto. Unable to repay its $3.9 million loan from the
+	City of Toronto, Bixi was taken over by the Toronto Parking Authority in
+	2014 and rebranded as Bike Share Toronto. This change in ownership led to
+	increased funding from sources such as TD Canada, Metrolinx, the Federal
+	Government, the City of Toronto, and most recently, Tangerine Bank. These
+	funds supported the system's operations, expansion costs, and special
+	programs.
 </p>
-
 
 <h2>About the Data</h2>
 <p>
@@ -53,17 +36,14 @@
 	bikeshare usages starting January 2017.
 </p>
 
+<Nav />
+
 <style>
 	:global(body) {
 		margin: 0px;
 		background-color: #f8f6f0;
 	}
 
-	main {
-		text-align: center;
-		padding: 0px;
-		margin: 0px;
-	}
 
 	h1 {
 		font-family: "Helvetica Neue", Arial, sans-serif;
@@ -110,7 +90,6 @@
 		background: var(--brandGray70);
 		z-index: 2;
 		margin: 0 0 1em 0;
-		
 	}
 
 	nav a {

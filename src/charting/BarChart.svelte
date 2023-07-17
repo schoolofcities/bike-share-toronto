@@ -29,7 +29,7 @@
      // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
      function thousandToK(tick) {
         var newtick;
-        if (tick > 1000 && tick < 1000000) {
+        if (tick >= 1000 && tick < 1000000) {
             newtick = tick / 1000 + "K";
         } else if (tick > 1000000){
             newtick = tick / 1000000 + "M";
@@ -57,6 +57,9 @@
         mouse_x = event.clientX;
         mouse_y = event.clientY;
     };
+
+
+    var barPadding = 10; // controls how much spacing the bars will be from the
 </script>
 
 <div
@@ -72,18 +75,18 @@
                 {#if i % 12 === 0 && i > 0}
                     <line
                         class="year-tick"
-                        x1={30 + i * barWidth - barWidth / 2}
+                        x1={xScale(i)+barPadding-1}
                         y1={height - 30}
-                        x2={30 + i * barWidth - barWidth / 2}
+                        x2={xScale(i)+barPadding-1}
                         y2={height - 10}
                         stroke="grey"
                     />
                     <line
                         class="year-grid"
-                        x1={30 + i * barWidth - barWidth / 2}
+                        x1={xScale(i)+barPadding-1}
                         y1={height - 30}
-                        x2={30 + i * barWidth - barWidth / 2}
-                        y2={0}
+                        x2={xScale(i)+barPadding-1}
+                        y2={-20}
                         stroke="grey"
                     />
                 {/if}
@@ -108,7 +111,7 @@
             {#if innerWidth > 800} 
                 {#if i % 12 === 0 || (i == 0)} <!-- show the "tick" every 12th bar-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
-                        <text x={barWidth / 2 + 40} y="-4"
+                        <text x={barWidth / 2 + 20} y="-4"
                             >{bike.Year}</text
                         >
                     </g>
@@ -116,7 +119,7 @@
                 {/if}
             {/each}
         </g>
-        <!--  x axis -->
+        <!--  x axis - monthly-->
         <g class="axis x-axis">
             {#each data as bike, i}
                 {#if innerWidth > 800} <!-- if the inner window width > 800, show months as label-->
@@ -131,7 +134,7 @@
                             class="tick"
                             transform="translate({xScale(i)},{height})"
                         >
-                            <text x={barWidth / 2 + 30} y="-20"
+                            <text x={barWidth / 2 + 15} y="-20"
                                 >{width > 1000
                                     ? bike.Year
                                     : formatMobile(bike.Year)}</text
@@ -147,9 +150,9 @@
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
-                    x={xScale(i) + 10}
+                    x={xScale(i)+barPadding}
                     y={yScale(bike[variable])}
-                    width={barWidth - 1}
+                    width={barWidth - 2}
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;

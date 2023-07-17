@@ -2,11 +2,9 @@
     
 	<a href="/">Intro</a>
 	<a href="/bike-share-toronto/Trips">Trips</a>
-	<a href="/bike-share-toronto/Stations">Stations</a>
-	<a href="/bike-share-toronto/Bikes">Bikes</a>
+	<a href="/bike-share-toronto/Stations & Bikes">Stations & Bikes</a>
 	<a href="/bike-share-toronto/Trip Duration">Trip Duration</a>
    
-
 </nav>
 
 <style>
