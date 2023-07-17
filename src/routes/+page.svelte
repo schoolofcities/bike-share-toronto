@@ -27,17 +27,7 @@
 <h2>About the Data</h2>
 <p>
 	The data for bikeshare usage is shared on <a
-		href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/"
-		>City of Toronto's Open Data Catalogue</a
-	>. Data stretches from 2014 to 2023 March at the time of writing. However,
-	data from 2014, 2015 and 2016 are incomplete. Data for 2014 is missing the
-	first 9 months, 2015 misses the months starting October, and 2016 data
-	misses Q1 and Q2 data. This is the reason why this analysis only visualize
-	bikeshare usages starting January 2017.
-</p>
-
-<Nav />
-
+		href="httIn-person knowledge mobilization workshops – coordinated by School of Cities Director Karen Chapple and faculty lead Stanka Radovic, and featuring School of Cities-affiliated experts – which focus on identifying ways to reach a broader audience via data visualization, op-eds, policy briefs, blogs, videos, podcasts, and more 
 <style>
 	:global(body) {
 		margin: 0px;

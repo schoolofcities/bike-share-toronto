@@ -7,9 +7,12 @@
     export let variable;
     export let yTicks;
     export let colour;
+    export let maxHeight;
 
     let width = 100;
     let height = 60;
+
+    $: height = Math.min(width / 2.42, maxHeight);
 
     var monthList = data.map(function (obj) {
         return obj.Month;
@@ -48,7 +51,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length;
+    $: barWidth = Math.min(innerWidth / xTicks.length, 9);
 
     let selected_datapoint = undefined;
 
@@ -66,44 +69,27 @@
     id="barchart"
     class="chart"
     bind:clientWidth={width}
-    bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
         <!-- this is the year separation lines-->
         <g class="year-tick">
             {#each data as bike, i}
                 {#if i % 12 === 0 && i > 0}
-                    <line
-                        class="year-tick"
-                        x1={xScale(i)+barPadding-1}
-                        y1={height - 30}
-                        x2={xScale(i)+barPadding-1}
-                        y2={height - 10}
-                        stroke="grey"
-                    />
+                    
                     <line
                         class="year-grid"
                         x1={xScale(i)+barPadding-1}
-                        y1={height - 30}
+                        y1={height - 3}
                         x2={xScale(i)+barPadding-1}
-                        y2={-20}
-                        stroke="grey"
+                        y2={0}
+                        stroke-width={1}
+                        stroke="#F1C500"
+                        stroke-dasharray="5 3"
                     />
                 {/if}
             {/each}
         </g>
-        <!-- y axis -->
-        <g class="axis y-axis">
-            {#each yTicks as tick}
-                <g
-                    class="tick tick-{tick}"
-                    transform="translate(0, {yScale(tick)})"
-                >
-                    <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)} </text>
-                </g>
-            {/each}
-        </g>
+        
 
         <!-- Second x axis, only appears when the inner window width > 800 -->
         <g class="axis x-axis">
@@ -164,6 +150,19 @@
                 />
             {/each}
         </g>
+
+        <!-- y axis -->
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
+                >
+                    <line x2="100%" />
+                    <text y="-4">{thousandToK(tick)} </text>
+                </g>
+            {/each}
+        </g>
     </svg>
 </div>
 {#if selected_datapoint != undefined}
@@ -179,14 +178,14 @@
 <style>
     .chart {
         width: 100%;
-        max-width: 80%;
+        max-width: 100%;
+        
         margin: 0 auto;
     }
 
     svg {
         position: relative;
         width: 100%;
-        height: 500px;
     }
 
     .tick {
@@ -196,11 +195,12 @@
     }
 
     .tick line {
-        stroke: var(--brandGray70);
-        stroke-width: 0.4px;
+        stroke: var(--brandGray);
+        stroke-width: 1px;
+        opacity: 0.2;
     }
     .tick text {
-        fill: var(--brandGray70);
+        fill: var(--brandGray);
         text-anchor: start;
         font-size: 12px;
     }
@@ -226,9 +226,8 @@
     }
 
     .bars rect {
-        
-        stroke: none;
-        opacity: 0.65;
+        stroke: var(brandDarkGreen);
+        stroke-width: 1px;
     }
     .bars rect:hover {
         stroke: red;

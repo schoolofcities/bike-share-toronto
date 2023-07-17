@@ -1,5 +1,6 @@
 <script>
     import { scaleLinear } from "d3-scale";
+    import "../assets/global-styles.css";
 
     var data = [
         { Year: 2015, Ridership: 667000 },
@@ -12,7 +13,7 @@
         { Year: 2022, Ridership: 4600000 },
     ];
     let variable = "Ridership";
-    let yTicks = [0, 500000, 1500000, 2500000, 3500000, 4500000];
+    let yTicks = [0, 1000000, 2000000, 3000000, 4000000, 5000000];
     let width = 100;
     let height = 30;
 
@@ -32,7 +33,7 @@
         var newtick;
         if (tick > 1000 && tick < 1000000) {
             newtick = tick / 1000 + "K";
-        } else if (tick > 1000000) {
+        } else if (tick => 1000000) {
             newtick = tick / 1000000 + "M";
         } else {
             newtick = tick;
@@ -71,29 +72,6 @@
 >
     <svg width={xTicks.length * barWidth} {height}>
         <!-- y axis -->
-        <g class="axis y-axis">
-            {#each yTicks as tick}
-                <g
-                    class="tick tick-{tick}"
-                    transform="translate(0, {yScale(tick)})"
-                >
-                    <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)} </text>
-                </g>
-            {/each}
-        </g>
-
-        <g class="axis x-axis">
-            {#each data as bike, i}
-                <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 48} y="-20"
-                        >{width > 500
-                            ? bike.Year
-                            : formatMobile(bike.Year)}</text
-                    >
-                </g>
-            {/each}
-        </g>
 
         <g class="bars">
             {#each data as bike, i}
@@ -114,6 +92,32 @@
                 />
             {/each}
         </g>
+
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
+                >
+                    <line x2="100%" />
+                    <text y="-4">{thousandToK(tick)}</text>
+                </g>
+            {/each}
+        </g>
+
+        <g class="axis x-axis">
+            {#each data as bike, i}
+                <g class="tick" transform="translate({xScale(i)},{height})">
+                    <text x={barWidth / 2 + 48} y="-20"
+                        >{width > 500
+                            ? bike.Year
+                            : formatMobile(bike.Year)}</text
+                    >
+                </g>
+            {/each}
+        </g>
+
+        
     </svg>
 </div>
 
@@ -129,15 +133,14 @@
 
 <style>
     .chart {
-        width: 100%;
-        max-width: 60%;
+        max-width: 320px;
         margin: 0 auto;
     }
 
     svg {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 200px;
     }
 
     .tick {
@@ -147,11 +150,11 @@
     }
 
     .tick line {
-        stroke: var(--brandGray70);
-        stroke-width: 0.4px;
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
     }
     .tick text {
-        fill: var(--brandGray70);
+        fill: var(--brandGray);
         text-anchor: start;
         font-size: 15px;
     }
@@ -175,9 +178,9 @@
     }
 
     .bars rect {
-        fill: #aba89e;
+        fill: var(--brandWhite);
         stroke: none;
-        opacity: 0.65;
+        opacity: 1;
     }
     .bars rect:hover {
         stroke: red;
@@ -191,11 +194,6 @@
         border: solid 1px var(--brandGray);
         border-radius: 4px;
         padding: 5px;
-    }
-    @media screen and (max-width: 900px) {
-        .chart {
-            max-width: 70%;
-        }
     }
     @media screen and (max-width: 415px) {
         h1 {

@@ -3,6 +3,16 @@
     src: url("Trade Gothic LT Bold.ttf");
 }
 
+@font-face {
+    font-family: RobotoRegular;
+    src: url("roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: RobotoBold;
+    src: url("roboto/Roboto-Bold.ttf");
+}
+
 :root {
     font-family: Roboto, sans-serif;
     --brandDarkBlue: #1E3765;
@@ -31,7 +41,7 @@ body {
 
 main {
     margin: 0 auto;
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
     min-width: 320px;
     max-width: 1300px;
     position: relative;
@@ -47,7 +57,7 @@ main {
 
 h1 {
     font-family: TradeGothicBold;
-    font-size: 35px;
+    font-size: 40px;
     color: var(--brandYellow);
     border-bottom: solid 1px;
     padding-top: 50px;
@@ -56,23 +66,31 @@ h1 {
 h2 {
     text-align: left;
     font-family: TradeGothicBold;
-    font-weight: bold;
+    font-size: 30px;
     color: var(--brandWhite);
 }
 
+h3 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-size: 25px;
+    text-decoration: underline;
+    color: var(--brandYellow);
+}
+
 p {
-    /* should pick a consistent font here probably */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
+    font-family: RobotoRegular;
     color: var(--brandWhite);
     text-align: left;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    line-height: 150%;
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+a {
+    color: var(--brandWhite);
+}
+a:hover {
+    color: var(--brandLightBlue);
 }
 
 img {
