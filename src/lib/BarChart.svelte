@@ -8,6 +8,7 @@
     export let yTicks;
     export let colour;
     export let maxHeight;
+    export let type;
 
     let width = 100;
     let height = 60;
@@ -61,8 +62,11 @@
         mouse_y = event.clientY;
     };
 
-
     var barPadding = 10; // controls how much spacing the bars will be from the
+
+    
+
+
 </script>
 
 <div
@@ -78,13 +82,14 @@
                     
                     <line
                         class="year-grid"
-                        x1={xScale(i)+barPadding-1}
+                        x1={xScale(i)+barPadding/2}
                         y1={height - 3}
-                        x2={xScale(i)+barPadding-1}
+                        x2={xScale(i)+barPadding/2}
                         y2={0}
                         stroke-width={1}
-                        stroke="#F1C500"
+                        stroke="#fff"
                         stroke-dasharray="5 3"
+                        opacity=0.7
                     />
                 {/if}
             {/each}
@@ -131,25 +136,56 @@
             {/each}
         </g>
 
-        <g class="bars" fill = {colour}>
-            {#each data as bike, i}
-                <!-- Controls the width of the bar graph, 
-				width: controls the spacing between the bars-->
-                <rect
-                    x={xScale(i)+barPadding}
-                    y={yScale(bike[variable])}
-                    width={barWidth - 2}
-                    height={yScale(0) - yScale(bike[variable])}
-                    on:mouseover={(event) => {
-                        selected_datapoint = bike;
-                        setMousePosition(event);
-                    }}
-                    on:mouseout={() => {
-                        selected_datapoint = undefined;
-                    }}
-                />
-            {/each}
-        </g>
+        {#if type === "bar"}
+            <g class="bars" fill = {colour}>
+                {#each data as bike, i}
+                    <!-- Controls the width of the bar graph, 
+                    width: controls the spacing between the bars-->
+                    <rect
+                        x={xScale(i)+barPadding}
+                        y={yScale(bike[variable])}
+                        width={barWidth - 2}
+                        height={yScale(0) - yScale(bike[variable])}
+                        on:mouseover={(event) => {
+                            selected_datapoint = bike;
+                            setMousePosition(event);
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                    />
+                {/each}
+            </g>
+        {/if}
+
+        {#if type === "line"}
+            <g>
+                {#each data as bike, i}
+
+                    {#if i > 0}
+                        <line
+                        x1={barWidth - 2 + xScale(i - 1) + barPadding}
+                        y1={yScale(data[i - 1][variable])}
+                        x2={barWidth - 2 + xScale(i) + barPadding}
+                        y2={yScale(bike[variable])}
+                        stroke="#F1C500"
+                        stroke-width="2"
+                        />
+                    {/if}
+
+                    <circle class="point"
+                        r = 4
+                        cx={barWidth - 2 + xScale(i)+barPadding}
+                        cy={yScale(bike[variable])}
+                        fill="#F1C500" 
+                    />
+
+                    
+
+                {/each}
+            </g>
+        {/if}
+
 
         <!-- y axis -->
         <g class="axis y-axis">
@@ -197,7 +233,7 @@
     .tick line {
         stroke: var(--brandGray);
         stroke-width: 1px;
-        opacity: 0.2;
+        opacity: 0.1;
     }
     .tick text {
         fill: var(--brandGray);
@@ -226,8 +262,9 @@
     }
 
     .bars rect {
-        stroke: var(brandDarkGreen);
+        stroke: var(--brandDarkGreen);
         stroke-width: 1px;
+        fill: var(--brandWhite);
     }
     .bars rect:hover {
         stroke: red;
@@ -245,5 +282,9 @@
     .year-tick {
         stroke-width: 2px;
         z-index: 6;
+    }
+
+    .point {
+        r: 4px;
     }
 </style>

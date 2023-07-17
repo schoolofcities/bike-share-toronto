@@ -31,7 +31,7 @@
 
         <h2>Exploring Bike-Share Growth</h2>
 
-        <p>Michael Liu & Jeff Allen, 07/2023</p>
+        <p>Michael Liu & Jeff Allen -- 07/2023</p>
 
         <p>
             The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions as Bixi Bike. While Bixi was successful in Montreal, it faced significant financial losses in Toronto. Unable to repay its $3.9 million loan from the City of Toronto, Bixi was taken over by the Toronto Parking Authority in 2014 and rebranded as Bike Share Toronto. This change in ownership led to increased funding from sources such as TD Canada, Metrolinx, the Federal 	Government, the City of Toronto, and most recently, Tangerine Bank. These funds supported the system's operations, expansion costs, and special programs.
@@ -56,7 +56,13 @@
         <h3>Bike Share Ridership by Month</h3>
     </div>  
     
-    <BarChart variable="TripCount" yTicks={yTicksTrip} colour="#fff" maxHeight=600 />
+    <BarChart 
+        variable="TripCount" 
+        yTicks={yTicksTrip} 
+        colour="#fff" 
+        maxHeight=600 
+        type="bar"
+    />
             
     <div class="text">
         <p>        
@@ -98,7 +104,25 @@
         <h3>Number of Operating Bike Share Stations</h3>
     </div>
 
-    <BarChart variable="StationCount" yTicks={yTicksStation} colour="#fff" maxHeight=200/>
+    <BarChart 
+        variable="StationCount" 
+        yTicks={yTicksStation} 
+        colour="#fff" 
+        maxHeight=200
+        type="bar"
+    />
+
+    <div class="text">
+        <h3>Trips Per Station</h3>
+    </div>
+
+    <BarChart
+        variable="AverageStationUsage"
+        yTicks={yTicksAvStation}
+        colour="#fff"
+        maxHeight=300
+        type="line"
+    />
 
     <div class="text">
         <p>
@@ -108,13 +132,26 @@
         <p>(data only available from 2019 onwards)</p>
     </div>
 
-    <BarChart variable="BikeCount" yTicks={yTicksBike} colour="#fff" maxHeight=300/>
+    <BarChart 
+        variable="BikeCount" 
+        yTicks={yTicksBike} 
+        colour="#fff" 
+        maxHeight=300
+        type="bar"
+    />
+
+    <div class="text">
+        <h3>Trips Per Bike</h3>
+    </div>
 
     <BarChart
-	variable="AverageStationUsage"
-	yTicks={yTicksAvStation}
-	colour="#fff"
-    maxHeight=500
-/>
+        variable="AverageBikeUsage"
+        yTicks={yTicksAvBikeUsage}
+        colour="#fff"
+        maxHeight=300
+        type="line"
+    />
+
+    
 
 </main>
