@@ -24,24 +24,33 @@
 }
 
 body {
-    margin: auto 0;
+    padding: 0px;
+    margin: 0px;
     background-color: var(--brandDarkGreen);
+}
+
+main {
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    min-width: 320px;
+    max-width: 1300px;
+    position: relative;
 }
 
 
 .text {
-    margin: auto 0;
-    position: relative;
     background-color: none;
-    width: 666px;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
 }
-
 
 h1 {
     font-family: TradeGothicBold;
     font-size: 35px;
     color: var(--brandYellow);
-    padding-top: 10px;
+    border-bottom: solid 1px;
+    padding-top: 50px;
 }
 
 h2 {
@@ -49,7 +58,6 @@ h2 {
     font-family: TradeGothicBold;
     font-weight: bold;
     color: var(--brandWhite);
-    padding-top: 20px;
 }
 
 p {
@@ -67,3 +75,6 @@ p {
     font-size: 15px;
 }
 
+img {
+    width: 100%
+}

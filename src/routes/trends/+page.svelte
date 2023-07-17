@@ -10,10 +10,16 @@
 
 <TopSofC/>
 
-<div class="text">
+<img src="/toronto-green-bike-map.png" alt="map of bike lanes and bike-share stations in toronto with a green background">
 
-    <h1>Toronto On Bikes</h1>
+<main>
 
-    <h2>Exploring Monthly Trends In Bike Share Usage</h2>
+    <div class="text">
 
-</div>
+        <h1>Toronto On Bikes</h1>
+
+        <h2>Exploring Monthly Trends Of Bike Share Usage</h2>
+
+    </div>
+
+</main>
