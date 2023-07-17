@@ -22,3 +22,48 @@
     --brandGray80: #333333;
     --brandGray90: #191919;
 }
+
+body {
+    margin: auto 0;
+    background-color: var(--brandDarkGreen);
+}
+
+
+.text {
+    margin: auto 0;
+    position: relative;
+    background-color: none;
+    width: 666px;
+}
+
+
+h1 {
+    font-family: TradeGothicBold;
+    font-size: 35px;
+    color: var(--brandYellow);
+    padding-top: 10px;
+}
+
+h2 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-weight: bold;
+    color: var(--brandWhite);
+    padding-top: 20px;
+}
+
+p {
+    /* should pick a consistent font here probably */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    color: var(--brandWhite);
+    text-align: left;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    line-height: 150%;
+    font-size: 15px;
+}
+

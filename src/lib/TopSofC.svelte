@@ -17,17 +17,15 @@
 		overflow: hidden;
    		top: 0px;
 		height: 50px;
-		background-color: var(--brandYellow);
+		background-color: var(--brandDarkGreen);
 		margin-bottom: 20px;
-		border-bottom: 0px solid var(--brandGray90);
+		border-bottom: 1px solid var(--brandWhite);
 		width: 100%;
 		min-width: 200px;
 		padding-left: 0px;
 		padding-right: 0px;
-		/* text-align: center; */
 		z-index: 5;
 		opacity: 0.92;
-		/* box-shadow: 0 2px 0 0 var(--brandLightBlue); */
 	}
 
 	#logo {
