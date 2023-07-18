@@ -75,8 +75,12 @@
     bind:clientWidth={width}
 >
     <svg width={xTicks.length * barWidth} {height}>
-        <!-- this is the year separation lines-->
+
+       
+
+        <!-- this is the year separation lines-->        
         <g class="year-tick">
+           
             {#each data as bike, i}
                 {#if i % 12 === 0 && i > 0}
                     
@@ -239,7 +243,7 @@
     }
 
     .tick {
-        font-family: Helvetica, Arial;
+        font-family: RobotoRegular;
         font-size: 0.725em;
         font-weight: 200;
     }

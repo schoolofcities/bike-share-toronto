@@ -13,9 +13,9 @@
         { Year: 2022, Ridership: 4600000 },
     ];
     let variable = "Ridership";
-    let yTicks = [0, 1000000, 2000000, 3000000, 4000000, 5000000];
+    let yTicks = [1000000, 2000000, 3000000, 4000000];
     let width = 100;
-    let height = 30;
+    let height = 300;
 
     var yearList = data.map(function (obj) {
         return obj.Year;
@@ -68,17 +68,17 @@
     id="barchart"
     class="chart"
     bind:clientWidth={width}
-    bind:clientHeight={height}
 >
-    <svg width={xTicks.length * barWidth} {height}>
+    <svg width={xTicks.length * barWidth}>
         <!-- y axis -->
+       
 
         <g class="bars">
             {#each data as bike, i}
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
-                    x={xScale(i) + 50}
+                    x={xScale(i) + 0}
                     y={yScale(bike[variable])}
                     width={barWidth - 2}
                     height={yScale(0) - yScale(bike[variable])}
@@ -100,7 +100,7 @@
                     transform="translate(0, {yScale(tick)})"
                 >
                     <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)}</text>
+                    <text x=260 y="5">{thousandToK(tick)}</text>
                 </g>
             {/each}
         </g>
@@ -108,7 +108,7 @@
         <g class="axis x-axis">
             {#each data as bike, i}
                 <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 48} y="-20"
+                    <text x={barWidth / 2 - 2} y="-20"
                         >{width > 500
                             ? bike.Year
                             : formatMobile(bike.Year)}</text
@@ -116,6 +116,10 @@
                 </g>
             {/each}
         </g>
+
+        <text x="32" y="-255" text-anchor="start" class="tick" transform="rotate(90 20 20)">
+            Annual Ridership (Millions)
+        </text>
 
         
     </svg>
@@ -134,19 +138,22 @@
 <style>
     .chart {
         max-width: 320px;
+        height: 300px;
         margin: 0 auto;
+        /* background-color: #000000; */
     }
 
     svg {
         position: relative;
         width: 100%;
-        height: 200px;
+        height: 300px;
     }
 
     .tick {
-        font-family: Helvetica, Arial;
-        font-size: 0.725em;
+        font-family: RobotoRegular;
+        font-size: 14px;
         font-weight: 200;
+        fill: var(--brandGray);
     }
 
     .tick line {

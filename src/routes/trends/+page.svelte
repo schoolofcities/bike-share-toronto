@@ -36,43 +36,37 @@
     <div class="text">
 
         <div id="two-column-wrapper">
+            
             <div id="left-column">
-                <p>
-                    Toronto's Bike Share system has grown over the past decade. It has more than quadrupled from 2014, when it was taken over by the Toronto Parking Authority, to 2022.
-                </p>
+                <BarChart2/>
             </div>
             <div id="right-column">
-                <BarChart2/>
+                <p>
+                    Toronto's Bike Share system has grown substantially over the past decade. Ridership has more than quadrupled from 2014 to 2022 as a result (if you build it they will ride!). Almost every year, ridership records for
+                    daily, weekly, monthly, and annually trips have been broken.
+                </p>
+                <p>
+                    We're interested in charting this growth month-by-month level to track how expansion and uptake including seasonal variations ridership. We'll hopefully update this page as more data is released into late 2023 and beyond :)
+                </p>
+                <p>
+                    Most of the charts in this page start in January 2017 because of different data formats and some incomplete data prior to this date. We're hoping to backfill this as well though.
+                </p>
+                
             </div>
         </div>
 
-        <p>
+        <!-- <p>
             The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions as Bixi Bike. While Bixi was successful in Montreal, it faced significant financial losses in Toronto. Unable to repay its $3.9 million loan from the City of Toronto, Bixi was taken over by the Toronto Parking Authority in 2014 and rebranded as Bike Share Toronto. This change in ownership led to increased funding from sources such as TD Canada, Metrolinx, the Federal 	Government, the City of Toronto, and most recently, Tangerine Bank. These funds supported the system's operations, expansion costs, and special programs.
-        </p>
+        </p> -->
 
-        <p>
-            Since 2014, ridership has experienced significant growth, along with an expansion of the service network. Almost every year, ridership records for
-	        daily, weekly, monthly, and annually trips were broken.
-        </p>
-
-        
 
     </div>
 
     
 
     <div class="text">
-        <p>
-            Breaking annual data into monthly intervals reveals a seasonal pattern in
-            bike trips, with more rides during warmer months and fewer rides in colder
-            months. 
-        </p>
-        <p>
-            Add sentence about data sources, only available from 2017 forward.
-        </p>
         <h3>Bike Share Ridership by Month</h3>
     </div>  
-    
     <BarChart 
         variable="TripCount" 
         yTicks={yTicksTrip} 
@@ -176,7 +170,7 @@
 
     <div class="text">
         <p>
-            Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day).  In 2020, average bike usage did not surpass 30 rides per day until May due to the pandemic lockdown, which resulted in decreased bikeshare usage. Normally, there are 5-6 months where bikes are used more than twice per day, and in 2022, bikes were used on average more than 90 times per month.
+            Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day).  In 2020, average bike usage did not surpass 30 rides per day until May due to the pandemic lockdown, which resulted in decreased bike share usage. Normally, there are 5-6 months where bikes are used more than twice per day, and in 2022, bikes were used on average more than 90 times per month.
         </p>
     </div>
 
@@ -190,15 +184,17 @@
 
 
 <style>
-    /* #two-column-wrapper {
+    #two-column-wrapper {
         display: flex;
         flex-wrap: wrap;
     }
-    #left-column {
-        flex: 1
-    }
     #right-column {
         flex: 1;
-        width: 300px;
-    } */
+        min-width: 300px;
+    }
+    #left-column {
+        padding-top: 20px;
+        flex: 1;
+        min-width: 300px;
+    }
 </style>
