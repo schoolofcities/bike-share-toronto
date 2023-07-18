@@ -52,7 +52,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 9),5);
+    $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 9),6);
 
     let selected_datapoint = undefined;
 
@@ -86,9 +86,9 @@
                     
                     <line
                         class="year-grid"
-                        x1={xScale(i)+barPadding/2}
+                        x1={xScale(i) + barWidth}
                         y1={height - 3}
-                        x2={xScale(i)+barPadding/2}
+                        x2={xScale(i) + barWidth}
                         y2={0}
                         stroke-width={1}
                         stroke="#fff"

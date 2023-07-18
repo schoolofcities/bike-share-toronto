@@ -1,14 +1,11 @@
 <script>
 
     import TopSofC from "../../lib/TopSofC.svelte";
+    import MonthlyChart from "../../lib/MonthlyChart.svelte";
+    import YearlyChart from "../../lib/YearlyChart.svelte";
     import "../../assets/global-styles.css";
 
-    import BarChart from "../../lib/BarChart.svelte";
-    import BarChart2 from "../../lib/BarChart2.svelte";
-
-    let yTicksTrip = [
-		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
-	];
+    let yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
     let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
 	let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
 	let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
@@ -38,72 +35,43 @@
         <div id="two-column-wrapper">
             
             <div id="left-column">
-                <BarChart2/>
+                <YearlyChart/>
             </div>
+
             <div id="right-column">
                 <p>
                     Toronto's Bike Share system has grown substantially over the past decade. Ridership has more than quadrupled from 2014 to 2022 as a result (if you build it they will ride!). Almost every year, ridership records for
                     daily, weekly, monthly, and annually trips have been broken.
                 </p>
                 <p>
-                    We're interested in charting this growth month-by-month level to track how expansion and uptake including seasonal variations ridership. We'll hopefully update this page as more data is released into late 2023 and beyond :)
+                    We're interested in charting this growth month-by-month level to track seasonal variations of  expansion and uptake. We'll hopefully update this page as more data is released into late 2023 and beyond :)
                 </p>
                 <p>
                     Most of the charts in this page start in January 2017 because of different data formats and some incomplete data prior to this date. We're hoping to backfill this as well though.
                 </p>
-                
             </div>
+
         </div>
 
-        <!-- <p>
-            The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions as Bixi Bike. While Bixi was successful in Montreal, it faced significant financial losses in Toronto. Unable to repay its $3.9 million loan from the City of Toronto, Bixi was taken over by the Toronto Parking Authority in 2014 and rebranded as Bike Share Toronto. This change in ownership led to increased funding from sources such as TD Canada, Metrolinx, the Federal 	Government, the City of Toronto, and most recently, Tangerine Bank. These funds supported the system's operations, expansion costs, and special programs.
-        </p> -->
-
-
     </div>
-
-    
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
     </div>  
-    <BarChart 
+    <MonthlyChart 
         variable="TripCount" 
         yTicks={yTicksTrip} 
         colour="#fff" 
         maxHeight=600 
         type="bar"
     />
-            
+      
     <div class="text">
         <p>        
-            August consistently records the highest ridership between 2019 and
-            2022, while February tends to have the lowest ridership. Since 2018, each
-            year has seen record-breaking ridership. In August 2022, the highest monthly
-            ridership reached almost 700,000 rides, over 200,000 more than the same
-            period in 2021. Interestingly, the colder months (September to December)
-            also showed higher ridership compared to previous years. An analysis by
-            <a
-                href="https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c"
-            >
-                Sigli Mumuni
-            </a>
-            on Toronto's Bikeshare ridership found a positive correlation between temperature
-            and ridership, indicating that warmer weather leads to increased ridership. The
-            higher ridership between September and December 2022 could be attributed to a
-            <a
-                href="https://globalnews.ca/news/9258382/canada-fall-weather-outlook-nov-2022/"
-                >warmer winter</a
-            >, with November experiencing record-breaking temperatures.
+            August consistently records the highest ridership between 2019 and 2022, while February tends to have the lowest ridership. Since 2018, each year has seen record-breaking ridership. In August 2022, the highest monthly ridership reached almost 700,000 rides, over 200,000 more than the same period in 2021. Interestingly, the colder months (September to December) also showed higher ridership  compared to previous years. An analysis by <a href="https://medium.com/@siglimumuni/bike-share-toronto-an-exploration-of-trip-patterns-and-user-behaviour-with-python-part-2-22d1fead5f8c">Sigli Mumuni</a> on Toronto's Bikeshare ridership found a positive correlation between temperature and ridership, indicating that warmer weather leads to increased ridership. The higher ridership between September and December 2022 could be attributed to a <a href="https://globalnews.ca/news/9258382/canada-fall-weather-outlook-nov-2022/">warmer winter</a>, with November experiencing record-breaking temperatures.
         </p>
         <p>
-            A notable difference in trip patterns occurred during the early months of
-            the pandemic. While the number of trips usually increased after February,
-            this was not the case in 2020. After a small growth in March, the province
-            went into a lockdown on March 24, 2020, resulting in a drop in ridership in
-            April and the lowest ridership in May across the five-year period. However,
-            ridership quickly bounced back starting in June, and by July 2020, it
-            exceeded the ridership of August 2019, the highest month in 2019.
+            A notable difference in trip patterns occurred during the early months of the pandemic. While the number of trips usually increased after February, this was not the case in 2020. After a small growth in March, the province went into a lockdown on March 24, 2020, resulting in a drop in ridership in April and the lowest ridership in May across the five-year period. However, ridership quickly bounced back starting in June, and by July 2020, it exceeded the ridership of August 2019, the highest month in 2019.
         </p>
     </div>
 
@@ -114,7 +82,7 @@
         <h3>Number of Operating Bike Share Stations</h3>
     </div>
 
-    <BarChart 
+    <MonthlyChart 
         variable="StationCount" 
         yTicks={yTicksStation} 
         colour="#fff" 
@@ -129,15 +97,13 @@
         <h3>Trips Per Station</h3>
     </div>
 
-    <BarChart
+    <MonthlyChart
         variable="AverageStationUsage"
         yTicks={yTicksAvStation}
         colour="#fff"
         maxHeight=300
         type="line"
     />
-
-    
 
     <div class="text">
        
@@ -148,7 +114,7 @@
         <p>(data only available from 2019 onwards)</p>
     </div>
 
-    <BarChart 
+    <MonthlyChart 
         variable="BikeCount" 
         yTicks={yTicksBike} 
         colour="#fff" 
@@ -160,7 +126,7 @@
         <h3>Trips Per Bike</h3>
     </div>
 
-    <BarChart
+    <MonthlyChart
         variable="AverageBikeUsage"
         yTicks={yTicksAvBikeUsage}
         colour="#fff"
@@ -184,6 +150,7 @@
 
 
 <style>
+    /* page specific styling */
     #two-column-wrapper {
         display: flex;
         flex-wrap: wrap;

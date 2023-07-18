@@ -80,7 +80,7 @@
                 <rect
                     x={xScale(i) + 0}
                     y={yScale(bike[variable])}
-                    width={barWidth - 2}
+                    width={barWidth - 3}
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;
