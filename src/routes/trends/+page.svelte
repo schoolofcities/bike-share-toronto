@@ -101,7 +101,6 @@
     <div class="text">
         <p>
             The bikeshare system has been expanding since 2017, with the number of stations increasing from 200 to 659 by 2023. The chart below illustrates the fast  expansion. Before 2020, large expansions would occur in July, with many stations installed in either June or July. The pace of expansion slowed in 2021, resulting in a relatively stable number of stations. In 2022, the expansion occurred incrementally, with a few stations installed each month.
-        
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
     </div>
@@ -115,6 +114,9 @@
     />
 
     <div class="text">
+        <p>
+            We can also calculate average station usage is by dividing ridership by the number of stations. As shown in the chart below, average station usage also fluctuates seasonally, mirroring the ridership pattern. The lowest usage is typically observed in January or February, with fewer than 200 rides started from each station during these months. The highest usage was recorded in June 2017, with 1475 rides per station. In other years (2018 to 2022), the highest average station usage occurred in August. The average ridership per station has increased in 2022 due to the growth in ridership.
+        </p>
         <h3>Trips Per Station</h3>
     </div>
 
@@ -126,7 +128,10 @@
         type="line"
     />
 
+    
+
     <div class="text">
+       
         <p>
             Each bike in the system is assigned a unique ID, enabling the tracking of the number of bikes. The data shows that the number of bikes also fluctuates seasonally, similar to the number of trips taken. The highest count of bikes was recorded in August 2020, with 6,455 bikes in the system. However, after 2021, the number of bikes in the system stabilized and did not fluctuate as much as in 2019 and 2020. It is unclear whether Bike Share Toronto stores bikes during periods of low ridership or if the bikes remain idle at the stations.
         </p>
