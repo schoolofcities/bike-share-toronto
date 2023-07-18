@@ -3,6 +3,16 @@
     src: url("Trade Gothic LT Bold.ttf");
 }
 
+@font-face {
+    font-family: RobotoRegular;
+    src: url("roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: RobotoBold;
+    src: url("roboto/Roboto-Bold.ttf");
+}
+
 :root {
     font-family: Roboto, sans-serif;
     --brandDarkBlue: #1E3765;
@@ -21,4 +31,78 @@
     --brandGray70: #4d4d4d;
     --brandGray80: #333333;
     --brandGray90: #191919;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--brandDarkGreen);
+}
+
+main {
+    margin: 0 auto;
+    width: calc(100% - 40px);
+    min-width: 320px;
+    max-width: 1300px;
+    position: relative;
+}
+
+.title {
+    background-color: none;
+    max-width: 750px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    border-bottom: dotted 3px var(--brandYellow);
+    position: relative;
+}
+
+
+.text {
+    background-color: none;
+    max-width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    font-family: TradeGothicBold;
+    font-size: 42px;
+    color: var(--brandWhite);
+    text-decoration: underline;
+    padding-top: 50px;
+}
+
+h2 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-size: 30px;
+    color: var(--brandYellow);
+}
+
+h3 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-size: 22px;
+    text-decoration: underline;
+    color: var(--brandWhite);
+}
+
+p {
+    font-family: RobotoRegular;
+    color: var(--brandWhite);
+    text-align: left;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+a {
+    color: var(--brandWhite);
+    text-decoration: underline;
+}
+a:hover {
+    color: var(--brandLightBlue);
+}
+
+img {
+    width: 100%
 }

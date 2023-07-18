@@ -7,9 +7,13 @@
     export let variable;
     export let yTicks;
     export let colour;
+    export let maxHeight;
+    export let type;
 
     let width = 100;
     let height = 60;
+
+    $: height = Math.min(width / 2.42, maxHeight);
 
     var monthList = data.map(function (obj) {
         return obj.Month;
@@ -48,7 +52,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length;
+    $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 9),6);
 
     let selected_datapoint = undefined;
 
@@ -58,52 +62,43 @@
         mouse_y = event.clientY;
     };
 
-
     var barPadding = 10; // controls how much spacing the bars will be from the
+
+    
+
+
 </script>
 
 <div
     id="barchart"
     class="chart"
     bind:clientWidth={width}
-    bind:clientHeight={height}
 >
     <svg width={xTicks.length * barWidth} {height}>
-        <!-- this is the year separation lines-->
+
+       
+
+        <!-- this is the year separation lines-->        
         <g class="year-tick">
+           
             {#each data as bike, i}
                 {#if i % 12 === 0 && i > 0}
-                    <line
-                        class="year-tick"
-                        x1={xScale(i)+barPadding-1}
-                        y1={height - 30}
-                        x2={xScale(i)+barPadding-1}
-                        y2={height - 10}
-                        stroke="grey"
-                    />
+                    
                     <line
                         class="year-grid"
-                        x1={xScale(i)+barPadding-1}
-                        y1={height - 30}
-                        x2={xScale(i)+barPadding-1}
-                        y2={-20}
-                        stroke="grey"
+                        x1={xScale(i) + barWidth}
+                        y1={height - 3}
+                        x2={xScale(i) + barWidth}
+                        y2={0}
+                        stroke-width={1}
+                        stroke="#fff"
+                        stroke-dasharray="5 3"
+                        opacity=0.7
                     />
                 {/if}
             {/each}
         </g>
-        <!-- y axis -->
-        <g class="axis y-axis">
-            {#each yTicks as tick}
-                <g
-                    class="tick tick-{tick}"
-                    transform="translate(0, {yScale(tick)})"
-                >
-                    <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)} </text>
-                </g>
-            {/each}
-        </g>
+        
 
         <!-- Second x axis, only appears when the inner window width > 800 -->
         <g class="axis x-axis">
@@ -145,23 +140,81 @@
             {/each}
         </g>
 
-        <g class="bars" fill = {colour}>
-            {#each data as bike, i}
-                <!-- Controls the width of the bar graph, 
-				width: controls the spacing between the bars-->
-                <rect
-                    x={xScale(i)+barPadding}
-                    y={yScale(bike[variable])}
-                    width={barWidth - 2}
-                    height={yScale(0) - yScale(bike[variable])}
-                    on:mouseover={(event) => {
-                        selected_datapoint = bike;
-                        setMousePosition(event);
-                    }}
-                    on:mouseout={() => {
-                        selected_datapoint = undefined;
-                    }}
-                />
+        {#if type === "bar"}
+            <g>
+                {#each data as bike, i}
+                    <!-- Controls the width of the bar graph, 
+                    width: controls the spacing between the bars-->
+                    <rect class="bar"
+                        x={xScale(i)+barPadding}
+                        y={yScale(bike[variable])}
+                        width={barWidth - 2}
+                        height={yScale(0) - yScale(bike[variable])}
+                        on:mouseover={(event) => {
+                            selected_datapoint = bike;
+                            setMousePosition(event);
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                        color="white"
+                    />
+
+                    <rect class="tip"
+                        x={xScale(i)+barPadding}
+                        y={yScale(bike[variable]) + 0}
+                        width={barWidth - 2}
+                        height={8}
+                    />
+
+                    
+                    
+                {/each}
+                
+            </g>
+        {/if}
+
+        {#if type === "line"}
+            <g>
+                {#each data as bike, i}
+
+                    {#if i > 0 && bike[variable] !== null}
+                        <line
+                        x1={barWidth - 2 + xScale(i - 1) + barPadding}
+                        y1={yScale(data[i - 1][variable])}
+                        x2={barWidth - 2 + xScale(i) + barPadding}
+                        y2={yScale(bike[variable])}
+                        stroke="#F1C500"
+                        stroke-width="2"
+                        />
+                    {/if}
+
+                    {#if bike[variable] !== null}
+                    <circle class="point"
+                        r = 4
+                        cx={barWidth - 2 + xScale(i)+barPadding}
+                        cy={yScale(bike[variable])}
+                        fill="#F1C500" 
+                    />
+                    {/if}
+
+                    
+
+                {/each}
+            </g>
+        {/if}
+
+
+        <!-- y axis -->
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
+                >
+                    <line x2="100%" />
+                    <text y="-4">{thousandToK(tick)} </text>
+                </g>
             {/each}
         </g>
     </svg>
@@ -179,28 +232,29 @@
 <style>
     .chart {
         width: 100%;
-        max-width: 80%;
+        max-width: 100%;
+        
         margin: 0 auto;
     }
 
     svg {
         position: relative;
         width: 100%;
-        height: 500px;
     }
 
     .tick {
-        font-family: Helvetica, Arial;
+        font-family: RobotoRegular;
         font-size: 0.725em;
         font-weight: 200;
     }
 
     .tick line {
-        stroke: var(--brandGray70);
-        stroke-width: 0.4px;
+        stroke: var(--brandGray);
+        stroke-width: 1px;
+        opacity: 0.1;
     }
     .tick text {
-        fill: var(--brandGray70);
+        fill: var(--brandGray);
         text-anchor: start;
         font-size: 12px;
     }
@@ -225,13 +279,20 @@
         fill: #000000; /* Adjust the font color as desired */
     }
 
-    .bars rect {
-        
-        stroke: none;
-        opacity: 0.65;
+    .bar {
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
+        stroke-opacity: 1;
+        fill: var(--brandWhite);
+        cursor: pointer;
     }
-    .bars rect:hover {
-        stroke: red;
+    .bar:hover {
+        fill: var(--brandLightBlue);
+    }
+    .tip {
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
+        fill: var(--brandYellow);
     }
     #tooltip {
         position: fixed;
@@ -246,5 +307,9 @@
     .year-tick {
         stroke-width: 2px;
         z-index: 6;
+    }
+
+    .point {
+        r: 4px;
     }
 </style>

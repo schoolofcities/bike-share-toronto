@@ -1,5 +1,6 @@
 <script>
     import { scaleLinear } from "d3-scale";
+    import "../assets/global-styles.css";
 
     var data = [
         { Year: 2015, Ridership: 667000 },
@@ -12,9 +13,9 @@
         { Year: 2022, Ridership: 4600000 },
     ];
     let variable = "Ridership";
-    let yTicks = [0, 500000, 1500000, 2500000, 3500000, 4500000];
+    let yTicks = [1000000, 2000000, 3000000, 4000000];
     let width = 100;
-    let height = 30;
+    let height = 300;
 
     var yearList = data.map(function (obj) {
         return obj.Year;
@@ -32,7 +33,7 @@
         var newtick;
         if (tick > 1000 && tick < 1000000) {
             newtick = tick / 1000 + "K";
-        } else if (tick > 1000000) {
+        } else if (tick => 1000000) {
             newtick = tick / 1000000 + "M";
         } else {
             newtick = tick;
@@ -67,42 +68,19 @@
     id="barchart"
     class="chart"
     bind:clientWidth={width}
-    bind:clientHeight={height}
 >
-    <svg width={xTicks.length * barWidth} {height}>
+    <svg width={xTicks.length * barWidth}>
         <!-- y axis -->
-        <g class="axis y-axis">
-            {#each yTicks as tick}
-                <g
-                    class="tick tick-{tick}"
-                    transform="translate(0, {yScale(tick)})"
-                >
-                    <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)} </text>
-                </g>
-            {/each}
-        </g>
-
-        <g class="axis x-axis">
-            {#each data as bike, i}
-                <g class="tick" transform="translate({xScale(i)},{height})">
-                    <text x={barWidth / 2 + 48} y="-20"
-                        >{width > 500
-                            ? bike.Year
-                            : formatMobile(bike.Year)}</text
-                    >
-                </g>
-            {/each}
-        </g>
+       
 
         <g class="bars">
             {#each data as bike, i}
                 <!-- Controls the width of the bar graph, 
 				width: controls the spacing between the bars-->
                 <rect
-                    x={xScale(i) + 50}
+                    x={xScale(i) + 0}
                     y={yScale(bike[variable])}
-                    width={barWidth - 2}
+                    width={barWidth - 3}
                     height={yScale(0) - yScale(bike[variable])}
                     on:mouseover={(event) => {
                         selected_datapoint = bike;
@@ -114,6 +92,36 @@
                 />
             {/each}
         </g>
+
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
+                >
+                    <line x2="100%" />
+                    <text x=260 y="5">{thousandToK(tick)}</text>
+                </g>
+            {/each}
+        </g>
+
+        <g class="axis x-axis">
+            {#each data as bike, i}
+                <g class="tick" transform="translate({xScale(i)},{height})">
+                    <text x={barWidth / 2 - 2} y="-20"
+                        >{width > 500
+                            ? bike.Year
+                            : formatMobile(bike.Year)}</text
+                    >
+                </g>
+            {/each}
+        </g>
+
+        <text x="32" y="-255" text-anchor="start" class="tick" transform="rotate(90 20 20)">
+            Annual Ridership (Millions)
+        </text>
+
+        
     </svg>
 </div>
 
@@ -129,9 +137,10 @@
 
 <style>
     .chart {
-        width: 100%;
-        max-width: 60%;
+        max-width: 320px;
+        height: 300px;
         margin: 0 auto;
+        /* background-color: #000000; */
     }
 
     svg {
@@ -141,17 +150,18 @@
     }
 
     .tick {
-        font-family: Helvetica, Arial;
-        font-size: 0.725em;
+        font-family: RobotoRegular;
+        font-size: 14px;
         font-weight: 200;
+        fill: var(--brandGray);
     }
 
     .tick line {
-        stroke: var(--brandGray70);
-        stroke-width: 0.4px;
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
     }
     .tick text {
-        fill: var(--brandGray70);
+        fill: var(--brandGray);
         text-anchor: start;
         font-size: 15px;
     }
@@ -175,9 +185,9 @@
     }
 
     .bars rect {
-        fill: #aba89e;
+        fill: var(--brandWhite);
         stroke: none;
-        opacity: 0.65;
+        opacity: 1;
     }
     .bars rect:hover {
         stroke: red;
@@ -191,11 +201,6 @@
         border: solid 1px var(--brandGray);
         border-radius: 4px;
         padding: 5px;
-    }
-    @media screen and (max-width: 900px) {
-        .chart {
-            max-width: 70%;
-        }
     }
     @media screen and (max-width: 415px) {
         h1 {
