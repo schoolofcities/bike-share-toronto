@@ -52,7 +52,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = Math.min(innerWidth / xTicks.length, 9);
+    $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 9),5);
 
     let selected_datapoint = undefined;
 
@@ -137,11 +137,11 @@
         </g>
 
         {#if type === "bar"}
-            <g class="bars" fill = {colour}>
+            <g>
                 {#each data as bike, i}
                     <!-- Controls the width of the bar graph, 
                     width: controls the spacing between the bars-->
-                    <rect
+                    <rect class="bar"
                         x={xScale(i)+barPadding}
                         y={yScale(bike[variable])}
                         width={barWidth - 2}
@@ -153,8 +153,20 @@
                         on:mouseout={() => {
                             selected_datapoint = undefined;
                         }}
+                        color="white"
                     />
+
+                    <rect class="tip"
+                        x={xScale(i)+barPadding}
+                        y={yScale(bike[variable]) + 0}
+                        width={barWidth - 2}
+                        height={8}
+                    />
+
+                    
+                    
                 {/each}
+                
             </g>
         {/if}
 
@@ -162,7 +174,7 @@
             <g>
                 {#each data as bike, i}
 
-                    {#if i > 0}
+                    {#if i > 0 && bike[variable] !== null}
                         <line
                         x1={barWidth - 2 + xScale(i - 1) + barPadding}
                         y1={yScale(data[i - 1][variable])}
@@ -173,12 +185,14 @@
                         />
                     {/if}
 
+                    {#if bike[variable] !== null}
                     <circle class="point"
                         r = 4
                         cx={barWidth - 2 + xScale(i)+barPadding}
                         cy={yScale(bike[variable])}
                         fill="#F1C500" 
                     />
+                    {/if}
 
                     
 
@@ -261,13 +275,20 @@
         fill: #000000; /* Adjust the font color as desired */
     }
 
-    .bars rect {
+    .bar {
         stroke: var(--brandDarkGreen);
         stroke-width: 1px;
+        stroke-opacity: 1;
         fill: var(--brandWhite);
+        cursor: pointer;
     }
-    .bars rect:hover {
-        stroke: red;
+    .bar:hover {
+        fill: var(--brandLightBlue);
+    }
+    .tip {
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
+        fill: var(--brandYellow);
     }
     #tooltip {
         position: fixed;

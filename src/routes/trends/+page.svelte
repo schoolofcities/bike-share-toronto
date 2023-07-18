@@ -12,7 +12,7 @@
     let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
 	let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
 	let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
-	let yTicksAvBikeUsage = [0, 20, 30, 40, 60, 80, 100, 120];
+	let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120];
 
 </script>
 
@@ -25,13 +25,15 @@
 
 <main>
 
+    <div class="title">
+
+        <h1>Exploring Bike-Share Growth in Toronto</h1>
+
+        <p><a>Michael Liu</a> & <a>Jeff Allen</a> -- 07/2023</p>
+
+    </div>
+
     <div class="text">
-
-        <h1>Toronto On Bikes</h1>
-
-        <h2>Exploring Bike-Share Growth</h2>
-
-        <p>Michael Liu & Jeff Allen -- 07/2023</p>
 
         <p>
             The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions as Bixi Bike. While Bixi was successful in Montreal, it faced significant financial losses in Toronto. Unable to repay its $3.9 million loan from the City of Toronto, Bixi was taken over by the Toronto Parking Authority in 2014 and rebranded as Bike Share Toronto. This change in ownership led to increased funding from sources such as TD Canada, Metrolinx, the Federal 	Government, the City of Toronto, and most recently, Tangerine Bank. These funds supported the system's operations, expansion costs, and special programs.
@@ -108,7 +110,7 @@
         variable="StationCount" 
         yTicks={yTicksStation} 
         colour="#fff" 
-        maxHeight=200
+        maxHeight=250
         type="bar"
     />
 
