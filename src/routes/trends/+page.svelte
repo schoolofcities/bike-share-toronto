@@ -27,7 +27,7 @@
 
     <div class="title">
 
-        <h1>Exploring Bike-Share Growth in Toronto</h1>
+        <h1>Exploring Bike Share Growth in Toronto</h1>
 
         <p><a>Michael Liu</a> & <a>Jeff Allen</a> -- 07/2023</p>
 
@@ -35,15 +35,27 @@
 
     <div class="text">
 
+        <div id="two-column-wrapper">
+            <div id="left-column">
+                <p>
+                    Toronto's Bike Share system has grown over the past decade. It has more than quadrupled from 2014, when it was taken over by the Toronto Parking Authority, to 2022.
+                </p>
+            </div>
+            <div id="right-column">
+                <BarChart2/>
+            </div>
+        </div>
+
         <p>
             The bikeshare system in Toronto was launched in 2011 by PBSC Urban Solutions as Bixi Bike. While Bixi was successful in Montreal, it faced significant financial losses in Toronto. Unable to repay its $3.9 million loan from the City of Toronto, Bixi was taken over by the Toronto Parking Authority in 2014 and rebranded as Bike Share Toronto. This change in ownership led to increased funding from sources such as TD Canada, Metrolinx, the Federal 	Government, the City of Toronto, and most recently, Tangerine Bank. These funds supported the system's operations, expansion costs, and special programs.
         </p>
+
         <p>
             Since 2014, ridership has experienced significant growth, along with an expansion of the service network. Almost every year, ridership records for
 	        daily, weekly, monthly, and annually trips were broken.
         </p>
 
-        <BarChart2/>
+        
 
     </div>
 
@@ -54,6 +66,9 @@
             Breaking annual data into monthly intervals reveals a seasonal pattern in
             bike trips, with more rides during warmer months and fewer rides in colder
             months. 
+        </p>
+        <p>
+            Add sentence about data sources, only available from 2017 forward.
         </p>
         <h3>Bike Share Ridership by Month</h3>
     </div>  
@@ -115,7 +130,7 @@
 
     <div class="text">
         <p>
-            We can also calculate average station usage is by dividing ridership by the number of stations. As shown in the chart below, average station usage also fluctuates seasonally, mirroring the ridership pattern. The lowest usage is typically observed in January or February, with fewer than 200 rides started from each station during these months. The highest usage was recorded in June 2017, with 1475 rides per station. In other years (2018 to 2022), the highest average station usage occurred in August. The average ridership per station has increased in 2022 due to the growth in ridership.
+            We can also calculate average station usage is by dividing ridership by the number of stations. As shown in the chart below, average station usage also fluctuates seasonally, mirroring the ridership pattern. The lowest usage is typically observed in January or February, with fewer than 200 rides started from each station during these months. The highest usage was recorded in June 2017, with 1475 rides per station. In other years (2018 to 2022), the highest average station usage occurred in August. The average ridership per station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
     </div>
@@ -133,7 +148,7 @@
     <div class="text">
        
         <p>
-            Each bike in the system is assigned a unique ID, enabling the tracking of the number of bikes. The data shows that the number of bikes also fluctuates seasonally, similar to the number of trips taken. The highest count of bikes was recorded in August 2020, with 6,455 bikes in the system. However, after 2021, the number of bikes in the system stabilized and did not fluctuate as much as in 2019 and 2020. It is unclear whether Bike Share Toronto stores bikes during periods of low ridership or if the bikes remain idle at the stations.
+            We can also track the growth of the bike-share fleet. Each bike in the system is assigned a unique ID. The data shows that the number of bikes also fluctuates seasonally, similar to the number of trips taken. The highest count of bikes was recorded in August 2020, with 6,455 bikes in the system. However, after 2021, the number of bikes in the system stabilized and did not fluctuate as much as in 2019 and 2020. It is unclear whether Bike Share Toronto stores bikes during periods of low ridership or if the bikes remain idle at the stations.
         </p>
         <h3>Number of Bikes in Operation</h3>
         <p>(data only available from 2019 onwards)</p>
@@ -159,6 +174,31 @@
         type="line"
     />
 
-    
+    <div class="text">
+        <p>
+            Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day).  In 2020, average bike usage did not surpass 30 rides per day until May due to the pandemic lockdown, which resulted in decreased bikeshare usage. Normally, there are 5-6 months where bikes are used more than twice per day, and in 2022, bikes were used on average more than 90 times per month.
+        </p>
+    </div>
+
+    <br>
+    <div class="title">
+    </div>
+    <br><br><br>
 
 </main>
+
+
+
+<style>
+    /* #two-column-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #left-column {
+        flex: 1
+    }
+    #right-column {
+        flex: 1;
+        width: 300px;
+    } */
+</style>
