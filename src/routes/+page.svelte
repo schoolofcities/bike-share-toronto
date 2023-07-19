@@ -1,12 +1,12 @@
 <script>
-	import Top from "/src/CommonFormatting/TopSofC.svelte";
-	import Nav from "/src/CommonFormatting/Nav.svelte";
+	//import Top from "/src/CommonFormatting/TopSofC.svelte";
+	//import Nav from "/src/CommonFormatting/Nav.svelte";
 	import "../assets/global-styles.css";
 </script>
 
-<Top />
+<!--<Top />-->
+<!--<Nav />-->
 
-<Nav />
 
 <h1>Toronto on Bikes: Bikeshare Usage Since 2017</h1>
 <p><b>Prepared by: Michael Liu | July 2023</b></p>
@@ -27,7 +27,8 @@
 <h2>About the Data</h2>
 <p>
 	The data for bikeshare usage is shared on <a
-		href="httIn-person knowledge mobilization workshops – coordinated by School of Cities Director Karen Chapple and faculty lead Stanka Radovic, and featuring School of Cities-affiliated experts – which focus on identifying ways to reach a broader audience via data visualization, op-eds, policy briefs, blogs, videos, podcasts, and more 
+		href="https://open.toronto.ca/dataset/bike-share-toronto/"> Toronto Open Data Catalogue</a>
+</p>
 <style>
 	:global(body) {
 		margin: 0px;
