@@ -52,6 +52,7 @@
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
+        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
     </div>
     <MonthlyChart
         variable="TripCount"
@@ -105,6 +106,7 @@
             incrementally, with a few stations installed each month.
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
+        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -128,6 +130,7 @@
             station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
+        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -151,25 +154,26 @@
             stations.
         </p>
         <h3>Number of Bikes in Operation</h3>
-        <p>(data only available from 2019 onwards)</p>
+        <p class="note">(data only available from 2019 onwards)</p>
     </div>
 
     <MonthlyChart
         variable="BikeCount"
         yTicks={yTicksBike}
-        colour="#fff"
+        colour="#F1C500"
         maxHeight="300"
-        type="bar"
+        type="line"
     />
 
     <div class="text">
         <h3>Trips Per Bike</h3>
+        <p class="note">(data only available from 2019 onwards)</p>
     </div>
 
     <MonthlyChart
         variable="AverageBikeUsage"
         yTicks={yTicksAvBikeUsage}
-        colour="#fff"
+        colour="#8DBF2E"
         maxHeight="300"
         type="line"
     />

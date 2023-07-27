@@ -95,6 +95,11 @@ p {
     line-height: 25px;
 }
 
+.note {
+    margin-top: -12px;
+    font-size: 13px;
+}
+
 a {
     color: var(--brandWhite);
     text-decoration: underline;

@@ -176,6 +176,19 @@
             </g>
         {/if}
 
+        <!-- y axis -->
+        <g class="axis y-axis">
+            {#each yTicks as tick}
+                <g
+                    class="tick tick-{tick}"
+                    transform="translate(0, {yScale(tick)})"
+                >
+                    <line x2="100%" />
+                    <text y="-4">{thousandToK(tick)} </text>
+                </g>
+            {/each}
+        </g>
+
         {#if type === "line"}
             <g>
                 {#each data as bike, i}
@@ -193,7 +206,7 @@
                     {#if bike[variable] !== null}
                         <circle
                             class="point"
-                            r="4"
+                            r={innerWidth / 300}
                             cx={xScale(i) + barPadding + barWidth/2 - 1}
                             cy={yScale(bike[variable])}
                             fill={colour}
@@ -220,18 +233,7 @@
             </g>
         {/if}
 
-        <!-- y axis -->
-        <g class="axis y-axis">
-            {#each yTicks as tick}
-                <g
-                    class="tick tick-{tick}"
-                    transform="translate(0, {yScale(tick)})"
-                >
-                    <line x2="100%" />
-                    <text y="-4">{thousandToK(tick)} </text>
-                </g>
-            {/each}
-        </g>
+        
     </svg>
 </div>
 {#if selected_datapoint != undefined}
@@ -321,9 +323,5 @@
     .year-tick {
         stroke-width: 2px;
         z-index: 6;
-    }
-
-    .point {
-        r: 4px;
     }
 </style>
