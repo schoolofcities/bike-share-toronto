@@ -29,7 +29,7 @@
     <div class="text">
             <p>
                 Toronto's Bike Share system has grown substantially over the
-                past decade. Ridership has more grown from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 10,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annually trips have been broken.
+                past decade. Ridership has increased from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 10,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annually trips have been broken.
             </p>
             <YearlyTripsPictograph/>
     </div>            
