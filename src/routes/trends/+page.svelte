@@ -22,7 +22,7 @@
     <div class="title">
         <h1>Exploring Bike Share Growth in Toronto</h1>
 
-        <p><a>Michael Liu</a> & <a>Jeff Allen</a> -- 07/2023</p>
+        <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 07/2023</p>
     </div>
 
     <div class="title">
@@ -30,16 +30,12 @@
             <div id="left-column">  
                 <p>
                     Toronto's Bike Share system has grown substantially over the
-                    past decade. Ridership has more than quadrupled from 2014 to
-                    2022 as a result (if you build it they will ride!). Almost
-                    every year, ridership records for daily, weekly, monthly,
+                    past decade. Ridership has more grown from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). Almost every year, ridership records for daily, weekly, monthly,
                     and annually trips have been broken.
                 </p>
                 <p>
-                    We're interested in charting this growth month-by-month
-                    level to track seasonal variations of expansion and uptake.
-                    We'll hopefully update this page as more data is released
-                    into late 2023 and beyond :)
+                    We're interested in charting this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released
+                    into late 2023 and beyond!
                 </p>
             </div>
             <div id="right-column">

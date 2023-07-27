@@ -15,14 +15,14 @@
     let variable = "Ridership";
     let yTicks = [1000000, 2000000, 3000000, 4000000];
     let width = 100;
-    let height = 190;
+    let height = 250;
 
     var yearList = data.map(function (obj) {
         return obj.Year;
     });
 
     const xTicks = yearList; // label the x axis with years
-    const padding = { top: 20, right: 35, bottom: 35, left: 25 };
+    const padding = { top: 20, right: 35, bottom: 35, left: 0 };
 
     function formatMobile(tick) {
         return "'" + tick.toString().slice(-2);
@@ -89,6 +89,8 @@
                     on:mouseout={() => {
                         selected_datapoint = undefined;
                     }}
+                    stroke="red"
+                    stroke-width="2px"
                 />
             {/each}
         </g>
@@ -138,7 +140,7 @@
 <style>
     .chart {
         max-width: 320px;
-        height: 200px;
+        height: 100%;
         margin: 0 auto;
         /* background-color: #000000; */
     }
@@ -146,7 +148,7 @@
     svg {
         position: relative;
         width: 100%;
-        height: 200px;
+        height: 100%;
     }
 
     .tick {
