@@ -1,18 +1,18 @@
 <script>
 
-import "../assets/global-styles.css";
-import Bicycle from "../assets/bicycle.svg";
+    import "../assets/global-styles.css";
+    import Bicycle from "../assets/bicycle.svg";
 
-var data = [
-    { Year: 2015, Ridership: 667000 },
-    { Year: 2016, Ridership: 834235 },
-    { Year: 2017, Ridership: 1510802 },
-    { Year: 2018, Ridership: 1975384 },
-    { Year: 2019, Ridership: 2400384 },
-    { Year: 2020, Ridership: 2900000 },
-    { Year: 2021, Ridership: 3575000 },
-    { Year: 2022, Ridership: 4600000 },
-];
+    var data = [
+        { Year: 2015, Ridership: 667000 },
+        { Year: 2016, Ridership: 834235 },
+        { Year: 2017, Ridership: 1510802 },
+        { Year: 2018, Ridership: 1975384 },
+        { Year: 2019, Ridership: 2400384 },
+        { Year: 2020, Ridership: 2900000 },
+        { Year: 2021, Ridership: 3575000 },
+        { Year: 2022, Ridership: 4600000 },
+    ];
 
 </script>
 
@@ -32,7 +32,6 @@ var data = [
 
 
 
-
 <style>
     #wrapper {
         width: 100%;
@@ -41,8 +40,8 @@ var data = [
     }
     p {
         margin-bottom: -1px;
-        font-size: 13px;
-        line-height: 14px;
+        font-size: 14px;
+        line-height: 15px;
         border-bottom: solid 1px rgba(25, 107, 66, 0.501);
     }
     .all-bike-img {

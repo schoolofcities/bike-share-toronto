@@ -1,4 +1,5 @@
 <script>
+
     import TopSofC from "../../lib/TopSofC.svelte";
     import MonthlyChart from "../../lib/MonthlyChart.svelte";
     import Bicycle from "../../assets/bicycle.svg";
@@ -10,7 +11,10 @@
     let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
     let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
     let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120];
+
 </script>
+
+
 
 <TopSofC />
 
@@ -37,6 +41,9 @@
            
                
             <div class="text">
+            <p>
+                That's a lot of trips!
+            </p>
             <p>
                 Below we chart this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released into late 2023 and beyond! :)
             </p>
@@ -188,6 +195,7 @@
     <div class="title" />
     <br /><br /><br />
 </main>
+
 
 <style>
     /* page specific styling */
