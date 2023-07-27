@@ -1,7 +1,8 @@
 <script>
     import TopSofC from "../../lib/TopSofC.svelte";
     import MonthlyChart from "../../lib/MonthlyChart.svelte";
-    import YearlyChart from "../../lib/YearlyChart.svelte";
+    import Bicycle from "../../assets/bicycle.svg";
+    import YearlyTripsPictograph from "../../lib/YearlyTripsPictograph.svelte";
     import "../../assets/global-styles.css";
 
     let yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
@@ -25,30 +26,26 @@
         <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 07/2023</p>
     </div>
 
-    <div class="title">
-        <div id="two-column-wrapper">
-            <div id="left-column">  
-                <p>
-                    Toronto's Bike Share system has grown substantially over the
-                    past decade. Ridership has more grown from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). Almost every year, ridership records for daily, weekly, monthly,
-                    and annually trips have been broken.
-                </p>
-                <p>
-                    We're interested in charting this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released
-                    into late 2023 and beyond!
-                </p>
-            </div>
-            <div id="right-column">
-                <YearlyChart />
-            </div>
-        </div>
+    <div class="text">
+            <p>
+                Toronto's Bike Share system has grown substantially over the
+                past decade. Ridership has more grown from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 10,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annually trips have been broken.
+            </p>
+            <YearlyTripsPictograph/>
+    </div>            
+    
+           
                
+            <div class="text">
+            <p>
+                Below we chart this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released into late 2023 and beyond! :)
+            </p>
             
-            </div>
+    </div>
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
-        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
     </div>
     <MonthlyChart
         variable="TripCount"
@@ -102,7 +99,7 @@
             incrementally, with a few stations installed each month.
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
-        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -126,7 +123,7 @@
             station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
-        <p class="note">(missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -194,18 +191,9 @@
 
 <style>
     /* page specific styling */
-    #two-column-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #right-column {
-        padding-top: 30px;
-        flex: 1;
-        min-width: 300px;
-    }
-    #left-column {
-        padding-top: 0px;
-        flex: 1;
-        min-width: 300px;
+    .bike-img {
+        max-width: 25px;
+        max-height: 15px;
+        padding-right: 0px;
     }
 </style>
