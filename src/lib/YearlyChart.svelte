@@ -15,7 +15,7 @@
     let variable = "Ridership";
     let yTicks = [1000000, 2000000, 3000000, 4000000];
     let width = 100;
-    let height = 300;
+    let height = 190;
 
     var yearList = data.map(function (obj) {
         return obj.Year;
@@ -51,7 +51,7 @@
 
     $: innerWidth = width - (padding.left + padding.right);
 
-    $: barWidth = innerWidth / xTicks.length - 10;
+    $: barWidth = innerWidth / xTicks.length - 12;
 
     let selected_datapoint = undefined;
 
@@ -117,7 +117,7 @@
             {/each}
         </g>
 
-        <text x="32" y="-255" text-anchor="start" class="tick" transform="rotate(90 20 20)">
+        <text x="0" y="-255" text-anchor="start" class="tick" transform="rotate(90 20 20)">
             Annual Ridership (Millions)
         </text>
 
@@ -138,7 +138,7 @@
 <style>
     .chart {
         max-width: 320px;
-        height: 300px;
+        height: 200px;
         margin: 0 auto;
         /* background-color: #000000; */
     }
@@ -146,7 +146,7 @@
     svg {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 200px;
     }
 
     .tick {

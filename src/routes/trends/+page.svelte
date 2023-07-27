@@ -4,9 +4,7 @@
     import YearlyChart from "../../lib/YearlyChart.svelte";
     import "../../assets/global-styles.css";
 
-    let yTicksTrip = [
-        0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
-    ];
+    let yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
     let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
     let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
     let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
@@ -27,13 +25,9 @@
         <p><a>Michael Liu</a> & <a>Jeff Allen</a> -- 07/2023</p>
     </div>
 
-    <div class="text">
+    <div class="title">
         <div id="two-column-wrapper">
-            <div id="left-column">
-                <YearlyChart />
-            </div>
-
-            <div id="right-column">
+            <div id="left-column">  
                 <p>
                     Toronto's Bike Share system has grown substantially over the
                     past decade. Ridership has more than quadrupled from 2014 to
@@ -47,15 +41,14 @@
                     We'll hopefully update this page as more data is released
                     into late 2023 and beyond :)
                 </p>
-                <p>
-                    Most of the charts in this page start in January 2017
-                    because of different data formats and some incomplete data
-                    prior to this date. We're hoping to backfill this as well
-                    though.
-                </p>
+            </div>
+            <div id="right-column">
+                <YearlyChart />
             </div>
         </div>
-    </div>
+               
+            
+            </div>
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
@@ -117,9 +110,9 @@
     <MonthlyChart
         variable="StationCount"
         yTicks={yTicksStation}
-        colour="#fff"
+        colour="#F1C500"
         maxHeight="250"
-        type="bar"
+        type="line"
     />
 
     <div class="text">
@@ -140,7 +133,7 @@
     <MonthlyChart
         variable="AverageStationUsage"
         yTicks={yTicksAvStation}
-        colour="#fff"
+        colour="#8DBF2E"
         maxHeight="300"
         type="line"
     />
@@ -206,11 +199,12 @@
         flex-wrap: wrap;
     }
     #right-column {
+        padding-top: 30px;
         flex: 1;
         min-width: 300px;
     }
     #left-column {
-        padding-top: 20px;
+        padding-top: 0px;
         flex: 1;
         min-width: 300px;
     }
