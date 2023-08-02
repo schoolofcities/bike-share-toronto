@@ -25,6 +25,21 @@
         "12": "D"
     }
 
+    const monthCodesFull = {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+    }
+
     let width = 100;
     let height = 60;
 
@@ -70,6 +85,7 @@
     $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 9), 6);
 
     let selected_datapoint = undefined;
+    let selected_datapoint_i = undefined;
 
     let mouse_x, mouse_y;
     const setMousePosition = function (event) {
@@ -158,7 +174,8 @@
                         height={yScale(0) - yScale(bike[variable])}
                         on:mouseover={(event) => {
                             selected_datapoint = bike;
-                            setMousePosition(event);
+                            selected_datapoint_i = i;
+                            // setMousePosition(event);
                         }}
                         on:mouseout={() => {
                             selected_datapoint = undefined;
@@ -210,41 +227,52 @@
                             cx={xScale(i) + barPadding + barWidth/2 - 1}
                             cy={yScale(bike[variable])}
                             fill={colour}
-                        />
-
-                        <rect
-                            class="bar"
-                            x={xScale(i) + barPadding}
-                            y={yScale(bike[variable])}
-                            width={barWidth - 2}
-                            height={yScale(0) - yScale(bike[variable])}
                             on:mouseover={(event) => {
                                 selected_datapoint = bike;
+                                selected_datapoint_i = i;
                                 setMousePosition(event);
                             }}
                             on:mouseout={() => {
                                 selected_datapoint = undefined;
                             }}
+                        />
+
+                        <rect
+                            class="barLight"
+                            x={xScale(i) + barPadding}
+                            y={yScale(bike[variable])}
+                            width={barWidth - 2}
+                            height={yScale(0) - yScale(bike[variable])}
                             stroke={colour}
                             opacity=0.15
+                            on:mouseover={(event) => {
+                                selected_datapoint = bike;
+                                setMousePosition(event);
+                                selected_datapoint_i = i;
+                            }}
+                            on:mouseout={() => {
+                                selected_datapoint = undefined;
+                            }}
                         />
                     {/if}
                 {/each}
             </g>
         {/if}
-
         
     </svg>
 </div>
-{#if selected_datapoint != undefined}
-    <div id="tooltip" style="left: {mouse_x}px; top: {mouse_y - 25}px">
-        {selected_datapoint.Year.toString().toLocaleString() +
-            "/" +
-            selected_datapoint.Month.toLocaleString() +
-            ": " +
-            selected_datapoint[variable].toLocaleString()}
-    </div>
-{/if}
+
+<div id="hoverLabel">
+    <p>
+        {#if selected_datapoint != undefined}
+        {monthCodesFull[selected_datapoint.Month] + " " + selected_datapoint.Year.toString().toLocaleString()
+        }:
+        <span id="lightBlue">{selected_datapoint[variable].toLocaleString()}</span>
+        {/if}
+    </p>
+</div>
+
+
 
 <style>
     .chart {
@@ -252,6 +280,21 @@
         max-width: 100%;
         min-width: 500px;
         margin: 0 auto;
+    }
+    #hoverLabel {
+        height: 30px;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+    #hoverLabel p {
+        color: var(--brandWhite);
+        font-family: RobotoRegular;
+        font-size: 12px;
+        text-align: center;
+    }
+    #lightBlue {
+        color: var(--brandLightBlue);
     }
 
     svg {
@@ -304,21 +347,29 @@
     }
     .bar:hover {
         fill: var(--brandLightBlue);
+        opacity: 1;
+    }
+    .barLight {
+        stroke: var(--brandDarkGreen);
+        stroke-width: 1px;
+        stroke-opacity: 1;
+        fill: var(--brandWhite);
+    }
+    .barLight:hover {
+        opacity: 0.4;
+    }
+
+    .point {
+        cursor: pointer;
+    }
+    .point:hover {
+        fill: var(--brandLightBlue);
+        opacity: 1;
     }
     .tip {
         stroke: var(--brandDarkGreen);
         stroke-width: 1px;
         fill: var(--brandYellow);
-    }
-    #tooltip {
-        position: fixed;
-        color: white;
-        background-color: black;
-        font-family: Roboto, sans-serif;
-        font-size: 20px;
-        border: solid 1px var(--brandGray);
-        border-radius: 4px;
-        padding: 5px;
     }
     .year-tick {
         stroke-width: 2px;
