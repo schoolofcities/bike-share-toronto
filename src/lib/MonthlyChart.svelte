@@ -357,6 +357,7 @@
     }
     .barLight:hover {
         opacity: 0.4;
+        cursor: pointer;
     }
 
     .point {
