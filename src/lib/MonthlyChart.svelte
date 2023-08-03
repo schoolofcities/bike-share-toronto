@@ -1,7 +1,9 @@
 <script>
     import { scaleLinear } from "d3-scale";
+    import { rollups, sum } from "d3-array";
     import data from "/src/data/data.json";
     import "../assets/global-styles.css";
+
 
     //export let data;
     export let variable;
@@ -9,6 +11,14 @@
     export let colour;
     export let maxHeight;
     export let type;
+
+    let tripCountByYear = rollups(
+        data,
+        v => sum(v, d => d.TripCount),
+        d => d.Year
+    );
+    console.log(tripCountByYear);
+
 
     const monthCodes = {
         "1": "J",

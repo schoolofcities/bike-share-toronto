@@ -22,6 +22,7 @@
 	"type": "module",
 	"dependencies": {
 		"chart.js": "^4.3.0",
+		"d3-array": "^3.2.4",
 		"d3-scale": "^4.0.2"
 	}
 }

@@ -22,7 +22,7 @@
     <div id="wrapper">
         <p><b>{d.Year}</b> / {d.Ridership.toLocaleString()} Trips</p>
         <div class="all-bike-img">
-            {#each Array(Math.round(d.Ridership / 10000)) as _}
+            {#each Array(Math.round(d.Ridership / 20000)) as _}
                 <img class="bike-img" src={Bicycle} alt="Bike">
             {/each}
         </div>
@@ -49,8 +49,8 @@
         margin-bottom: 20px;
     }
     .bike-img {
-        max-width: 18px;
-        max-height: 12px;
+        max-width: 22px;
+        max-height: 14px;
         padding-right: 2px;
     }
     b {
