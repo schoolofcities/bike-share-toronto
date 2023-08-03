@@ -4,14 +4,14 @@
     import Bicycle from "../assets/bicycle.svg";
 
     var data = [
-        { Year: 2015, Ridership: 667000 },
-        { Year: 2016, Ridership: 834235 },
+        { Year: 2015, Ridership: 665000 },
+        { Year: 2016, Ridership: 830000 },
         { Year: 2017, Ridership: 1510802 },
-        { Year: 2018, Ridership: 1975384 },
-        { Year: 2019, Ridership: 2400384 },
-        { Year: 2020, Ridership: 2900000 },
-        { Year: 2021, Ridership: 3575000 },
-        { Year: 2022, Ridership: 4600000 },
+        { Year: 2018, Ridership: 1898000 },
+        { Year: 2019, Ridership: 2405000 },
+        { Year: 2020, Ridership: 2872000 },
+        { Year: 2021, Ridership: 3537000 },
+        { Year: 2022, Ridership: 4581000 },
     ];
 
 </script>
@@ -50,7 +50,7 @@
     }
     .bike-img {
         max-width: 22px;
-        max-height: 14px;
+        max-height: 16px;
         padding-right: 2px;
     }
     b {

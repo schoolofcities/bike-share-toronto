@@ -33,7 +33,7 @@
     <div class="text">
             <p>
                 Toronto's Bike Share system has grown substantially over the
-                past decade. Ridership has increased from 667 thousand trips in 2015 to 4.6 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 10,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
+                past decade. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
             </p>
             <YearlyTripsPictograph/>
     </div>            
@@ -46,6 +46,9 @@
             </p>
             <p>
                 Below we chart this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released into late 2023 and beyond! :)
+            </p>
+            <p>
+                The data presented on this page are sourced from the <a href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/">City of Toronto's Open Data Portal</a>. The data from 2017 onward denote the duration of each trip. We noticed that there were a number of 'trips' where the duration was quite low and which started and ended at the same location. We think that these trips are mostly people unlocking bikes and then locking them back up because something on the bike is broken or that it doesn't match their preferences (e.g. the seat height is stuck). As such, we have filtered out all trips that were less than 2 minutes and which started and ended at the same station, as we felt these weren't 'true' trips. Therefore, the numbers presented here may be slightly less than reported elsewhere.
             </p>
             
     </div>
