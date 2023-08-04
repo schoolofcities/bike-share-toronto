@@ -1,4 +1,4 @@
-[   
+[
     {
         "Year": 2014,
         "Month": 10,
@@ -149,7 +149,7 @@
         "StationCount": null,
         "BikeCount": null,
         "TripCount": null,
-        "AverageTripDuration":null,
+        "AverageTripDuration": null,
         "AverageBikeUsage": null,
         "AverageStationUsage": null
     },
@@ -164,11 +164,6 @@
         "AverageBikeUsage": null,
         "AverageStationUsage": null
     },
-
-
-
-
-
     {
         "Year": 2016,
         "Month": 1,
@@ -307,10 +302,10 @@
         "YearMonth": "2017;1",
         "StationCount": 200,
         "BikeCount": null,
-        "TripCount": 82426,
+        "TripCount": 41213,
         "AverageTripDuration": 10.64,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 412.13
+        "AverageStationUsage": 206.06
     },
     {
         "Year": 2017,
@@ -318,10 +313,10 @@
         "YearMonth": "2017;2",
         "StationCount": 199,
         "BikeCount": null,
-        "TripCount": 82806,
+        "TripCount": 41403,
         "AverageTripDuration": 11.5,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 416.11
+        "AverageStationUsage": 208.06
     },
     {
         "Year": 2017,
@@ -329,10 +324,10 @@
         "YearMonth": "2017;3",
         "StationCount": 200,
         "BikeCount": null,
-        "TripCount": 98074,
+        "TripCount": 49037,
         "AverageTripDuration": 10.83,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 490.37
+        "AverageStationUsage": 245.19
     },
     {
         "Year": 2017,
@@ -340,10 +335,10 @@
         "YearMonth": "2017;4",
         "StationCount": 200,
         "BikeCount": null,
-        "TripCount": 155784,
+        "TripCount": 77892,
         "AverageTripDuration": 13.87,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 778.92
+        "AverageStationUsage": 389.46
     },
     {
         "Year": 2017,
@@ -351,10 +346,10 @@
         "YearMonth": "2017;5",
         "StationCount": 200,
         "BikeCount": null,
-        "TripCount": 207048,
+        "TripCount": 103524,
         "AverageTripDuration": 13.93,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 1035.24
+        "AverageStationUsage": 517.62
     },
     {
         "Year": 2017,
@@ -362,10 +357,10 @@
         "YearMonth": "2017;6",
         "StationCount": 200,
         "BikeCount": null,
-        "TripCount": 295186,
+        "TripCount": 147593,
         "AverageTripDuration": 14.87,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 1475.93
+        "AverageStationUsage": 737.97
     },
     {
         "Year": 2017,
@@ -393,23 +388,23 @@
         "Year": 2017,
         "Month": 9,
         "YearMonth": "2017;9",
-        "StationCount": 270,
+        "StationCount": 269,
         "BikeCount": null,
-        "TripCount": 216006,
+        "TripCount": 215966,
         "AverageTripDuration": 14.66,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 800.02
+        "AverageStationUsage": 802.85
     },
     {
         "Year": 2017,
         "Month": 10,
         "YearMonth": "2017;10",
-        "StationCount": 270,
+        "StationCount": 269,
         "BikeCount": null,
-        "TripCount": 179363,
-        "AverageTripDuration": 13.09,
+        "TripCount": 179265,
+        "AverageTripDuration": 13.08,
         "AverageBikeUsage": null,
-        "AverageStationUsage": 664.31
+        "AverageStationUsage": 666.41
     },
     {
         "Year": 2017,
