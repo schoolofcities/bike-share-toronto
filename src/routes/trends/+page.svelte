@@ -19,7 +19,8 @@
 <TopSofC />
 
 <img
-    src="/toronto-green-bike-map.png"
+    class="topImg"
+    src="/top-map.png"
     alt="map of bike lanes and bike-share stations in toronto with a green background"
 />
 
@@ -55,7 +56,7 @@
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
-        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
     </div>
     <MonthlyChart
         variable="TripCount"
@@ -109,7 +110,7 @@
             incrementally, with a few stations installed each month.
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
-        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -133,7 +134,7 @@
             station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
-        <p class="note">(we are missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart

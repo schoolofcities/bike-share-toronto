@@ -52,8 +52,9 @@
         max-width: 22px;
         max-height: 16px;
         padding-right: 2px;
+        width: 100%;
     }
     b {
         color: var(--brandYellow);
-    }
+    } 
 </style>
