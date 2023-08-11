@@ -31,7 +31,7 @@
     <div class="title">
         <h1>Exploring Bike Share Growth in Toronto</h1>
 
-        <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 07/2023</p>
+        <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 08/2023</p>
     </div>
 
     <div class="text">
