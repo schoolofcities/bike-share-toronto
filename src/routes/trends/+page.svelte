@@ -19,12 +19,12 @@
 <TopSofC />
 
 <div class="topImg">
-    <div class="imgContainer">
+    
         <img
             src="/top-map.png"
             alt="map of bike lanes and bike-share stations in toronto with a green background"
         />
-    </div>
+    
 </div>
 
 <main>
@@ -37,7 +37,7 @@
     <div class="text">
             <p>
                 Toronto's Bike Share system has grown substantially over the
-                past decade. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, 1 <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
+                past decade, offering a sustainable mode of travel to thousands of Torontonians and visitors. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, one <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
             </p>
             <YearlyTripsPictograph/>
     </div>            
@@ -59,7 +59,7 @@
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
-        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
     <MonthlyChart
         variable="TripCount"
@@ -113,7 +113,7 @@
             incrementally, with a few stations installed each month.
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
-        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
@@ -137,7 +137,7 @@
             station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
-        <p class="note">(we are monthly missing data from 0ct 2015 to June 2016)</p>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
