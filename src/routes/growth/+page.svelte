@@ -21,7 +21,7 @@
 <div class="topImg">
     
         <img
-            src="/top-map.png"
+            src="/bike-share-toronto/top-map.png"
             alt="map of bike lanes and bike-share stations in toronto with a green background"
         />
     
