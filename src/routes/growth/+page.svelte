@@ -1,64 +1,65 @@
 <script>
+
     import TopSofC from "../../lib/TopSofC.svelte";
     import MonthlyChart from "../../lib/MonthlyChart.svelte";
-    import YearlyChart from "../../lib/YearlyChart.svelte";
+    import Bicycle from "../../assets/bicycle.svg";
+    import YearlyTripsPictograph from "../../lib/YearlyTripsPictograph.svelte";
     import "../../assets/global-styles.css";
 
-    let yTicksTrip = [
-        0, 100000, 200000, 300000, 400000, 500000, 600000, 700000,
-    ];
+    let yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
     let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
     let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600];
     let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000];
     let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120];
+
 </script>
+
+
 
 <TopSofC />
 
-<img
-    src="/toronto-green-bike-map.png"
-    alt="map of bike lanes and bike-share stations in toronto with a green background"
-/>
+<div class="topImg">
+    
+        <img
+            src="/top-map.png"
+            alt="map of bike lanes and bike-share stations in toronto with a green background"
+        />
+    
+</div>
 
 <main>
     <div class="title">
         <h1>Exploring Bike Share Growth in Toronto</h1>
 
-        <p><a>Michael Liu</a> & <a>Jeff Allen</a> -- 07/2023</p>
+        <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 08/2023</p>
     </div>
 
     <div class="text">
-        <div id="two-column-wrapper">
-            <div id="left-column">
-                <YearlyChart />
-            </div>
-
-            <div id="right-column">
-                <p>
-                    Toronto's Bike Share system has grown substantially over the
-                    past decade. Ridership has more than quadrupled from 2014 to
-                    2022 as a result (if you build it they will ride!). Almost
-                    every year, ridership records for daily, weekly, monthly,
-                    and annually trips have been broken.
-                </p>
-                <p>
-                    We're interested in charting this growth month-by-month
-                    level to track seasonal variations of expansion and uptake.
-                    We'll hopefully update this page as more data is released
-                    into late 2023 and beyond :)
-                </p>
-                <p>
-                    Most of the charts in this page start in January 2017
-                    because of different data formats and some incomplete data
-                    prior to this date. We're hoping to backfill this as well
-                    though.
-                </p>
-            </div>
-        </div>
+            <p>
+                Toronto's Bike Share system has grown substantially over the
+                past decade, offering a sustainable mode of travel to thousands of Torontonians and visitors. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, one <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
+            </p>
+            <YearlyTripsPictograph/>
+    </div>            
+    
+           
+               
+            <div class="text">
+            <p>
+                That's a lot of trips!
+            </p>
+            <p>
+                Below we chart this growth month-by-month to track seasonal patterns of expansion and uptake. We'll hopefully update this page as more data is released into late 2023 and beyond! :)
+            </p>
+            <p>
+                The data presented on this page are sourced from the <a href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/">City of Toronto's Open Data Portal</a>. The data from 2017 onward denote the duration of each trip. We noticed that there were a number of 'trips' where the duration was quite low and which started and ended at the same location. We think that these trips are mostly people unlocking bikes and then locking them back up because something on the bike is broken or that it doesn't match their preferences (e.g. the seat height is stuck). As such, we have filtered out all trips that were less than 2 minutes and which started and ended at the same station, as we felt these weren't 'true' trips. Therefore, the numbers presented here may be slightly less than reported elsewhere.
+            </p>
+            
     </div>
 
     <div class="text">
         <h3>Bike Share Ridership by Month</h3>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
     <MonthlyChart
         variable="TripCount"
@@ -112,14 +113,15 @@
             incrementally, with a few stations installed each month.
         </p>
         <h3>Number of Operating Bike Share Stations</h3>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
         variable="StationCount"
         yTicks={yTicksStation}
-        colour="#fff"
+        colour="#F1C500"
         maxHeight="250"
-        type="bar"
+        type="line"
     />
 
     <div class="text">
@@ -135,12 +137,13 @@
             station has increased in 2022 due to growth in ridership.
         </p>
         <h3>Trips Per Station</h3>
+        <p class="note">(we are missing monthly data from 0ct 2015 to June 2016)</p>
     </div>
 
     <MonthlyChart
         variable="AverageStationUsage"
         yTicks={yTicksAvStation}
-        colour="#fff"
+        colour="#8DBF2E"
         maxHeight="300"
         type="line"
     />
@@ -158,25 +161,26 @@
             stations.
         </p>
         <h3>Number of Bikes in Operation</h3>
-        <p>(data only available from 2019 onwards)</p>
+        <p class="note">(data only available from 2019 onwards)</p>
     </div>
 
     <MonthlyChart
         variable="BikeCount"
         yTicks={yTicksBike}
-        colour="#fff"
+        colour="#F1C500"
         maxHeight="300"
-        type="bar"
+        type="line"
     />
 
     <div class="text">
         <h3>Trips Per Bike</h3>
+        <p class="note">(data only available from 2019 onwards)</p>
     </div>
 
     <MonthlyChart
         variable="AverageBikeUsage"
         yTicks={yTicksAvBikeUsage}
-        colour="#fff"
+        colour="#8DBF2E"
         maxHeight="300"
         type="line"
     />
@@ -199,19 +203,12 @@
     <br /><br /><br />
 </main>
 
+
 <style>
     /* page specific styling */
-    #two-column-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #right-column {
-        flex: 1;
-        min-width: 300px;
-    }
-    #left-column {
-        padding-top: 20px;
-        flex: 1;
-        min-width: 300px;
+    .bike-img {
+        max-width: 25px;
+        max-height: 15px;
+        padding-right: 0px;
     }
 </style>

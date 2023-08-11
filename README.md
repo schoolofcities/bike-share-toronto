@@ -1,2 +1,1 @@
-# bike-share-toronto
-# school-
+Analyzing and visualizing Bike Share data in Toronto

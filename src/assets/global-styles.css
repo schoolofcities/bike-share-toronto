@@ -66,7 +66,7 @@ main {
 
 h1 {
     font-family: TradeGothicBold;
-    font-size: 42px;
+    font-size: 36px;
     color: var(--brandWhite);
     text-decoration: underline;
     padding-top: 50px;
@@ -95,6 +95,11 @@ p {
     line-height: 25px;
 }
 
+.note {
+    margin-top: -12px;
+    font-size: 14px;
+}
+
 a {
     color: var(--brandWhite);
     text-decoration: underline;
@@ -103,6 +108,15 @@ a:hover {
     color: var(--brandLightBlue);
 }
 
-img {
-    width: 100%
+.topImg {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background-color: none;
+}
+
+.topImg img {
+    width: 100%;
+    height: 500px;
+    object-fit: none;
 }
