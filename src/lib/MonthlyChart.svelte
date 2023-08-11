@@ -4,8 +4,6 @@
     import data from "/src/data/data.json";
     import "../assets/global-styles.css";
 
-
-    //export let data;
     export let variable;
     export let yTicks;
     export let colour;
@@ -18,7 +16,6 @@
         d => d.Year
     );
     console.log(tripCountByYear);
-
 
     const monthCodes = {
         "1": "J",
