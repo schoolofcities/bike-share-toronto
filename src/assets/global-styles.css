@@ -42,7 +42,7 @@ body {
 main {
     margin: 0 auto;
     width: calc(100% - 40px);
-    min-width: 320px;
+    min-width: 420px;
     max-width: 1300px;
     position: relative;
 }
@@ -54,6 +54,8 @@ main {
     padding-bottom: 15px;
     border-bottom: dotted 3px var(--brandYellow);
     position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 
@@ -62,6 +64,8 @@ main {
     max-width: 750px;
     margin: 0 auto;
     position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 h1 {
@@ -110,13 +114,14 @@ a:hover {
 
 .topImg {
     width: 100%;
+    min-width: 420px;
     height: 500px;
     overflow: hidden;
     background-color: none;
 }
 
 .topImg img {
-    width: 100%;
+    width: 100%;  /* Fill the container width */
     height: 500px;
     object-fit: none;
 }

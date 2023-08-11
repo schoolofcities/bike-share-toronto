@@ -288,7 +288,7 @@
     .chart {
         width: 100%;
         max-width: 100%;
-        min-width: 500px;
+        min-width: 300px;
         margin: 0 auto;
     }
     #hoverLabel {
