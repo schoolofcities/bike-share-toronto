@@ -18,11 +18,14 @@
 
 <TopSofC />
 
-<img
-    class="topImg"
-    src="/top-map.png"
-    alt="map of bike lanes and bike-share stations in toronto with a green background"
-/>
+<div class="topImg">
+    <div class="imgContainer">
+        <img
+            src="/top-map.png"
+            alt="map of bike lanes and bike-share stations in toronto with a green background"
+        />
+    </div>
+</div>
 
 <main>
     <div class="title">
