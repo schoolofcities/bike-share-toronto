@@ -31,13 +31,13 @@
     <div class="title">
         <h1>Exploring Bike Share Growth in Toronto</h1>
 
-        <p><a>Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 08/2023</p>
+        <p><a href="https://www.linkedin.com/in/chun-fu-liu/">Michael Liu</a> & <a href="http://jamaps.github.io">Jeff Allen</a> -- 08/2023</p>
     </div>
 
     <div class="text">
             <p>
                 Toronto's Bike Share system has grown substantially over the
-                past decade, offering a sustainable mode of travel to thousands of Torontonians and visitors. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, one <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
+                past decade, providing a healthy and sustainable mode of travel to thousands of Torontonians and visitors. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, one <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
             </p>
             <YearlyTripsPictograph/>
     </div>            
@@ -111,7 +111,7 @@
             While there are clearly seasonal fluctuations, the relative stability of this chart (each year has approximately the same pattern) highlights that the rate of trips per station remains consistent, even as new stations are added to the system. This bodes well that ridership will continue to increase as new stations are added to the system.
         </p>
         <p>
-            We can similarly track the growth of the bike-share fleet. Each bike in the system is assigned a unique ID, and for any particular month, we can count how many of these unique IDs there are in the ridership data. The highest count of bikes was recorded in August 2020, with 6,455 bikes in the system. However, after 2021, the number of bikes in the system stabilized and did not fluctuate as much as in 2019 and 2020. It is unclear whether Bike Share Toronto stores bikes during periods of low ridership or if the bikes remain idle at the stations or both.
+            We can similarly track the growth of the Bike Share fleet. Each bike in the system is assigned a unique ID, and for any particular month, we can count how many of these unique IDs there are in the ridership data. The highest count of bikes was recorded in August 2020, with 6,455 bikes in the system. However, after 2021, the number of bikes in the system stabilized and did not fluctuate as much as in 2019 and 2020. It is unclear whether Bike Share Toronto stores bikes during periods of low ridership or if the bikes remain idle at the stations or both.
         </p>
         <h3>Number of Bikes in Operation</h3>
         <p class="note">(data only available from 2019 onwards)</p>
@@ -142,7 +142,7 @@
     <br />
     <div class="text">
         <p>
-            Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day). In 2020, average bike usage did not surpass 30 rides per day until May due to COVID-19, which resulted in decreased bike share usage. Normally, there are 5-6 months where bikes are used more than twice per day.
+            Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day). In 2020, average bike usage did not surpass 30 rides per day until May due to COVID-19, which resulted in decreased Bike Share usage. Normally, there are 5-6 months where bikes are used more than twice per day.
         </p>
         <br />
         <p>
