@@ -144,9 +144,8 @@
         <p>
             Average bike usage indicates how many times bikes are used on average each month. Typically, average bike usage exceeds 30 rides per month starting in April (approximately one ride per day). In 2020, average bike usage did not surpass 30 rides per day until May due to COVID-19, which resulted in decreased Bike Share usage. Normally, there are 5-6 months where bikes are used more than twice per day.
         </p>
-        <br />
         <p>
-            More to come soon!
+            This content was built using Svelte and D3. Code is on <a href="https://github.com/schoolofcities/bike-share-toronto">GitHub</a>. More to come soon!
         </p> 
     </div>
     <br /><br />
