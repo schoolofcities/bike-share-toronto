@@ -288,7 +288,7 @@
         "source": "carto",
         "source-layer": "waterway",
         "paint": {
-          "line-color": "#d1dbdf",
+          "line-color": "#6FC7EA",
           "line-width": {
             "stops": [
               [
@@ -336,15 +336,15 @@
             "stops": [
               [
                 4,
-                "#ead5d7"
+                "#6FC7EA"
               ],
               [
                 5,
-                "#ead5d7"
+                "#6FC7EA"
               ],
               [
                 6,
-                "#e1c5c7"
+                "#6FC7EA"
               ]
             ]
           },
@@ -473,7 +473,7 @@
           "visibility": "visible"
         },
         "paint": {
-          "fill-color": "grey",
+          "fill-color": "#6FC7EA",
           "fill-antialias": true,
           "fill-translate-anchor": "map",
           "fill-opacity": 1
@@ -4051,11 +4051,11 @@
             "stops": [
               [
                 15.5,
-                "#dfdfdf"
+                "white"
               ],
               [
                 16,
-                "#dfdfdf"
+                "white"
               ]
             ]
           },

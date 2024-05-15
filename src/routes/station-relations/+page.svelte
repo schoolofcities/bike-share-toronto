@@ -2,7 +2,7 @@
     import { onMount, afterUpdate } from "svelte";
     import maplibregl from "maplibre-gl";
     import positron from "../../data/positron.json";
-    import stationRelations from "../../data/station-relations2.geo.json";
+    import startStationRelations from "../../data/start-station-relations.geo.json";
     import * as turf from "@turf/turf"; // this is for fitting the map boundary to GTA municipalities
 
     //import BaseLayer from "../data/pmtiles.json";
@@ -23,6 +23,12 @@
     let lon;
     let results;
     let station = 7000;
+    let stationName = "1 Market St - SMART"
+    let toStation = ""
+    let toStationName = ""
+    let popup = false;
+    let trips;
+
     onMount(() => {
         //let protocol = new pmtiles.Protocol();
 
@@ -39,7 +45,7 @@
         map.on("load", () => {
             map.addSource("station-relations", {
                 type: "geojson",
-                data: stationRelations,
+                data: startStationRelations,
             });
             map.addLayer({
                 id: "station-relationship",
@@ -48,7 +54,7 @@
                 paint: {
                     "circle-radius": [
                         "step",
-                        ["get", `${station}`],
+                        ["get", `${station}`], // make it a function of the value
                         1, 0,
                         3, 1,
                         4, 10,
@@ -63,24 +69,23 @@
                         20, 400,
                         25, 500,
                         30, 600,
-                        50,
+                        50
                     ],
                     "circle-color": [
                         "match",
                         ["get", `${station}`],
-                        0, "red",
+                        0, "#DC4633",
                         "#0D534D"
                 ]
                         ,
-                    "circle-opacity": 1,
+                    "circle-opacity": 0.5,
                     "circle-stroke-color" : [
                         "match",
                         ["get", `${station}`],
                         0, "white",
                         "#0D534D"
                     ],
-
-                    "circle-stroke-width" : 1,
+                    "circle-stroke-width" : 2,
                 },
             });
             map.addLayer({
@@ -109,20 +114,23 @@
                             50,
                         ],
                         "circle-opacity" : 0,
-                        "circle-stroke-width" : 1,
-                        "circle-stroke-color" : "red"
+                        "circle-stroke-width" : 2,
+                        "circle-stroke-color" : "#DC4633"
 
                     },
                 });
 
             map.on("click", "station-relationship", function (e) {
-                console.log(
-                    e.features[0].properties["Start Station Id"],
-                    e.features[0].properties[
-                        e.features[0].properties["Start Station Id"]
-                    ],
-                );
-                station = e.features[0].properties["Start Station Id"];
+                var coordinate = e.features[0].geometry.coordinates;
+                console.log(coordinate)
+                //const description = e.features[0].properties.description;
+                var feature  = e.features[0].properties
+
+                station = feature["Start Station Id"];
+                stationName = feature['Station']
+                
+                console.log(station)
+             
                 map.removeLayer('station-relationship-outline');
                 map.removeLayer('station-relationship');
 
@@ -157,7 +165,7 @@
                         0, "red",
                         "#0D534D"
                 ],
-                        "circle-opacity": 0.4,
+                        "circle-opacity": 0.5,
                         "circle-stroke-width" : 1,
                         "circle-stroke-color"  : [
                         "match",
@@ -198,8 +206,10 @@
 
                     },
                 });
+ 
             });
 
+            
             // Boundary of map
             map.fitBounds([
                 [-79.14904366238247, 43.87527014932047],
@@ -208,135 +218,67 @@
 
             map.on("mouseenter", "station-relationship", (e) => {
                 map.getCanvas().style.cursor = "pointer";
-                console.log(
-                    station, 
-                    e.features[0].properties["Start Station Id"],
-                    e.features[0].properties[station],
-                );
+                var feature = e.features[0].properties
+                toStation = feature['Start Station Id']
+                toStationName = feature['Station']
+                trips = feature[station]
+
+                map.addLayer({
+                    id: "station-relationship-hover",
+                    type: "circle",
+                    source: "station-relations",
+                    filter: ['==', 'Start Station Id', toStation],
+                    paint: {
+                        "circle-radius": [
+                            "step",
+                            ["get", `${station}`],
+                            1, 0,
+                            3, 1,
+                            4, 10,
+                            5, 20,
+                            6, 40,
+                            7, 60,
+                            8, 80,
+                            9, 100,
+                            10, 200,
+                            15, 300,
+                            18, 360,
+                            20, 400,
+                            25, 500,
+                            30, 600,
+                            50,
+                        ],
+                        "circle-opacity": 0,
+                        "circle-stroke-width" : 3,
+                        "circle-stroke-color" : "#F1C500"
+
+                    },
+                });
 
             });
 
             map.on("mouseleave", "station-relationship", () => {
                 map.getCanvas().style.cursor = "";
+                map.removeLayer('station-relationship-hover');
             });
         });
     });
-
-    // Geocoder for people to input their address and zoom to input address
-    const baseUrl =
-        "https://nominatim.openstreetmap.org/search.php?format=jsonv2&q=";
-
-    const getResults = async () => {
-        results = await fetch(baseUrl + query + ", Toronto").then((res) =>
-            res.json(),
-        );
-        if (results.length > 0) {
-            //this is to remove the previous address point searched (if true)
-            if (map.getSource(`address ${lon}`)) {
-                map.removeSource(`address ${lon}`);
-                map.removeLayer(`address-layer ${lon}`);
-                map.removeSource(`buffer ${lon} ${dist}`);
-                map.removeLayer(`buffer-layer ${lon} ${dist}`);
-            }
-            if (distance == "") {
-                distance = 500;
-            }
-            dist = distance;
-            //get long - lat
-            lat = +results[0].lat;
-            lon = +results[0].lon;
-
-            /* CREATE BUFFER */
-            var point = turf.point([lon, lat]);
-            var buffered = turf.buffer(point, distance, { units: "meters" });
-
-            // add point to show the searched address
-            map.addSource(`buffer ${lon} ${dist}`, {
-                type: "geojson",
-                data: buffered,
-            });
-
-            map.addLayer({
-                id: `buffer-layer ${lon} ${dist}`,
-                type: "line",
-                source: `buffer ${lon} ${dist}`,
-                paint: {
-                    "line-color": "red",
-                    "line-width": 5, // Set the color of the point
-                },
-            });
-
-            // Calculate the bounding box of the polygon
-            var bbox = turf.bbox(buffered);
-
-            /* CREATE BUFFER */
-            map.addSource(`address ${lon}`, {
-                type: "geojson",
-                data: {
-                    type: "Point",
-                    coordinates: [lon, lat],
-                },
-            });
-
-            map.addLayer({
-                id: `address-layer ${lon}`,
-                type: "circle",
-                source: `address ${lon}`,
-                paint: {
-                    "circle-radius": 8,
-                    "circle-color": "#FF0000", // Set the color of the point
-                },
-            });
-
-            // Get the coordinates of the buffer
-            var coordinates = buffered.geometry.coordinates;
-
-            // Extract all coordinates of the buffer
-            var allCoordinates = [];
-            coordinates.forEach(function (ring) {
-                ring.forEach(function (coord) {
-                    allCoordinates.push(coord);
-                });
-            });
-
-            // Fit the map to the bounding box
-            map.fitBounds(
-                [
-                    [bbox[0], bbox[1]],
-                    [bbox[2], bbox[3]],
-                ],
-                { padding: 20 },
-            );
-        } else {
-            alert("Sorry, no geocoding results for " + query);
-        }
-    };
+    
 </script>
 
 <main>
     <div id="map" class="map" />
 
     <div class="info-panel">
-        <h1>Application Information Centre</h1>
+        <h1>Bikeshare Toronto Stations Relations</h1>
 
-        <p>Last Updated: April 09, 2024</p>
+        <h2> Trip From : </h2>
+        <h3>{station} &nbsp {stationName}</h3>
 
-        <!-- THIS BUTTON ALLOWS PEOPLE TO SELECT DEVELOPMENT APPLICATION TYPES-->
-        <div class="buttons-box">
-            <h3>Filter By Application Type</h3>
+        <h2> To : </h2>
+        <h3>{toStation} &nbsp {toStationName}</h3>
+        <h2> Number of Trips: {trips} </h2>
 
-            <h3><b>Search Address</b></h3>
-            <input bind:value={query} placeholder="i.e. 100 St George St" />
-            <input
-                bind:value={distance}
-                placeholder="i.e. 500, distance is in meters"
-            /> <br />
-            <button
-                class="address-button"
-                on:click={getResults}
-                disabled={query.length < 1}>Search</button
-            >
-        </div>
     </div>
 </main>
 
@@ -494,4 +436,5 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #41729f;
     }
+
 </style>
