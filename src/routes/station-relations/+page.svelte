@@ -236,7 +236,7 @@
         <h2> {trips} trips from </h2>
         <h3> {station} &nbsp {stationName} </h3>
         <h2>to </h2>
-        <h3>{toStation} &nbsp {toStationName}</h3>
+        <h3> {toStation} &nbsp {toStationName}</h3>
         
         <div class="buttons-box">
         <button
