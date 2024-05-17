@@ -25,11 +25,30 @@
     let lon;
     let results;
     let station = 7000;
-    let stationName = "1 Market St - SMART"
+    let stationName = "Fort York Blvd / Capreol Ct"
     let toStation = ""
     let toStationName = ""
     let popup = false;
     let trips;
+    let stationID = "End Station Id"
+    let originFilter = true;
+    let destinationFilter = false;
+    let differenceFilter = false;
+
+    function updateSource(){
+        /*if{difference}{
+            map.getSource('station').setData(destination);
+        }*/
+        if(originFilter){
+            map.getSource('station').setData(origin);
+            stationID = "End Station Id"
+        }
+        if(destinationFilter){
+            map.getSource('station').setData(destination);
+            stationID = "Start Station Id"
+        }
+        
+    }
 
     onMount(() => {
         //let protocol = new pmtiles.Protocol();
@@ -45,14 +64,14 @@
             attributionControl: false,
         });
         map.on("load", () => {
-            map.addSource("origin-station", {
+            map.addSource("station", {
                 type: "geojson",
                 data: origin,
             });
 
-            map.addLayer({id: "origin-station-layer",
+            map.addLayer({id: "station-layer",
                 type: "circle",
-                source: "origin-station",
+                source: "station",
                 paint: {
                     "circle-radius": [
                         "interpolate",
@@ -79,10 +98,10 @@
                     "circle-stroke-width" : 2,
                 },
             });
-            map.addLayer({id: "origin-station-layer-outline",
+            map.addLayer({id: "station-layer-outline",
                     type: "circle",
-                    source: "origin-station",
-                    filter: ['==', 'Start Station Id', station],
+                    source: "station",
+                    filter: ['==', stationID, station],
                     paint: {
                         "circle-radius": [
                             "interpolate",
@@ -97,24 +116,24 @@
 
                     },
                 });
-            map.on("click", "origin-station-layer", function (e) {
+            map.on("click", "station-layer", function (e) {
                 var coordinate = e.features[0].geometry.coordinates;
                 console.log(coordinate)
                 //const description = e.features[0].properties.description;
                 var feature  = e.features[0].properties
 
-                station = feature["End Station Id"];
+                station = feature[stationID];
                 stationName = feature['Station']
                 
                 console.log(station)
              
-                map.removeLayer('origin-station-layer-red');
-                map.removeLayer('origin-station-layer');
+                map.removeLayer('station-layer-outline');
+                map.removeLayer('station-layer');
 
                 map.addLayer({
-                    id: "origin-station-layer",
+                    id: "station-layer",
                     type: "circle",
-                    source: "origin-station",
+                    source: "station",
                     paint: {
                         "circle-radius": [
                             "interpolate",
@@ -142,10 +161,10 @@
                     },
                 });
                 map.addLayer({
-                    id: "origin-station-layer-red",
+                    id: "station-layer-outline",
                     type: "circle",
-                    source: "origin-station",
-                    filter: ['==', 'End Station Id', station],
+                    source: "station",
+                    filter: ['==', stationID, station],
                     paint: {
                         "circle-radius": [
                             "interpolate",
@@ -171,17 +190,17 @@
                 [-79.60668327438583, 43.56196116510192],
             ]);
 
-            map.on("mouseenter", "origin-station-layer", (e) => {
+            map.on("mouseenter", "station-layer", (e) => {
                 map.getCanvas().style.cursor = "pointer";
                 var feature = e.features[0].properties
-                toStation = feature['End Station Id']
+                toStation = feature[stationID]
                 toStationName = feature['Station']
                 trips = feature[station]
 
-                map.addLayer({id: "origin-station-layer-hover",
+                map.addLayer({id: "station-layer-hover",
                     type: "circle",
-                    source: "origin-station",
-                    filter: ['==', 'End Station Id', toStation],
+                    source: "station",
+                    filter: ['==', stationID, toStation],
                     paint: {
                         "circle-radius": [
                             "interpolate",
@@ -200,9 +219,9 @@
 
             });
 
-            map.on("mouseleave", "origin-station-layer", () => {
+            map.on("mouseleave", "station-layer", () => {
                 map.getCanvas().style.cursor = "";
-                map.removeLayer('origin-station-layer-hover');
+                map.removeLayer('station-layer-hover');
             });
         });
     });
@@ -214,15 +233,45 @@
 
     <div class="info-panel">
         <h1>Bikeshare Toronto Stations Relations</h1>
-
-        <h2> Trip From : </h2>
-        <h3>{station} &nbsp {stationName}</h3>
-
-        <h2> To : </h2>
+        <h2> {trips} trips from </h2>
+        <h3> {station} &nbsp {stationName} </h3>
+        <h2>to </h2>
         <h3>{toStation} &nbsp {toStationName}</h3>
-        <h2> Number of Trips: {trips} </h2>
+        
+        <div class="buttons-box">
+        <button
+                class="application-button"
+                on:click={() => {
+                    originFilter = !originFilter
+                    destinationFilter = false
+                    updateSource()
+                }}
+                style="background-color: {originFilter
+                    ? '#a9d6e5'
+                    : ''}; color: 'black'">Origin - Destination</button
+            ><button
+            class="application-button"
+            on:click={() => {
+                destinationFilter = !destinationFilter
+                originFilter = false
+                updateSource()
+            }}
+            style="background-color: {destinationFilter
+                ? '#a9d6e5'
+                : ''}; color: 'black'">Destination - Origin</button
+        ><!--<button
+        class="application-button"
+        on:click={() => {
+            differenceFilter != differenceFilter
+            updateSource()
+        }}
+        style="background-color: {differenceFilter
+            ? '#a9d6e5'
+            : ''}; color: 'black'">Difference</button
+    >-->
 
     </div>
+</div>
 </main>
 
 <style>
@@ -379,5 +428,17 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #41729f;
     }
+    .application-button {
+        font-size: 12px;
+        width: auto;
+        height: 28px;
+        left: 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-width: 0px;
+        position: relative;
+        font-weight: bold;
+    }
+
 
 </style>
