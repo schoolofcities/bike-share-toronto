@@ -84,7 +84,7 @@
         .range([padding.left, width - padding.right]);
 
     $: yScale = scaleLinear()
-        .domain([0, Math.max.apply(null, yTicks)])
+        .domain([0, Math.max.apply(0, yTicks)])
         .range([height - padding.bottom, padding.top]);
 
     $: innerWidth = width - (padding.left + padding.right);
@@ -216,7 +216,7 @@
         {#if type === "line"}
             <g>
                 {#each data as bike, i}
-                    {#if i > 0 && bike[variable] !== null && data[i - 1][variable] !== null}
+                    {#if i > 0 && bike[variable] !== 0 && data[i - 1][variable] !== 0}
                         <line
                             x1={xScale(i - 1) + barPadding + barWidth/2 - 1}
                             y1={yScale(data[i - 1][variable])}
@@ -227,7 +227,7 @@
                         />
                     {/if}
 
-                    {#if bike[variable] !== null}
+                    {#if bike[variable] !== 0}
                         <circle
                             class="point"
                             r={innerWidth / 300}

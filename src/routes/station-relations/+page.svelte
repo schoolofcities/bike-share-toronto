@@ -2,7 +2,9 @@
     import { onMount, afterUpdate } from "svelte";
     import maplibregl from "maplibre-gl";
     import positron from "../../data/positron.json";
-    import startStationRelations from "../../data/start-station-relations.geo.json";
+    import origin from "../../data/bikeshare relations (origin).geo.json";
+    import destination from "../../data/bikeshare relations (destination).geo.json";
+    import difference  from "../../data/bikeshare relations (difference).geo.json";
     import * as turf from "@turf/turf"; // this is for fitting the map boundary to GTA municipalities
 
     //import BaseLayer from "../data/pmtiles.json";
@@ -43,33 +45,22 @@
             attributionControl: false,
         });
         map.on("load", () => {
-            map.addSource("station-relations", {
+            map.addSource("origin-station", {
                 type: "geojson",
-                data: startStationRelations,
+                data: origin,
             });
-            map.addLayer({
-                id: "station-relationship",
+
+            map.addLayer({id: "origin-station-layer",
                 type: "circle",
-                source: "station-relations",
+                source: "origin-station",
                 paint: {
                     "circle-radius": [
-                        "step",
+                        "interpolate",
+                        ['linear'],
                         ["get", `${station}`], // make it a function of the value
-                        1, 0,
-                        3, 1,
-                        4, 10,
-                        5, 20,
-                        6, 40,
-                        7, 60,
-                        8, 80,
-                        9, 100,
-                        10, 200,
-                        15, 300,
-                        18, 360,
-                        20, 400,
-                        25, 500,
-                        30, 600,
-                        50
+                        0, 5,
+                        500, 25,
+                        1000, 50
                     ],
                     "circle-color": [
                         "match",
@@ -88,75 +79,50 @@
                     "circle-stroke-width" : 2,
                 },
             });
-            map.addLayer({
-                    id: "station-relationship-outline",
+            map.addLayer({id: "origin-station-layer-outline",
                     type: "circle",
-                    source: "station-relations",
+                    source: "origin-station",
                     filter: ['==', 'Start Station Id', station],
                     paint: {
                         "circle-radius": [
-                            "step",
-                            ["get", `${station}`],
-                            1, 0,
-                            3, 1,
-                            4, 10,
-                            5, 20,
-                            6, 40,
-                            7, 60,
-                            8, 80,
-                            9, 100,
-                            10, 200,
-                            15, 300,
-                            18, 360,
-                            20, 400,
-                            25, 500,
-                            30, 600,
-                            50,
-                        ],
+                            "interpolate",
+                        ['linear'],
+                        ["get", `${station}`], // make it a function of the value
+                        0, 5,
+                        500, 25,
+                        1000, 50,],
                         "circle-opacity" : 0,
                         "circle-stroke-width" : 2,
                         "circle-stroke-color" : "#DC4633"
 
                     },
                 });
-
-            map.on("click", "station-relationship", function (e) {
+            map.on("click", "origin-station-layer", function (e) {
                 var coordinate = e.features[0].geometry.coordinates;
                 console.log(coordinate)
                 //const description = e.features[0].properties.description;
                 var feature  = e.features[0].properties
 
-                station = feature["Start Station Id"];
+                station = feature["End Station Id"];
                 stationName = feature['Station']
                 
                 console.log(station)
              
-                map.removeLayer('station-relationship-outline');
-                map.removeLayer('station-relationship');
+                map.removeLayer('origin-station-layer-red');
+                map.removeLayer('origin-station-layer');
 
                 map.addLayer({
-                    id: "station-relationship",
+                    id: "origin-station-layer",
                     type: "circle",
-                    source: "station-relations",
+                    source: "origin-station",
                     paint: {
                         "circle-radius": [
-                            "step",
-                            ["get", `${station}`],
-                            1, 0,
-                            3, 1,
-                            4, 10,
-                            5, 20,
-                            6, 40,
-                            7, 60,
-                            8, 80,
-                            9, 100,
-                            10, 200,
-                            15, 300,
-                            18, 360,
-                            20, 400,
-                            25, 500,
-                            30, 600,
-                            50,
+                            "interpolate",
+                        ['linear'],
+                        ["get", `${station}`], // make it a function of the value
+                        0, 5,
+                        500, 25,
+                        1000, 50,
                         ],
                         
                     "circle-color": [
@@ -176,29 +142,18 @@
                     },
                 });
                 map.addLayer({
-                    id: "station-relationship-outline",
+                    id: "origin-station-layer-red",
                     type: "circle",
-                    source: "station-relations",
-                    filter: ['==', 'Start Station Id', station],
+                    source: "origin-station",
+                    filter: ['==', 'End Station Id', station],
                     paint: {
                         "circle-radius": [
-                            "step",
-                            ["get", `${station}`],
-                            1, 0,
-                            3, 1,
-                            4, 10,
-                            5, 20,
-                            6, 40,
-                            7, 60,
-                            8, 80,
-                            9, 100,
-                            10, 200,
-                            15, 300,
-                            18, 360,
-                            20, 400,
-                            25, 500,
-                            30, 600,
-                            50,
+                            "interpolate",
+                        ['linear'],
+                        ["get", `${station}`], // make it a function of the value
+                        0, 5,
+                        500, 25,
+                        1000, 50,
                         ],
                         "circle-opacity": 0,
                         "circle-stroke-width" : 1,
@@ -216,37 +171,25 @@
                 [-79.60668327438583, 43.56196116510192],
             ]);
 
-            map.on("mouseenter", "station-relationship", (e) => {
+            map.on("mouseenter", "origin-station-layer", (e) => {
                 map.getCanvas().style.cursor = "pointer";
                 var feature = e.features[0].properties
-                toStation = feature['Start Station Id']
+                toStation = feature['End Station Id']
                 toStationName = feature['Station']
                 trips = feature[station]
 
-                map.addLayer({
-                    id: "station-relationship-hover",
+                map.addLayer({id: "origin-station-layer-hover",
                     type: "circle",
-                    source: "station-relations",
-                    filter: ['==', 'Start Station Id', toStation],
+                    source: "origin-station",
+                    filter: ['==', 'End Station Id', toStation],
                     paint: {
                         "circle-radius": [
-                            "step",
-                            ["get", `${station}`],
-                            1, 0,
-                            3, 1,
-                            4, 10,
-                            5, 20,
-                            6, 40,
-                            7, 60,
-                            8, 80,
-                            9, 100,
-                            10, 200,
-                            15, 300,
-                            18, 360,
-                            20, 400,
-                            25, 500,
-                            30, 600,
-                            50,
+                            "interpolate",
+                        ['linear'],
+                        ["get", `${station}`], // make it a function of the value
+                        0, 5,
+                        500, 25,
+                        1000, 50,
                         ],
                         "circle-opacity": 0,
                         "circle-stroke-width" : 3,
@@ -257,9 +200,9 @@
 
             });
 
-            map.on("mouseleave", "station-relationship", () => {
+            map.on("mouseleave", "origin-station-layer", () => {
                 map.getCanvas().style.cursor = "";
-                map.removeLayer('station-relationship-hover');
+                map.removeLayer('origin-station-layer-hover');
             });
         });
     });
@@ -287,19 +230,19 @@
         overflow-x: hidden;
     }
     .map {
-        height: 100%;
-        width: 65%;
+        height: 60vh;
+        width: 100vw;
         top: 0;
-        left: 35%;
+        left: 0%;
         position: absolute;
         overflow: hidden;
     }
     .info-panel {
         position: absolute;
-        top: 0px;
+        top: 60vh;
         left: 0px;
-        width: 35vw;
-        height: 100%;
+        width: 100vw;
+        height: 40vh;
         font-size: 17px;
         font-family: sans-serif;
         background-color: rgb(254, 251, 249, 1);
