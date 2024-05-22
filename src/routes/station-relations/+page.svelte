@@ -407,7 +407,7 @@ onMount(() => {
                 }}
                 style="background-color: {differenceFilter
                     ? '#a9d6e5'
-                    : ''}; color: 'black'"><p>Difference ( Greater than 0 means more trips originating from one station to another, <br> Smaller than 0 means more trips from the destination station to the origin station. )</p></button
+                    : ''}; color: 'black'"><p>Difference ( Greater than 0 means more trips from clicked station to another station <br> Smaller than 0 means more trips from the destination station to the clicked station. )</p></button
             >
         </div>
     </div>
@@ -504,7 +504,8 @@ onMount(() => {
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 5px;
-        margin-bottom: 50px;
+        margin-bottom: 5px;
+
     }
     a {
         color: #41729f;
@@ -512,7 +513,7 @@ onMount(() => {
     .application-button {
         font-size: 12px;
         width: auto;
-        height: 80px;
+        height: auto;
         left: 10px;
         margin-right: 5px;
         margin-bottom: 5px;
