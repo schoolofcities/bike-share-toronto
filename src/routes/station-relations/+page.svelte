@@ -5,6 +5,7 @@
     import origin from "../../data/bikeshare relations (origin).geo.json";
     import destination from "../../data/bikeshare relations (destination).geo.json";
     import difference from "../../data/bikeshare relations (difference).geo.json";
+    import "../../assets/global-styles.css";
 
     let map;
     let prevStation = 7000;
@@ -21,47 +22,60 @@
     let enterCoordinates = [-79.39595371484756, 43.639831290132605]; // setting the ending coordinate for lines
 
     function updateSource() {
-        /*if{difference}{
-            map.getSource('station').setData(destination);
-        }*/
         if (originFilter) {
             map.getSource("station").setData(origin);
-            map.setLayoutProperty("station-difference-layer", 'visibility', 'none')
-            map.setLayoutProperty("station-layer-hover", 'visibility', 'visible')
-            map.setLayoutProperty("station-layer-outline", 'visibility', 'visible')
-            map.setLayoutProperty("station-layer", 'visibility', 'visible')
+            map.setLayoutProperty(
+                "station-difference-layer",
+                "visibility",
+                "none",
+            );
+            //map.setLayoutProperty("station-layer-hover","visibility","visible");
+            map.setLayoutProperty(
+                "station-layer-outline",
+                "visibility",
+                "visible",
+            );
+            map.setLayoutProperty("station-layer", "visibility", "visible");
             stationID = "End Station Id";
-        }  if (destinationFilter) {
+        }
+        if (destinationFilter) {
             map.getSource("station").setData(destination);
             // turn the layers back on
-            map.setLayoutProperty("station-difference-layer", 'visibility', 'none')
-            map.setLayoutProperty("station-layer-hover", 'visibility', 'visible')
-            map.setLayoutProperty("station-layer-outline", 'visibility', 'visible')
-            map.setLayoutProperty("station-layer", 'visibility', 'visible')
+            map.setLayoutProperty(
+                "station-difference-layer",
+                "visibility",
+                "none",
+            );
+            //map.setLayoutProperty("station-layer-hover","visibility","visible",);
+            map.setLayoutProperty(
+                "station-layer-outline",
+                "visibility",
+                "visible",
+            );
+            map.setLayoutProperty("station-layer", "visibility", "visible");
 
             stationID = "Start Station Id";
-        }  if (differenceFilter) {
+        }
+        if (differenceFilter) {
             map.getSource("station").setData(difference);
-            map.setLayoutProperty("station-difference-layer", 'visibility', 'visible')
-            map.setLayoutProperty("station-layer-hover", 'visibility', 'none')
-            map.setLayoutProperty("station-layer-outline", 'visibility', 'none')
-            map.setLayoutProperty("station-layer", 'visibility', 'none')
-            
+            map.setLayoutProperty("station-difference-layer", "visibility","visible");
+            //map.setLayoutProperty("station-layer-hover", "visibility", "none");
+            map.setLayoutProperty("station-layer-outline","visibility", "none");
+            map.setLayoutProperty("station-layer", "visibility", "none");
         }
     }
 
-    function getInterpolatedRadius(trips) {
-    if (trips <= 0) return 5;
-    if (trips <= 500) return 5 + (trips / 500) * (25 - 5);
-    if (trips <= 1000) return 25 + ((trips - 500) / 500) * (50 - 25);
-    return 50;
-}
+    // Esri color ramps - Blue and Orange 2
+    // #bf5b1dff,#e48043ff,#d6cdcdff,#84a7c4ff,#547a99ff
+    const colors = [
+        "#a53217ff",
+        "#d2987fff",
+        "#fffee6ff",
+        "#8897a2ff",
+        "#10305eff",
+    ];
 
-// Esri color ramps - Blue and Orange 2
-// #bf5b1dff,#e48043ff,#d6cdcdff,#84a7c4ff,#547a99ff
-const colors = ["#a53217ff", "#d2987fff", "#fffee6ff", "#8897a2ff", "#10305eff"];
-    
-onMount(() => {
+    onMount(() => {
         //let protocol = new pmtiles.Protocol();
 
         //maplibregl.addProtocol("pmtiles", protocol.tile);
@@ -127,12 +141,19 @@ onMount(() => {
                         " : ",
                         ["get", `${station}`],
                     ],
-                    'text-variable-anchor-offset': ['left', [2, 0]],                        
+                    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"], // Example fonts
+                    "text-size": 14, // Font size
+                    "text-variable-anchor-offset": ["left", [2, 0]],
                     "text-justify": "left",
                 },
+                paint: {
+                    "text-color": "#000000", // Text color
+                    "text-halo-color": "#ffffff", // Optional: text halo color for better readability
+                    "text-halo-width": 1.1, // Optional: halo width
+                },
             });
-            map.addLayer({
-                id: "station-layer-outline",
+            // outline on hovering over points
+            map.addLayer({id: "station-layer-outline",
                 type: "circle",
                 source: "station",
                 filter: ["==", stationID, station],
@@ -158,35 +179,58 @@ onMount(() => {
                 source: "station-difference",
                 paint: {
                     "circle-color": [
-                    "interpolate",
-                    ["linear"],
-                    ["get", `${station}`],
-                    -80, "#a53217ff", 
-                    -40, "#d2987fff",
-                    0, "#fffee6ff", // Start color (blue) for the lowest value
-                    40, "#8897a2ff", // Intermediate color (green)
-                    80, "#10305eff" // End color (red) for the highest value
-                ], 
+                        "interpolate",
+                        ["linear"],
+                        ["get", `${station}`],
+                        -50,
+                        "#a53217ff",
+                        -25,
+                        "#d2987fff",
+                        0,
+                        "#fffee6ff", // Start color (blue) for the lowest value
+                        25,
+                        "#8897a2ff", // Intermediate color (green)
+                        50,
+                        "#10305eff", // End color (red) for the highest value
+                    ],
                     "circle-radius": 7,
                     "circle-opacity": 1,
                     "circle-stroke-color": "black",
-                    "circle-stroke-width": 0.1,
+                    "circle-stroke-width": 1,
                 },
             });
-            map.setLayoutProperty("station-difference-layer", 'visibility', 'none')
-
+            // outline on hovering over points
+            map.addLayer({id: "station-difference-layer-outline",
+                type: "circle",
+                source: "station-difference",
+                filter: ["==", stationID, station],
+                paint: {
+                    "circle-radius": 7,
+                    "circle-opacity": 0,
+                    "circle-stroke-width": 3,
+                    "circle-stroke-color": "#DC4633",
+                },
+            });
+            // turn the difference layers off for now. 
+            map.setLayoutProperty("station-difference-layer",
+                "visibility",
+                "none",
+            );
+            map.setLayoutProperty("station-layer-outline","visibility","none",
+            );
+            // On Click 
             map.on("click", "station-layer", function (e) {
                 coordinate = e.features[0].geometry.coordinates;
                 var feature = e.features[0].properties;
 
                 station = feature[stationID];
                 stationName = feature["Station"];
-                // remove a few layers to update the display 
+                // remove a few layers to update the display
                 map.removeLayer("station-layer-outline");
                 map.removeLayer("station-layer");
                 map.removeLayer(`label ${prevStation}`);
 
-                map.addLayer({id: "station-layer",
+                map.addLayer({id: "station-layer", // this is to show the data
                     type: "circle",
                     source: "station",
                     paint: {
@@ -194,25 +238,32 @@ onMount(() => {
                             "interpolate",
                             ["linear"],
                             ["get", `${station}`], // make it a function of the value
-                            0, 5,
-                            500,35,
-                            1000, 50,
+                            0,
+                            5,
+                            500,
+                            35,
+                            1000,
+                            50,
                         ],
                         "circle-color": [
                             "match",
                             ["get", `${station}`],
-                            0,"red","#0D534D",
+                            0,
+                            "red",
+                            "#0D534D",
                         ],
                         "circle-opacity": 0.5,
                         "circle-stroke-width": 1,
                         "circle-stroke-color": [
                             "match",
                             ["get", `${station}`],
-                            0,"white","#0D534D",
+                            0,
+                            "white",
+                            "#0D534D",
                         ],
                     },
                 });
-                map.addLayer({id: "station-layer-outline",
+                map.addLayer({id: "station-layer-outline", // this is to show the outline of the clicked station
                     type: "circle",
                     source: "station",
                     filter: ["==", stationID, station],
@@ -233,50 +284,104 @@ onMount(() => {
                         "circle-stroke-color": "#DC4633",
                     },
                 });
-                map.addLayer({id: `label ${station}`,
+                map.addLayer({id: `label ${station}`, // label the station
                     type: "symbol",
                     source: "station",
-                    minzoom: 13,
+                    minzoom: 14,
                     layout: {
                         "text-field": [
-                            "concat",
-                            ["get", "Station"],
+                            "concat",                            ["get", "Station"],
                             " : ",
                             ["get", `${station}`],
                         ],
-                    'text-variable-anchor-offset': ['left', [ 2, 0]],                        
-                    "text-justify": "left",
+                        "text-font": [
+                            "Open Sans Bold",
+                            "Arial Unicode MS Bold",
+                        ], // Example fonts
+                        "text-size": 14, // Font size
+                        "text-variable-anchor-offset": ["left", [2, 0]],
+                        "text-justify": "left",
+                    },
+                    paint: {
+                        "text-color": "#000000", // Text color
+                        "text-halo-color": "#ffffff", // Optional: text halo color for better readability
+                        "text-halo-width": 1.1, // Optional: halo width
                     },
                 });
-                
                 prevStation = station;
             });
+            // On click for the difference in origin and destination ridership
             map.on("click", "station-difference-layer", function (e) {
+                coordinate = e.features[0].geometry.coordinates;
                 var feature = e.features[0].properties;
+                stationName = feature["Station"];
                 station = feature["Start Station Id"];
+                map.removeLayer("station-difference-layer-outline");
                 map.removeLayer("station-difference-layer");
+                map.removeLayer(`label ${prevStation}`);
+
                 map.addLayer({id: "station-difference-layer",
                     type: "circle",
                     source: "station-difference",
                     paint: {
                         "circle-color": [
-                        "interpolate",
-                        ["linear"],
-                        ["get", `${station}`],
-                        -80, "#a53217ff", 
-                        -40, "#d2987fff",
-                        0, "#fffee6ff", // Start color (blue) for the lowest value
-                        40, "#8897a2ff", // Intermediate color (green)
-                        80, "#10305eff" // End color (red) for the highest value
-                    ], 
+                            "interpolate",
+                            ["linear"],
+                            ["get", `${station}`],
+                            -80,
+                            "#a53217ff",
+                            -40,
+                            "#d2987fff",
+                            0,
+                            "#fffee6ff", // Start color (blue) for the lowest value
+                            40,
+                            "#8897a2ff", // Intermediate color (green)
+                            80,
+                            "#10305eff", // End color (red) for the highest value
+                        ],
                         "circle-radius": 7,
                         "circle-opacity": 1,
                         "circle-stroke-color": "black",
-                        "circle-stroke-width": 0.1,
+                        "circle-stroke-width": 1,
                     },
                 });
-            })
-
+                map.addLayer({id: "station-difference-layer-outline", // this is to show the outline of the clicked station
+                    type: "circle",
+                    source: "station-difference",
+                    filter: ["==", "Start Station Id", station],
+                    paint: {
+                        "circle-radius": 7,
+                        "circle-opacity": 0,
+                        "circle-stroke-width": 5,
+                        "circle-stroke-color": "#DC4633",
+                    },
+                });
+                map.addLayer({id: `label ${station}`,
+                    type: "symbol",
+                    source: "station-difference",
+                    minzoom: 14,
+                    layout: {
+                        "text-field": [
+                            "concat",["get", "Station"],
+                            " : ",
+                            ["get", `${station}`],
+                        ],
+                        "text-font": [
+                            "Open Sans Bold",
+                            "Arial Unicode MS Bold",
+                        ], // Example fonts
+                        "text-size": 14, // Font size
+                        "text-variable-anchor-offset": ["left", [2, 0]],
+                        "text-justify": "left",
+                    },
+                    paint: {
+                        "text-color": "#000000", // Text color
+                        "text-halo-color": "#ffffff", // Optional: text halo color for better readability
+                        "text-halo-width": 1.1, // Optional: halo width
+                    },
+                });
+                prevStation = station;
+            });
 
             // Boundary of map
 
@@ -284,6 +389,63 @@ onMount(() => {
                 [-79.14904366238247, 43.87527014932047],
                 [-79.60668327438583, 43.56196116510192],
             ]);
+            map.on("mouseenter", "station-difference-layer", (e) => {
+                map.getCanvas().style.cursor = "pointer";
+                enterCoordinates = e.features[0].geometry.coordinates;
+                var feature = e.features[0].properties;
+
+                toStation = feature["Start Station Id"];
+                toStationName = feature["Station"];
+                trips = feature[station];
+                console.log(toStation)
+
+                map.addSource(`line-difference-${enterCoordinates}`, {
+                    type: "geojson",
+                    data: {
+                        type: "Feature",
+                        proterties: {},
+                        geometry: {
+                            type: "LineString",
+                            coordinates: [coordinate, enterCoordinates],
+                        },
+                    },
+                });
+                // a line created on the fly to link two stations together
+                map.addLayer({id: `station-to-station-difference-${enterCoordinates}`,
+                    type: "line",
+                    source: `line-difference-${enterCoordinates}`,
+                    paint: {
+                        "line-color": "#F1C500",
+                        "line-width": 8,
+                    },
+                });
+                map.addLayer({id: "station-difference-layer-hover",
+                    type: "circle",
+                    source: "station-difference",
+                    filter: ["==", "Start Station Id", toStation],
+                    paint: {
+                        "circle-color": [
+                            "interpolate",
+                            ["linear"],
+                            ["get", `${station}`],
+                            -80,
+                            "#a53217ff",
+                            -40,
+                            "#d2987fff",
+                            0,
+                            "#fffee6ff", 
+                            40,
+                            "#8897a2ff", 
+                            80,
+                            "#10305eff",
+                        ],
+                        "circle-radius": 7,
+                        "circle-opacity": 1,
+                        "circle-stroke-width": 3,
+                        "circle-stroke-color": "#F1C500",
+                    },
+                });
+            })
 
             map.on("mouseenter", "station-layer", (e) => {
                 map.getCanvas().style.cursor = "pointer";
@@ -293,7 +455,6 @@ onMount(() => {
                 toStation = feature[stationID];
                 toStationName = feature["Station"];
                 trips = feature[station];
-
 
                 map.addSource(`line-${enterCoordinates}`, {
                     type: "geojson",
@@ -344,25 +505,30 @@ onMount(() => {
                 map.removeLayer(`station-to-station-${enterCoordinates}`);
                 map.removeSource(`line-${enterCoordinates}`);
             });
+            map.on("mouseleave", "station-difference-layer", () => {
+                map.getCanvas().style.cursor = "";
+                map.removeLayer("station-difference-layer-hover");
+                map.removeLayer(`station-to-station-difference-${enterCoordinates}`);
+                map.removeSource(`line-difference-${enterCoordinates}`);
+            });
         });
     });
 </script>
 
-<main>
     <div id="map" class="map" />
 
     <div class="info-panel">
         <h1>Bikeshare Toronto Stations Relations</h1>
         {#if originFilter}
-            <h2>{trips} trips from</h2>
-            <h3>{station} &nbsp {stationName}</h3>
-            <h2>to</h2>
-            <h3>{toStation} &nbsp {toStationName}</h3>
+            <h2>{trips}</h2><h3>trips from</h3>
+            <h2>{station} &nbsp {stationName}</h2>
+            <h3>to</h3>
+            <h2>{toStation} &nbsp {toStationName}</h2>
         {:else if destinationFilter}
-            <h2>{trips} trips from</h2>
-            <h3>{toStation} &nbsp {toStationName}</h3>
-            <h2>to</h2>
-            <h3>{station} &nbsp {stationName}</h3>
+            <h2>{trips}</h2><h3>trips from</h3>
+            <h2>{toStation} &nbsp {toStationName}</h2>
+            <h3>to</h3>
+            <h2>{station} &nbsp {stationName}</h2>
         {/if}
 
         <div class="buttons-box">
@@ -375,8 +541,8 @@ onMount(() => {
                     updateSource();
                 }}
                 style="background-color: {originFilter
-                    ? '#a9d6e5'
-                    : ''}; color: 'black'"
+                    ? '#F1C500'
+                    : '#6FC7EA'}; color: 'black'"
                 ><p>
                     Displaying The Number of Trips From <br /> Clicked Station To
                     Hovered Destination
@@ -390,8 +556,8 @@ onMount(() => {
                     updateSource();
                 }}
                 style="background-color: {destinationFilter
-                    ? '#a9d6e5'
-                    : ''}; color: 'black'"
+                    ? '#F1C500'
+                    : '#6FC7EA'}; color: 'black'"
                 ><p>
                     Displaying The Number of Trips From <br /> Hovered Station To
                     Clicked Destination
@@ -402,21 +568,21 @@ onMount(() => {
                     differenceFilter = !differenceFilter;
                     originFilter = false;
                     destinationFilter = false;
-
                     updateSource();
                 }}
                 style="background-color: {differenceFilter
-                    ? '#a9d6e5'
-                    : ''}; color: 'black'"><p>Difference ( Greater than 0 means more trips from clicked station to another station <br> Smaller than 0 means more trips from the destination station to the clicked station. )</p></button
+                    ? '#F1C500'
+                    : '#6FC7EA'}; color: 'black'"
+                ><p>
+                    Difference ( Greater than 0 means more trips from clicked
+                    station to another station <br /> Smaller than 0 means more trips
+                    from the destination station to the clicked station. )
+                </p></button
             >
         </div>
     </div>
-</main>
 
 <style>
-    main {
-        overflow-x: hidden;
-    }
     .map {
         height: 70vh;
         width: 100vw;
@@ -434,21 +600,11 @@ onMount(() => {
         font-size: 17px;
         font-family: sans-serif;
         background-color: rgb(254, 251, 249, 1);
+        background-color: var(--brandDarkGreen);
         color: #1e3765;
         overflow-x: hidden;
         scrollbar-width: 1px;
         margin: 0 auto;
-    }
-    .application {
-        left: 10px;
-        width: 35vw - 20px;
-        height: auto;
-        padding-top: 0px;
-        background-color: #d3d3d3;
-        margin-right: 20px;
-        margin-top: 2px;
-        position: relative;
-        scrollbar-width: 1px;
     }
     .buttons-box {
         left: 0px;
@@ -458,55 +614,36 @@ onMount(() => {
         padding-top: 5px;
         margin-right: 20px;
         position: relative;
-    }
+    } 
     h1 {
-        font-size: 30px;
-        padding-top: 20px;
         padding-left: 10px;
-        /*padding-bottom: 3px;*/
-        margin: 0px;
-        margin-bottom: 0px;
-        color: #1e3765;
-        /* background-color: #F1C500; */
-        /* -webkit-text-stroke: 1px #6FC7EA; */
+        margin: 0 auto;
         font-weight: bold;
+        position: relative;
     }
     h2 {
-        font-size: 20px;
-
         padding-top: 20px;
         padding-left: 10px;
-
-        /*padding-bottom: 3px;*/
         margin: 0px;
-        margin-bottom: 0px;
-        color: #1e3765;
-        /* background-color: #F1C500; */
-        /* -webkit-text-stroke: 1px #6FC7EA; */
         font-weight: bold;
+        display: inline-block;
     }
     h3 {
-        font-size: 18px;
-
         padding-top: 10px;
         padding-left: 10px;
-        /*padding-bottom: 3px;*/
         margin: 0px;
-        margin-bottom: 0px;
-        color: #41729f;
-        /* background-color: #F1C500; */
-        /* -webkit-text-stroke: 1px #6FC7EA; */
         font-weight: bold;
+        display: inline-block;
     }
     p {
-        font-size: 18px;
         padding-top: 0px;
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 5px;
         margin-bottom: 5px;
-
-    }
+        color: var(--brandDarkGreen);
+        font-weight: bold;
+    } 
     a {
         color: #41729f;
     }
@@ -517,41 +654,12 @@ onMount(() => {
         left: 10px;
         margin-right: 5px;
         margin-bottom: 5px;
-        border-width: 0px;
-        position: relative;
-        font-weight: bold;
-    }
-
-    /* Searh Address */
-    input {
-        left: 10px;
-        width: 24vw;
-        height: 20px;
-
-        color: #6d247a;
         border-width: 1px;
-        margin-right: 5px;
-
-        padding-left: 2px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-
-        font-weight: bold;
+        border-color: 'white';
         position: relative;
-        border-color: grey;
-    }
-    .address-button {
-        left: 10px;
-        width: 24%;
-        height: 28px;
-
-        border-width: 1px;
-        margin-right: 5px;
-
         font-weight: bold;
-        position: relative;
-        border-color: grey;
     }
+
     /* SCROLL BARS */
     ::-webkit-scrollbar {
         width: 5px;
