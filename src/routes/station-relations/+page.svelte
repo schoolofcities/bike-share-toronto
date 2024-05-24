@@ -58,12 +58,12 @@
                     "text-justify": "left",
                 },
                 paint: {
-                    "text-color": "#000000", // Text color
+                    "text-color": "#4d4d4d", // Text color
                     "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                     "text-halo-width": 1.1, // Optional: halo width
                 },
             });
-            
+
             map.removeLayer("station-layer-outline");
             map.addLayer({id: "station-layer-outline",
                 type: "circle",
@@ -92,7 +92,7 @@
         if (destinationFilter) {
             console.log("Destination:", station)
             map.getSource("station").setData(destination);
-            map.removeLayer(`label ${prevStation}`);
+            
             stationID = "Start Station Id";
             // turn the layers back on
             map.setLayoutProperty("station-difference-layer","visibility", "none");
@@ -100,6 +100,8 @@
             
             //remove the label from the previous display and change to current displayed data values
             map.setLayoutProperty("station-layer", "visibility", "visible");
+
+            map.removeLayer(`label ${prevStation}`);
             map.addLayer({id: `label ${station}`,
                 type: "symbol",
                 source: "station",
@@ -117,7 +119,7 @@
                     "text-justify": "left",
                 },
                 paint: {
-                    "text-color": "#000000", // Text color
+                    "text-color": "#4d4d4d", // Text color
                     "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                     "text-halo-width": 1.1, // Optional: halo width
                 },
@@ -173,11 +175,12 @@
                         "text-justify": "left",
                     },
                     paint: {
-                        "text-color": "#000000", // Text color
+                        "text-color": "#4d4d4d", // Text color
                         "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                         "text-halo-width": 1.1, // Optional: halo width
                     },
                 });
+            
             map.removeLayer("station-difference-layer-outline");
             map.addLayer({id: "station-difference-layer-outline", // this is to show the outline of the clicked station
                 type: "circle",
@@ -192,43 +195,33 @@
             });
 
             map.removeLayer("station-difference-layer");
-                map.addLayer({id: "station-difference-layer",
-                    type: "circle",
-                    source: "station-difference",
-                    paint: {
-                        "circle-color": [
-                            "interpolate",
-                            ["linear"],
-                            ["get", `${station}`],
-                            -80,
-                            "#a53217ff",
-                            -40,
-                            "#d2987fff",
-                            0,
-                            "#fffee6ff", // Start color (blue) for the lowest value
-                            40,
-                            "#8897a2ff", // Intermediate color (green)
-                            80,
-                            "#10305eff", // End color (red) for the highest value
-                        ],
-                        "circle-radius": 7,
-                        "circle-opacity": 1,
-                        "circle-stroke-color": "black",
-                        "circle-stroke-width": 1,
-                    },
-                });
+            map.addLayer({id: "station-difference-layer",
+                type: "circle",
+                source: "station-difference",
+                paint: {
+                    "circle-color": [
+                        "interpolate",
+                        ["linear"],
+                        ["get", `${station}`],
+                        -80,
+                        "#a53217ff",
+                        -40,
+                        "#d2987fff",
+                        0,
+                        "white", // Start color (blue) for the lowest value
+                        40,
+                        "#8897a2ff", // Intermediate color (green)
+                        80,
+                        "#10305eff", // End color (red) for the highest value
+                    ],
+                    "circle-radius": 7,
+                    "circle-opacity": 1,
+                    "circle-stroke-color": "#4d4d4d",
+                    "circle-stroke-width": 1,
+                },
+            });
         }
     }
-
-    // Esri color ramps - Blue and Orange 2
-    // #bf5b1dff,#e48043ff,#d6cdcdff,#84a7c4ff,#547a99ff
-    const colors = [
-        "#a53217ff",
-        "#d2987fff",
-        "#fffee6ff",
-        "#8897a2ff",
-        "#10305eff",
-    ];
 
     onMount(() => {
         //let protocol = new pmtiles.Protocol();
@@ -302,7 +295,7 @@
                     "text-justify": "left",
                 },
                 paint: {
-                    "text-color": "#000000", // Text color
+                    "text-color": "#4d4d4d", // Text color
                     "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                     "text-halo-width": 1.1, // Optional: halo width
                 },
@@ -342,7 +335,7 @@
                         -25,
                         "#d2987fff",
                         0,
-                        "#fffee6ff", // Start color (blue) for the lowest value
+                        "white", // Start color (blue) for the lowest value
                         25,
                         "#8897a2ff", // Intermediate color (green)
                         50,
@@ -350,7 +343,7 @@
                     ],
                     "circle-radius": 7,
                     "circle-opacity": 1,
-                    "circle-stroke-color": "black",
+                    "circle-stroke-color": "#4d4d4d",
                     "circle-stroke-width": 1,
                 },
             });
@@ -458,7 +451,7 @@
                         "text-justify": "left",
                     },
                     paint: {
-                        "text-color": "#000000", // Text color
+                        "text-color": "#4d4d4d", // Text color
                         "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                         "text-halo-width": 1.1, // Optional: halo width
                     },
@@ -488,7 +481,7 @@
                             -40,
                             "#d2987fff",
                             0,
-                            "#fffee6ff", // Start color (blue) for the lowest value
+                            "white", // Start color (blue) for the lowest value
                             40,
                             "#8897a2ff", // Intermediate color (green)
                             80,
@@ -496,7 +489,7 @@
                         ],
                         "circle-radius": 7,
                         "circle-opacity": 1,
-                        "circle-stroke-color": "black",
+                        "circle-stroke-color": "#4d4d4d",
                         "circle-stroke-width": 1,
                     },
                 });
@@ -532,7 +525,7 @@
                         "text-justify": "left",
                     },
                     paint: {
-                        "text-color": "#000000", // Text color
+                        "text-color": "#4d4d4d", // Text color
                         "text-halo-color": "#ffffff", // Optional: text halo color for better readability
                         "text-halo-width": 1.1, // Optional: halo width
                     },
@@ -590,7 +583,7 @@
                             -40,
                             "#d2987fff",
                             0,
-                            "#fffee6ff", 
+                            "white", 
                             40,
                             "#8897a2ff", 
                             80,
@@ -676,23 +669,42 @@
 
     <div class="info-panel">
         <h1>Bikeshare Toronto Stations Relations</h1>
+        
         {#if originFilter}
-            <h2>{trips}</h2><h3>trips from</h3>
-            <h2>{station} &nbsp {stationName}</h2>
-            <h3>to</h3>
-            <h2>{toStation} &nbsp {toStationName}</h2>
+            <h2>{station} {stationName}</h2>
+            <h4>{trips}</h4><h5>trips from this station</h5>
+            <h5>to</h5>
+            <h4>{toStation} &nbsp {toStationName}</h4>
         {:else if destinationFilter}
-            <h2>{trips}</h2><h3>trips from</h3>
-            <h2>{toStation} &nbsp {toStationName}</h2>
-            <h3>to</h3>
-            <h2>{station} &nbsp {stationName}</h2>
+            <h2>{station} {stationName}</h2>
+            <h4>{trips}</h4><h5>trips from</h5>
+            <h4>{toStation} &nbsp {toStationName}</h4>
+            <h5>to this station</h5>
         {:else if differenceFilter}
-            <h2>{trips}</h2><h3>trips from</h3>
-            <h2>{toStation} &nbsp {toStationName}</h2>
-            <h3>to</h3>
-            <h2>{station} &nbsp {stationName}</h2>
-        {/if}
+            {#if trips > 0}
+                <h2>{station} {stationName}</h2>
+                <h5> Riders tend to bike from this station to </h5><h4>{toStationName}</h4>
+                <br><h5> with </h5>
+                <h4>{trips}</h4><h5>more trip(s) from</h5>
+                <h4>{stationName}</h4><h5>to</h5><h4>{toStationName}</h4>
+                <h5>than from</h5>
+                <h4>{toStationName}</h4> <h5>to</h5><h4>{stationName}</h4>
+            
+            {:else if trips < 0}
+                <h2>{station} {stationName}</h2>
+                <h5> Riders tend to bike from </h5><h4>{toStationName}</h4> <h5>to this station</h5>
+                <br><h5> with </h5>
+                <h4>{Math.abs(trips)}</h4><h5>more trip(s) from</h5>
+                <h4>{toStationName}</h4> <h5>to</h5><h4>{stationName}</h4>
+                <h5>than from</h5>
+                <h4>{stationName}</h4><h5>to</h5><h4>{toStationName}</h4> 
+                
 
+            {:else if trips == 0}
+                <h2>{station} {stationName}</h2>
+                <h4>{trips}</h4><h5>trip difference. </h5>
+            {/if}
+        {/if}
         <div class="buttons-box">
             <button
                 class="application-button"
@@ -703,8 +715,8 @@
                     updateSource();
                 }}
                 style="background-color: {originFilter
-                    ? '#F1C500'
-                    : '#6FC7EA'}; color: 'black'"
+                    ? '#1E3765'
+                    : '#4d4d4d'}; color: 'black'"
                 ><p>
                     Displaying The Number of Trips From <br /> Clicked Station To
                     Hovered Destination
@@ -718,8 +730,8 @@
                     updateSource();
                 }}
                 style="background-color: {destinationFilter
-                    ? '#F1C500'
-                    : '#6FC7EA'}; color: 'black'"
+                    ? '#1E3765'
+                    : '#4d4d4d'}; color: 'black'"
                 ><p>
                     Displaying The Number of Trips From <br /> Hovered Station To
                     Clicked Destination
@@ -733,8 +745,8 @@
                     updateSource();
                 }}
                 style="background-color: {differenceFilter
-                    ? '#F1C500'
-                    : '#6FC7EA'}; color: 'black'"
+                    ? '#1E3765'
+                    : '#4d4d4d'}; color: 'black'"
                 ><p>
                     Difference ( Greater than 0 means more trips from clicked
                     station to another station <br /> Smaller than 0 means more trips
@@ -786,11 +798,18 @@
     h2 {
         padding-top: 20px;
         padding-left: 10px;
+        margin: 0 auto;
+        font-weight: bold;
+        position: relative;
+    }
+    h4 {
+        padding-top: 20px;
+        padding-left: 10px;
         margin: 0px;
         font-weight: bold;
         display: inline-block;
     }
-    h3 {
+    h5 {
         padding-top: 10px;
         padding-left: 10px;
         margin: 0px;
@@ -803,7 +822,7 @@
         padding-right: 10px;
         padding-bottom: 5px;
         margin-bottom: 5px;
-        color: var(--brandDarkGreen);
+        color: var(--brandWhite);
         font-weight: bold;
     } 
     a {
