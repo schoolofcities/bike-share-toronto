@@ -5,6 +5,7 @@
     import origin from "../../data/bikeshare relations (origin).geo.json";
     import destination from "../../data/bikeshare relations (destination).geo.json";
     import difference from "../../data/bikeshare relations (difference).geo.json";
+    import bikelane from "../../data/cycling-network.geo.json"
     import "../../assets/global-styles.css";
 
     let map;
@@ -21,7 +22,33 @@
     let coordinate = [-79.39595371484756, 43.639831290132605]; // setting the initiating coordinate for lines
     let enterCoordinates = [-79.39595371484756, 43.639831290132605]; // setting the ending coordinate for lines
 
-    
+    function generateLines(clicked){
+        var segments = []
+        
+        for (let i = 0; i < origin.features.length; i++){
+            if (origin.features[i].geometry.coordinates == null){
+                continue
+            }
+            else{
+                    var line = {
+                    type: "Feature",
+                    geometry: {
+                        type: "LineString",
+                        coordinates: [clicked, origin.features[i].geometry.coordinates]
+                    },
+                    properties{
+                        name: "abc"
+                    }
+                }
+                segments.push(line)
+            }
+        }
+
+
+        var geojson = {type: "FeatureCollection", features: segments}
+        return geojson
+    }
+
     // update displayed datat based on the buttons clicked. 
     function updateSource() {
         if (destinationFilter ===  false && differenceFilter === false && originFilter === false){
@@ -222,7 +249,7 @@
             });
         }
     }
-
+    console.log(generateLines(coordinate))
     onMount(() => {
         //let protocol = new pmtiles.Protocol();
 
@@ -245,6 +272,38 @@
                 type: "geojson",
                 data: difference,
             });
+            map.addSource("bike-lane",{
+                type: "geojson",
+                data: bikelane,
+            });
+            map.addLayer({
+                'id': 'bike-lane-layer',
+                'type': 'line',
+                'source': 'bike-lane',
+                'layout': {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                'paint': {
+                    'line-color': '#888',
+                    'line-width': 2
+                }
+            });
+            console.log(generateLines(coordinate))
+            map.addSource(`line-difference-${station}`, {
+                    type: "geojson",
+                    data: generateLines(coordinate)
+                });
+                // a line created on the fly to link two stations together
+                map.addLayer({id: `station-to-station-difference-${station}`,
+                    type: "line",
+                    source: `line-difference-${station}`,
+                    paint: {
+                        "line-color": "#F1C500",
+                        "line-width": 1,
+                    },
+                });
+
             map.addLayer({id: "station-layer",
                 type: "circle",
                 source: "station",
@@ -461,10 +520,34 @@
             // On click for the difference in origin and destination ridership
             map.on("click", "station-difference-layer", function (e) {
                 coordinate = e.features[0].geometry.coordinates;
+
+                
                 var feature = e.features[0].properties;
                 stationName = feature["Station"];
                 station = feature["Start Station Id"];
-                
+                console.log(generateLines(coordinate))
+
+                map.removeLayer(`line-difference-${prevStation}`);
+                map.addSource(`line-difference-${station}`, {
+                    type: "geojson",
+                    data: {
+                        type: "Feature",
+                        proterties: {},
+                        geometry: {
+                            type: "MultiLineString",
+                            coordinates: generateLines(coordinate),
+                        },
+                    },
+                });
+                // a line created on the fly to link two stations together
+                map.addLayer({id: `station-to-station-difference-${station}`,
+                    type: "line",
+                    source: `line-difference-${station}`,
+                    paint: {
+                        "line-color": "#F1C500",
+                        "line-width": 8,
+                    },
+                });
                 
                 
                 map.removeLayer("station-difference-layer");
@@ -683,21 +766,19 @@
         {:else if differenceFilter}
             {#if trips > 0}
                 <h2>{station} {stationName}</h2>
-                <h5> Riders tend to bike from this station to </h5><h4>{toStationName}</h4>
-                <br><h5> with </h5>
+                <h5> Riders tend to bike from this station to </h5><h4>{toStationName},</h4>
+                <h5> with </h5>
                 <h4>{trips}</h4><h5>more trip(s) from</h5>
                 <h4>{stationName}</h4><h5>to</h5><h4>{toStationName}</h4>
-                <h5>than from</h5>
-                <h4>{toStationName}</h4> <h5>to</h5><h4>{stationName}</h4>
+                <h5>than the other way.</h5>
             
             {:else if trips < 0}
                 <h2>{station} {stationName}</h2>
-                <h5> Riders tend to bike from </h5><h4>{toStationName}</h4> <h5>to this station</h5>
-                <br><h5> with </h5>
+                <h5> Riders tend to bike from </h5><h4>{toStationName}</h4> <h5>to this station,</h5>
+                <h5> with </h5>
                 <h4>{Math.abs(trips)}</h4><h5>more trip(s) from</h5>
                 <h4>{toStationName}</h4> <h5>to</h5><h4>{stationName}</h4>
-                <h5>than from</h5>
-                <h4>{stationName}</h4><h5>to</h5><h4>{toStationName}</h4> 
+                <h5>than the other way.</h5>
                 
 
             {:else if trips == 0}
@@ -718,8 +799,7 @@
                     ? '#1E3765'
                     : '#4d4d4d'}; color: 'black'"
                 ><p>
-                    Displaying The Number of Trips From <br /> Clicked Station To
-                    Hovered Destination
+                    Trip Destinations
                 </p></button
             ><button
                 class="application-button"
@@ -733,8 +813,7 @@
                     ? '#1E3765'
                     : '#4d4d4d'}; color: 'black'"
                 ><p>
-                    Displaying The Number of Trips From <br /> Hovered Station To
-                    Clicked Destination
+                    Trip Origin
                 </p></button
             ><button
                 class="application-button"
@@ -748,9 +827,7 @@
                     ? '#1E3765'
                     : '#4d4d4d'}; color: 'black'"
                 ><p>
-                    Difference ( Greater than 0 means more trips from clicked
-                    station to another station <br /> Smaller than 0 means more trips
-                    from the destination station to the clicked station. )
+                    Origin-Destination Difference
                 </p></button
             >
         </div>
@@ -794,6 +871,7 @@
         margin: 0 auto;
         font-weight: bold;
         position: relative;
+        padding-top: 10px;
     }
     h2 {
         padding-top: 20px;
