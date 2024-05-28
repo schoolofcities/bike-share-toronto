@@ -340,7 +340,6 @@
                 type: "geojson",
                 data: difference,
             });
-
             //Adding bike lane
             map.addSource("bike-lane",{
                 type: "geojson",
@@ -358,7 +357,6 @@
                     'line-width': 3
                 }
             });
-
             // lines connecting two stations together
             map.addSource(`lines-${station}`, {
                 type: "geojson",
@@ -373,7 +371,6 @@
                     "line-opacity": 0.5
                 },
             });
-
             map.addLayer({id: "station-layer",
                 type: "circle",
                 source: "station",
@@ -451,7 +448,6 @@
                     "circle-stroke-color": "#DC4633",
                 },
             });
-
             map.addLayer({id: "station-difference-layer",
                 type: "circle",
                 source: "station-difference",
