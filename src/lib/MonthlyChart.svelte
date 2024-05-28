@@ -1,7 +1,7 @@
 <script>
     import { scaleLinear } from "d3-scale";
     import { rollups, sum } from "d3-array";
-    import data from "/src/data/data.json";
+    import data from "/src/data/growth/data.json";
     import "../assets/global-styles.css";
 
     export let variable;

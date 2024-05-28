@@ -1,11 +1,11 @@
 <script>
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
-    import positron from "../../data/positron.json";
-    import origin from "../../data/bikeshare relations (origin).geo.json";
-    import destination from "../../data/bikeshare relations (destination).geo.json";
-    import difference from "../../data/bikeshare relations (difference).geo.json";
-    import bikelane from "../../data/cycling-network.geo.json"
+    import map_styles from "../../data/station-relations/map-styles.json";
+    import origin from "../../data/station-relations/bikeshare relations (origin).geo.json";
+    import destination from "../../data/station-relations/bikeshare relations (destination).geo.json";
+    import difference from "../../data/station-relations/bikeshare relations (difference).geo.json";
+    import bikelane from "../../data/station-relations/cycling-network.geo.json"
     import "../../assets/global-styles.css";
 
     let map;
@@ -322,7 +322,7 @@
         //maplibregl.addProtocol("pmtiles", protocol.tile);
         map = new maplibregl.Map({
             container: "map",
-            style: positron, //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+            style: map_styles, //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
             center: [-79.4, 43.65], // starting position
             minZoom: 11,
             maxZoom: 19,
