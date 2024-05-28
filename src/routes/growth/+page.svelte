@@ -5,6 +5,7 @@
     import Bicycle from "../../assets/bicycle.svg";
     import YearlyTripsPictograph from "../../lib/YearlyTripsPictograph.svelte";
     import "../../assets/global-styles.css";
+    //import StationRelations from "../station-relations/station-relations.svelte";
 
     let yTicksTrip = [0, 100000, 200000, 300000, 400000, 500000, 600000, 700000];
     let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700];
@@ -35,6 +36,17 @@
     </div>
 
     <div class="text">
+        
+        <div class="buttons-box">
+            
+
+        <button onclick="location.href = '/bike-share-toronto/station-relations';"
+                class="application-button" 
+                >
+                    Trip Destinations
+                </button
+            >        </div>
+
             <p>
                 Toronto's Bike Share system has grown substantially over the
                 past decade, providing a healthy and sustainable mode of travel to thousands of Torontonians and visitors. Ridership has increased from about 665,000 trips in 2015 to over 4.5 million in 2022 (if you build it they will ride!). In the chart below, one <img class="bike-img" src={Bicycle} alt="Bike" width="25px" height="15px"> = 25,000 Bike Share trips. Almost every year, ridership records for daily, weekly, monthly, and annual trips have been broken.
@@ -158,5 +170,22 @@
         max-width: 25px;
         max-height: 15px;
         padding-right: 0px;
+    }
+    .application-button {
+        left: 10px;
+        font-size: 12px;
+        width: auto;
+        height: auto;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        padding: 10px 20px;  /* Adds padding for better click area */
+        border: 2px solid white;  /* Corrected syntax for border */
+        border-radius: 5px;  /* Adds rounded corners */
+        position: relative;
+        font-weight: bold;
+        background-color: #f0f0f0;  /* Light grey background */
+        color: black;  /* Text color */
+        cursor: pointer;  /* Changes cursor to pointer on hover */
+        transition: background-color 0.3s, color 0.3s;  /* Smooth transition for hover effect */
     }
 </style>

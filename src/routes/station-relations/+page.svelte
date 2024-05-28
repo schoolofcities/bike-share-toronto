@@ -23,6 +23,7 @@
     let enterCoordinates = [-79.39595371484756, 43.639831290132605]; // setting the ending coordinate for lines
     let circle_colour = "#8DBF2E"
     let line_colour = ""
+    let about = false;
 
     // generate lines that link connects the clicked station with their end stations. 
     function generateLines(stationCord, station){
@@ -61,6 +62,8 @@
         if (originFilter) {
             stationID = "End Station Id";
             map.getSource("station").setData(origin);
+            map.removeLayer("station-difference-layer-hover");
+
             map.setLayoutProperty("station-layer", "visibility", "visible");
             map.setLayoutProperty("station-difference-layer","visibility","none");
             map.setLayoutProperty("station-difference-layer-outline","visibility","none");
@@ -138,6 +141,8 @@
         }
         if (destinationFilter) {
             console.log("Destination:", station)
+            map.removeLayer("station-difference-layer-hover");
+
             map.getSource("station").setData(destination);
             
             stationID = "Start Station Id";
@@ -221,6 +226,8 @@
             map.setLayoutProperty("station-difference-layer", "visibility","visible");
             map.setLayoutProperty("station-layer-outline", "visibility", "none");
             map.setLayoutProperty("station-layer", "visibility", "none");
+            map.removeLayer("station-layer-hover");
+
             //remove the label from the previous display and change to current displayed data values
             map.removeLayer(`label ${prevStation}`);
             map.addLayer({id: `label ${station}`,
@@ -316,7 +323,7 @@
         map = new maplibregl.Map({
             container: "map",
             style: positron, //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-            center: [-79.4, 43.67], // starting position
+            center: [-79.4, 43.65], // starting position
             minZoom: 11,
             maxZoom: 19,
             scrollZoom: true,
@@ -803,21 +810,19 @@
     <div id="map" class="map" />
 
     <div class="info-panel">
-        <h1>Bikeshare Toronto Stations Relations</h1>
+        <h1>Bikeshare Stations Relations: </h1>
+        <h2>{station} {stationName}</h2>
         
         {#if originFilter}
-            <h2>{station} {stationName}</h2>
             <h4>{trips}</h4><h5>trips from this station</h5>
             <h5>to</h5>
             <h4>{toStation} &nbsp {toStationName}</h4>
         {:else if destinationFilter}
-            <h2>{station} {stationName}</h2>
             <h4>{trips}</h4><h5>trips from</h5>
             <h4>{toStation} &nbsp {toStationName}</h4>
             <h5>to this station</h5>
         {:else if differenceFilter}
             {#if trips > 0}
-                <h2>{station} {stationName}</h2>
                 <h5> Riders tend to bike from this station to </h5><h4>{toStationName},</h4>
                 <h5> with </h5>
                 <h4>{trips}</h4><h5>more trip(s) from</h5>
@@ -825,16 +830,13 @@
                 <h5>than the other way.</h5>
             
             {:else if trips < 0}
-                <h2>{station} {stationName}</h2>
                 <h5> Riders tend to bike from </h5><h4>{toStationName}</h4> <h5>to this station,</h5>
                 <h5> with </h5>
                 <h4>{Math.abs(trips)}</h4><h5>more trip(s) from</h5>
                 <h4>{toStationName}</h4> <h5>to</h5><h4>{stationName}</h4>
                 <h5>than the other way.</h5>
-                
 
             {:else if trips == 0}
-                <h2>{station} {stationName}</h2>
                 <h4>{trips}</h4><h5>trip difference. </h5>
             {/if}
         {/if}
@@ -849,7 +851,7 @@
                 }}
                 style="background-color: {originFilter
                     ? '#1E3765'
-                    : '#4d4d4d'}; color: 'black'"
+                    : '#0D534D'}; color: 'black'"
                 ><p>
                     Trip Destinations
                 </p></button
@@ -863,7 +865,7 @@
                 }}
                 style="background-color: {destinationFilter
                     ? '#1E3765'
-                    : '#4d4d4d'}; color: 'black'"
+                    : '#0D534D'}; color: 'black'"
                 ><p>
                     Trip Origin
                 </p></button
@@ -877,14 +879,68 @@
                 }}
                 style="background-color: {differenceFilter
                     ? '#1E3765'
-                    : '#4d4d4d'}; color: 'black'"
+                    : '#0D534D'}; color: 'black'"
                 ><p>
                     Origin-Destination Difference
                 </p></button
             >
         </div>
+        <p><span 
+        id="about-button"
+            on:click={() => {
+                about = true;
+            }}
+            >
+            About This Map
+            </span></p>
     </div>
+    {#if about}
+    <div class="container">
+    <div class="floating">
+        <button
+            id="application-button"
+            on:click={() => {about = false;}}
+            style="background-color: {about
+                ? '#1e3765'
+                : ''}; color: {about ? 'white' : 'black'}">Close
+        </button>
 
+      <h1>About this Map</h1>
+        <p>
+            This map uses bikeshare data from City of Toronto's Open Data Catalogue to calculate the number of trips for each station for the entire year of 2023. 
+            To understand the relationship between stations, we analyzed the data from three aspects. <br>
+        </p>
+        <h2> Aspect 1: Trip Destination</h2>
+        
+        <p>The first aspect is Trip Destinations. Trip Destination is calculated by counting the number of trips that started at a station and ended at itself or another station.  
+            When you click on a station (let's say its Staion 7000, Fort York / Caperol Ct), the map will display the number of trips from Station 7000 to other stations. The larger the circle, 
+            the more trips that starts from Station 7000 to that station. If you find Bremner and Rees St Station (under CN Tower), you will see that 718 trips originated from Station 7000 to that station. 
+        </p>
+        <h2> Aspect 2: Trip Origin</h2>
+        <p>The second aspect is the opposite of Trip Destination. Trip Origin displays the number of trips at the clicked station that started from another station. 
+        All the points on the map (including the clicked station) are showing the number of trips that originated from another station. Continuing with the example of Station 7000 (Fort York / Caperol Ct),
+        you will find that 369 trips that arrived at ended at Station 7000 came from Bremner and Rees St Station (under CN Tower). </p>
+
+        <h2>Aspect 3: Origin-Destination Difference</h2>
+        <p>The third aspect is the difference of Aspect 1 and Aspect 2. Origin-Destination Difference is comparing whether ther are more trips from a station to another station, or the other way around. For instance, 
+            from Aspect 1 we know that there are 718 trips from Station 7000 to Bremner and Rees St Station. On the other hand, there are only 369 trips from Bremner and Rees St Station to Station 7000. The difference is 349 trips. From 
+            this we can say that between these two stations, riders tend to be travelling in the direction of Bremner and Rees St Station from Fort York Caperol Station (Staiton 7000), with 349 more trips made from Station 7000 to Bremner and Rees St than 
+            the other way. 
+        </p>
+
+        <p>Please note that during data cleaning, trips that are shorter than 5 minutes and has the same starting and ending station are removed as they are likely bikes that users find to be not usable (i.e. no brakes, flat tires). 
+        
+      </p>
+        <button
+            id="application-button"
+            on:click={() => {about = false;}}
+            style="background-color: {about
+                ? '#1e3765'
+                : ''}; color: {about ? 'white' : 'black'}">Close
+        </button>
+    </div>
+</div>
+{/if}
 <style>
     .map {
         height: 100vh;
@@ -935,7 +991,7 @@
         position: relative;
     }
     h4 {
-        padding-top: 20px;
+        padding-top: 10px;
         padding-left: 10px;
         margin: 0px;
         font-weight: bold;
@@ -954,6 +1010,7 @@
         padding-right: 10px;
         padding-bottom: 5px;
         margin-bottom: 5px;
+        line-height: 15px;
         color: var(--brandWhite);
         font-weight: bold;
     } 
@@ -961,18 +1018,22 @@
         color: #41729f;
     }
     .application-button {
+        left: 10px;
         font-size: 12px;
         width: auto;
         height: auto;
-        left: 10px;
         margin-right: 5px;
         margin-bottom: 5px;
-        border-width: 1px;
-        border-color: 'white';
+        padding: 10px 20px;  /* Adds padding for better click area */
+        border: 2px solid white;  /* Corrected syntax for border */
+        border-radius: 5px;  /* Adds rounded corners */
         position: relative;
         font-weight: bold;
+        background-color: #f0f0f0;  /* Light grey background */
+        color: black;  /* Text color */
+        cursor: pointer;  /* Changes cursor to pointer on hover */
+        transition: background-color 0.3s, color 0.3s;  /* Smooth transition for hover effect */
     }
-
     /* SCROLL BARS */
     ::-webkit-scrollbar {
         width: 5px;
@@ -992,4 +1053,66 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #41729f;
     }
+    #about-button{
+    text-decoration: underline;
+  }
+  #about-button:hover {
+    cursor: pointer;
+    color: #dc4633;
+
+  }
+  .container {
+    border: 0px solid #dddddd;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: grey;
+    opacity: 0.92;
+  }
+  .floating {
+    height: 90vh;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    opacity: 1;
+    overflow-y: scroll;
+    scrollbar-width: 1px;
+  }
+  .floating h1 {
+    margin: 0 auto;
+    max-width: 700px;
+    padding-top: 30px;
+    position: relative;
+    text-align: justify;
+    color: #4d4d4d;
+    line-height: 1.5;
+  }
+  .floating h2 {
+    margin: 0 auto;
+    max-width: 700px;
+    padding-top: 0px;
+    position: relative;
+    text-align: justify;
+    color: #4d4d4d;
+    line-height: 1.5;
+  }
+  
+
+  .floating p {
+    margin: 0 auto;
+    max-width: 700px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    position: relative;
+    font-size: 17px;
+    text-align: justify;
+    color: #4d4d4d;
+    line-height: 1.5;
+  }
 </style>
