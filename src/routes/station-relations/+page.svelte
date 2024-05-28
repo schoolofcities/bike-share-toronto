@@ -21,6 +21,8 @@
     let differenceFilter = false;
     let coordinate = [-79.39595371484756, 43.639831290132605]; // setting the initiating coordinate for lines
     let enterCoordinates = [-79.39595371484756, 43.639831290132605]; // setting the ending coordinate for lines
+    let circle_colour = "#8DBF2E"
+    let line_colour = ""
 
     // generate lines that link connects the clicked station with their end stations. 
     function generateLines(stationCord, station){
@@ -261,7 +263,7 @@
                 paint: {
                     "line-color": "#D0D1C9",
                     "line-width": 1,
-                    "line-opacity": 0.1,
+                    "line-opacity": 0.1
                 },
             });
             
@@ -314,7 +316,7 @@
         map = new maplibregl.Map({
             container: "map",
             style: positron, //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-            center: [-79.4, 43.68], // starting position
+            center: [-79.4, 43.67], // starting position
             minZoom: 11,
             maxZoom: 19,
             scrollZoom: true,
@@ -346,7 +348,7 @@
                 },
                 'paint': {
                     'line-color': '#888',
-                    'line-width': 2
+                    'line-width': 3
                 }
             });
 
@@ -361,6 +363,7 @@
                 paint: {
                     "line-color": "#D0D1C9",
                     "line-width": 1,
+                    "line-opacity": 0.5
                 },
             });
 
@@ -384,7 +387,7 @@
                         ["get", `${station}`],
                         0,
                         "#DC4633",
-                        "#0D534D",
+                        circle_colour,
                     ],
                     "circle-opacity": 0.5,
                     "circle-stroke-color": [
@@ -392,7 +395,7 @@
                         ["get", `${station}`],
                         0,
                         "white",
-                        "#0D534D",
+                        circle_colour,
                     ],
                     "circle-stroke-width": 2,
                 },
@@ -534,7 +537,7 @@
                             ["get", `${station}`],
                             0,
                             "red",
-                            "#0D534D",
+                            circle_colour,
                         ],
                         "circle-opacity": 0.5,
                         "circle-stroke-width": 1,
@@ -543,7 +546,7 @@
                             ["get", `${station}`],
                             0,
                             "white",
-                            "#0D534D",
+                            circle_colour,
                         ],
                     },
                 });
@@ -606,7 +609,7 @@
                 stationName = feature["Station"];
                 station = feature["Start Station Id"];
                 console.log(prevStation, station)
-                
+
                 map.setFilter(`station-difference-lines-${prevStation}`, null) 
                 // remove a few layers to update the display
                 map.removeLayer(`station-difference-lines-${prevStation}`);
@@ -696,11 +699,11 @@
             });
 
             // Boundary of map
-
+            /*
             map.fitBounds([
                 [-79.14904366238247, 43.87527014932047],
                 [-79.60668327438583, 43.56196116510192],
-            ]);
+            ]);*/
 
 
             map.on("mouseenter", "station-layer", (e) => {
@@ -717,7 +720,7 @@
                 map.setPaintProperty(`station-lines-${station}`, 'line-width', 8)         
                 map.setPaintProperty(`station-lines-${station}`, 'line-color', "#F1C500")      
                 map.setPaintProperty(`station-lines-${station}`, "line-opacity", 1)
-                
+                map.removeLayer("station-layer-hover");
                 // this added layer is to show outline of the hovered point.
                 map.addLayer({id: "station-layer-hover",
                     type: "circle",
@@ -744,12 +747,6 @@
 
             map.on("mouseleave", "station-layer", () => {
                 map.getCanvas().style.cursor = "";
-                map.removeLayer("station-layer-hover");
-                /*
-                map.setFilter(`station-lines-${station}`, ['==', 'name', `${station} - ${toStation}`])
-                map.setPaintProperty(`station-lines-${station}`, 'line-color', "white")   
-                map.setPaintProperty(`station-lines-${station}`, 'line-width', 1)       */  
-                //map.setFilter(`station-lines-${station}`, null)   
 
             });
 
@@ -762,12 +759,12 @@
                 toStationName = feature["Station"];
                 trips = feature[station];
                 console.log(station)
-
+                
                 map.setFilter(`station-difference-lines-${station}`, ['==', 'name', `${station} - ${toStation}`])
                 map.setPaintProperty(`station-difference-lines-${station}`, 'line-width', 8)         
                 map.setPaintProperty(`station-difference-lines-${station}`, 'line-color', "#F1C500")      
                 map.setPaintProperty(`station-difference-lines-${station}`, "line-opacity", 1)
-
+                map.removeLayer("station-difference-layer-hover");
                 //replace with a filter clause
                 map.addLayer({id: "station-difference-layer-hover",
                     type: "circle",
@@ -798,9 +795,6 @@
             })
             map.on("mouseleave", "station-difference-layer", () => {
                 map.getCanvas().style.cursor = "";
-                map.removeLayer("station-difference-layer-hover");
-                //map.removeLayer(`station-difference-lines-${station}`);
-                //map.removeSource(`line-difference-${station}`);
             });
         });
     });
@@ -893,7 +887,7 @@
 
 <style>
     .map {
-        height: 70vh;
+        height: 100vh;
         width: 100vw;
         top: 0;
         left: 0%;
@@ -908,12 +902,14 @@
         height: 30vh;
         font-size: 17px;
         font-family: sans-serif;
-        background-color: rgb(254, 251, 249, 1);
-        background-color: var(--brandDarkGreen);
+        background-color: rgba(13, 83, 77, 0.9);
+        
+        /*background-color: var(--brandDarkGreen);*/
         color: #1e3765;
         overflow-x: hidden;
         scrollbar-width: 1px;
         margin: 0 auto;
+        
     }
     .buttons-box {
         left: 0px;
