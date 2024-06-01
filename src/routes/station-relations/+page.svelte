@@ -24,6 +24,7 @@
     let circle_colour = "#8DBF2E"
     let line_colour = ""
     let about = false;
+    let exist; // for containing information if a layer exist or not. 
 
     // generate lines that link connects the clicked station with their end stations. 
     function generateLines(stationCord, station){
@@ -56,40 +57,51 @@
 
     // update displayed datat based on the buttons clicked. 
     function updateSource() {
+        // if every button is clicked off, automatically turn on origin tab
         if (destinationFilter ===  false && differenceFilter === false && originFilter === false){
             originFilter = true
         }
         if (originFilter) {
             stationID = "End Station Id";
             map.getSource("station").setData(origin);
+
+            exist = map.getLayer(`station-difference-layer-hover`)
+            if (typeof exist !== 'undefined'){
+                map.removeLayer("station-difference-layer-hover");;
+            }
+
             map.removeLayer("station-difference-layer-hover");
 
             map.setLayoutProperty("station-layer", "visibility", "visible");
             map.setLayoutProperty("station-difference-layer","visibility","none");
             map.setLayoutProperty("station-difference-layer-outline","visibility","none");
 
-            let exist = map.getLayer(`station-difference-lines-${prevStation}`)
+
+            exist = map.getLayer(`station-difference-lines-${prevStation}`)
             if (typeof exist !== 'undefined'){
                 map.removeLayer(`station-difference-lines-${prevStation}`);
             map.removeSource(`lines-difference-${prevStation}`);
             }
-            
-            // a line created on the fly to link two stations together
-            map.addSource(`lines-${station}`, {
-                type: "geojson",
-                data: generateLines(coordinate, station)
-            });
-            map.addLayer({id: `station-lines-${station}`,
-                type: "line",
-                source: `lines-${station}`,
-                paint: {
-                    "line-color": "#D0D1C9",
-                    "line-width": 1,
-                    "line-opacity": 0.1,
-                },
-            });
-            
-            //remove the label from the previous display and change to current displayed data values
+
+            // only add station-lines if there are no previous hovers. 
+            exist = map.getLayer(`station-lines-${station}`)
+            if (typeof exist == 'undefined'){
+                // a line created on the fly to link two stations together
+                map.addSource(`lines-${station}`, {
+                    type: "geojson",
+                    data: generateLines(coordinate, station)
+                });
+                map.addLayer({id: `station-lines-${station}`,
+                    type: "line",
+                    source: `lines-${station}`,
+                    paint: {
+                        "line-color": "#D0D1C9",
+                        "line-width": 1,
+                        "line-opacity": 0.1,
+                    },
+                });
+            }
+                //remove the label from the previous display and change to current displayed data values
             map.removeLayer(`label ${prevStation}`);
             map.addLayer({id: `label ${station}`,
                 type: "symbol",
@@ -141,31 +153,40 @@
         }
         if (destinationFilter) {
             console.log("Destination:", station)
-            map.removeLayer("station-difference-layer-hover");
 
             map.getSource("station").setData(destination);
             
             stationID = "Start Station Id";
 
-            let exist = map.getLayer(`station-difference-lines-${prevStation}`)
+            exist = map.getLayer(`station-difference-layer-hover`)
+            if (typeof exist !== 'undefined'){
+                map.removeLayer("station-difference-layer-hover");;
+            }
+
+            exist = map.getLayer(`station-difference-lines-${prevStation}`)
             if (typeof exist !== 'undefined'){
                 map.removeLayer(`station-difference-lines-${prevStation}`);
                 map.removeSource(`lines-difference-${prevStation}`);
             }
-            // a line created on the fly to link two stations together
-            map.addSource(`lines-${station}`, {
-                type: "geojson",
-                data: generateLines(coordinate, station)
-            });
-            map.addLayer({id: `station-lines-${station}`,
-                type: "line",
-                source: `lines-${station}`,
-                paint: {
-                    "line-color": "#D0D1C9",
-                    "line-width": 1,
-                    "line-opacity": 0.1,
-                },
-            });
+
+            // only add station-lines if there are no previous hovers. 
+            exist = map.getLayer(`station-lines-${station}`)
+            if (typeof exist == 'undefined'){
+                // a line created on the fly to link two stations together
+                map.addSource(`lines-${station}`, {
+                    type: "geojson",
+                    data: generateLines(coordinate, station)
+                });
+                map.addLayer({id: `station-lines-${station}`,
+                    type: "line",
+                    source: `lines-${station}`,
+                    paint: {
+                        "line-color": "#D0D1C9",
+                        "line-width": 1,
+                        "line-opacity": 0.1,
+                    },
+                });
+            }
             // turn the layers back off
             map.setLayoutProperty("station-difference-layer","visibility", "none");
             map.setLayoutProperty("station-difference-layer-outline","visibility","none",);
@@ -723,7 +744,11 @@
                 map.setPaintProperty(`station-lines-${station}`, 'line-width', 8)         
                 map.setPaintProperty(`station-lines-${station}`, 'line-color', "#F1C500")      
                 map.setPaintProperty(`station-lines-${station}`, "line-opacity", 1)
-                map.removeLayer("station-layer-hover");
+                // exist = map.getLayer(`station-difference-layer-hover`)
+                exist = map.getLayer("station-layer-hover")
+                if (typeof exist !== 'undefined'){
+                    map.removeLayer("station-layer-hover");
+                }
                 // this added layer is to show outline of the hovered point.
                 map.addLayer({id: "station-layer-hover",
                     type: "circle",
@@ -767,7 +792,11 @@
                 map.setPaintProperty(`station-difference-lines-${station}`, 'line-width', 8)         
                 map.setPaintProperty(`station-difference-lines-${station}`, 'line-color', "#F1C500")      
                 map.setPaintProperty(`station-difference-lines-${station}`, "line-opacity", 1)
-                map.removeLayer("station-difference-layer-hover");
+                
+                exist = map.getLayer(`station-difference-layer-hover`)
+                if (typeof exist !== 'undefined'){
+                    map.removeLayer("station-difference-layer-hover");;
+                }
                 //replace with a filter clause
                 map.addLayer({id: "station-difference-layer-hover",
                     type: "circle",
@@ -806,7 +835,7 @@
     <div id="map" class="map" />
 
     <div class="info-panel">
-        <h1>Bikeshare Stations Relations: </h1>
+        <h1>2023 Bikeshare Stations Relations: </h1>
         <h2>{station} {stationName}</h2>
         
         {#if originFilter}
