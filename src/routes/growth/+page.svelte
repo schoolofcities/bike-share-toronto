@@ -35,7 +35,7 @@
 
     <div class="text">
         <p></p>
-        <div class="buttons-box">
+        <!-- <div class="buttons-box">
             <button
                 onclick="window.open('/bike-share-toronto/station-relations', '_blank');"
                 class="application-button"
@@ -43,7 +43,7 @@
                 View Station Relationship Map
             </button>
             
-        </div>
+        </div> -->
         <p>
             Toronto's Bike Share system has grown substantially over the past
             decade, providing a healthy and sustainable mode of travel to

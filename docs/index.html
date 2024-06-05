@@ -8,10 +8,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Bike Share Toronto | School of Cities</title>
 	
-		<link rel="modulepreload" href="./_app/immutable/entry/start.362ae9ff.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.bd390d7e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.c41039d2.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.3b822d26.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.1b16a315.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.e8dab854.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.2132ec8e.js">
 
 	<meta name="description" content="Visualizing Bike Share system expansion and ridership growth trends in Toronto">
 	<meta name="author" content="Jeff Allen">
@@ -30,12 +30,18 @@
 	<meta name="twitter:description" content="Visualizing Bike Share system expansion and ridership growth trends in Toronto" />
 	<meta name="twitter:image" content="https://schoolofcities.github.io/bike-share-toronto/web-card.png" />
 </head>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XB09CWTEWB"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XB09CWTEWB');
+</script>
 <body>
 	<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1wimh4k = {
+					__sveltekit_1wp7ys8 = {
 						assets: "/bike-share-toronto",
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
@@ -44,8 +50,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.362ae9ff.js"),
-						import("./_app/immutable/entry/app.1b16a315.js")
+						import("./_app/immutable/entry/start.bd390d7e.js"),
+						import("./_app/immutable/entry/app.2132ec8e.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
