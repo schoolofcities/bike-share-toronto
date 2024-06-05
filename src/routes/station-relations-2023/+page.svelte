@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import maplibregl from "maplibre-gl";
-    import map_styles from "../../data/station-relations/map-styles.json";
+    import map_styles from "../../data/station-relations/carto-basemap.json";
     import origin from "../../data/station-relations/bikeshare relations (origin).geo.json";
     import destination from "../../data/station-relations/bikeshare relations (destination).geo.json";
     import difference from "../../data/station-relations/bikeshare relations (difference).geo.json";
@@ -374,8 +374,9 @@
                     'line-cap': 'round'
                 },
                 'paint': {
-                    'line-color': '#888',
-                    'line-width': 3
+                    'line-color': '#afc3c0',
+                    'line-width': 2,
+                    'line-opacity': 1
                 }
             });
             // lines connecting two stations together
@@ -910,7 +911,7 @@
                 </p></button
             >
         </div>
-        <p><span 
+        <p>By <a href="https://www.linkedin.com/in/chun-fu-liu/" target="_blank">Michael Liu</a>. Read <span 
         id="about-button"
             on:click={() => {
                 about = true;
@@ -1039,9 +1040,9 @@
         color: var(--brandWhite);
         font-weight: bold;
     } 
-    a {
+    /* a {
         color: #41729f;
-    }
+    } */
     .application-button {
         left: 10px;
         font-size: 12px;
