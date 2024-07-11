@@ -90,6 +90,20 @@ h3 {
     text-decoration: underline;
     color: var(--brandWhite);
 }
+h4 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-size: 22px;
+    color: var(--brandLightBlue);
+}
+h5 {
+    text-align: left;
+    font-family: TradeGothicBold;
+    font-size: 22px;
+
+    color: var(--brandWhite);
+}
+
 
 p {
     font-family: RobotoRegular;

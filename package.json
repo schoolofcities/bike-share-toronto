@@ -21,8 +21,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@turf/turf": "^6.5.0",
 		"chart.js": "^4.3.0",
 		"d3-array": "^3.2.4",
-		"d3-scale": "^4.0.2"
+		"d3-scale": "^4.0.2",
+		"maplibre-gl": "^4.2.0",
+		"turf": "^3.0.14"
 	}
 }
