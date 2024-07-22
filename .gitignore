@@ -1,3 +1,7 @@
+data-preperation/trips/ridership-data
+ridership-data
+graphhopper
+
 .DS_Store
 node_modules
 /build
@@ -8,3 +12,4 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.ipynb_checkpoints
