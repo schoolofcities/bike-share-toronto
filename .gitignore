@@ -1,6 +1,6 @@
-data-preperation/trips/ridership-data
-ridership-data
-graphhopper
+data-preparation/trips/ridership-data
+data-preparation/trips/graphhopper
+data-preparation/trips/trips
 
 .DS_Store
 node_modules
