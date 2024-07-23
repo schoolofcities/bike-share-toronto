@@ -8,7 +8,7 @@ def decode_polyline(encoded_polyline):
 
 	try:
 		coordinates = polyline.decode(encoded_polyline)
-		coordinates = [(lon + 0.0002 * random.random() ** 3, lat + 0.0002 * random.random() ** 3) for lat, lon in coordinates]
+		coordinates = [(lon + 0.0002 * random.random() ** 3 - + 0.0002 * random.random() ** 3, lat + 0.0002 * random.random() ** 3 - + 0.0002 * random.random() ** 3) for lat, lon in coordinates]
 		return LineString(coordinates)
 	except:
 		return None
@@ -22,5 +22,5 @@ df = gpd.GeoDataFrame(df, geometry='geometry')
 
 df.crs = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
-df.to_file("trips/trips-test-2.shp")
+df.to_file("trips/trips-all.shp")
 
