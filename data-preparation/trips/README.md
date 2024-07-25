@@ -7,7 +7,7 @@ then edit config file manually to focus just on bike, and toggle on elevation
 
 copied in Toronto.pbf, then run to get a server
 
-`java -D"dw.graphhopper.datareader.file=toronto-july2024.osm.pbf" -jar graphhopper*.jar server config-bike.yml`
+`java -D"dw.graphhopper.datareader.file=toronto-july2024-24.osm.pbf" -jar graphhopper*.jar server config-bike.yml`
 
 web http://localhost:8989/
 
