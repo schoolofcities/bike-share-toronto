@@ -1,21 +1,32 @@
 <script>
 	
+	import logo from '/src/assets/top-logo-full.svg';
 	import "../../assets/global-styles.css"; 
 
 </script>
 
+	<div id="bar">
 
+		<div id="logo">
+			<a href="https://www.schoolofcities.utoronto.ca/"><img src={logo} alt="School of Cities"></a>
+		</div>
+		<p> School of Cities </p>
+	</div>
 
-<main>
+	<main>
 	<div class="title">
-		<h1>Estimating Bike Share Geography in Toronto</h1>
-		<p>Finding and mapping routes for ~764k trips in June 2024</p>
+		<h1>Bike Share Geography in Toronto</h1>
+		<p>Estimating and mapping routes for all ~764k trips in June 2024. Click on the image to view at a higher resolution.</p>
 		<p>
-			<a href="http://jamaps.github.io">~ Jeff Allen</a>
+			~ <a href="http://jamaps.github.io" target="_blank">Jeff Allen</a>
 		</p>
 	</div>
 
 	<!-- map here -->
+
+	<div class="big-map">
+		<img src="/bike-share-toronto/3600x2400-og.png">
+	</div>
 
 	<div class="text">
 		<h2>Technical Details</h2>
@@ -46,18 +57,129 @@
 		<p>
 
 		</p>
+		<br>
+		<br>
+		<br>
 		<!-- e.g. route on graph -->
 	</div>
+
 </main>
 
 
 
 <style>
 
-	body {
+	#bar {
+		position: fixed;
+		overflow: hidden;
+   		top: 0px;
+		height: 50px;
+		background-color: black;
+		margin-bottom: 20px;
+		border-bottom: 1px solid var(--brandGray80);
+		width: 100%;
+		min-width: 200px;
+		padding-left: 0px;
+		padding-right: 0px;
+		z-index: 5;
+		opacity: 0.92;
+	}
+
+	#bar #logo {
+		margin: auto;
+		max-width: 230px;
+		height: 50px;
+		z-index: 6;
+		/* background-color: aquamarine; */
+	}
+
+	#bar a {
+		color: black;
+	}
+	#bar a:hover {
+		opacity: 0.7;
+	}
+
+	#bar img {
+		height: 50px;
+		color: blue;
+	}
+	#bar img:hover {
+		height: 50px;
+		opacity: 0.5;
+		cursor: pointer;
+	}
+
+
+	main {
 		padding: 0px;
 		margin: 0px;
-		background-color: var(--brandDarkGreen);
+		margin-top: -40px;
+		margin-bottom: -40px;
+		background-color: #000;
 	}
+
+	
+	h1 {
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 36px;
+		color: var(--brandWhite);
+		text-decoration: none;
+	}
+
+	h2 {
+		font-family: RobotoBold, sans-serif;
+		font-size: 28px;
+		color: white;
+		text-decoration: underline;
+	}
+
+	p {
+		color: white;
+		font-family: RobotoRegular, sans-serif;
+		font-size: 16px;
+		line-height: 24px;
+		opacity: 0.87;
+	}
+
+
+	a {
+		color: white;
+		text-decoration: underline;
+	}
+	a:hover {
+		opacity: 0.8;
+	}
+
+
+
+	.title {
+		position: relative;
+		background-color: none;
+		max-width: 590px;
+		margin: 0 auto;
+		padding-top: 140px;
+		padding-bottom: 15px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.big-map {
+		margin: 0px auto;
+	}
+	.big-map img {
+		width: 100%;
+		height: auto;
+	}
+
+	.text {
+		position: relative;
+		background-color: none;
+		max-width: 750px;
+		margin: 0 auto;
+		padding: 15px;
+	}
+
+
 
 </style>

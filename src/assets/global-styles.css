@@ -14,7 +14,7 @@
 }
 
 :root {
-    font-family: Roboto, sans-serif;
+    font-family: RobotoRegular, sans-serif;
     --brandDarkBlue: #1E3765;
     --brandMedBlue: #007FA3;
     --brandLightBlue: #6FC7EA;
@@ -31,4 +31,9 @@
     --brandGray70: #4d4d4d;
     --brandGray80: #333333;
     --brandGray90: #191919;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
 }

@@ -237,6 +237,7 @@
 </main>
 
 <style>
+
     /* page specific styling */
     .bike-img {
         max-width: 25px;
