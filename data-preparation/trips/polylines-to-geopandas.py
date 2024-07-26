@@ -27,5 +27,4 @@ df.to_file("trips/trips-all.shp")
 # itd be around 250mb X 7.5 so pretty big ya
 # df.to_file("trips/trips-all.geojson", driver="GeoJSON")
 
-
 print(df)

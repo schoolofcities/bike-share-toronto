@@ -1,6 +1,6 @@
 <script>
 	
-
+	import "../../assets/global-styles.css"; 
 
 </script>
 
@@ -54,6 +54,10 @@
 
 <style>
 
-	
+	body {
+		padding: 0px;
+		margin: 0px;
+		background-color: var(--brandDarkGreen);
+	}
 
 </style>

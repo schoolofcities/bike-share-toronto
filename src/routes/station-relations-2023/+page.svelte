@@ -7,6 +7,7 @@
     import difference from "../../data/station-relations/bikeshare relations (difference).geo.json";
     import bikelane from "../../data/station-relations/cycling-network.geo.json"
     import "../../assets/global-styles.css";
+    import "../../assets/green-page-styles.css";
 
     let map;
     let prevStation = 7000;

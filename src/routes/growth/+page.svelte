@@ -4,6 +4,7 @@
     import Bicycle from "../../assets/bicycle.svg";
     import YearlyTripsPictograph from "../../lib/YearlyTripsPictograph.svelte";
     import "../../assets/global-styles.css";
+    import "../../assets/green-page-styles.css";
     //import StationRelations from "../station-relations/station-relations.svelte";
 
     let yTicksTrip = [

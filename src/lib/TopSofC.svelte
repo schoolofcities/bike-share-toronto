@@ -1,6 +1,7 @@
 <script>
 	import logo from '/src/assets/top-logo-full.svg';
-	import "/src/assets/global-styles.css"
+	import "/src/assets/global-styles.css";
+	import "/src/assets/green-page-styles.css";
 </script>
 
 <div id="bar">
