@@ -14,56 +14,55 @@
 	</div>
 
 	<main>
-	<div class="title">
-		<h1>Bike Share Geography in Toronto</h1>
-		<p>Estimating and mapping routes for all ~764k trips in June 2024. Click on the image to view at a higher resolution.</p>
-		<p>
-			~ <a href="http://jamaps.github.io" target="_blank">Jeff Allen</a>
-		</p>
-	</div>
+		<div class="title">
+			<h1>Toronto's Bike Share Geography</h1>
+			<p>We estimated and mapped routes for every Bike Share trip in June 2024 based on origin-destination ridership data and a cycling network graph. Click on the image to view at a higher resolution.</p>
+			<p>
+				~ <a href="http://jamaps.github.io" target="_blank">Jeff Allen</a>
+			</p>
+		</div>
 
-	<!-- map here -->
+		<div class="big-map">
+			<a href="/bike-share-toronto/3600x2400-og.png">
+				<img src="/bike-share-toronto/3600x2400-og.png">
+			</a>
+		</div>
 
-	<div class="big-map">
-		<img src="/bike-share-toronto/3600x2400-og.png">
-	</div>
+		<div class="text">
+			<h2>Why & How</h2>
+			<p>
+				We've seen a lot of <a href="./growth">growth</a> in Bike Share ridership in Toronto over the past several years.
+				We recently wanted to A) improve our understanding where people use Bike Share across the city and B) estimate the characteristics of these trips (network distance, speed, elevation gain/loss, etc.) to use in future analyses on how people cycle in the city.
+			</p>
+			<p>
+				From Bike Share Toronto, we graciously received a dataset which included a record for every trip in June 2024 including when and where trips started and ended as well as attributes like the type of bike (electric or classic) and type of user (annual member or pay-per-ride). But we didn't know the route taken, the distance of the trip, and the elevation gain or loss. 
+				<!-- We can pretty easily calculate the straight line (i.e. as the crow flies) distance between the start and end stop, but in reality, the distance cyclists travel is longer, since there is rarely a perfectly straight path between the start and end locations. So -->
+				We set out to estimate this route information with the help of open data and software, and then once calculated, layer the route for every trip on a map to look at overall travel patterns (i.e. what's visualized above)
+			</p>
+			<p>
+				To do this, we needed the help of a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" target="_blank">graph</a> representing the cycling network in the City of Toronto. We created this using network data from <a href="https://www.openstreetmap.org/#map=14/43.6586/-79.3833" target="_blank">OpenStreetMap</a> and the open source routing software <a href="https://www.openstreetmap.org/#map=14/43.6586/-79.3833" target="_blank">Graphhopper</a> to build a routable network graph that works off a local computer. From this network graph we can make queries, very similar to Google Maps and similar routing applications, where we input the starting location, end location, and ask the graph to return us the most plausible route, along with information on trip duration, distance, and change in elevation. The bonus since we built this locally is that we can do this it at scale, i.e. calculate 1000s of routes in just a few seconds.
+			</p>
+			<p>
+				Polyline string?
+			</p>
+			<p>
+				Visualize as very very thin lines that when on their own are barely visible, but when many are layered near each other highlights paths of greater journey flow.
+			</p>
 
-	<div class="text">
-		<h2>Technical Details</h2>
-		<p>
-			Interesting to visualize to show patterns of where people use bike share across the city (which is what's shown above) 2) use these trips to derive data on trip distance and elevation gain/loss (to use in a future project).
-		</p>
-		<p>
-			From Bike Share Toronto, we received a dataset which included a record for every trip in June 2024 including the when of trips, and where those trips started and ended. But we didn't know a few other attributes of those trips, specifically the distance of the trip, the route taken, and the elevation gain or loss of the trip. For the former, distance, it's pretty easy to calculate the straight line (as the crow flies) distance between the start and end stop, but in reality, the network distance, is longer, since there is often not a perfectly direct street or path between the start and end locations.
-		</p>
-		<p>
-			764,124 trips in total. a few of these were tagged as "TERMINATED", meaning.
-			
-			Created a network graph, using OpenStreetMap data, using software called Graphhopper.
-		<!-- e.g. image of graph -->
-			From this network graph we can make queries, very similar to Google Maps and similar online tools, where we input the starting location, end location, and ask the graph to return us the most plausible route, alongside with information like duration, distance, and elevation gain.
-		</p>
-		<p>
-			Polyline string?
-		</p>
-		<p>
-			Visualize as very very thin lines that when on their own are barely visible, but when many are layered near each other highlights paths of greater journey flow.
-		</p>
-		<p>
-			Anyways, that's it for now, might try 
-		</p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 
+			<p>:)</p>
+			<!-- e.g. route on graph -->
+		</div>
 
-		<p>
-
-		</p>
-		<br>
-		<br>
-		<br>
-		<!-- e.g. route on graph -->
-	</div>
-
-</main>
+	</main>
 
 
 
@@ -90,7 +89,6 @@
 		max-width: 230px;
 		height: 50px;
 		z-index: 6;
-		/* background-color: aquamarine; */
 	}
 
 	#bar a {
@@ -102,14 +100,12 @@
 
 	#bar img {
 		height: 50px;
-		color: blue;
 	}
 	#bar img:hover {
 		height: 50px;
 		opacity: 0.5;
 		cursor: pointer;
 	}
-
 
 	main {
 		padding: 0px;
@@ -119,39 +115,39 @@
 		background-color: #000;
 	}
 
-	
 	h1 {
 		font-family: TradeGothicBold, sans-serif;
-		font-size: 36px;
-		color: var(--brandWhite);
+		font-size: 40px;
+		color: #ffc169;
+		text-shadow: 
+                0 0 5px #11959a,
+                0 0 15px #11959a;
 		text-decoration: none;
 	}
 
 	h2 {
-		font-family: RobotoBold, sans-serif;
-		font-size: 28px;
-		color: white;
-		text-decoration: underline;
+		font-family: TradeGothicBold, sans-serif;
+		font-size: 27px;
+		color: #ffc169;
+		font-style: italic;
+		/* text-decoration: underline; */
 	}
 
 	p {
 		color: white;
 		font-family: RobotoRegular, sans-serif;
-		font-size: 16px;
-		line-height: 24px;
+		font-size: 17px;
+		line-height: 25px;
 		opacity: 0.87;
 	}
-
 
 	a {
 		color: white;
 		text-decoration: underline;
 	}
-	a:hover {
+	p a:hover {
 		opacity: 0.8;
 	}
-
-
 
 	.title {
 		position: relative;
