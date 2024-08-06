@@ -834,6 +834,38 @@
     });
 </script>
 
+
+
+
+<svelte:head>
+
+	<title>Bike Share Toronto Station Relations | School of Cities</title>
+	<meta name="description" content="Visualizing trips between Toronto Bike Share stations">
+	<meta name="author" content="Michael Liu">
+
+	<meta property="og:title" content="Bike Share Toronto Growth" />
+	<meta property="og:description" content="Visualizing trips between Toronto Bike Share stations" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://schoolofcities.github.io/bike-share-toronto/station-relations-2023/" />
+	<meta property="og:image" content="https://schoolofcities.github.io/bike-share-toronto/web-card-station-relations.png" />
+	<meta property="og:locale" content="en_CA">
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/bike-share-toronto/station-relations-2023/" />
+	<meta name="twitter:creator" content="@UofTCities" />
+	<meta name="twitter:title" content="Bike Share Toronto Growth" />
+	<meta name="twitter:description" content="Visualizing trips between Toronto Bike Share stations " />
+	<meta name="twitter:image" content="https://schoolofcities.github.io/bike-share-toronto/web-card-station-relations.png" />
+
+</svelte:head>
+
+
+
+
+
+
+
+
     <div id="map" class="map" />
 
     <div class="info-panel">
