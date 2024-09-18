@@ -3,7 +3,6 @@ data-preparation/trips/graphhopper
 data-preparation/trips/trips
 data-preparation/trips/map-data
 data-preparation/efit/data
-data-preparation/efit/plots
 
 .DS_Store
 node_modules
