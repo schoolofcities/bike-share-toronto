@@ -4,6 +4,7 @@
 
     let svg;
     let data = [];
+    let stats = [];
     const margin = { top: 20, right: 30, bottom: 50, left: 60 }; // Adjusted margins to fit labels
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -15,6 +16,8 @@
             ICONIC: +d.ICONIC_normalized,
             interval_start: +d.interval_start,
         }));
+
+        stats = await d3.csv("distance_stats.csv");
 
         drawHistogram();
     });
@@ -31,7 +34,12 @@
 
         const y = d3
             .scaleLinear()
-            .domain([0, d3.max(data, (d) => Math.max(d.EFIT, d.ICONIC))])
+            .domain([
+                0,
+                d3.max(data, (d) =>
+                    Math.max(d.EFIT, d.ICONIC),
+                ),
+            ])
             .nice()
             .range([height, 0]);
 
@@ -47,10 +55,11 @@
             .append("g")
             .attr("transform", `translate(0,${height})`)
             .call(
-                d3.axisBottom(x)
+                d3
+                    .axisBottom(x)
                     .ticks(10)
                     .tickSizeOuter(0)
-                    .tickFormat((d) => `${(d / 1000).toFixed(2)} km`) // Change to km if distance is in meters
+                    .tickFormat((d) => `${(d / 1000).toFixed(2)} km`), // Change to km if distance is in meters
             );
 
         // Y-axis
@@ -83,8 +92,6 @@
             .attr("height", (d) => height - y(d.EFIT))
             .attr("fill", "steelblue")
             .attr("opacity", 0.8);
-
-
 
         // Add the legend
         const legend = svgElement
@@ -152,6 +159,30 @@
     <svg bind:this={svg}></svg>
 </div>
 
+<table>
+    <thead>
+        <tr>
+            <th>Bike Model</th>
+            <th>Mean</th>
+            <th>Median</th>
+            <th>Std</th>
+            <th>Min</th>
+            <th>Max</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each stats as stat}
+            <tr>
+                <td>{stat.bike_model}</td>
+                <td>{stat.mean}</td>
+                <td>{stat.median}</td>
+                <td>{stat.std}</td>
+                <td>{stat.min}</td>
+                <td>{stat.max}</td>
+            </tr>
+        {/each}
+    </tbody>
+</table>
+
 <style>
-    /* Optional: Add styles for your legend, chart, etc. */
 </style>

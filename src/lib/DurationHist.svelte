@@ -4,6 +4,7 @@
 
     let svg;
     let data = [];
+    let stats = [];
     const margin = { top: 20, right: 30, bottom: 50, left: 60 }; // Adjusted margins to fit labels
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
@@ -15,6 +16,8 @@
             ICONIC: +d.ICONIC_normalized,
             interval_start: +d.interval_start,
         }));
+
+        stats = await d3.csv("duration_stats.csv");
 
         drawHistogram();
     });
@@ -150,6 +153,30 @@
     <svg bind:this={svg}></svg>
 </div>
 
+<table>
+    <thead>
+        <tr>
+            <th>Bike Model</th>
+            <th>Mean</th>
+            <th>Median</th>
+            <th>Std</th>
+            <th>Min</th>
+            <th>Max</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each stats as stat}
+            <tr>
+                <td>{stat.bike_model}</td>
+                <td>{stat.mean}</td>
+                <td>{stat.median}</td>
+                <td>{stat.std}</td>
+                <td>{stat.min}</td>
+                <td>{stat.max}</td>
+            </tr>
+        {/each}
+    </tbody>
+</table>
+
 <style>
-    /* Optional: Add styles for your legend, chart, etc. */
 </style>
