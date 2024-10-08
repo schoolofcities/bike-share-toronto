@@ -34,12 +34,7 @@
 
         const y = d3
             .scaleLinear()
-            .domain([
-                0,
-                d3.max(data, (d) =>
-                    Math.max(d.EFIT, d.ICONIC),
-                ),
-            ])
+            .domain([0, d3.max(data, (d) => Math.max(d.EFIT, d.ICONIC))])
             .nice()
             .range([height, 0]);
 

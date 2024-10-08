@@ -6,6 +6,7 @@
   import { onMount } from "svelte";
   import "../../assets/global-styles.css";
   import "../../assets/global-styles.css";
+    import ElevationHist from "$lib/ElevationHist.svelte";
 
   // Example duration data (in minutes, for instance)
   onMount(() => {});
@@ -57,6 +58,7 @@
 <div class="top-margin">
   <DurationHist />
   <DistanceHist />
+  <ElevationHist />
 </div>
 
 <style>

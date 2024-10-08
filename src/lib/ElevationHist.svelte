@@ -10,19 +10,19 @@
     const height = 400 - margin.top - margin.bottom;
 
     onMount(async () => {
-        data = await d3.csv("duration_counts.csv", (d) => ({
-            duration_bin: d.duration_bin,
+        data = await d3.csv("elevation_counts.csv", (d) => ({
+            elevation_bin: d.elevation_bin,
             EFIT: +d.EFIT_normalized,
             ICONIC: +d.ICONIC_normalized,
             interval_start: +d.interval_start,
         }));
 
-        stats = await d3.csv("duration_stats.csv");
+        stats = await d3.csv("elevation_stats.csv");
 
         drawHistogram();
     });
 
-    // Draw the bar chart
+    // Draw the histogram
     function drawHistogram() {
         const x = d3
             .scaleLinear()
@@ -49,13 +49,7 @@
         svgElement
             .append("g")
             .attr("transform", `translate(0,${height})`)
-            .call(
-                d3
-                    .axisBottom(x)
-                    .ticks(10)
-                    .tickSizeOuter(0)
-                    .tickFormat((d) => `${(d / 60).toFixed(2)} min`),
-            );
+            .call(d3.axisBottom(x).ticks(10).tickSizeOuter(0));
 
         // Y-axis
         svgElement.append("g").call(d3.axisLeft(y));
@@ -134,7 +128,7 @@
             .attr("x", width / 2)
             .attr("y", height + margin.bottom - 10) // Position below the axis
             .style("font-size", "14px")
-            .text("Trip Duration (minutes)");
+            .text("Elevation (meters)"); // Adjust label as necessary
 
         // Add Y-axis label
         svgElement
@@ -150,7 +144,7 @@
 
 <!-- Render the SVG element -->
 <div class="histogram">
-    <p>Trip Duration by Bike Model</p>
+    <p>Elevation Distribution by Bike Model</p>
     <svg bind:this={svg}></svg>
 </div>
 
@@ -160,6 +154,8 @@
             <th>Bike Model</th>
             <th>Mean</th>
             <th>Median</th>
+            <th>Absolute Mean</th>
+            <th>Absolute Median</th>
             <th>Std</th>
             <th>Min</th>
             <th>Max</th>
@@ -171,6 +167,8 @@
                 <td>{stat.bike_model}</td>
                 <td>{stat.mean}</td>
                 <td>{stat.median}</td>
+                <td>{stat.abs_mean}</td>
+                <td>{stat.abs_median}</td>
                 <td>{stat.std}</td>
                 <td>{stat.min}</td>
                 <td>{stat.max}</td>
@@ -180,4 +178,5 @@
 </table>
 
 <style>
+
 </style>
