@@ -127,7 +127,7 @@
         <!-- Second x axis, only appears when the inner window width > 800 -->
         <g class="axis x-axis">
             {#each data as bike, i}
-                {#if innerWidth > 1000}
+                {#if innerWidth > 1100}
                     {#if bike.Month === 1 || i == 0}
                         <g
                             class="tick"
@@ -147,12 +147,12 @@
         <!--  x axis - monthly-->
         <g class="axis x-axis">
             {#each data as bike, i}
-                {#if innerWidth > 1000}
+                {#if innerWidth > 1100}
                     <!-- if the inner window width > 800, show months as label-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
                         <text x={barWidth / 2 + 9} y="-20">{monthCodes[bike.Month]}</text>
                     </g>
-                {:else if innerWidth <= 1000}
+                {:else if innerWidth <= 1100}
                     <!-- if the inner window width <=800 show years only-->
                     {#if bike.Month === 1 || i == 0}
                         <g
