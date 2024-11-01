@@ -128,9 +128,9 @@
 	<div class="text">
 		<p>
 			August consistently records the highest ridership between 2019 and
-			2024 In August 2024, the highest monthly ridership reached almost 900,000 rides,
+			2024. In August 2024, monthly ridership reached more than 900,000 trips,
 			over 400,000 more than the same period in 2021. Colder months
-			(November to March) have also recently witnessed much higher
+			(November to March) have also recently experienced much higher
 			ridership compared to the same months in previous years. 
 		</p>
 		<p>
@@ -143,7 +143,7 @@
 			starting in June, and by July 2020, it exceeded the ridership of
 			August 2019, the highest month in 2019. January and February of 2022 
 			also have low ridership likely due to a similar lockdown. Since then, 
-			winter cycling has more than doubled.
+			winter cycling has more than tripled.
 		</p>
 	</div>
 
@@ -209,12 +209,9 @@
 			We can similarly track the growth of the Bike Share fleet. Each bike
 			in the system is assigned a unique ID, and for any particular month,
 			we can count how many of these unique IDs there are in the ridership
-			data. The highest count of bikes was recorded in August 2020, with
-			6,455 bikes in the system. However, after 2021, the number of bikes
-			in the system stabilized and did not fluctuate as much as in 2019
-			and 2020. It is unclear whether Bike Share Toronto stores bikes
-			during periods of low ridership or if the bikes remain idle at the
-			stations or both.
+			data. It is unclear to us whether Bike Share Toronto stores bikes
+			during periods of low ridership, or if the bikes remain idle at the
+			stations, or both.
 		</p>
 		<h3>Number of Bikes in Operation</h3>
 		<p class="note">(data only available from 2019 onwards)</p>
