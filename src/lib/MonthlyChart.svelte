@@ -56,6 +56,8 @@
         return obj.Month;
     });
 
+    console.log(monthList, "monthList");
+
     var variableList = data.map(function (obj) {
         return obj[variable];
     });

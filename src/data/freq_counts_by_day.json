@@ -1,0 +1,2368 @@
+{
+    "Friday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 120,
+            "ICONIC": 668,
+            "EFIT_normalized": 0.006909258406264394,
+            "ICONIC_normalized": 0.007968317587556065
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 132,
+            "ICONIC": 465,
+            "EFIT_normalized": 0.007600184246890834,
+            "ICONIC_normalized": 0.00554680790151732
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 79,
+            "ICONIC": 350,
+            "EFIT_normalized": 0.004548595117457393,
+            "ICONIC_normalized": 0.004175016700066801
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 88,
+            "ICONIC": 296,
+            "EFIT_normalized": 0.005066789497927222,
+            "ICONIC_normalized": 0.0035308712663422084
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 63,
+            "ICONIC": 218,
+            "EFIT_normalized": 0.003627360663288807,
+            "ICONIC_normalized": 0.002600438973184464
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 50,
+            "ICONIC": 182,
+            "EFIT_normalized": 0.002878857669276831,
+            "ICONIC_normalized": 0.0021710086840347363
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 38,
+            "ICONIC": 102,
+            "EFIT_normalized": 0.0021879318286503915,
+            "ICONIC_normalized": 0.001216719152590896
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 32,
+            "ICONIC": 88,
+            "EFIT_normalized": 0.0018424689083371719,
+            "ICONIC_normalized": 0.001049718484588224
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 22,
+            "ICONIC": 84,
+            "EFIT_normalized": 0.0012666973744818056,
+            "ICONIC_normalized": 0.001002004008016032
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 36,
+            "ICONIC": 88,
+            "EFIT_normalized": 0.0020727775218793184,
+            "ICONIC_normalized": 0.001049718484588224
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 54,
+            "ICONIC": 167,
+            "EFIT_normalized": 0.0031091662828189775,
+            "ICONIC_normalized": 0.0019920793968890163
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 93,
+            "ICONIC": 352,
+            "EFIT_normalized": 0.005354675264854906,
+            "ICONIC_normalized": 0.004198873938352896
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 135,
+            "ICONIC": 456,
+            "EFIT_normalized": 0.007772915707047443,
+            "ICONIC_normalized": 0.005439450329229888
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 217,
+            "ICONIC": 908,
+            "EFIT_normalized": 0.012494242284661446,
+            "ICONIC_normalized": 0.010831186181887584
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 240,
+            "ICONIC": 1155,
+            "EFIT_normalized": 0.013818516812528788,
+            "ICONIC_normalized": 0.01377755511022044
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 349,
+            "ICONIC": 1744,
+            "EFIT_normalized": 0.02009442653155228,
+            "ICONIC_normalized": 0.020803511785475712
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 418,
+            "ICONIC": 2348,
+            "EFIT_normalized": 0.024067250115154308,
+            "ICONIC_normalized": 0.028008397747876706
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 536,
+            "ICONIC": 2864,
+            "EFIT_normalized": 0.030861354214647627,
+            "ICONIC_normalized": 0.034163565225689474
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 402,
+            "ICONIC": 1896,
+            "EFIT_normalized": 0.02314601566098572,
+            "ICONIC_normalized": 0.02261666189521901
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 358,
+            "ICONIC": 1758,
+            "EFIT_normalized": 0.02061262091202211,
+            "ICONIC_normalized": 0.020970512453478387
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 336,
+            "ICONIC": 1427,
+            "EFIT_normalized": 0.019345923537540305,
+            "ICONIC_normalized": 0.017022139517129498
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 390,
+            "ICONIC": 1557,
+            "EFIT_normalized": 0.02245508982035928,
+            "ICONIC_normalized": 0.018572860005725736
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 376,
+            "ICONIC": 1532,
+            "EFIT_normalized": 0.02164900967296177,
+            "ICONIC_normalized": 0.018274644527149535
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 421,
+            "ICONIC": 1852,
+            "EFIT_normalized": 0.024239981575310918,
+            "ICONIC_normalized": 0.0220918026529249
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 393,
+            "ICONIC": 1712,
+            "EFIT_normalized": 0.02262782128051589,
+            "ICONIC_normalized": 0.020421795972898178
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 454,
+            "ICONIC": 1985,
+            "EFIT_normalized": 0.026140027637033623,
+            "ICONIC_normalized": 0.023678308998950282
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 451,
+            "ICONIC": 2059,
+            "EFIT_normalized": 0.025967296176877014,
+            "ICONIC_normalized": 0.024561026815535833
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 519,
+            "ICONIC": 2123,
+            "EFIT_normalized": 0.029882542607093505,
+            "ICONIC_normalized": 0.025324458440690905
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 530,
+            "ICONIC": 2130,
+            "EFIT_normalized": 0.030515891294334407,
+            "ICONIC_normalized": 0.025407958774692242
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 575,
+            "ICONIC": 2369,
+            "EFIT_normalized": 0.03310686319668356,
+            "ICONIC_normalized": 0.028258898749880714
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 622,
+            "ICONIC": 2543,
+            "EFIT_normalized": 0.035812989405803776,
+            "ICONIC_normalized": 0.030334478480771067
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 620,
+            "ICONIC": 2688,
+            "EFIT_normalized": 0.0356978350990327,
+            "ICONIC_normalized": 0.03206412825651302
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 718,
+            "ICONIC": 3200,
+            "EFIT_normalized": 0.04134039613081529,
+            "ICONIC_normalized": 0.0381715812577536
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 727,
+            "ICONIC": 3680,
+            "EFIT_normalized": 0.04185859051128512,
+            "ICONIC_normalized": 0.043897318446416644
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 805,
+            "ICONIC": 4404,
+            "EFIT_normalized": 0.046349608475356976,
+            "ICONIC_normalized": 0.0525336387059834
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 778,
+            "ICONIC": 4156,
+            "EFIT_normalized": 0.04479502533394749,
+            "ICONIC_normalized": 0.049575341158507494
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 669,
+            "ICONIC": 4190,
+            "EFIT_normalized": 0.038519115614924,
+            "ICONIC_normalized": 0.049980914209371126
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 598,
+            "ICONIC": 3360,
+            "EFIT_normalized": 0.0344311377245509,
+            "ICONIC_normalized": 0.04008016032064128
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 520,
+            "ICONIC": 3090,
+            "EFIT_normalized": 0.029940119760479042,
+            "ICONIC_normalized": 0.036859433152018325
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 535,
+            "ICONIC": 2906,
+            "EFIT_normalized": 0.03080377706126209,
+            "ICONIC_normalized": 0.03466456722969749
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 460,
+            "ICONIC": 2585,
+            "EFIT_normalized": 0.026485490557346846,
+            "ICONIC_normalized": 0.030835480484779083
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 429,
+            "ICONIC": 2236,
+            "EFIT_normalized": 0.02470059880239521,
+            "ICONIC_normalized": 0.02667239240385533
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 372,
+            "ICONIC": 2140,
+            "EFIT_normalized": 0.021418701059419624,
+            "ICONIC_normalized": 0.02552724496612272
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 352,
+            "ICONIC": 1831,
+            "EFIT_normalized": 0.02026715799170889,
+            "ICONIC_normalized": 0.02184130165092089
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 310,
+            "ICONIC": 1571,
+            "EFIT_normalized": 0.01784891754951635,
+            "ICONIC_normalized": 0.01873986067372841
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 322,
+            "ICONIC": 1442,
+            "EFIT_normalized": 0.01853984339014279,
+            "ICONIC_normalized": 0.017201068804275216
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 325,
+            "ICONIC": 1501,
+            "EFIT_normalized": 0.0187125748502994,
+            "ICONIC_normalized": 0.01790485733371505
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 299,
+            "ICONIC": 1374,
+            "EFIT_normalized": 0.01721556886227545,
+            "ICONIC_normalized": 0.01638992270254795
+        }
+    ],
+    "Monday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 138,
+            "ICONIC": 418,
+            "EFIT_normalized": 0.007271577616187164,
+            "ICONIC_normalized": 0.0051452486459871985
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 102,
+            "ICONIC": 298,
+            "EFIT_normalized": 0.005374644325007904,
+            "ICONIC_normalized": 0.0036681437715411127
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 68,
+            "ICONIC": 201,
+            "EFIT_normalized": 0.003583096216671936,
+            "ICONIC_normalized": 0.0024741506646971936
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 71,
+            "ICONIC": 139,
+            "EFIT_normalized": 0.003741173990936874,
+            "ICONIC_normalized": 0.0017109798129000492
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 52,
+            "ICONIC": 111,
+            "EFIT_normalized": 0.002740014753925598,
+            "ICONIC_normalized": 0.0013663220088626293
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 45,
+            "ICONIC": 104,
+            "EFIT_normalized": 0.002371166613974075,
+            "ICONIC_normalized": 0.0012801575578532743
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 30,
+            "ICONIC": 84,
+            "EFIT_normalized": 0.0015807777426493834,
+            "ICONIC_normalized": 0.00103397341211226
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 33,
+            "ICONIC": 66,
+            "EFIT_normalized": 0.0017388555169143218,
+            "ICONIC_normalized": 0.0008124076809453471
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 24,
+            "ICONIC": 68,
+            "EFIT_normalized": 0.001264622194119507,
+            "ICONIC_normalized": 0.0008370260955194485
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 27,
+            "ICONIC": 107,
+            "EFIT_normalized": 0.001422699968384445,
+            "ICONIC_normalized": 0.0013170851797144265
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 58,
+            "ICONIC": 179,
+            "EFIT_normalized": 0.0030561703024554747,
+            "ICONIC_normalized": 0.002203348104382078
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 97,
+            "ICONIC": 342,
+            "EFIT_normalized": 0.005111181367899674,
+            "ICONIC_normalized": 0.004209748892171344
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 107,
+            "ICONIC": 460,
+            "EFIT_normalized": 0.005638107282116134,
+            "ICONIC_normalized": 0.005662235352043328
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 236,
+            "ICONIC": 937,
+            "EFIT_normalized": 0.012435451575508483,
+            "ICONIC_normalized": 0.01153372722796652
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 296,
+            "ICONIC": 1196,
+            "EFIT_normalized": 0.015597007060807251,
+            "ICONIC_normalized": 0.014721811915312653
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 426,
+            "ICONIC": 1973,
+            "EFIT_normalized": 0.022447043945621244,
+            "ICONIC_normalized": 0.02428606597735106
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 552,
+            "ICONIC": 2803,
+            "EFIT_normalized": 0.029086310464748657,
+            "ICONIC_normalized": 0.03450270802560315
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 651,
+            "ICONIC": 3203,
+            "EFIT_normalized": 0.034302877015491624,
+            "ICONIC_normalized": 0.03942639094042344
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 450,
+            "ICONIC": 1791,
+            "EFIT_normalized": 0.023711666139740753,
+            "ICONIC_normalized": 0.022045790251107828
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 370,
+            "ICONIC": 1439,
+            "EFIT_normalized": 0.019496258826009062,
+            "ICONIC_normalized": 0.01771294928606598
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 290,
+            "ICONIC": 1114,
+            "EFIT_normalized": 0.015280851512277373,
+            "ICONIC_normalized": 0.013712456917774495
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 333,
+            "ICONIC": 1273,
+            "EFIT_normalized": 0.017546632943408157,
+            "ICONIC_normalized": 0.01566962087641556
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 296,
+            "ICONIC": 1167,
+            "EFIT_normalized": 0.015597007060807251,
+            "ICONIC_normalized": 0.014364844903988183
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 384,
+            "ICONIC": 1497,
+            "EFIT_normalized": 0.02023395510591211,
+            "ICONIC_normalized": 0.01842688330871492
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 418,
+            "ICONIC": 1588,
+            "EFIT_normalized": 0.022025503214248076,
+            "ICONIC_normalized": 0.019547021171836532
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 438,
+            "ICONIC": 1663,
+            "EFIT_normalized": 0.023079355042681,
+            "ICONIC_normalized": 0.020470211718365338
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 489,
+            "ICONIC": 1564,
+            "EFIT_normalized": 0.02576667720518495,
+            "ICONIC_normalized": 0.019251600196947317
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 458,
+            "ICONIC": 1630,
+            "EFIT_normalized": 0.02413320687111392,
+            "ICONIC_normalized": 0.020064007877892663
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 506,
+            "ICONIC": 1694,
+            "EFIT_normalized": 0.026662451259352935,
+            "ICONIC_normalized": 0.020851797144263908
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 564,
+            "ICONIC": 1787,
+            "EFIT_normalized": 0.02971862156180841,
+            "ICONIC_normalized": 0.021996553421959626
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 635,
+            "ICONIC": 2008,
+            "EFIT_normalized": 0.03345979555274528,
+            "ICONIC_normalized": 0.024716888232397833
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 691,
+            "ICONIC": 2175,
+            "EFIT_normalized": 0.036410580672357466,
+            "ICONIC_normalized": 0.026772525849335302
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 826,
+            "ICONIC": 2843,
+            "EFIT_normalized": 0.043524080514279695,
+            "ICONIC_normalized": 0.03499507631708518
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 916,
+            "ICONIC": 3493,
+            "EFIT_normalized": 0.04826641374222784,
+            "ICONIC_normalized": 0.04299606105366814
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 1101,
+            "ICONIC": 5156,
+            "EFIT_normalized": 0.05801454315523238,
+            "ICONIC_normalized": 0.06346627277203348
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 989,
+            "ICONIC": 5068,
+            "EFIT_normalized": 0.052112972916008006,
+            "ICONIC_normalized": 0.06238306253077302
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 844,
+            "ICONIC": 4636,
+            "EFIT_normalized": 0.04447254715986932,
+            "ICONIC_normalized": 0.05706548498276711
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 769,
+            "ICONIC": 3902,
+            "EFIT_normalized": 0.04052060280324586,
+            "ICONIC_normalized": 0.048030526834071885
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 698,
+            "ICONIC": 3720,
+            "EFIT_normalized": 0.03677942881230899,
+            "ICONIC_normalized": 0.04579025110782865
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 634,
+            "ICONIC": 3313,
+            "EFIT_normalized": 0.03340710296132364,
+            "ICONIC_normalized": 0.04078040374199902
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 526,
+            "ICONIC": 3033,
+            "EFIT_normalized": 0.027716303087785856,
+            "ICONIC_normalized": 0.037333825701624815
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 468,
+            "ICONIC": 2539,
+            "EFIT_normalized": 0.024660132785330382,
+            "ICONIC_normalized": 0.031253077301821766
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 433,
+            "ICONIC": 2249,
+            "EFIT_normalized": 0.02281589208557277,
+            "ICONIC_normalized": 0.027683407188577057
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 372,
+            "ICONIC": 1633,
+            "EFIT_normalized": 0.019601644008852354,
+            "ICONIC_normalized": 0.020100935499753815
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 300,
+            "ICONIC": 1371,
+            "EFIT_normalized": 0.015807777426493835,
+            "ICONIC_normalized": 0.016875923190546527
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 271,
+            "ICONIC": 1185,
+            "EFIT_normalized": 0.014279692275266098,
+            "ICONIC_normalized": 0.014586410635155096
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 322,
+            "ICONIC": 1316,
+            "EFIT_normalized": 0.01696701443777005,
+            "ICONIC_normalized": 0.01619891678975874
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 174,
+            "ICONIC": 704,
+            "EFIT_normalized": 0.009168510907366425,
+            "ICONIC_normalized": 0.008665681930083702
+        }
+    ],
+    "Saturday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 299,
+            "ICONIC": 1367,
+            "EFIT_normalized": 0.014910487208896425,
+            "ICONIC_normalized": 0.013375602978444439
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 246,
+            "ICONIC": 1028,
+            "EFIT_normalized": 0.01226749114845659,
+            "ICONIC_normalized": 0.010058609994031369
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 204,
+            "ICONIC": 987,
+            "EFIT_normalized": 0.010173041440183514,
+            "ICONIC_normalized": 0.009657439751078757
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 160,
+            "ICONIC": 804,
+            "EFIT_normalized": 0.007978856031516482,
+            "ICONIC_normalized": 0.007866850617900021
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 166,
+            "ICONIC": 835,
+            "EFIT_normalized": 0.00827806313269835,
+            "ICONIC_normalized": 0.008170174460132485
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 142,
+            "ICONIC": 673,
+            "EFIT_normalized": 0.007081234727970877,
+            "ICONIC_normalized": 0.006585062768466062
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 103,
+            "ICONIC": 445,
+            "EFIT_normalized": 0.005136388570288735,
+            "ICONIC_normalized": 0.004354164832046654
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 65,
+            "ICONIC": 243,
+            "EFIT_normalized": 0.0032414102628035707,
+            "ICONIC_normalized": 0.002377667537499633
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 42,
+            "ICONIC": 190,
+            "EFIT_normalized": 0.0020944497082730764,
+            "ICONIC_normalized": 0.0018590816136828407
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 33,
+            "ICONIC": 161,
+            "EFIT_normalized": 0.0016456390565002743,
+            "ICONIC_normalized": 0.0015753270515944072
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 46,
+            "ICONIC": 147,
+            "EFIT_normalized": 0.0022939211090609885,
+            "ICONIC_normalized": 0.0014383420905861978
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 52,
+            "ICONIC": 213,
+            "EFIT_normalized": 0.0025931282102428566,
+            "ICONIC_normalized": 0.0020841283353391846
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 70,
+            "ICONIC": 294,
+            "EFIT_normalized": 0.0034907495137884606,
+            "ICONIC_normalized": 0.0028766841811723957
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 119,
+            "ICONIC": 568,
+            "EFIT_normalized": 0.005934274173440383,
+            "ICONIC_normalized": 0.005557675560904492
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 127,
+            "ICONIC": 567,
+            "EFIT_normalized": 0.006333216975016207,
+            "ICONIC_normalized": 0.005547890920832477
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 179,
+            "ICONIC": 821,
+            "EFIT_normalized": 0.008926345185259064,
+            "ICONIC_normalized": 0.008033189499124275
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 201,
+            "ICONIC": 958,
+            "EFIT_normalized": 0.01002343788959258,
+            "ICONIC_normalized": 0.009373685188990323
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 264,
+            "ICONIC": 1463,
+            "EFIT_normalized": 0.013165112452002194,
+            "ICONIC_normalized": 0.014314928425357873
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 311,
+            "ICONIC": 1714,
+            "EFIT_normalized": 0.01550890141126016,
+            "ICONIC_normalized": 0.016770873083433627
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 420,
+            "ICONIC": 2266,
+            "EFIT_normalized": 0.020944497082730763,
+            "ICONIC_normalized": 0.022171994403185877
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 451,
+            "ICONIC": 2274,
+            "EFIT_normalized": 0.022490400438837082,
+            "ICONIC_normalized": 0.022250271523761998
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 529,
+            "ICONIC": 2713,
+            "EFIT_normalized": 0.026380092754201365,
+            "ICONIC_normalized": 0.026545728515376562
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 556,
+            "ICONIC": 2944,
+            "EFIT_normalized": 0.02772652470951977,
+            "ICONIC_normalized": 0.028805980372012017
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 651,
+            "ICONIC": 3402,
+            "EFIT_normalized": 0.032463970478232684,
+            "ICONIC_normalized": 0.03328734552499486
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 664,
+            "ICONIC": 3340,
+            "EFIT_normalized": 0.0331122525307934,
+            "ICONIC_normalized": 0.03268069784052994
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 709,
+            "ICONIC": 3599,
+            "EFIT_normalized": 0.035356305789657407,
+            "ICONIC_normalized": 0.03521491961918181
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 712,
+            "ICONIC": 3579,
+            "EFIT_normalized": 0.03550590934024834,
+            "ICONIC_normalized": 0.03501922681774151
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 740,
+            "ICONIC": 3591,
+            "EFIT_normalized": 0.036902209145763726,
+            "ICONIC_normalized": 0.03513664249860569
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 711,
+            "ICONIC": 3740,
+            "EFIT_normalized": 0.03545604149005136,
+            "ICONIC_normalized": 0.03659455386933592
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 810,
+            "ICONIC": 3955,
+            "EFIT_normalized": 0.04039295865955218,
+            "ICONIC_normalized": 0.03869825148481913
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 761,
+            "ICONIC": 3747,
+            "EFIT_normalized": 0.037949433999900264,
+            "ICONIC_normalized": 0.03666304634984002
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 786,
+            "ICONIC": 3829,
+            "EFIT_normalized": 0.03919613025482471,
+            "ICONIC_normalized": 0.03746538683574525
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 842,
+            "ICONIC": 3934,
+            "EFIT_normalized": 0.04198872986585548,
+            "ICONIC_normalized": 0.03849277404330682
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 725,
+            "ICONIC": 3835,
+            "EFIT_normalized": 0.03615419139280906,
+            "ICONIC_normalized": 0.03752409467617734
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 787,
+            "ICONIC": 4013,
+            "EFIT_normalized": 0.03924599810502169,
+            "ICONIC_normalized": 0.039265760608995996
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 695,
+            "ICONIC": 4000,
+            "EFIT_normalized": 0.034658155886899716,
+            "ICONIC_normalized": 0.0391385602880598
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 718,
+            "ICONIC": 3967,
+            "EFIT_normalized": 0.03580511644143021,
+            "ICONIC_normalized": 0.03881566716568331
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 697,
+            "ICONIC": 3756,
+            "EFIT_normalized": 0.03475789158729367,
+            "ICONIC_normalized": 0.03675110811048816
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 588,
+            "ICONIC": 3334,
+            "EFIT_normalized": 0.02932229591582307,
+            "ICONIC_normalized": 0.03262199000009785
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 536,
+            "ICONIC": 3140,
+            "EFIT_normalized": 0.026729167705580214,
+            "ICONIC_normalized": 0.030723769826126946
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 482,
+            "ICONIC": 2696,
+            "EFIT_normalized": 0.0240363037949434,
+            "ICONIC_normalized": 0.026379389634152307
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 437,
+            "ICONIC": 2382,
+            "EFIT_normalized": 0.02179225053607939,
+            "ICONIC_normalized": 0.023307012651539612
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 407,
+            "ICONIC": 2062,
+            "EFIT_normalized": 0.02029621503017005,
+            "ICONIC_normalized": 0.020175927828494828
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 377,
+            "ICONIC": 1919,
+            "EFIT_normalized": 0.018800179524260708,
+            "ICONIC_normalized": 0.01877672429819669
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 409,
+            "ICONIC": 1796,
+            "EFIT_normalized": 0.020395950730564005,
+            "ICONIC_normalized": 0.01757321356933885
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 345,
+            "ICONIC": 1773,
+            "EFIT_normalized": 0.01720440831795741,
+            "ICONIC_normalized": 0.01734816684768251
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 380,
+            "ICONIC": 1664,
+            "EFIT_normalized": 0.018949783074851644,
+            "ICONIC_normalized": 0.01628164107983288
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 299,
+            "ICONIC": 1473,
+            "EFIT_normalized": 0.014910487208896425,
+            "ICONIC_normalized": 0.014412774826078023
+        }
+    ],
+    "Sunday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 242,
+            "ICONIC": 1117,
+            "EFIT_normalized": 0.01252069536423841,
+            "ICONIC_normalized": 0.012602529531889927
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 207,
+            "ICONIC": 1013,
+            "EFIT_normalized": 0.010709850993377483,
+            "ICONIC_normalized": 0.01142915167037108
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 210,
+            "ICONIC": 859,
+            "EFIT_normalized": 0.010865066225165563,
+            "ICONIC_normalized": 0.009691649836968172
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 180,
+            "ICONIC": 866,
+            "EFIT_normalized": 0.009312913907284769,
+            "ICONIC_normalized": 0.00977062719303194
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 170,
+            "ICONIC": 762,
+            "EFIT_normalized": 0.008795529801324503,
+            "ICONIC_normalized": 0.008597249331513093
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 172,
+            "ICONIC": 697,
+            "EFIT_normalized": 0.008899006622516557,
+            "ICONIC_normalized": 0.007863888168063814
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 124,
+            "ICONIC": 467,
+            "EFIT_normalized": 0.006415562913907285,
+            "ICONIC_normalized": 0.005268917897397132
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 82,
+            "ICONIC": 282,
+            "EFIT_normalized": 0.004242549668874172,
+            "ICONIC_normalized": 0.0031816592014261053
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 61,
+            "ICONIC": 223,
+            "EFIT_normalized": 0.003156043046357616,
+            "ICONIC_normalized": 0.0025159929146029133
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 59,
+            "ICONIC": 179,
+            "EFIT_normalized": 0.003052566225165563,
+            "ICONIC_normalized": 0.0020195638193449394
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 48,
+            "ICONIC": 152,
+            "EFIT_normalized": 0.0024834437086092716,
+            "ICONIC_normalized": 0.001714936874527546
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 50,
+            "ICONIC": 171,
+            "EFIT_normalized": 0.0025869205298013247,
+            "ICONIC_normalized": 0.0019293039838434894
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 63,
+            "ICONIC": 245,
+            "EFIT_normalized": 0.003259519867549669,
+            "ICONIC_normalized": 0.0027642074622319
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 120,
+            "ICONIC": 420,
+            "EFIT_normalized": 0.006208609271523178,
+            "ICONIC_normalized": 0.004738641363826114
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 122,
+            "ICONIC": 470,
+            "EFIT_normalized": 0.006312086092715232,
+            "ICONIC_normalized": 0.005302765335710176
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 151,
+            "ICONIC": 723,
+            "EFIT_normalized": 0.0078125,
+            "ICONIC_normalized": 0.008157232633443525
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 188,
+            "ICONIC": 754,
+            "EFIT_normalized": 0.00972682119205298,
+            "ICONIC_normalized": 0.008506989496011643
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 213,
+            "ICONIC": 1055,
+            "EFIT_normalized": 0.011020281456953643,
+            "ICONIC_normalized": 0.011903015806753693
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 225,
+            "ICONIC": 1180,
+            "EFIT_normalized": 0.01164114238410596,
+            "ICONIC_normalized": 0.013313325736463846
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 341,
+            "ICONIC": 1742,
+            "EFIT_normalized": 0.017642798013245035,
+            "ICONIC_normalized": 0.019654079180440695
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 399,
+            "ICONIC": 1937,
+            "EFIT_normalized": 0.02064362582781457,
+            "ICONIC_normalized": 0.021854162670788532
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 453,
+            "ICONIC": 2307,
+            "EFIT_normalized": 0.0234375,
+            "ICONIC_normalized": 0.026028680062730587
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 496,
+            "ICONIC": 2345,
+            "EFIT_normalized": 0.02566225165562914,
+            "ICONIC_normalized": 0.026457414281362474
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 499,
+            "ICONIC": 2630,
+            "EFIT_normalized": 0.025817466887417217,
+            "ICONIC_normalized": 0.02967292092110162
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 574,
+            "ICONIC": 2656,
+            "EFIT_normalized": 0.029697847682119204,
+            "ICONIC_normalized": 0.029966265386481332
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 645,
+            "ICONIC": 3025,
+            "EFIT_normalized": 0.03337127483443709,
+            "ICONIC_normalized": 0.034129500298985704
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 689,
+            "ICONIC": 3195,
+            "EFIT_normalized": 0.03564776490066225,
+            "ICONIC_normalized": 0.03604752180339151
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 771,
+            "ICONIC": 3304,
+            "EFIT_normalized": 0.03989031456953642,
+            "ICONIC_normalized": 0.037277312062098764
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 803,
+            "ICONIC": 3345,
+            "EFIT_normalized": 0.04154594370860927,
+            "ICONIC_normalized": 0.037739893719043696
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 699,
+            "ICONIC": 3186,
+            "EFIT_normalized": 0.036165149006622516,
+            "ICONIC_normalized": 0.035945979488452386
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 763,
+            "ICONIC": 3206,
+            "EFIT_normalized": 0.039476407284768214,
+            "ICONIC_normalized": 0.03617162907720601
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 791,
+            "ICONIC": 3265,
+            "EFIT_normalized": 0.040925082781456956,
+            "ICONIC_normalized": 0.0368372953640292
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 785,
+            "ICONIC": 3463,
+            "EFIT_normalized": 0.04061465231788079,
+            "ICONIC_normalized": 0.03907122629269008
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 795,
+            "ICONIC": 3700,
+            "EFIT_normalized": 0.041132036423841056,
+            "ICONIC_normalized": 0.04174517391942053
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 813,
+            "ICONIC": 3842,
+            "EFIT_normalized": 0.042063327814569534,
+            "ICONIC_normalized": 0.043347285999571265
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 794,
+            "ICONIC": 3762,
+            "EFIT_normalized": 0.04108029801324503,
+            "ICONIC_normalized": 0.04244468764455677
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 691,
+            "ICONIC": 3707,
+            "EFIT_normalized": 0.0357512417218543,
+            "ICONIC_normalized": 0.0418241512754843
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 680,
+            "ICONIC": 3482,
+            "EFIT_normalized": 0.03518211920529801,
+            "ICONIC_normalized": 0.039285593402006026
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 690,
+            "ICONIC": 3345,
+            "EFIT_normalized": 0.03569950331125828,
+            "ICONIC_normalized": 0.037739893719043696
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 585,
+            "ICONIC": 2763,
+            "EFIT_normalized": 0.030266970198675497,
+            "ICONIC_normalized": 0.031173490686313223
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 532,
+            "ICONIC": 2540,
+            "EFIT_normalized": 0.02752483443708609,
+            "ICONIC_normalized": 0.02865749777171031
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 456,
+            "ICONIC": 2259,
+            "EFIT_normalized": 0.02359271523178808,
+            "ICONIC_normalized": 0.025487121049721888
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 414,
+            "ICONIC": 1779,
+            "EFIT_normalized": 0.021419701986754965,
+            "ICONIC_normalized": 0.0200715309196349
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 355,
+            "ICONIC": 1562,
+            "EFIT_normalized": 0.018367135761589402,
+            "ICONIC_normalized": 0.017623232881658072
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 337,
+            "ICONIC": 1452,
+            "EFIT_normalized": 0.017435844370860928,
+            "ICONIC_normalized": 0.01638216014351314
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 276,
+            "ICONIC": 1204,
+            "EFIT_normalized": 0.014279801324503311,
+            "ICONIC_normalized": 0.013584105242968195
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 277,
+            "ICONIC": 1158,
+            "EFIT_normalized": 0.014331539735099338,
+            "ICONIC_normalized": 0.013065111188834858
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 238,
+            "ICONIC": 837,
+            "EFIT_normalized": 0.012313741721854305,
+            "ICONIC_normalized": 0.009443435289339185
+        }
+    ],
+    "Thursday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 115,
+            "ICONIC": 541,
+            "EFIT_normalized": 0.006339231574885618,
+            "ICONIC_normalized": 0.005797318873969931
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 95,
+            "ICONIC": 416,
+            "EFIT_normalized": 0.005236756518383771,
+            "ICONIC_normalized": 0.004457827452072997
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 68,
+            "ICONIC": 234,
+            "EFIT_normalized": 0.0037484151921062785,
+            "ICONIC_normalized": 0.0025075279417910608
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 63,
+            "ICONIC": 203,
+            "EFIT_normalized": 0.003472796427980817,
+            "ICONIC_normalized": 0.002175334069160621
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 49,
+            "ICONIC": 162,
+            "EFIT_normalized": 0.0027010638884295245,
+            "ICONIC_normalized": 0.0017359808827784268
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 30,
+            "ICONIC": 105,
+            "EFIT_normalized": 0.00165371258475277,
+            "ICONIC_normalized": 0.0011251727943934248
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 24,
+            "ICONIC": 96,
+            "EFIT_normalized": 0.001322970067802216,
+            "ICONIC_normalized": 0.0010287294120168455
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 20,
+            "ICONIC": 38,
+            "EFIT_normalized": 0.0011024750565018467,
+            "ICONIC_normalized": 0.000407205392256668
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 15,
+            "ICONIC": 39,
+            "EFIT_normalized": 0.000826856292376385,
+            "ICONIC_normalized": 0.00041792132363184346
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 18,
+            "ICONIC": 80,
+            "EFIT_normalized": 0.000992227550851662,
+            "ICONIC_normalized": 0.0008572745100140378
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 30,
+            "ICONIC": 151,
+            "EFIT_normalized": 0.00165371258475277,
+            "ICONIC_normalized": 0.0016181056376514964
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 72,
+            "ICONIC": 291,
+            "EFIT_normalized": 0.003968910203406648,
+            "ICONIC_normalized": 0.003118336030176063
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 120,
+            "ICONIC": 475,
+            "EFIT_normalized": 0.00661485033901108,
+            "ICONIC_normalized": 0.00509006740320835
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 213,
+            "ICONIC": 1004,
+            "EFIT_normalized": 0.011741359351744666,
+            "ICONIC_normalized": 0.010758795100676176
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 273,
+            "ICONIC": 1331,
+            "EFIT_normalized": 0.015048784521250207,
+            "ICONIC_normalized": 0.014262904660358556
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 431,
+            "ICONIC": 2164,
+            "EFIT_normalized": 0.023758337467614795,
+            "ICONIC_normalized": 0.023189275495879725
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 620,
+            "ICONIC": 3381,
+            "EFIT_normalized": 0.034176726751557245,
+            "ICONIC_normalized": 0.03623056397946828
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 754,
+            "ICONIC": 4466,
+            "EFIT_normalized": 0.041563309630119616,
+            "ICONIC_normalized": 0.047857349521533664
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 601,
+            "ICONIC": 2733,
+            "EFIT_normalized": 0.03312937544788049,
+            "ICONIC_normalized": 0.029286640448354568
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 458,
+            "ICONIC": 1855,
+            "EFIT_normalized": 0.025246678793892287,
+            "ICONIC_normalized": 0.019878052700950503
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 351,
+            "ICONIC": 1483,
+            "EFIT_normalized": 0.019348437241607407,
+            "ICONIC_normalized": 0.015891726229385228
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 342,
+            "ICONIC": 1574,
+            "EFIT_normalized": 0.018852323466181577,
+            "ICONIC_normalized": 0.016866875984526197
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 347,
+            "ICONIC": 1455,
+            "EFIT_normalized": 0.01912794223030704,
+            "ICONIC_normalized": 0.015591680150880314
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 401,
+            "ICONIC": 1922,
+            "EFIT_normalized": 0.022104624882862026,
+            "ICONIC_normalized": 0.02059602010308726
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 463,
+            "ICONIC": 1903,
+            "EFIT_normalized": 0.02552229755801775,
+            "ICONIC_normalized": 0.020392417406958924
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 507,
+            "ICONIC": 1926,
+            "EFIT_normalized": 0.02794774268232181,
+            "ICONIC_normalized": 0.020638883828587962
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 498,
+            "ICONIC": 1889,
+            "EFIT_normalized": 0.02745162890689598,
+            "ICONIC_normalized": 0.02024239436770647
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 462,
+            "ICONIC": 1853,
+            "EFIT_normalized": 0.02546717380519266,
+            "ICONIC_normalized": 0.019856620838200154
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 481,
+            "ICONIC": 1907,
+            "EFIT_normalized": 0.02651452510886941,
+            "ICONIC_normalized": 0.020435281132459626
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 560,
+            "ICONIC": 2150,
+            "EFIT_normalized": 0.030869301582051707,
+            "ICONIC_normalized": 0.023039252456627267
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 619,
+            "ICONIC": 2366,
+            "EFIT_normalized": 0.03412160299873215,
+            "ICONIC_normalized": 0.02535389363366517
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 705,
+            "ICONIC": 2532,
+            "EFIT_normalized": 0.038862245741690095,
+            "ICONIC_normalized": 0.027132738241944298
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 790,
+            "ICONIC": 3253,
+            "EFIT_normalized": 0.043547764731822945,
+            "ICONIC_normalized": 0.03485892476344581
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 854,
+            "ICONIC": 4295,
+            "EFIT_normalized": 0.047075684912628854,
+            "ICONIC_normalized": 0.046024925256378656
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 1022,
+            "ICONIC": 6159,
+            "EFIT_normalized": 0.056336475387244365,
+            "ICONIC_normalized": 0.06599942133970574
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 841,
+            "ICONIC": 5893,
+            "EFIT_normalized": 0.04635907612590265,
+            "ICONIC_normalized": 0.06314898359390907
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 674,
+            "ICONIC": 4716,
+            "EFIT_normalized": 0.037153409404112235,
+            "ICONIC_normalized": 0.050536332365327535
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 635,
+            "ICONIC": 4318,
+            "EFIT_normalized": 0.03500358304393363,
+            "ICONIC_normalized": 0.046271391678007694
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 540,
+            "ICONIC": 3716,
+            "EFIT_normalized": 0.02976682652554986,
+            "ICONIC_normalized": 0.039820400990152056
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 497,
+            "ICONIC": 3192,
+            "EFIT_normalized": 0.02739650515407089,
+            "ICONIC_normalized": 0.03420525294956011
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 423,
+            "ICONIC": 2989,
+            "EFIT_normalized": 0.023317347445014056,
+            "ICONIC_normalized": 0.03202991888039949
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 410,
+            "ICONIC": 2551,
+            "EFIT_normalized": 0.022600738658287857,
+            "ICONIC_normalized": 0.027336340938072634
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 383,
+            "ICONIC": 2396,
+            "EFIT_normalized": 0.02111239733201036,
+            "ICONIC_normalized": 0.025675371574920433
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 329,
+            "ICONIC": 1977,
+            "EFIT_normalized": 0.018135714679455378,
+            "ICONIC_normalized": 0.02118539632872191
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 258,
+            "ICONIC": 1576,
+            "EFIT_normalized": 0.014221928228873821,
+            "ICONIC_normalized": 0.016888307847276546
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 236,
+            "ICONIC": 1434,
+            "EFIT_normalized": 0.01300920566672179,
+            "ICONIC_normalized": 0.015366645592001628
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 268,
+            "ICONIC": 1247,
+            "EFIT_normalized": 0.014773165757124744,
+            "ICONIC_normalized": 0.013362766424843815
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 176,
+            "ICONIC": 882,
+            "EFIT_normalized": 0.009701780497216251,
+            "ICONIC_normalized": 0.009451451472904767
+        }
+    ],
+    "Tuesday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 157,
+            "ICONIC": 483,
+            "EFIT_normalized": 0.007935705620703599,
+            "ICONIC_normalized": 0.005393815538208985
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 130,
+            "ICONIC": 314,
+            "EFIT_normalized": 0.006570966437525273,
+            "ICONIC_normalized": 0.0035065384658335844
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 68,
+            "ICONIC": 196,
+            "EFIT_normalized": 0.0034371209057824505,
+            "ICONIC_normalized": 0.0021887947111572693
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 55,
+            "ICONIC": 117,
+            "EFIT_normalized": 0.0027800242620299232,
+            "ICONIC_normalized": 0.0013065764347214312
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 58,
+            "ICONIC": 124,
+            "EFIT_normalized": 0.002931661949049737,
+            "ICONIC_normalized": 0.0013847476744056194
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 47,
+            "ICONIC": 100,
+            "EFIT_normalized": 0.0023756570966437527,
+            "ICONIC_normalized": 0.0011167319954884028
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 43,
+            "ICONIC": 59,
+            "EFIT_normalized": 0.002173473513950667,
+            "ICONIC_normalized": 0.0006588718773381576
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 22,
+            "ICONIC": 54,
+            "EFIT_normalized": 0.0011120097048119692,
+            "ICONIC_normalized": 0.0006030352775637374
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 18,
+            "ICONIC": 60,
+            "EFIT_normalized": 0.000909826122118884,
+            "ICONIC_normalized": 0.0006700391972930416
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 38,
+            "ICONIC": 115,
+            "EFIT_normalized": 0.0019207440355843105,
+            "ICONIC_normalized": 0.001284241794811663
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 60,
+            "ICONIC": 200,
+            "EFIT_normalized": 0.00303275374039628,
+            "ICONIC_normalized": 0.0022334639909768056
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 118,
+            "ICONIC": 397,
+            "EFIT_normalized": 0.005964415689446017,
+            "ICONIC_normalized": 0.004433426022088959
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 116,
+            "ICONIC": 495,
+            "EFIT_normalized": 0.005863323898099474,
+            "ICONIC_normalized": 0.005527823377667594
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 271,
+            "ICONIC": 952,
+            "EFIT_normalized": 0.013697937727456531,
+            "ICONIC_normalized": 0.010631288597049595
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 319,
+            "ICONIC": 1355,
+            "EFIT_normalized": 0.016124140719773555,
+            "ICONIC_normalized": 0.015131718538867857
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 435,
+            "ICONIC": 2140,
+            "EFIT_normalized": 0.02198746461787303,
+            "ICONIC_normalized": 0.023898064703451818
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 561,
+            "ICONIC": 2948,
+            "EFIT_normalized": 0.028356247472705216,
+            "ICONIC_normalized": 0.032921259226998116
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 729,
+            "ICONIC": 3490,
+            "EFIT_normalized": 0.0368479579458148,
+            "ICONIC_normalized": 0.038973946642545255
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 553,
+            "ICONIC": 2328,
+            "EFIT_normalized": 0.027951880307319047,
+            "ICONIC_normalized": 0.025997520854970015
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 426,
+            "ICONIC": 1747,
+            "EFIT_normalized": 0.021532551556813585,
+            "ICONIC_normalized": 0.019509307961182394
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 328,
+            "ICONIC": 1302,
+            "EFIT_normalized": 0.016579053780832995,
+            "ICONIC_normalized": 0.014539850581259004
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 343,
+            "ICONIC": 1394,
+            "EFIT_normalized": 0.017337242215932067,
+            "ICONIC_normalized": 0.015567244017108335
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 321,
+            "ICONIC": 1291,
+            "EFIT_normalized": 0.016225232511120097,
+            "ICONIC_normalized": 0.014417010061755279
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 458,
+            "ICONIC": 1534,
+            "EFIT_normalized": 0.02315002021835827,
+            "ICONIC_normalized": 0.0171306688107921
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 458,
+            "ICONIC": 1633,
+            "EFIT_normalized": 0.02315002021835827,
+            "ICONIC_normalized": 0.018236233486325616
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 456,
+            "ICONIC": 1794,
+            "EFIT_normalized": 0.023048928427011728,
+            "ICONIC_normalized": 0.020034171999061944
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 511,
+            "ICONIC": 1644,
+            "EFIT_normalized": 0.02582895268904165,
+            "ICONIC_normalized": 0.01835907400582934
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 481,
+            "ICONIC": 1646,
+            "EFIT_normalized": 0.02431257581884351,
+            "ICONIC_normalized": 0.01838140864573911
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 511,
+            "ICONIC": 1624,
+            "EFIT_normalized": 0.02582895268904165,
+            "ICONIC_normalized": 0.01813572760673166
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 556,
+            "ICONIC": 1784,
+            "EFIT_normalized": 0.02810351799433886,
+            "ICONIC_normalized": 0.019922498799513105
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 618,
+            "ICONIC": 2035,
+            "EFIT_normalized": 0.031237363526081682,
+            "ICONIC_normalized": 0.022725496108188997
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 663,
+            "ICONIC": 2354,
+            "EFIT_normalized": 0.03351192883137889,
+            "ICONIC_normalized": 0.026287871173797002
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 825,
+            "ICONIC": 2944,
+            "EFIT_normalized": 0.04170036393044885,
+            "ICONIC_normalized": 0.032876589947178576
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 893,
+            "ICONIC": 4003,
+            "EFIT_normalized": 0.0451374848362313,
+            "ICONIC_normalized": 0.04470278177940076
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 1136,
+            "ICONIC": 6083,
+            "EFIT_normalized": 0.05742013748483623,
+            "ICONIC_normalized": 0.06793080728555954
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 1085,
+            "ICONIC": 5890,
+            "EFIT_normalized": 0.054842296805499395,
+            "ICONIC_normalized": 0.06577551453426692
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 931,
+            "ICONIC": 5213,
+            "EFIT_normalized": 0.047058228871815606,
+            "ICONIC_normalized": 0.05821523892481043
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 737,
+            "ICONIC": 4552,
+            "EFIT_normalized": 0.03725232511120097,
+            "ICONIC_normalized": 0.050833640434632094
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 665,
+            "ICONIC": 3863,
+            "EFIT_normalized": 0.033613020622725434,
+            "ICONIC_normalized": 0.043139356985717
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 581,
+            "ICONIC": 3395,
+            "EFIT_normalized": 0.02936716538617064,
+            "ICONIC_normalized": 0.037913051246831274
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 535,
+            "ICONIC": 3035,
+            "EFIT_normalized": 0.02704205418520016,
+            "ICONIC_normalized": 0.033892816063073025
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 517,
+            "ICONIC": 2839,
+            "EFIT_normalized": 0.026132228063081277,
+            "ICONIC_normalized": 0.03170402135191575
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 428,
+            "ICONIC": 2518,
+            "EFIT_normalized": 0.02163364334816013,
+            "ICONIC_normalized": 0.02811931164639798
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 374,
+            "ICONIC": 2183,
+            "EFIT_normalized": 0.018904164981803476,
+            "ICONIC_normalized": 0.02437825946151183
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 322,
+            "ICONIC": 1786,
+            "EFIT_normalized": 0.016275778406793368,
+            "ICONIC_normalized": 0.01994483343942287
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 348,
+            "ICONIC": 1323,
+            "EFIT_normalized": 0.017589971694298424,
+            "ICONIC_normalized": 0.014774364300311569
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 275,
+            "ICONIC": 1281,
+            "EFIT_normalized": 0.013900121310149616,
+            "ICONIC_normalized": 0.014305336862206438
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 204,
+            "ICONIC": 930,
+            "EFIT_normalized": 0.010311362717347351,
+            "ICONIC_normalized": 0.010385607558042145
+        }
+    ],
+    "Wednesday": [
+        {
+            "half_hour_intervals": "00:00",
+            "EFIT": 157,
+            "ICONIC": 614,
+            "EFIT_normalized": 0.008215164041651405,
+            "ICONIC_normalized": 0.006681902274458592
+        },
+        {
+            "half_hour_intervals": "00:30",
+            "EFIT": 111,
+            "ICONIC": 344,
+            "EFIT_normalized": 0.005808173303333159,
+            "ICONIC_normalized": 0.0037436064860158886
+        },
+        {
+            "half_hour_intervals": "01:00",
+            "EFIT": 56,
+            "ICONIC": 256,
+            "EFIT_normalized": 0.0029302495944743866,
+            "ICONIC_normalized": 0.002785939710523452
+        },
+        {
+            "half_hour_intervals": "01:30",
+            "EFIT": 63,
+            "ICONIC": 171,
+            "EFIT_normalized": 0.003296530793783685,
+            "ICONIC_normalized": 0.0018609206660137121
+        },
+        {
+            "half_hour_intervals": "02:00",
+            "EFIT": 49,
+            "ICONIC": 146,
+            "EFIT_normalized": 0.002563968395165088,
+            "ICONIC_normalized": 0.0015888562411579062
+        },
+        {
+            "half_hour_intervals": "02:30",
+            "EFIT": 42,
+            "ICONIC": 123,
+            "EFIT_normalized": 0.0021976871958557897,
+            "ICONIC_normalized": 0.0013385569702905648
+        },
+        {
+            "half_hour_intervals": "03:00",
+            "EFIT": 29,
+            "ICONIC": 76,
+            "EFIT_normalized": 0.0015174506828528073,
+            "ICONIC_normalized": 0.0008270758515616498
+        },
+        {
+            "half_hour_intervals": "03:30",
+            "EFIT": 29,
+            "ICONIC": 59,
+            "EFIT_normalized": 0.0015174506828528073,
+            "ICONIC_normalized": 0.0006420720426597018
+        },
+        {
+            "half_hour_intervals": "04:00",
+            "EFIT": 18,
+            "ICONIC": 66,
+            "EFIT_normalized": 0.0009418659410810528,
+            "ICONIC_normalized": 0.0007182500816193274
+        },
+        {
+            "half_hour_intervals": "04:30",
+            "EFIT": 36,
+            "ICONIC": 118,
+            "EFIT_normalized": 0.0018837318821621056,
+            "ICONIC_normalized": 0.0012841440853194035
+        },
+        {
+            "half_hour_intervals": "05:00",
+            "EFIT": 53,
+            "ICONIC": 187,
+            "EFIT_normalized": 0.0027732719376275445,
+            "ICONIC_normalized": 0.0020350418979214278
+        },
+        {
+            "half_hour_intervals": "05:30",
+            "EFIT": 118,
+            "ICONIC": 373,
+            "EFIT_normalized": 0.006174454502642457,
+            "ICONIC_normalized": 0.004059201218848623
+        },
+        {
+            "half_hour_intervals": "06:00",
+            "EFIT": 152,
+            "ICONIC": 585,
+            "EFIT_normalized": 0.007953534613573334,
+            "ICONIC_normalized": 0.006366307541625857
+        },
+        {
+            "half_hour_intervals": "06:30",
+            "EFIT": 251,
+            "ICONIC": 1158,
+            "EFIT_normalized": 0.013133797289519125,
+            "ICONIC_normalized": 0.012602024159320928
+        },
+        {
+            "half_hour_intervals": "07:00",
+            "EFIT": 353,
+            "ICONIC": 1561,
+            "EFIT_normalized": 0.018471037622311757,
+            "ICONIC_normalized": 0.016987702687996518
+        },
+        {
+            "half_hour_intervals": "07:30",
+            "EFIT": 509,
+            "ICONIC": 2385,
+            "EFIT_normalized": 0.026633875778347547,
+            "ICONIC_normalized": 0.02595494613124388
+        },
+        {
+            "half_hour_intervals": "08:00",
+            "EFIT": 669,
+            "ICONIC": 3550,
+            "EFIT_normalized": 0.03500601747684579,
+            "ICONIC_normalized": 0.038633148329524435
+        },
+        {
+            "half_hour_intervals": "08:30",
+            "EFIT": 779,
+            "ICONIC": 4537,
+            "EFIT_normalized": 0.04076186489456334,
+            "ICONIC_normalized": 0.049374251822831644
+        },
+        {
+            "half_hour_intervals": "09:00",
+            "EFIT": 549,
+            "ICONIC": 2755,
+            "EFIT_normalized": 0.02872691120297211,
+            "ICONIC_normalized": 0.029981499619109807
+        },
+        {
+            "half_hour_intervals": "09:30",
+            "EFIT": 434,
+            "ICONIC": 1889,
+            "EFIT_normalized": 0.022709434357176494,
+            "ICONIC_normalized": 0.02055718794210469
+        },
+        {
+            "half_hour_intervals": "10:00",
+            "EFIT": 372,
+            "ICONIC": 1479,
+            "EFIT_normalized": 0.019465229449008425,
+            "ICONIC_normalized": 0.016095331374469474
+        },
+        {
+            "half_hour_intervals": "10:30",
+            "EFIT": 359,
+            "ICONIC": 1571,
+            "EFIT_normalized": 0.01878499293600544,
+            "ICONIC_normalized": 0.01709652845793884
+        },
+        {
+            "half_hour_intervals": "11:00",
+            "EFIT": 337,
+            "ICONIC": 1438,
+            "EFIT_normalized": 0.017633823452461932,
+            "ICONIC_normalized": 0.015649145717705953
+        },
+        {
+            "half_hour_intervals": "11:30",
+            "EFIT": 460,
+            "ICONIC": 1807,
+            "EFIT_normalized": 0.02406990738318246,
+            "ICONIC_normalized": 0.019664816628577646
+        },
+        {
+            "half_hour_intervals": "12:00",
+            "EFIT": 513,
+            "ICONIC": 1791,
+            "EFIT_normalized": 0.026843179320810005,
+            "ICONIC_normalized": 0.019490695396669932
+        },
+        {
+            "half_hour_intervals": "12:30",
+            "EFIT": 479,
+            "ICONIC": 1945,
+            "EFIT_normalized": 0.025064099209879127,
+            "ICONIC_normalized": 0.021166612253781695
+        },
+        {
+            "half_hour_intervals": "13:00",
+            "EFIT": 501,
+            "ICONIC": 1762,
+            "EFIT_normalized": 0.026215268693422635,
+            "ICONIC_normalized": 0.019175100663837197
+        },
+        {
+            "half_hour_intervals": "13:30",
+            "EFIT": 508,
+            "ICONIC": 1796,
+            "EFIT_normalized": 0.026581549892731933,
+            "ICONIC_normalized": 0.01954510828164109
+        },
+        {
+            "half_hour_intervals": "14:00",
+            "EFIT": 509,
+            "ICONIC": 1754,
+            "EFIT_normalized": 0.026633875778347547,
+            "ICONIC_normalized": 0.01908804004788334
+        },
+        {
+            "half_hour_intervals": "14:30",
+            "EFIT": 591,
+            "ICONIC": 1974,
+            "EFIT_normalized": 0.0309245983988279,
+            "ICONIC_normalized": 0.02148220698661443
+        },
+        {
+            "half_hour_intervals": "15:00",
+            "EFIT": 620,
+            "ICONIC": 2181,
+            "EFIT_normalized": 0.032442049081680704,
+            "ICONIC_normalized": 0.023734900424420502
+        },
+        {
+            "half_hour_intervals": "15:30",
+            "EFIT": 624,
+            "ICONIC": 2199,
+            "EFIT_normalized": 0.03265135262414316,
+            "ICONIC_normalized": 0.023930786810316684
+        },
+        {
+            "half_hour_intervals": "16:00",
+            "EFIT": 665,
+            "ICONIC": 2727,
+            "EFIT_normalized": 0.03479671393438334,
+            "ICONIC_normalized": 0.029676787463271303
+        },
+        {
+            "half_hour_intervals": "16:30",
+            "EFIT": 742,
+            "ICONIC": 3537,
+            "EFIT_normalized": 0.03882580712678562,
+            "ICONIC_normalized": 0.038491674828599415
+        },
+        {
+            "half_hour_intervals": "17:00",
+            "EFIT": 955,
+            "ICONIC": 5195,
+            "EFIT_normalized": 0.04997122076291141,
+            "ICONIC_normalized": 0.05653498748503646
+        },
+        {
+            "half_hour_intervals": "17:30",
+            "EFIT": 958,
+            "ICONIC": 5480,
+            "EFIT_normalized": 0.050128198419758255,
+            "ICONIC_normalized": 0.059636521928392645
+        },
+        {
+            "half_hour_intervals": "18:00",
+            "EFIT": 851,
+            "ICONIC": 5180,
+            "EFIT_normalized": 0.04452932865888755,
+            "ICONIC_normalized": 0.05637174883012297
+        },
+        {
+            "half_hour_intervals": "18:30",
+            "EFIT": 735,
+            "ICONIC": 4475,
+            "EFIT_normalized": 0.03845952592747632,
+            "ICONIC_normalized": 0.04869953204918925
+        },
+        {
+            "half_hour_intervals": "19:00",
+            "EFIT": 642,
+            "ICONIC": 3983,
+            "EFIT_normalized": 0.033593218565224216,
+            "ICONIC_normalized": 0.04334530416802699
+        },
+        {
+            "half_hour_intervals": "19:30",
+            "EFIT": 559,
+            "ICONIC": 3462,
+            "EFIT_normalized": 0.02925017005912825,
+            "ICONIC_normalized": 0.037675481554032
+        },
+        {
+            "half_hour_intervals": "20:00",
+            "EFIT": 495,
+            "ICONIC": 3051,
+            "EFIT_normalized": 0.025901313379728952,
+            "ICONIC_normalized": 0.03320274240940255
+        },
+        {
+            "half_hour_intervals": "20:30",
+            "EFIT": 442,
+            "ICONIC": 2603,
+            "EFIT_normalized": 0.023128041442101406,
+            "ICONIC_normalized": 0.028327347915986505
+        },
+        {
+            "half_hour_intervals": "21:00",
+            "EFIT": 407,
+            "ICONIC": 2386,
+            "EFIT_normalized": 0.021296635445554917,
+            "ICONIC_normalized": 0.02596582870823811
+        },
+        {
+            "half_hour_intervals": "21:30",
+            "EFIT": 373,
+            "ICONIC": 2084,
+            "EFIT_normalized": 0.01951755533462404,
+            "ICONIC_normalized": 0.022679290455979977
+        },
+        {
+            "half_hour_intervals": "22:00",
+            "EFIT": 292,
+            "ICONIC": 1670,
+            "EFIT_normalized": 0.0152791585997593,
+            "ICONIC_normalized": 0.018173903580367832
+        },
+        {
+            "half_hour_intervals": "22:30",
+            "EFIT": 256,
+            "ICONIC": 1291,
+            "EFIT_normalized": 0.013395426717597195,
+            "ICONIC_normalized": 0.014049406899553814
+        },
+        {
+            "half_hour_intervals": "23:00",
+            "EFIT": 243,
+            "ICONIC": 1299,
+            "EFIT_normalized": 0.012715190204594213,
+            "ICONIC_normalized": 0.014136467515507673
+        },
+        {
+            "half_hour_intervals": "23:30",
+            "EFIT": 166,
+            "ICONIC": 817,
+            "EFIT_normalized": 0.008686097012191932,
+            "ICONIC_normalized": 0.008891065404287735
+        }
+    ]
+}
