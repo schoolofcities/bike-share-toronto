@@ -397,7 +397,7 @@
   }
 
   .chart-container {
-    margin-top: 0px;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -6,10 +6,13 @@
 
     let svg;
     let data = [];
-    const margin = { top: 20, right: 40, bottom: 50, left: 40 };
+    const margin = { top: 20, right: 40, bottom: 50, left: 55 };
     const maxWidth = 650;
     const heightPercentage = 0.5; // 60% of the screen width
-    let width = Math.min(window.innerWidth - margin.left - margin.right, maxWidth);
+    let width = Math.min(
+        window.innerWidth - margin.left - margin.right,
+        maxWidth,
+    );
     let height = width * heightPercentage;
 
     export let csvData;
@@ -43,8 +46,11 @@
     });
 
     function handleResize() {
-        width = Math.min(window.innerWidth - margin.left - margin.right, maxWidth);
-        height = width*heightPercentage;
+        width = Math.min(
+            window.innerWidth - margin.left - margin.right,
+            maxWidth,
+        );
+        height = width * heightPercentage;
         drawLineChart();
     }
 
@@ -412,7 +418,9 @@
         border-radius: 4px;
         width: 150px;
         cursor: pointer;
-        transition: background-color 0.2s, border-color 0.3s;
+        transition:
+            background-color 0.2s,
+            border-color 0.3s;
     }
 
     .button:hover {

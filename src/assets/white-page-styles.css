@@ -18,8 +18,8 @@ main {
     max-width: 100%;
     position: relative;
     background: var(--brandWhite);
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px;
+    padding-right: 15px; */
 }
 
 .intro {
@@ -84,8 +84,7 @@ main {
     max-width: 750px;
     margin: 0 auto;
     position: relative;
-    /* padding-left: 15px;
-    padding-right: 15px; */
+    padding: 0px 20px;
 }
 
 .top-image {
