@@ -76,16 +76,15 @@
             // Stroke customization
 
             // Coloring stroke for the first and last lines
-            .attr("stroke", (d, i) =>
-                i === 12 || i === data.length - 12 ? "lightgray" : "lightgray",
-            )
+            .attr("stroke", "lightgray")
+
 
             // Thicker stroke for first and last lines
             // .attr("stroke-width", (d, i) =>
             //     i === 12 || i === data.length - 12 ? "3" : "0.5",
             // )
 
-            .attr("stroke-width", (d, i) => (i % 3 === 0 ? "1" : "0.3"))
+            .attr("stroke-width", (d, i) => (i % 3 === 0 ? "0.6" : "0.3"))
             .attr("stroke-dasharray", (d, i) => (i % 3 === 0 ? "0,0" : "4,3"));
 
         // Solid stroke for first and last lines
@@ -135,12 +134,12 @@
                     .curve(d3.curveCardinalClosed)(data),
             )
             .attr("fill", "var(--brandDarkGreen)")
-            .attr("opacity", 0) // Start with opacity 0
+            .attr("opacity", 0)
             .transition()
-            .delay(1500) // Delay the transition start by 1000 ms
-            .duration(drawDuration) // Animation duration
+            .delay(1500)
+            .duration(drawDuration)
             .ease(d3.easeLinear)
-            .attr("opacity", 0.03); // Fade to opacity 0.05
+            .attr("opacity", 0.03);
 
         // Draw the filled area under the EFIT curve
         svgElement
@@ -306,22 +305,22 @@
         // Add PM label
         svgElement
             .append("text")
-            .attr("x", 10) // Adjust x position
-            .attr("y", -radius + 10) // Adjust y position (above the chart)
+            .attr("x", 10) // X position
+            .attr("y", -radius + 10) // Y position (above the chart)
             .attr("text-anchor", "middle")
             .attr("dominant-baseline", "middle")
-            .style("font-size", "7px")
+            .style("font-size", "8px")
             .style("fill", "grey")
             .text("PM");
 
         // Add AM label
         svgElement
             .append("text")
-            .attr("x", -10) // Adjust x position
-            .attr("y", radius - 10) // Adjust y position (below the chart)
+            .attr("x", -10) // X position
+            .attr("y", radius - 10) // Y position (below the chart)
             .attr("text-anchor", "middle")
             .attr("dominant-baseline", "middle")
-            .style("font-size", "7px")
+            .style("font-size", "8px")
             .style("fill", "grey")
             .text("AM");
     }
@@ -339,7 +338,17 @@
         margin-bottom: -20px;
     }
 
-    .radial {
-        margin-bottom: -20px;
+    @media (min-width: 700px) {
+        .radial {
+            margin-bottom: -20px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .radial {
+            transform: scale(1.2);
+            transform-origin: center;
+            margin: 40px;
+        }
     }
 </style>

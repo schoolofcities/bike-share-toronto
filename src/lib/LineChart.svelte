@@ -7,8 +7,10 @@
     let svg;
     let data = [];
     const margin = { top: 20, right: 40, bottom: 50, left: 40 };
-    const width = 650;
-    const height = 400 - margin.top - margin.bottom;
+    const maxWidth = 650;
+    const heightPercentage = 0.5; // 60% of the screen width
+    let width = Math.min(window.innerWidth - margin.left - margin.right, maxWidth);
+    let height = width * heightPercentage;
 
     export let csvData;
     export let title;
@@ -24,7 +26,7 @@
 
     let showNormalized = true;
     let yAxisGroup;
-    const transitionDuration = 500;
+    const transitionDuration = 400;
     let enableMouseEvents = true;
 
     onMount(async () => {
@@ -37,7 +39,14 @@
         }));
 
         drawLineChart();
+        window.addEventListener('resize', handleResize);
     });
+
+    function handleResize() {
+        width = Math.min(window.innerWidth - margin.left - margin.right, maxWidth);
+        height = width*heightPercentage;
+        drawLineChart();
+    }
 
     // Initialize line chart
     function drawLineChart() {
@@ -61,7 +70,6 @@
                         : Math.max(d.EFIT, d.ICONIC),
                 ),
             ])
-            // .nice()
             .range([height, 0]);
 
         const svgElement = d3
@@ -119,64 +127,14 @@
             .attr("opacity", 0.03)
             .attr("d", areaEFIT);
 
-        // Area for ICONIC difference
-        // const areaNegativeDifference = d3
-        //     .area()
-        //     .x((d) => x(d.interval_start))
-        //     .y0((d) => y(d.ICONIC_normalized))
-        //     .y1((d) =>
-        //         y(
-        //             showNormalized
-        //                 ? d.ICONIC_normalized < d.EFIT_normalized
-        //                     ? d.EFIT_normalized
-        //                     : d.ICONIC_normalized
-        //                 : d.ICONIC > d.EFIT
-        //                   ? d.EFIT
-        //                   : d.ICONIC,
-        //         ),
-        //     )
-        //     .curve(d3.curveMonotoneX);
-
-        // svgElement
-        //     .append("path")
-        //     .datum(data)
-        //     .attr("class", `area-negative-${suffix}`)
-        //     .attr("fill", "darkorange")
-        //     .attr("opacity", 0)
-        //     .attr("d", areaNegativeDifference);
-
-        // Area for EFIT difference
-        // const areaPositiveDifference = d3
-        //     .area()
-        //     .x((d) => x(d.interval_start))
-        //     .y0((d) =>
-        //         y(
-        //             showNormalized
-        //                 ? d.EFIT_normalized < d.ICONIC_normalized
-        //                     ? d.EFIT_normalized
-        //                     : d.ICONIC_normalized
-        //                 : d.EFIT,
-        //         ),
-        //     )
-        //     .y1((d) => y(showNormalized ? d.ICONIC_normalized : d.ICONIC))
-        //     .curve(d3.curveMonotoneX);
-
-        // svgElement
-        //     .append("path")
-        //     .datum(data)
-        //     .attr("class", `area-positive-${suffix}`)
-        //     .attr("fill","var(--brandDarkGreen)")
-        //     .attr("opacity", 0)
-        //     .attr("d", areaPositiveDifference);
-
-        // // Mouse over highlight
+        // Mouse over highlight
         svgElement
             .selectAll(`.area-iconic-${suffix}, .area-efit-${suffix}`)
             .on("mouseover", function () {
                 if (enableMouseEvents) {
                     d3.select(this)
                         .transition()
-                        .duration(transitionDuration - 150)
+                        .duration(transitionDuration - 200)
                         .attr("opacity", 0.1);
                 }
             })
@@ -184,7 +142,7 @@
                 if (enableMouseEvents) {
                     d3.select(this)
                         .transition()
-                        .duration(transitionDuration - 150)
+                        .duration(transitionDuration - 200)
                         .attr("opacity", 0.03);
                 }
             });
@@ -303,16 +261,6 @@
             .attr("y", height + margin.bottom - 10)
             .style("font-size", "14px")
             .text(xlabel);
-
-        // Add Y-axis label
-        // svgElement
-        //     .append("text")
-        //     .attr("text-anchor", "middle")
-        //     .attr("transform", `rotate(-90)`)
-        //     .attr("x", -height / 2)
-        //     .attr("y", -margin.left + 15)
-        //     .style("font-size", "14px")
-        //     .text("Count (normalized)");
     }
 
     function updateYAxis(y) {
@@ -394,62 +342,6 @@
                     .curve(d3.curveMonotoneX),
             );
 
-        // d3.select(`.area-positive-${suffix}`)
-        //     .transition()
-        //     .duration(transitionDuration)
-        //     .attr(
-        //         "d",
-        //         d3
-        //             .area()
-        //             .x((d) =>
-        //                 d3
-        //                     .scalePoint()
-        //                     .domain(data.map((d) => d.interval_start))
-        //                     .range([0, width])(d.interval_start),
-        //             )
-        //             .y((d) => y(showNormalized ? d.EFIT_normalized : d.EFIT))
-        //             .y1((d) =>
-        //                 y(
-        //                     showNormalized
-        //                         ? Math.max(
-        //                               d.ICONIC_normalized,
-        //                               d.EFIT_normalized,
-        //                           )
-        //                         : Math.max(d.ICONIC, d.EFIT),
-        //                 ),
-        //             )
-        //             .curve(d3.curveMonotoneX),
-        //     );
-
-        // d3.select(`.area-negative-${suffix}`)
-        //     .transition()
-        //     .duration(transitionDuration)
-        //     .attr(
-        //         "d",
-        //         d3
-        //             .area()
-        //             .x((d) =>
-        //                 d3
-        //                     .scalePoint()
-        //                     .domain(data.map((d) => d.interval_start))
-        //                     .range([0, width])(d.interval_start),
-        //             )
-        //             .y0((d) =>
-        //                 y(showNormalized ? d.ICONIC_normalized : d.ICONIC),
-        //             )
-        //             .y1((d) =>
-        //                 y(
-        //                     showNormalized
-        //                         ? Math.max(
-        //                               d.EFIT_normalized,
-        //                               d.ICONIC_normalized,
-        //                           )
-        //                         : Math.max(d.EFIT, d.ICONIC),
-        //                 ),
-        //             )
-        //             .curve(d3.curveMonotoneX)(data),
-        //     );
-
         // Update EFIT area
         d3.select(`.area-efit-${suffix}`)
             .transition()
@@ -501,12 +393,35 @@
             }, transitionDuration);
         }}
     >
-        {showNormalized ? "Switch to counts" : "Switch to normalized"}
+        {showNormalized ? "Show Raw Data" : "Show Normalized Data"}
     </button>
 </div>
 
 <style>
+    .graph-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
     .button {
-        margin-top: 0px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        color: #333;
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 4px;
+        width: 150px;
+        cursor: pointer;
+        transition: background-color 0.2s, border-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #e0e0e0;
+        border-color: #bbb;
+    }
+
+    .button:active {
+        background-color: #d0d0d0;
+        border-color: #aaa;
     }
 </style>

@@ -8,7 +8,6 @@
   import RadialHist from "$lib/RadialHist.svelte";
   import LineChart from "$lib/LineChart.svelte";
 
-
   let freqData = [];
   let freqData2 = [];
   let dayData = {
@@ -96,7 +95,6 @@
 
 <!-- <TopSofC /> -->
 
-
 <div id="bar">
   <div id="logo">
     <a href="https://www.schoolofcities.utoronto.ca/"
@@ -130,9 +128,6 @@
       cycling trips across Toronto.
     </p>
   </div>
-  <!-- <DistanceHist /> -->
-  <!-- <DistanceHistCurve /> -->
-  <!-- <DistanceHistCurveAlt /> -->
 
   <div class="chart-container">
     <div class="line-chart">
@@ -152,6 +147,18 @@
     </div>
   </div>
 
+  <div class="text">
+    <p>
+      Interestingly, despite these longer trips, there is little difference in
+      the duration of EV bike trips compared to classic bikes. This indicates
+      that riders are traveling faster on e-bikes, which makes sense given their
+      assisted pedaling capabilities. Higher speeds not only allow cyclists to
+      reach destinations quicker but could also make cycling more attractive to
+      those who may have previously found it too time-consuming or physically
+      demanding. With e-bikes, the barriers to entry for cycling are lowered,
+      making it a more practical and inclusive option for a broader demographic.
+    </p>
+  </div>
 
   <div class="chart-container">
     <div class="line-chart">
@@ -171,6 +178,20 @@
     </div>
   </div>
 
+  <div class="text">
+    <p>
+      Another key insight from the data is that EV bike trips tend to involve
+      slightly more elevation gain. In a city like Toronto, where hills and
+      slopes can make cycling more challenging, the extra boost from an e-bike's
+      motor can make a big difference. For example, riders can now tackle
+      steeper routes, such as those leading to neighborhoods like Rosedale or
+      the Scarborough Bluffs, with greater ease. This ability to flatten out the
+      city’s topography opens up new opportunities for riders, making cycling a
+      more attractive option in areas that were previously considered difficult
+      to navigate on a bike.
+    </p>
+  </div>
+
   <div class="chart-container">
     <div class="line-chart">
       <LineChart
@@ -188,35 +209,7 @@
       />
     </div>
   </div>
-
-  <div class="text">
-    <p>
-      Interestingly, despite these longer trips, there is little difference in
-      the duration of EV bike trips compared to classic bikes. This indicates
-      that riders are traveling faster on e-bikes, which makes sense given their
-      assisted pedaling capabilities. Higher speeds not only allow cyclists to
-      reach destinations quicker but could also make cycling more attractive to
-      those who may have previously found it too time-consuming or physically
-      demanding. With e-bikes, the barriers to entry for cycling are lowered,
-      making it a more practical and inclusive option for a broader demographic.
-    </p>
-  </div>
-
-  <!-- <DurationHist /> -->
-  <div class="text">
-    <p>
-      Another key insight from the data is that EV bike trips tend to involve
-      slightly more elevation gain. In a city like Toronto, where hills and
-      slopes can make cycling more challenging, the extra boost from an e-bike's
-      motor can make a big difference. For example, riders can now tackle
-      steeper routes, such as those leading to neighborhoods like Rosedale or
-      the Scarborough Bluffs, with greater ease. This ability to flatten out the
-      city’s topography opens up new opportunities for riders, making cycling a
-      more attractive option in areas that were previously considered difficult
-      to navigate on a bike.
-    </p>
-  </div>
-  <!-- <ElevationHist /> -->
+  
   <div class="text">
     <p>
       The data also shows some intriguing differences in the time of day when EV
@@ -230,29 +223,43 @@
     </p>
   </div>
 
-
-<!-- Title for Radial Charts -->
- <div class="radial-title"> 
-  <h4>24-hour Trip Distributions</h4>
- </div>
-
-<!-- Legend for Radial Charts -->
-<div class="radial-legend">
-
-  <div class="legend-item">
-    <svg class="legend-circ">
-      <circle cx="15" cy="15" r="10" fill="var(--brandDarkGreen)" fill-opacity="0.03" stroke="var(--brandDarkGreen)" stroke-width="0.7"></circle>    </svg>
-    <p>ICONIC</p>
+  <!-- Title for Radial Charts -->
+  <div class="radial-title">
+    <h4>24-hour Trip Distributions</h4>
   </div>
 
-  <div class="legend-item">
-    <svg class="legend-circ">
-      <circle cx="15" cy="15" r="10" fill="darkorange" fill-opacity="0.03" stroke="darkorange" stroke-width="0.7"></circle>
-    </svg>
-    <p>EFIT</p>
-  </div>
+  <!-- Legend for Radial Charts -->
+  <div class="radial-legend">
+    <div class="legend-item">
+      <svg class="legend-circ">
+        <circle
+          cx="15"
+          cy="15"
+          r="10"
+          fill="var(--brandDarkGreen)"
+          fill-opacity="0.03"
+          stroke="var(--brandDarkGreen)"
+          stroke-width="0.7"
+        ></circle>
+      </svg>
+      <p>ICONIC</p>
+    </div>
 
-</div>
+    <div class="legend-item">
+      <svg class="legend-circ">
+        <circle
+          cx="15"
+          cy="15"
+          r="10"
+          fill="darkorange"
+          fill-opacity="0.03"
+          stroke="darkorange"
+          stroke-width="0.7"
+        ></circle>
+      </svg>
+      <p>EFIT</p>
+    </div>
+  </div>
 
   <!-- Weekday and Weekend Radial Charts  -->
   <div class="radial-container">
@@ -284,7 +291,6 @@
     {/each}
   </div>
 
-
   <div class="text">
     <p>
       These findings reflect broader shifts in how cycling is being integrated
@@ -315,19 +321,17 @@
       city.
     </p>
   </div>
-
 </main>
 
 <style>
-
-.radial-title {
-  display: flex;
+  .radial-title {
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-}
+  }
 
-.radial-legend {
+  .radial-legend {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -393,7 +397,7 @@
   }
 
   .chart-container {
-    margin-top: 80px;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -408,37 +412,6 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
-
-  .grid-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .four-column {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0px;
-  }
-
-  .three-column {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0px;
-  }
-
-  .two-column {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0px;
-  }
-
-  .one-column {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 0px;
   }
 
   .flex-container-weekday {
