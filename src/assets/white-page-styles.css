@@ -14,12 +14,10 @@ body {
 main {
     margin: 50px auto;
     width: calc(100% - 40px);
-    min-width: 420px;
-    max-width: 100%;
+    min-width: 320px;
+    max-width: 1400px;
     position: relative;
     background: var(--brandWhite);
-    /* padding-left: 15px;
-    padding-right: 15px; */
 }
 
 .intro {
@@ -148,7 +146,7 @@ h2 {
 }
 
 h3 {
-    text-align: center;
+    text-align: left;
     font-family: RobotoBold;
     font-size: 22px;
     border-bottom: solid 1px var(--brandGray);
@@ -158,12 +156,12 @@ h3 {
 }
 
 p {
-    font-family: RobotoRegular;
+    font-family: SourceSerifPro;
     color: var(--brandBlack);
     text-align: left;
     padding-top: 2px;
     padding-bottom: 2px;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 30px;
 }
 

@@ -132,12 +132,12 @@
   <div class="chart-container">
     <div class="line-chart">
       <LineChart
-        title="Distance"
+        title="Distribution of trips by distance"
         suffix="distance"
         csvData="distance_counts.csv"
         medianEFIT={2806.437}
         medianICONIC={2303.089}
-        xlabel="Trip Distance (Kilometers)"
+        xlabel="Trip distance (kilometers)"
         xdivider={1000}
         xdecimal={0}
         xtickamount={10}
@@ -163,12 +163,12 @@
   <div class="chart-container">
     <div class="line-chart">
       <LineChart
-        title="Duration"
+        title="Distribution of trips by duration"
         suffix="duration"
         csvData="duration_counts.csv"
         medianEFIT={747}
         medianICONIC={720}
-        xlabel="Trip Duration (minutes)"
+        xlabel="Trip duration (minutes)"
         xdivider={60}
         xdecimal={0}
         xtickamount={20}
@@ -195,12 +195,12 @@
   <div class="chart-container">
     <div class="line-chart">
       <LineChart
-        title="Elevation"
+        title="Distribution of trips by elevation gain"
         suffix="elevation"
         csvData="elevation_counts.csv"
         medianEFIT={0}
         medianICONIC={-0.5}
-        xlabel="Elevation (Meters)"
+        xlabel="Elevation gain or loss (metres)"
         xdivider={1}
         xdecimal={0}
         xtickamount={20}
@@ -225,7 +225,7 @@
 
   <!-- Title for Radial Charts -->
   <div class="radial-title">
-    <h4>24-hour Trip Distributions</h4>
+    <h4>24-hour trip distributions</h4>
   </div>
 
   <!-- Legend for Radial Charts -->
@@ -233,13 +233,13 @@
     <div class="legend-item">
       <svg class="legend-circ">
         <circle
-          cx="15"
+          cx="20"
           cy="15"
-          r="10"
+          r="8"
           fill="var(--brandDarkGreen)"
-          fill-opacity="0.03"
+          fill-opacity="0.1"
           stroke="var(--brandDarkGreen)"
-          stroke-width="0.7"
+          stroke-width="2"
         ></circle>
       </svg>
       <p>ICONIC</p>
@@ -248,13 +248,13 @@
     <div class="legend-item">
       <svg class="legend-circ">
         <circle
-          cx="15"
+          cx="20"
           cy="15"
-          r="10"
+          r="8"
           fill="darkorange"
-          fill-opacity="0.03"
+          fill-opacity="0.1"
           stroke="darkorange"
-          stroke-width="0.7"
+          stroke-width="2"
         ></circle>
       </svg>
       <p>EFIT</p>
@@ -321,9 +321,26 @@
       city.
     </p>
   </div>
+  <div class="text">
+    <br>
+    <br>
+    <h3>Data & Methodology</h3>
+    <p>
+      Blurb about data sources, tools, link to GitHub, etc.
+    </p>
+    <br>
+    <br>
+    <br>
+
+  </div>
 </main>
 
 <style>
+
+  /* .radial-container {
+    max-width: 500px;
+  } */
+
   .radial-title {
     display: flex;
     justify-content: center;
@@ -338,6 +355,7 @@
     margin-top: 0px;
     margin-bottom: 0px;
     height: 30px;
+    
   }
 
   .legend-item {
@@ -354,6 +372,7 @@
   .legend-item p {
     font-size: 12px;
     color: black;
+    font-family: RobotoRegular;
   }
 
   #bar {

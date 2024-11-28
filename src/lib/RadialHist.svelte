@@ -100,7 +100,7 @@
             .attr("r", radius)
             .attr("fill", "none")
             .attr("stroke", "lightgray")
-            .attr("stroke-width", 0.5);
+            .attr("stroke-width", 1);
 
         // Prepare the radial line function for ICONIC
         const lineICONIC = d3
@@ -175,7 +175,7 @@
             .attr("class", "curve-iconic")
             .attr("fill", "none")
             .attr("stroke", "var(--brandDarkGreen)")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 2)
             .attr("d", lineICONIC);
 
         // Get the total length of the ICONIC path
@@ -207,7 +207,7 @@
             .attr("class", "curve-efit")
             .attr("fill", "none")
             .attr("stroke", "darkorange")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 2)
             .attr("d", lineEFIT);
 
         // Get the total length of the EFIT path
@@ -305,22 +305,22 @@
         // Add PM label
         svgElement
             .append("text")
-            .attr("x", 10) // X position
+            .attr("x", 12) // X position
             .attr("y", -radius + 10) // Y position (above the chart)
             .attr("text-anchor", "middle")
             .attr("dominant-baseline", "middle")
-            .style("font-size", "8px")
+            .style("font-size", "10px")
             .style("fill", "grey")
             .text("PM");
 
         // Add AM label
         svgElement
             .append("text")
-            .attr("x", -10) // X position
+            .attr("x", -12) // X position
             .attr("y", radius - 10) // Y position (below the chart)
             .attr("text-anchor", "middle")
             .attr("dominant-baseline", "middle")
-            .style("font-size", "8px")
+            .style("font-size", "10px")
             .style("fill", "grey")
             .text("AM");
     }
@@ -333,8 +333,8 @@
 
 <style>
     .graph-title {
-        font-size: 10px;
-        font-weight: bold;
+        font-size: 14px;
+        font-family: RobotoRegular;
         margin-bottom: -20px;
     }
 

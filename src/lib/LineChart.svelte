@@ -167,7 +167,7 @@
             .attr("class", `line-efit-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "darkorange")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 2)
             .attr("d", lineEFIT);
 
         // Line generator for ICONIC
@@ -184,7 +184,7 @@
             .attr("class", `line-iconic-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "var(--brandDarkGreen)")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 2)
             .attr("d", lineICONIC);
 
         // Median line ICONIC
@@ -204,7 +204,7 @@
             .attr("x", x(medianICONIC) + 5) // Slightly to the right of the line
             .attr("y", y(d3.max(data, (d) => d.ICONIC_normalized)) + 7) // Slightly below the top of the line
             .attr("fill", "var(--brandDarkGreen)")
-            .style("font-size", "10px")
+            .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
             .append("tspan")
             .text("ICONIC")
@@ -213,7 +213,7 @@
             .append("tspan")
             .text(
                 "Median: " +
-                    (medianICONIC / xdivider).toFixed(xdecimal) +
+                    (medianICONIC / xdivider).toFixed(1) +
                     " " +
                     xunit,
             )
@@ -243,7 +243,7 @@
                 y(d3.max(data, (d) => d.EFIT_normalized)) + 8 + medianadjust,
             ) // Slightly below the top of the line
             .attr("fill", "darkorange")
-            .style("font-size", "10px")
+            .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
             .append("tspan")
             .text("EFIT")
@@ -252,7 +252,7 @@
             .append("tspan")
             .text(
                 "Median: " +
-                    (medianEFIT / xdivider).toFixed(xdecimal) +
+                    (medianEFIT / xdivider).toFixed(1) +
                     " " +
                     xunit,
             )
@@ -266,6 +266,7 @@
             .attr("x", width / 2)
             .attr("y", height + margin.bottom - 10)
             .style("font-size", "14px")
+            .style("font-family", "RobotoBold")
             .text(xlabel);
     }
 
@@ -407,6 +408,7 @@
     .graph-title {
         font-size: 18px;
         margin-bottom: 10px;
+        font-family: RobotoBold;
     }
 
     .button {
