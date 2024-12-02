@@ -132,6 +132,9 @@
       of urban mobility in Toronto.
     </p>
     <p>
+      Overall, in June 2024, there were more than 760,000 total Bike Share trips in Toronto. ZZ% of these trips were by e-bikes.
+    </p>
+    <p>
       One of the most notable differences between EV bikes and classic bikes is
       the distance covered during trips. On average, EV bike users tend to ride
       further, capitalizing on the extra power that electric motors provide.
@@ -164,9 +167,9 @@
   <div class="text">
     <p>
       Interestingly, despite these longer trips, there is little difference in
-      the duration of EV bike trips compared to classic bikes. This indicates
-      that riders are traveling faster on e-bikes, which makes sense given their
-      assisted pedaling capabilities. Higher speeds not only allow cyclists to
+      the duration of EV bike trips compared to classic bikes. Riders are thus traveling faster on e-bikes on average, which makes sense given their
+      assisted pedaling capabilities.   
+      Higher speeds not only allow cyclists to
       reach destinations quicker but could also make cycling more attractive to
       those who may have previously found it too time-consuming or physically
       demanding. With e-bikes, the barriers to entry for cycling are lowered,
