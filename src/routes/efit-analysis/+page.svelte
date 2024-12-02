@@ -53,7 +53,7 @@
 </script>
 
 <svelte:head>
-  <title>Bike Share Toronto Growth | School of Cities</title>
+  <title>Bike Share Toronto E-Bike Analysis | School of Cities</title>
   <meta
     name="description"
     content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
