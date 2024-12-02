@@ -56,9 +56,9 @@
   <title>Bike Share Toronto Growth | School of Cities</title>
   <meta
     name="description"
-    content="Visualizing Bike Share system expansion and ridership growth trends in Toronto"
+    content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
-  <meta name="author" content="Jeff Allen" />
+  <!-- <meta name="author" content="Jeff Allen" />
 
   <meta property="og:title" content="Bike Share Toronto Growth" />
   <meta
@@ -90,7 +90,7 @@
   <meta
     name="twitter:image"
     content="https://schoolofcities.github.io/bike-share-toronto/web-card-growth.png"
-  />
+  /> -->
 </svelte:head>
 
 <!-- <TopSofC /> -->
@@ -115,14 +115,14 @@
   <div class="title">
     <h1>Exploring E-Bike Usage in Toronto’s Bike Share System</h1>
     <p>
-      Lanrick Bennett Jr., Scott McCallum, Jeff Allen
+      <a href="">Lanrick Bennett Jr.</a>, <a href="">Scott McCallum</a>, <a href="">Jeff Allen</a>
     <br>
       December, 2024
     </p>
   </div>
   <div class="text">
     <p>
-      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (e-bikes) within the city's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes. 
+      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (e-bikes) within Toronto's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes.
     </p>
     <p>
       Overall, in June 2024, there were <a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">more than 762,000 Bike Share trips in Toronto</a>. 17.4% of these trips were by e-bikes. Looking at the relative characteristics of these trips and reveals some intriguing patterns that could shape the future of urban mobility in Toronto.
