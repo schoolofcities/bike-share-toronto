@@ -53,12 +53,12 @@
 </script>
 
 <svelte:head>
-  <title>Bike Share Toronto Growth | School of Cities</title>
+  <title>Bike Share Toronto E-Bike Analysis | School of Cities</title>
   <meta
     name="description"
-    content="Visualizing Bike Share system expansion and ridership growth trends in Toronto"
+    content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
-  <meta name="author" content="Jeff Allen" />
+  <!-- <meta name="author" content="Jeff Allen" />
 
   <meta property="og:title" content="Bike Share Toronto Growth" />
   <meta
@@ -90,7 +90,7 @@
   <meta
     name="twitter:image"
     content="https://schoolofcities.github.io/bike-share-toronto/web-card-growth.png"
-  />
+  /> -->
 </svelte:head>
 
 <!-- <TopSofC /> -->
