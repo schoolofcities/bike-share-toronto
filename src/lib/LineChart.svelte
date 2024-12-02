@@ -95,7 +95,10 @@
                     .ticks(xtickamount)
                     .tickSizeOuter(0)
                     .tickFormat((d) => `${(d / xdivider).toFixed(xdecimal)}`),
-            );
+            )
+            .selectAll(".domain, .tick line")
+            .attr("stroke", "grey")
+            .attr("stroke-width", 1);;
 
         // Y-axis
         yAxisGroup = svgElement.append("g");
@@ -401,7 +404,6 @@
         }}
     >
         Normalized by type of bike
-        <!-- {showNormalized ? "Show Raw Data" : "Show Normalized Data"} -->
     </button>
     <button
         class={showNormalized ? "button button-off" : "button button-on"}
@@ -416,7 +418,6 @@
         }}
     >
         Total number of trips
-        <!-- {showNormalized ? "Show Raw Data" : "Show Normalized Data"} -->
     </button>
 </div>
 
