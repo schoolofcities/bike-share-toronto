@@ -122,7 +122,7 @@
   </div>
   <div class="text">
     <p>
-      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (EV bikes) within the city's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes. 
+      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (e-bikes) within the city's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes. 
     </p>
     <p>
       Overall, in June 2024, there were <a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">more than 762,000 Bike Share trips in Toronto</a>. 17.4% of these trips were by e-bikes. Looking at the relative characteristics of these trips and reveals some intriguing patterns that could shape the future of urban mobility in Toronto.
@@ -133,7 +133,7 @@
       These longer trips suggest that e-bikes are enabling riders to explore
       parts of the city that might have been less accessible via traditional
       pedal bikes. Whether it's covering more ground on commutes or leisurely
-      rides, the data reflects how EV bikes are expanding the possibilities for
+      rides, the data reflects how e-bikes are expanding the possibilities for
       cycling trips across Toronto.
     </p>
   </div>
@@ -159,7 +159,7 @@
   <div class="text">
     <p>
       Interestingly, despite these longer trips, there is little difference in
-      the duration of EV bike trips compared to classic bikes. Riders are thus traveling faster on e-bikes on average, which makes sense given their
+      the duration of e-bike trips compared to classic bikes. Riders are thus traveling faster on e-bikes on average, which makes sense given their
       assisted pedaling capabilities.   
       Higher speeds not only allow cyclists to
       reach destinations quicker but could also make cycling more attractive to
@@ -189,7 +189,7 @@
 
   <div class="text">
     <p>
-      Another key insight from the data is that EV bike trips tend to involve
+      Another key insight from the data is that e-bike trips tend to involve
       slightly more elevation gain. In a city like Toronto, where hills and
       slopes can make cycling more challenging, the extra boost from an e-bike's
       motor can make a big difference. For example, riders can now tackle
@@ -221,8 +221,7 @@
   
   <div class="text">
     <p>
-      The data also shows some intriguing differences in the time of day when EV
-      bikes are used. While we’re still investigating the reasons behind this
+      The data also shows some intriguing differences in the time of day when e-bikes are used. While we’re still investigating the reasons behind this
       trend, it could be related to the availability of bikes at different
       stations during peak and off-peak hours. E-bikes may also be more popular
       for commuters who are looking for a reliable and faster way to get to work
@@ -303,7 +302,7 @@
   <div class="text">
     <p>
       These findings reflect broader shifts in how cycling is being integrated
-      into urban mobility strategies. The introduction of EV bikes in Toronto is
+      into urban mobility strategies. The introduction of e-bikes in Toronto is
       not just about offering a new mode of transportation—it’s about making
       cycling more accessible, efficient, and appealing to a wider range of
       people. Whether it’s older adults who may need extra assistance with
@@ -322,7 +321,7 @@
     </p>
     <p>
       As we continue to analyze the data and explore the impacts of e-bikes on
-      Toronto’s cycling culture, the early results are encouraging. EV bikes are
+      Toronto’s cycling culture, the early results are encouraging. E-bikes are
       not just another addition to the Bike Share system—they represent a step
       towards a more dynamic, sustainable, and inclusive urban mobility
       landscape. Stay tuned as we delve deeper into the numbers and uncover more
@@ -335,10 +334,10 @@
     <br>
     <h3>Data & Methodology</h3>
     <p>
-       Data on Bike Share trips include start station, end station, duration, and type of bike (EFIT or CLASSIC) was shared to us by Bike Share Toronto. We additionally computed the network distance and elevation gain of each trip via Graphhopper, a network analysis software (<a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">as described in this post</a>).
+      Bike Share Toronto shared with us data on all Bike Share trips in June 2024, which included for each trip, start station, end station, duration, and type of bike (EFIT or ICONIC). We additionally computed the network distance and elevation gain of each trip via Graphhopper, a network analysis software (<a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">as described in this post</a>).
     </p>
     <p>
-      All the charts shown on this page were created by summarizing data in Python and visualizing with D3. All medians and distributions shown for each category are significantly different from each other via Mann-Whitney U (for testing difference in medians) and Kolmogorov-Smirnov (for testing difference in distributions) tests.
+      All the charts shown on this page were created via analyzing data in Python and visualizing with D3. All medians and distributions shown for each category are significantly different from each other via Mann-Whitney U (for testing difference in medians) and Kolmogorov-Smirnov (for testing difference in distributions) tests.
     </p>
     <p>
       Code and data for this page are on <a href="https://github.com/schoolofcities/bike-share-toronto" target="_blank">GitHub</a>

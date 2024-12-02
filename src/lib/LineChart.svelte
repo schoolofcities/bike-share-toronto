@@ -389,7 +389,7 @@
 </div>
 <div class="button-container">
     <button
-        class="button"
+        class={showNormalized ? "button button-on" : "button button-off"}
         on:click={() => {
             showNormalized = !showNormalized;
             updateLines();
@@ -400,7 +400,23 @@
             }, transitionDuration);
         }}
     >
-        {showNormalized ? "Show Raw Data" : "Show Normalized Data"}
+        Normalized by type of bike
+        <!-- {showNormalized ? "Show Raw Data" : "Show Normalized Data"} -->
+    </button>
+    <button
+        class={showNormalized ? "button button-off" : "button button-on"}
+        on:click={() => {
+            showNormalized = !showNormalized;
+            updateLines();
+            enableMouseEvents = false;
+            setTimeout(() => {
+                enableMouseEvents = true;
+                triggerMouseover();
+            }, transitionDuration);
+        }}
+    >
+        Total counts
+        <!-- {showNormalized ? "Show Raw Data" : "Show Normalized Data"} -->
     </button>
 </div>
 
@@ -418,7 +434,7 @@
         padding: 5px;
         font-size: 12px;
         border-radius: 4px;
-        width: 150px;
+        width: 170px;
         cursor: pointer;
         transition:
             background-color 0.2s,
@@ -430,8 +446,12 @@
         border-color: #bbb;
     }
 
-    .button:active {
+    /* .button:active {
         background-color: #d0d0d0;
         border-color: #aaa;
+    } */
+
+    .button-off {
+        opacity: 0.5;
     }
 </style>
