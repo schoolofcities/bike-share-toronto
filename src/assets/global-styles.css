@@ -13,6 +13,11 @@
     src: url("roboto/Roboto-Bold.ttf");
 }
 
+@font-face {
+    font-family: SourceSerifPro;
+    src: url("source-serif-pro/SourceSerifPro-Regular.otf");
+}
+
 :root {
     font-family: RobotoRegular, sans-serif;
     --brandDarkBlue: #1E3765;

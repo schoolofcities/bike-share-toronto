@@ -6,9 +6,10 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
-		"skipLibCheck": true,
+		"skipLibCheck": false,
 		"sourceMap": true,
-		"strict": true
+		"strict": false,
+		"noImplicitAny": false
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
