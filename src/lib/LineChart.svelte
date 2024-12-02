@@ -415,7 +415,7 @@
             }, transitionDuration);
         }}
     >
-        Total counts
+        Total number of trips
         <!-- {showNormalized ? "Show Raw Data" : "Show Normalized Data"} -->
     </button>
 </div>
