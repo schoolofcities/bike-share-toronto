@@ -129,7 +129,7 @@
             .append("path")
             .datum(data)
             .attr("class", `area-efit-${suffix}`)
-            .attr("fill", "darkorange")
+            .attr("fill", "#e6841a")
             .attr("opacity", 0.03)
             .attr("d", areaEFIT);
 
@@ -166,7 +166,7 @@
             .datum(data)
             .attr("class", `line-efit-${suffix}`)
             .attr("fill", "none")
-            .attr("stroke", "darkorange")
+            .attr("stroke", "#e6841a")
             .attr("stroke-width", 2)
             .attr("d", lineEFIT);
 
@@ -230,7 +230,7 @@
                 y(d3.max(data, (d) => d.EFIT_normalized)) + medianadjust,
             )
             .attr("y2", height)
-            .attr("stroke", "darkorange")
+            .attr("stroke", "#e6841a")
             .attr("stroke-width", 1)
             .attr("stroke-dasharray", "4");
 
@@ -242,7 +242,7 @@
                 "y",
                 y(d3.max(data, (d) => d.EFIT_normalized)) + 8 + medianadjust,
             ) // Slightly below the top of the line
-            .attr("fill", "darkorange")
+            .attr("fill", "#e6841a")
             .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
             .append("tspan")

@@ -1,5 +1,5 @@
 <script>
-  import logo from "/src/assets/top-logo-full.svg";
+  import logo from "/src/assets/top-logo-full-green.svg";
   import "../../assets/global-styles.css";
   import "../../assets/white-page-styles.css";
 
@@ -122,21 +122,13 @@
   </div>
   <div class="text">
     <p>
-      As cycling becomes an increasingly popular mode of transportation in
-      Toronto, one trend is gaining significant traction: the rise of electric
-      bikes (EV bikes) within the city's Bike Share system. Recent data provided
-      by Bike Share Toronto from June 2024 has given us a detailed look at how
-      these e-bikes, known as EFIT, compare to their classic counterparts, the
-      ICONIC bikes. This data sheds light on how e-bikes are being used across
-      the city and reveals some intriguing patterns that could shape the future
-      of urban mobility in Toronto.
+      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (EV bikes) within the city's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes. 
     </p>
     <p>
-      Overall, in June 2024, there were more than 760,000 total Bike Share trips in Toronto. ZZ% of these trips were by e-bikes.
+      Overall, in June 2024, there were <a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">more than 762,000 Bike Share trips in Toronto</a>. 17.4% of these trips were by e-bikes. Looking at the relative characteristics of these trips and reveals some intriguing patterns that could shape the future of urban mobility in Toronto.
     </p>
     <p>
-      One of the most notable differences between EV bikes and classic bikes is
-      the distance covered during trips. On average, EV bike users tend to ride
+      One of the most notable differences between e-bikes and classic bikes is the distance covered during trips. On average, e-bike users tend to ride
       further, capitalizing on the extra power that electric motors provide.
       These longer trips suggest that e-bikes are enabling riders to explore
       parts of the city that might have been less accessible via traditional
@@ -343,7 +335,13 @@
     <br>
     <h3>Data & Methodology</h3>
     <p>
-      Blurb about data sources, tools, link to GitHub, etc.
+       Data on Bike Share trips include start station, end station, duration, and type of bike (EFIT or CLASSIC) was shared to us by Bike Share Toronto. We additionally computed the network distance and elevation gain of each trip via Graphhopper, a network analysis software (<a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">as described in this post</a>).
+    </p>
+    <p>
+      All the charts shown on this page were created by summarizing data in Python and visualizing with D3. All medians and distributions shown for each category are significantly different from each other via Mann-Whitney U (for testing difference in medians) and Kolmogorov-Smirnov (for testing difference in distributions) tests.
+    </p>
+    <p>
+      Code and data for this page are on <a href="https://github.com/schoolofcities/bike-share-toronto" target="_blank">GitHub</a>
     </p>
     <br>
     <br>
@@ -399,7 +397,7 @@
     height: 50px;
     background-color: var(--brandWhite);
     margin-bottom: 20px;
-    border-bottom: 1px solid var(--brandGray80);
+    border-bottom: 1px solid var(--brandDarkGreen);
     width: 100%;
     min-width: 200px;
     padding-left: 0px;
@@ -409,7 +407,7 @@
   }
 
   #bar #logo {
-    filter: invert(100%);
+    /* filter: invert(100%); */
     margin: auto;
     max-width: 230px;
     height: 50px;

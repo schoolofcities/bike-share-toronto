@@ -160,7 +160,7 @@
                     .outerRadius((d) => radiusScale(d.EFIT))
                     .curve(d3.curveCardinalClosed)(data),
             )
-            .attr("fill", "darkorange")
+            .attr("fill", "#e6841a")
             .attr("opacity", 0) // Start with opacity 0
             .transition()
             .delay(1500)
@@ -206,7 +206,7 @@
             .datum(data)
             .attr("class", "curve-efit")
             .attr("fill", "none")
-            .attr("stroke", "darkorange")
+            .attr("stroke", "#e6841a")
             .attr("stroke-width", 2)
             .attr("d", lineEFIT);
 
