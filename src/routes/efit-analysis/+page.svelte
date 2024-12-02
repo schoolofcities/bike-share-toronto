@@ -104,9 +104,23 @@
   <!-- <p> School of Cities</p> -->
 </div>
 
+<div class="topImg">
+	<img
+		src="/bike-share-toronto/top-map-2.png"
+		alt="map of bike lanes and bike-share stations in toronto with a white background"
+	/>
+</div>
+
 <main>
+  <div class="title">
+    <h1>Exploring E-Bike Usage in Toronto’s Bike Share System</h1>
+    <p>
+      Lanrick Bennett Jr., Scott McCallum, Jeff Allen
+    <br>
+      December, 2024
+    </p>
+  </div>
   <div class="text">
-    <h3>Exploring the Rise of E-Bike Usage in Toronto’s Bike Share System</h3>
     <p>
       As cycling becomes an increasingly popular mode of transportation in
       Toronto, one trend is gaining significant traction: the rise of electric
@@ -477,9 +491,9 @@
       width: 20%;
     }
 
-    main {
+    /* main {
       width: 750px;
-    }
+    } */
   }
 
   @media (max-width: 700px) {
