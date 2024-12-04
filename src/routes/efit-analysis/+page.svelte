@@ -122,7 +122,26 @@
   </div>
   <div class="text">
     <p>
-      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (e-bikes) within Toronto's Bike Share system. Recent data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes.
+      As cycling becomes an increasingly popular mode of transportation in Toronto, one trend is gaining significant traction: the rise of electric bikes (e-bikes) within Toronto's Bike Share system. Ridership data shared by Bike Share Toronto from June 2024 has given us a detailed look at how these e-bikes, known as EFIT, compare to their classic non-electric counterparts, the ICONIC bikes.
+    </p>
+    <p>
+      <!-- These findings reflect broader shifts in how cycling is being integrated into urban mobility strategies.  -->
+      The introduction of e-bikes in Toronto is
+      not just about offering a new mode of transportation—it’s about making
+      cycling more accessible, efficient, and appealing to a wider range of
+      people. Whether it’s older adults who may need extra assistance with
+      pedaling, people with longer commutes, or those who want to avoid arriving
+      at their destination sweaty, e-bikes have the potential to address many of
+      the challenges that have historically limited bike usage in the city.
+    </p>
+    <p>
+      From a sustainability perspective, the growing use of e-bikes aligns with
+      Toronto’s push towards reducing greenhouse gas emissions. By providing a
+      viable alternative to cars for longer trips, e-bikes can help cut down on
+      vehicle emissions, especially during peak traffic hours. As the city works
+      towards its ambitious net-zero targets, the role of e-bikes in
+      encouraging a shift from motorized transport to more sustainable,
+      human-powered options cannot be understated.
     </p>
     <p>
       Overall, in June 2024, there were <a href="https://schoolofcities.github.io/bike-share-toronto/trips-062024" target="_blank">more than 762,000 Bike Share trips in Toronto</a>. 17.4% of these trips were by e-bikes. Looking at the relative characteristics of these trips and reveals some intriguing patterns that could shape the future of urban mobility in Toronto.
@@ -300,26 +319,29 @@
   </div>
 
   <div class="text">
+    
     <p>
-      These findings reflect broader shifts in how cycling is being integrated
-      into urban mobility strategies. The introduction of e-bikes in Toronto is
-      not just about offering a new mode of transportation—it’s about making
-      cycling more accessible, efficient, and appealing to a wider range of
-      people. Whether it’s older adults who may need extra assistance with
-      pedaling, people with longer commutes, or those who want to avoid arriving
-      at their destination sweaty, e-bikes have the potential to address many of
-      the challenges that have historically limited bike usage in the city.
+      Whether it's covering more ground on commutes or leisurely rides, the data reflects how e-bikes are expanding the possibilities for cycling trips across Toronto.
     </p>
     <p>
-      From a sustainability perspective, the growing use of e-bikes aligns with
-      Toronto’s push towards reducing greenhouse gas emissions. By providing a
-      viable alternative to cars for longer trips, e-bikes can help cut down on
-      vehicle emissions, especially during peak traffic hours. As the city works
-      towards its ambitious net-zero targets, the role of EV bikes in
-      encouraging a shift from motorized transport to more sustainable,
-      human-powered options cannot be understated.
+      At the same time, recent developments in policy and urban mobility have brought new challenges and opportunities for cyclists. The Ontario government has officially passed Bill 212 — a controversial piece of legislation that gives the province sweeping control over municipal bike lanes. The fast-tracked bill, which passed at Queen's Park in late 2024, requires municipalities to seek provincial approval to install bike lanes when doing so would reduce lanes for vehicle traffic. This bill also permits the removal of three major bike lanes in Toronto, located on Bloor Street, Yonge Street, and University Avenue. However, provincial officials have yet to provide specific details on whether all or only sections of these lanes will be removed. Many cycling advocates have expressed concerns, staging protests to oppose the legislation's potential impact on active transportation.
     </p>
     <p>
+      In addition to Bill 212, a significant update on e-bike policies has emerged from the Toronto Transit Commission (TTC). Effective November 15, 2024, lithium-ion-powered e-scooters and e-bikes are prohibited on TTC vehicles and inside stations through April 15, following a board decision aimed at mitigating fire risks. This decision follows a December 31, 2023, incident when an e-bike’s lithium-ion battery caught fire onboard a subway train at Sheppard-Yonge Station.
+    </p>
+    <p>
+      “I’ve tried to do the best to strike a balance between safety and equity,” TTC Board Chair Jamaal Myers stated. Although the board considered alternative safety measures, such as requiring batteries to meet specific standards, staff concluded that a seasonal ban was the safest course of action. To address the needs of riders impacted by the ban, Myers has proposed collaboration between the TTC, food delivery companies, and labor unions to explore secure e-bike storage and charging solutions near transit stations, with a policy expected by March 2025.
+    </p>
+    <p>
+      The ban does not apply to electric wheelchairs or other mobility devices used by individuals with disabilities, which remain permitted on TTC vehicles under specific conditions.
+    </p>
+    <p>
+      While the TTC’s racial equity office acknowledged the ban's disproportionate impact on low-income and gig workers, the board determined that the perceived safety risks outweighed these concerns. Efforts to mitigate this impact, such as improving access to secure storage and charging, aim to support e-bike users while prioritizing safety.
+    </p>
+    <p>
+      These developments illustrate the complexities of managing urban mobility in a way that supports accessibility, safety, and sustainability. As e-bikes continue to reshape how Torontonians navigate the city, ongoing discussions around infrastructure, equity, and policy will play a crucial role in determining the future of cycling in Toronto.
+    </p>
+    <!-- <p>
       As we continue to analyze the data and explore the impacts of e-bikes on
       Toronto’s cycling culture, the early results are encouraging. E-bikes are
       not just another addition to the Bike Share system—they represent a step
@@ -327,7 +349,7 @@
       landscape. Stay tuned as we delve deeper into the numbers and uncover more
       about how e-bikes are reshaping the way Torontonians move through their
       city.
-    </p>
+    </p> -->
   </div>
   <div class="text">
     <br>
