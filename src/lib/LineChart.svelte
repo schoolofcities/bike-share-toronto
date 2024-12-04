@@ -42,7 +42,7 @@
         }));
 
         drawLineChart();
-        window.addEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
     });
 
     function handleResize() {
@@ -97,11 +97,14 @@
                     .tickFormat((d) => `${(d / xdivider).toFixed(xdecimal)}`),
             )
             .selectAll(".domain, .tick line")
-            .attr("stroke", "grey")
-            .attr("stroke-width", 1);;
+            .attr("stroke", "lightgrey")
+            .attr("stroke-width", 1);
+
+        svgElement.selectAll("g.tick text").style("fill", "grey");
 
         // Y-axis
         yAxisGroup = svgElement.append("g");
+
         updateYAxis(y);
 
         // Area generator for ICONIC
@@ -215,10 +218,7 @@
             .attr("dy", "0em") // Position the first line
             .append("tspan")
             .text(
-                "Median: " +
-                    (medianICONIC / xdivider).toFixed(1) +
-                    " " +
-                    xunit,
+                "Median: " + (medianICONIC / xdivider).toFixed(1) + " " + xunit,
             )
             .attr("x", x(medianICONIC) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "1.2em"); // Position the second line below the first
@@ -253,12 +253,7 @@
             .attr("x", x(medianEFIT) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "0em") // Position the first line
             .append("tspan")
-            .text(
-                "Median: " +
-                    (medianEFIT / xdivider).toFixed(1) +
-                    " " +
-                    xunit,
-            )
+            .text("Median: " + (medianEFIT / xdivider).toFixed(1) + " " + xunit)
             .attr("x", x(medianEFIT) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "1.2em"); // Position the second line below the first
 
@@ -269,12 +264,20 @@
             .attr("x", width / 2)
             .attr("y", height + margin.bottom - 10)
             .style("font-size", "14px")
-            .style("font-family", "RobotoBold")
+            .style("font-family", "RobotoRegular")
             .text(xlabel);
     }
 
     function updateYAxis(y) {
-        yAxisGroup.call(d3.axisLeft(y));
+        yAxisGroup
+            .call(d3.axisLeft(y))
+            .selectAll(".tick text")
+            .attr("fill", "grey");
+
+        yAxisGroup
+            .selectAll(".domain, .tick line")
+            .attr("stroke", "lightgrey")
+            
     }
 
     // Transition line chart between counts and normalized
