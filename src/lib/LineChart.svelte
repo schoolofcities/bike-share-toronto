@@ -269,15 +269,13 @@
     }
 
     function updateYAxis(y) {
+        const dynamicTickCount = Math.max(2, Math.floor(height / 25));
         yAxisGroup
-            .call(d3.axisLeft(y))
+            .call(d3.axisLeft(y).ticks(dynamicTickCount))
             .selectAll(".tick text")
             .attr("fill", "grey");
 
-        yAxisGroup
-            .selectAll(".domain, .tick line")
-            .attr("stroke", "lightgrey")
-            
+        yAxisGroup.selectAll(".domain, .tick line").attr("stroke", "lightgrey");
     }
 
     // Transition line chart between counts and normalized
