@@ -8,7 +8,7 @@
     let data = [];
     const margin = { top: 20, right: 40, bottom: 50, left: 55 };
     const maxWidth = 650;
-    const minWidth = 380;
+    const minWidth = 390;
     const heightPercentage = 0.5; // 60% of the screen width
     let width = Math.min(
         window.innerWidth - margin.left - margin.right,
@@ -427,12 +427,17 @@
 <style>
     .svg-container {
         min-width: 420px;
+        margin-left: 15px;
     }
     
     .graph-title {
         font-size: 18px;
         margin-bottom: 10px;
         font-family: RobotoBold;
+    }
+
+    .button-container {
+        margin-left: 25px;
     }
 
     .button {
@@ -444,7 +449,7 @@
         border-radius: 4px;
         width: 170px;
         cursor: pointer;
-        margin-left: 10px;
+        /* margin-left: 10px; */
         transition:
             background-color 0.2s,
             border-color 0.3s;
@@ -462,5 +467,14 @@
 
     .button-off {
         opacity: 0.5;
+    }
+
+    @media (max-width: 400px) {
+        .button-container {
+            margin-left: 40px;
+        }
+        .svg-container {
+            margin-left: 40px;
+        }
     }
 </style>
