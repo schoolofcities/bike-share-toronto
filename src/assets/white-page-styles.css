@@ -15,7 +15,7 @@ body {
 main {
     margin: 50px auto;
     width: 100%;
-    min-width: 320px;
+    min-width: 360px;
     max-width: 1400px;
     position: relative;
     background: var(--brandWhite);
@@ -67,6 +67,7 @@ main {
     background-color: none;
     max-width: 760px;
     width: calc(100% - 30px);
+    min-width: 360px;
     margin: 0 auto;
     margin-top: 25px;
     margin-bottom: 0px;
@@ -87,6 +88,7 @@ main {
     background-color: none;
     max-width: 750px;
     width: calc(100% - 30px);
+    min-width: 360px;
     margin: 0 auto;
     position: relative;
     padding-left: 15px;

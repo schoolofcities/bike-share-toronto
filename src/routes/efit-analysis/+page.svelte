@@ -366,12 +366,12 @@
   } */
 
   .photo {
-      max-width: 100%; /* Ensures the image scales down with screen size */
-      max-height: 750px; /* Limits the maximum height */
-      width: auto; /* Keeps aspect ratio for width */
-      height: auto; /* Keeps aspect ratio for height */
-      display: block; /* Prevents inline block spacing issues */
-      margin: 0 auto; /* Centers the image horizontally */
+      max-width: 100%; 
+      max-height: 750px; 
+      width: auto;
+      height: auto; 
+      display: block; 
+      margin: 0 auto;
   }
 
   .radial-title {
