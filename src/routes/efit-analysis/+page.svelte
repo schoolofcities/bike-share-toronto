@@ -115,7 +115,7 @@
   <div class="title">
     <h1>Exploring E-Bike Usage in Toronto’s Bike Share System</h1>
     <p>
-      <a href="">Lanrick Bennett Jr.</a>, <a href="">Scott McCallum</a>, <a href="">Jeff Allen</a>
+      <a href="https://www.linkedin.com/in/lanrickbennettjr" target="_blank">Lanrick Bennett Jr.</a>, <a href="https://www.linkedin.com/in/scott-christian-mccallum/" target="_blank">Scott McCallum</a>, <a href="https://jamaps.github.io/" target="_blank">Jeff Allen</a>
     <br>
       December, 2024
     </p>
@@ -317,7 +317,7 @@
       In addition to Bill 212, a significant update on e-bike policies has emerged from the Toronto Transit Commission (TTC). Effective November 15, 2024, lithium-ion-powered e-scooters and e-bikes are prohibited on TTC vehicles and inside stations through April 15, following a board decision aimed at mitigating fire risks. This decision follows a December 31, 2023, incident when an e-bike’s lithium-ion battery caught fire onboard a subway train at Sheppard-Yonge Station.
     </p>
     <p>
-      “I’ve tried to do the best to strike a balance between safety and equity,” TTC Board Chair Jamaal Myers stated. Although the board considered alternative safety measures, such as requiring batteries to meet specific standards, staff concluded that a seasonal ban was the safest course of action. To address the needs of riders impacted by the ban, Myers has proposed collaboration between the TTC, food delivery companies, and labour unions to explore secure e-bike storage and charging solutions near transit stations, with a policy expected by March 2025.
+      “I’ve tried to do the best to strike a balance between safety and equity,” <a href="https://toronto.ctvnews.ca/ttc-board-approves-winter-ban-on-e-bikes-and-e-scooters-1.7132393" target="_blank">TTC Board Chair Jamaal Myers stated</a>. Although the board considered alternative safety measures, such as requiring batteries to meet specific standards, staff concluded that a seasonal ban was the safest course of action. To address the needs of riders impacted by the ban, Myers has proposed collaboration between the TTC, food delivery companies, and labour unions to explore secure e-bike storage and charging solutions near transit stations, with a policy expected by March 2025.
     </p>
     <p>
       The ban does not apply to electric wheelchairs or other mobility devices used by individuals with disabilities, which remain permitted on TTC vehicles under specific conditions.
@@ -340,6 +340,7 @@
   </div>
   <div class="text">
     <br>
+    <img class="photo" src="img-bike-share-kensington.jpg" alt="Photo of a Bike Share station in Kensington Market">
     <br>
     <h3>Data and methodology</h3>
     <p>
@@ -363,6 +364,15 @@
   /* .radial-container {
     max-width: 500px;
   } */
+
+  .photo {
+      max-width: 100%; /* Ensures the image scales down with screen size */
+      max-height: 750px; /* Limits the maximum height */
+      width: auto; /* Keeps aspect ratio for width */
+      height: auto; /* Keeps aspect ratio for height */
+      display: block; /* Prevents inline block spacing issues */
+      margin: 0 auto; /* Centers the image horizontally */
+  }
 
   .radial-title {
     display: flex;
