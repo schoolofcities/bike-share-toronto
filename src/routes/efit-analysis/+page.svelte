@@ -185,7 +185,7 @@
         medianEFIT={747}
         medianICONIC={720}
         xlabel="Trip duration (minutes)"
-        xdivider={40}
+        xdivider={60}
         xdecimal={0}
         xtickamount={20}
         xunit="minutes"
