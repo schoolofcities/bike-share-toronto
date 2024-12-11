@@ -461,7 +461,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .flex-container-weekday {

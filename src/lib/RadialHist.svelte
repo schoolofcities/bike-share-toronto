@@ -344,7 +344,7 @@
         }
     }
 
-    @media (max-width: 700px) {
+    @media (min-width: 400px) and (max-width: 700px) {
         .radial {
             transform: scale(1.2);
             transform-origin: center;
