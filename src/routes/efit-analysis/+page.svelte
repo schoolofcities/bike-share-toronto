@@ -253,7 +253,7 @@
           fill="var(--brandDarkGreen)"
           fill-opacity="0.1"
           stroke="var(--brandDarkGreen)"
-          stroke-width="2"
+          stroke-width="1.5"
         ></circle>
       </svg>
       <p>ICONIC</p>
@@ -268,7 +268,7 @@
           fill="darkorange"
           fill-opacity="0.1"
           stroke="darkorange"
-          stroke-width="2"
+          stroke-width="1.5"
         ></circle>
       </svg>
       <p>EFIT</p>

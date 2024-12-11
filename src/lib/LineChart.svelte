@@ -99,7 +99,11 @@
                     .ticks(xtickamount)
                     .tickSizeOuter(0)
                     .tickFormat((d) => `${(d / xdivider).toFixed(xdecimal)}`),
-            );
+            )            .selectAll(".domain, .tick line")
+            .attr("stroke", "lightgrey")
+            .attr("stroke-width", 1);
+
+        svgElement.selectAll("g.tick text").style("fill", "grey");
 
         // Y-axis
         yAxisGroup = svgElement.append("g");
@@ -171,7 +175,7 @@
             .attr("class", `line-efit-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "#e6841a")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineEFIT);
 
         // Line generator for ICONIC
@@ -188,12 +192,13 @@
             .attr("class", `line-iconic-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "var(--brandDarkGreen)")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineICONIC);
 
         // Median line ICONIC
         svgElement
             .append("line")
+            .attr("class", `median-line-iconic-${suffix}`)
             .attr("x1", x(medianICONIC))
             .attr("x2", x(medianICONIC))
             .attr("y1", 0)
@@ -202,11 +207,12 @@
             .attr("stroke-width", 1)
             .attr("stroke-dasharray", "4");
 
-        // Label for medianICONIC
-        svgElement
+              // Label for medianICONIC
+              svgElement
             .append("text")
+            .attr("class", `median-label-iconic-${suffix}`)
             .attr("x", x(medianICONIC) + 5) // Slightly to the right of the line
-            .attr("y", y(d3.max(data, (d) => d.ICONIC_normalized)) + 7) // Slightly below the top of the line
+            .attr("y", 1/height + 7)
             .attr("fill", "var(--brandDarkGreen)")
             .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
@@ -216,10 +222,7 @@
             .attr("dy", "0em") // Position the first line
             .append("tspan")
             .text(
-                "Median: " +
-                    (medianICONIC / xdivider).toFixed(1) +
-                    " " +
-                    xunit,
+                "Median: " + (medianICONIC / xdivider).toFixed(1) + " " + xunit,
             )
             .attr("x", x(medianICONIC) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "1.2em"); // Position the second line below the first
@@ -227,12 +230,10 @@
         // Median line EFIT
         svgElement
             .append("line")
+            .attr("class", `median-line-efit-${suffix}`)
             .attr("x1", x(medianEFIT))
             .attr("x2", x(medianEFIT))
-            .attr(
-                "y1",
-                y(d3.max(data, (d) => d.EFIT_normalized)) + medianadjust,
-            )
+            .attr("y1", ((1-(d3.max(data, d => d.EFIT_normalized))/(d3.max(data, d => d.ICONIC_normalized)))*height)+medianadjust) // Fixed position based on normalized data
             .attr("y2", height)
             .attr("stroke", "#e6841a")
             .attr("stroke-width", 1)
@@ -241,11 +242,9 @@
         // Label for medianEFIT
         svgElement
             .append("text")
+            .attr("class", `median-label-efit-${suffix}`)
             .attr("x", x(medianEFIT) + 5) // Slightly to the right of the line
-            .attr(
-                "y",
-                y(d3.max(data, (d) => d.EFIT_normalized)) + 8 + medianadjust,
-            ) // Slightly below the top of the line
+            .attr("y", ((1-(d3.max(data, d => d.EFIT_normalized))/(d3.max(data, d => d.ICONIC_normalized)))*height)+medianadjust+7)  // Fixed position based on normalized data
             .attr("fill", "#e6841a")
             .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
@@ -254,14 +253,10 @@
             .attr("x", x(medianEFIT) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "0em") // Position the first line
             .append("tspan")
-            .text(
-                "Median: " +
-                    (medianEFIT / xdivider).toFixed(1) +
-                    " " +
-                    xunit,
-            )
+            .text("Median: " + (medianEFIT / xdivider).toFixed(1) + " " + xunit)
             .attr("x", x(medianEFIT) + 5) // Ensure the x position is the same for both lines
             .attr("dy", "1.2em"); // Position the second line below the first
+
 
         // Add X-axis label
         svgElement
@@ -275,7 +270,13 @@
     }
 
     function updateYAxis(y) {
-        yAxisGroup.call(d3.axisLeft(y));
+        const dynamicTickCount = Math.max(2, Math.floor(height / 25));
+        yAxisGroup
+            .call(d3.axisLeft(y).ticks(dynamicTickCount))
+            .selectAll(".tick text")
+            .attr("fill", "grey");
+
+        yAxisGroup.selectAll(".domain, .tick line").attr("stroke", "lightgrey");
     }
 
     // Transition line chart between counts and normalized
