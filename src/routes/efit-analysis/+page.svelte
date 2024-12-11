@@ -128,6 +128,8 @@
     <p>
       The introduction of e-bikes in Toronto is not just about offering a new mode of transportation –it’s about making cycling more accessible, efficient, and appealing to a wider range of people. Whether it’s older adults who may need extra assistance with pedaling, people with longer commutes, or those who want to avoid arriving at their destination sweaty, e-bikes have the potential to address many of the challenges that have historically limited bike usage in the city.
     </p>
+    <img class="photo" src="img-two-bikes.png" alt="Photo of a Bike Share station in Kensington Market">
+    <p class="caption"><i>Left:</i> classic bike. <i>Right:</i> e-bike with pedal assist.</p>
     <p>
       From a sustainability perspective, e-bikes provide a viable alternative to cars for longer trips and can help cut down on vehicle emissions, especially during peak traffic hours. As the city works toward its ambitious net-zero targets, the role of e-bikes in encouraging a shift from motorized transport to more sustainable, human-powered options cannot be understated.
     </p>
@@ -369,6 +371,12 @@
       height: auto; 
       display: block; 
       margin: 0 auto;
+      margin-top: 25px;
+  }
+
+  .caption {
+    font-size: 14px;
+    margin-top: 2px;
   }
 
   .radial-title {
