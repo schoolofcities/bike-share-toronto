@@ -175,7 +175,7 @@
             .attr("class", "curve-iconic")
             .attr("fill", "none")
             .attr("stroke", "var(--brandDarkGreen)")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineICONIC);
 
         // Get the total length of the ICONIC path
@@ -207,7 +207,7 @@
             .attr("class", "curve-efit")
             .attr("fill", "none")
             .attr("stroke", "#e6841a")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineEFIT);
 
         // Get the total length of the EFIT path

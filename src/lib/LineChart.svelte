@@ -173,7 +173,7 @@
             .attr("class", `line-efit-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "#e6841a")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineEFIT);
 
         // Line generator for ICONIC
@@ -190,12 +190,13 @@
             .attr("class", `line-iconic-${suffix}`)
             .attr("fill", "none")
             .attr("stroke", "var(--brandDarkGreen)")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1.5)
             .attr("d", lineICONIC);
 
         // Median line ICONIC
         svgElement
             .append("line")
+            .attr("class", `median-line-iconic-${suffix}`)
             .attr("x1", x(medianICONIC))
             .attr("x2", x(medianICONIC))
             .attr("y1", 0)
@@ -207,8 +208,9 @@
         // Label for medianICONIC
         svgElement
             .append("text")
+            .attr("class", `median-label-iconic-${suffix}`)
             .attr("x", x(medianICONIC) + 5) // Slightly to the right of the line
-            .attr("y", y(d3.max(data, (d) => d.ICONIC_normalized)) + 7) // Slightly below the top of the line
+            .attr("y", y(d3.max(data, (d) => showNormalized ? d.ICONIC_normalized : d.ICONIC)) + 7) // Dynamic position
             .attr("fill", "var(--brandDarkGreen)")
             .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
@@ -226,12 +228,10 @@
         // Median line EFIT
         svgElement
             .append("line")
+            .attr("class", `median-line-efit-${suffix}`)
             .attr("x1", x(medianEFIT))
             .attr("x2", x(medianEFIT))
-            .attr(
-                "y1",
-                y(d3.max(data, (d) => d.EFIT_normalized)) + medianadjust,
-            )
+            .attr("y1", ((1-(d3.max(data, d => d.EFIT_normalized))/(d3.max(data, d => d.ICONIC_normalized)))*height)+medianadjust)
             .attr("y2", height)
             .attr("stroke", "#e6841a")
             .attr("stroke-width", 1)
@@ -240,11 +240,9 @@
         // Label for medianEFIT
         svgElement
             .append("text")
+            .attr("class", `median-label-efit-${suffix}`)
             .attr("x", x(medianEFIT) + 5) // Slightly to the right of the line
-            .attr(
-                "y",
-                y(d3.max(data, (d) => d.EFIT_normalized)) + 8 + medianadjust,
-            ) // Slightly below the top of the line
+            .attr("y", ((1-(d3.max(data, d => d.EFIT_normalized))/(d3.max(data, d => d.ICONIC_normalized)))*height)+medianadjust+7)
             .attr("fill", "#e6841a")
             .style("font-size", "12px")
             .attr("text-anchor", "start") // Justify left
