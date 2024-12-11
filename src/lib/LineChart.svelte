@@ -470,12 +470,12 @@
         opacity: 0.5;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
         .button-container {
-            margin-left: 40px;
+            margin-left: 100px;
         }
         .svg-container {
-            margin-left: 40px;
+            margin-left: 80px;
         }
     }
 </style>

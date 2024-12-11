@@ -3,7 +3,7 @@ body {
     margin: 0px;
     background-color: var(--brandWhite);
     background-color: #ffffff;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 /* @media (max-width: 400px) {
@@ -15,7 +15,7 @@ body {
 main {
     margin: 50px auto;
     width: 100%;
-    min-width: 380px;
+    min-width: 360px;
     max-width: 1400px;
     position: relative;
     background: var(--brandWhite);
@@ -107,6 +107,12 @@ main {
     width: 100%;  /* Fill the container width */
     height: 500px;
     object-fit: none;
+}
+
+@media (max-width: 420px) {
+    .topImg {
+        width: 420px;
+    }
 }
 
 .bottom-image {
