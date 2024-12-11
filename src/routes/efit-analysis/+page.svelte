@@ -58,6 +58,7 @@
     name="description"
     content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
+  
   <!-- <meta name="author" content="Jeff Allen" />
 
   <meta property="og:title" content="Bike Share Toronto Growth" />
@@ -361,10 +362,6 @@
 
 <style>
 
-  /* .radial-container {
-    max-width: 500px;
-  } */
-
   .photo {
       max-width: 100%; 
       max-height: 750px; 
@@ -453,17 +450,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Adjust as needed */
+    height: 100%;
+    overflow-x: hidden;
   }
 
   .radial-container {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
     align-items: center;
     height: 100%;
+    overflow-x: hidden;
   }
 
   .flex-container-weekday {

@@ -4,7 +4,6 @@ body {
     background-color: var(--brandWhite);
     background-color: #ffffff;
     overflow-x: hidden;
-    min-width: 420px;
 }
 
 /* @media (max-width: 400px) {
@@ -99,7 +98,6 @@ main {
 
 .topImg {
     width: 100%;
-    min-width: 420px;
     height: 500px;
     overflow: hidden;
     background-color: none;
