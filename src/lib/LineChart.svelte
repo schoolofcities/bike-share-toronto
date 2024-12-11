@@ -472,10 +472,10 @@
 
     @media (max-width: 420px) {
         .button-container {
-            margin-left: 100px;
+            margin-left: 120px;
         }
         .svg-container {
-            margin-left: 80px;
+            margin-left: 100px;
         }
     }
 </style>

@@ -189,7 +189,7 @@
         xlabel="Trip duration (minutes)"
         xdivider={60}
         xdecimal={0}
-        xtickamount={20}
+        xtickamount={6}
         xunit="minutes"
         medianadjust={30}
       />
@@ -221,7 +221,7 @@
         xlabel="Elevation gain or loss (metres)"
         xdivider={1}
         xdecimal={0}
-        xtickamount={20}
+        xtickamount={10}
         xunit="m"
         medianadjust={0}
       />
@@ -377,6 +377,7 @@
   .caption {
     font-size: 14px;
     margin-top: 2px;
+    line-height: 18px;
   }
 
   .radial-title {
