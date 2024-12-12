@@ -59,39 +59,39 @@
     content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
   
-  <!-- <meta name="author" content="Jeff Allen" />
+  <meta name="author" content="Jeff Allen" />
 
-  <meta property="og:title" content="Bike Share Toronto Growth" />
+  <meta property="og:title" content="Bike Share Toronto E-Bike Analysis" />
   <meta
     property="og:description"
-    content="Visualizing Bike Share system expansion and ridership growth trends in Toronto"
+    content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
   <meta property="og:type" content="website" />
   <meta
     property="og:url"
-    content="https://schoolofcities.github.io/bike-share-toronto/growth/"
+    content="https://schoolofcities.github.io/bike-share-toronto/efit-analysis/"
   />
   <meta
     property="og:image"
-    content="https://schoolofcities.github.io/bike-share-toronto/web-card-growth.png"
+    content="https://schoolofcities.github.io/bike-share-toronto/web-card-ebikes.png"
   />
   <meta property="og:locale" content="en_CA" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:site"
-    content="https://schoolofcities.github.io/bike-share-toronto/growth/"
+    content="https://schoolofcities.github.io/bike-share-toronto/efit-analysis/"
   />
   <meta name="twitter:creator" content="@UofTCities" />
-  <meta name="twitter:title" content="Bike Share Toronto Growth" />
+  <meta name="twitter:title" content="Bike Share Toronto E-Bike Analysis" />
   <meta
     name="twitter:description"
-    content="Visualizing Bike Share system expansion and ridership growth trends in Toronto"
+    content="Exploring e-bike usage in Toronto’s Bike Share system via charts and data"
   />
   <meta
     name="twitter:image"
-    content="https://schoolofcities.github.io/bike-share-toronto/web-card-growth.png"
-  /> -->
+    content="https://schoolofcities.github.io/bike-share-toronto/web-card-ebikes.png"
+  />
 </svelte:head>
 
 <!-- <TopSofC /> -->
