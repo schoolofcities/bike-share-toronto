@@ -5,6 +5,7 @@ data-preparation/trips/map-data
 data-preparation/growth/ridership-data
 data-preparation/efit/data
 data-preparation/efit/plots
+data-preparation/calendar
 
 .DS_Store
 node_modules
