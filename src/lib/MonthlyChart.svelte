@@ -72,9 +72,9 @@
     // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
     function thousandToK(tick) {
         var newtick;
-        if (tick >= 1000 && tick < 1000000) {
+        if (tick >= 1000 && tick <= 100000) {
             newtick = tick / 1000 + "K";
-        } else if (tick > 1000000) {
+        } else if (tick >= 1000000) {
             newtick = tick / 1000000 + "M";
         } else {
             newtick = tick;
@@ -130,12 +130,12 @@
         <g class="axis x-axis">
             {#each data as bike, i}
                 {#if innerWidth > 1100}
-                    {#if bike.Month === 1 || i == 0}
+                    {#if bike.Month === 1}
                         <g
                             class="tick"
                         >
                             <text 
-                                x={xScale(i) + 17 + barPadding - innerWidth / 600}
+                                x={xScale(i) + 15 + barPadding - innerWidth / 600}
                                 y={height - 5}
                                 text-anchor=end
                             >
@@ -152,11 +152,11 @@
                 {#if innerWidth > 1100}
                     <!-- if the inner window width > 800, show months as label-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
-                        <text x={barWidth / 2 + 9} y="-20">{monthCodes[bike.Month]}</text>
+                        <text x={barWidth / 2 + 8} y="-20">{monthCodes[bike.Month]}</text>
                     </g>
                 {:else if innerWidth <= 1100}
                     <!-- if the inner window width <=800 show years only-->
-                    {#if bike.Month === 1 || i == 0}
+                    {#if bike.Month === 1}
                         <g
                             class="tick"
                             transform="translate({xScale(i)},{height})"
@@ -334,7 +334,7 @@
 
     .x-axis .tick text {
         text-anchor: middle;
-        font-size: 12px;
+        font-size: 11px;
         text-align: right;
     }
 

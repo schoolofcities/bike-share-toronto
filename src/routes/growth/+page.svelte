@@ -8,12 +8,12 @@
 	//import StationRelations from "../station-relations/station-relations.svelte";
 
 	let yTicksTrip = [
-		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000
+		0, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000
 	];
-	let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700, 800];
+	let yTicksStation = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 	let yTicksAvStation = [0, 200, 400, 600, 800, 1000, 1200, 1400];
-	let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000];
-	let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120];
+	let yTicksBike = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000];
+	let yTicksAvBikeUsage = [0, 20, 40, 60, 80, 100, 120, 140];
 </script>
 
 
@@ -56,7 +56,7 @@
 			<a href="https://www.linkedin.com/in/chun-fu-liu/">Michael Liu</a> &
 			<a href="http://jamaps.github.io">Jeff Allen</a>
 			<br>
-			Created 08/2023, Updated 10/2024
+			Created 08/2023. Updated 10/2024. Updated again 03/2026.
 		</p>
 	</div>
 
@@ -75,7 +75,7 @@
 			Toronto's Bike Share system has grown substantially over the past
 			decade, providing a healthy and sustainable mode of travel to
 			thousands of Torontonians and visitors. Ridership has increased from
-			about 665,000 trips in 2015 to 5.7 million in 2023 (if you
+			about 665,000 trips in 2015 to <a href="https://www.toronto.ca/legdocs/mmis/2026/pa/bgrd/backgroundfile-285022.pdf" target="_blank">7.8 million in 2025</a> (if you
 			build it they will ride!). In the chart below, one <img
 				class="bike-img"
 				src={Bicycle}
@@ -92,7 +92,7 @@
 		<p>
 			Below we chart this growth month-by-month to track seasonal patterns
 			of expansion and uptake. We'll hopefully update this page as more
-			data is released into 2025 and beyond!
+			data is released into 2026 and beyond!
 		</p>
 		<p>
 			The data presented on this page are sourced from the <a
@@ -128,8 +128,7 @@
 	<div class="text">
 		<p>
 			August consistently records the highest ridership between 2019 and
-			2024. In August 2024, monthly ridership reached more than 900,000 trips,
-			over 400,000 more than the same period in 2021. Colder months
+			2024. In July 2025, monthly ridership reached more than 1,000,000 trips, more than double the same period in 2021. Colder months
 			(November to March) have also recently experienced much higher
 			ridership compared to the same months in previous years. 
 		</p>
@@ -150,8 +149,7 @@
 	<div class="text">
 		<br>
 		<p>
-			The Bike Share system has expanded from 79 stations in 2014 to 855 by September,
-			2024 (based on the number of unique station IDs in the ridership data). 
+			The Bike Share system has expanded from 79 stations in 2014 to over 900 by mid-2025 (based on the number of unique station IDs in the ridership data). 
 			The chart below illustrates this expansion. Before 2020, large
 			expansions would occur in July, with many stations installed in
 			either June or July. The pace of expansion slowed in 2021, resulting

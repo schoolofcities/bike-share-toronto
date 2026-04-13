@@ -3,6 +3,8 @@ data-preparation/trips/graphhopper
 data-preparation/trips/trips
 data-preparation/trips/map-data
 data-preparation/growth/ridership-data
+data-preparation/growth/ridership-data-24
+data-preparation/growth/ridership-data-25-26
 data-preparation/efit/data
 data-preparation/efit/plots
 data-preparation/calendar

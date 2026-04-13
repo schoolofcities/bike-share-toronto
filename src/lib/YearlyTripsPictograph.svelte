@@ -6,13 +6,15 @@
 	var data = [
 		{ Year: 2015, Ridership: 665000 },
 		{ Year: 2016, Ridership: 830000 },
-		{ Year: 2017, Ridership: 1460000 },
-		{ Year: 2018, Ridership: 1918000 },
-		{ Year: 2019, Ridership: 2421000 },
+		{ Year: 2017, Ridership: 1500000 },
+		{ Year: 2018, Ridership: 1900000 },
+		{ Year: 2019, Ridership: 2400000 },
 		{ Year: 2020, Ridership: 2900000 },
-		{ Year: 2021, Ridership: 3560000 },
-		{ Year: 2022, Ridership: 4600000 },
-		{ Year: 2023, Ridership: 5700000 }
+		{ Year: 2021, Ridership: 3500000 },
+		{ Year: 2022, Ridership: 4500000 },
+		{ Year: 2023, Ridership: 5700000 },
+		{ Year: 2024: Ridership: 6900000 },
+		{ Year: 2025: Ridership: 7800000 }
 	];
 
 </script>

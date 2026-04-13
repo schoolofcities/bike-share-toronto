@@ -1,0 +1,134 @@
+[
+	{
+		"Year": 2024,
+		"Month": 1,
+		"YearMonth": "2024;1",
+		"StationCount": 773,
+		"BikeCount": 5820,
+		"TripCount": 204128,
+		"AverageTripDuration": 15.06,
+		"AverageBikeUsage": 35.07,
+		"AverageStationUsage": 264.07
+	},
+	{
+		"Year": 2024,
+		"Month": 2,
+		"YearMonth": "2024;2",
+		"StationCount": 788,
+		"BikeCount": 6086,
+		"TripCount": 261063,
+		"AverageTripDuration": 15.9,
+		"AverageBikeUsage": 42.9,
+		"AverageStationUsage": 331.3
+	},
+	{
+		"Year": 2024,
+		"Month": 3,
+		"YearMonth": "2024;3",
+		"StationCount": 791,
+		"BikeCount": 6329,
+		"TripCount": 311755,
+		"AverageTripDuration": 16.27,
+		"AverageBikeUsage": 49.26,
+		"AverageStationUsage": 394.13
+	},
+	{
+		"Year": 2024,
+		"Month": 4,
+		"YearMonth": "2024;4",
+		"StationCount": 795,
+		"BikeCount": 6978,
+		"TripCount": 402569,
+		"AverageTripDuration": 17.96,
+		"AverageBikeUsage": 57.69,
+		"AverageStationUsage": 506.38
+	},
+	{
+		"Year": 2024,
+		"Month": 5,
+		"YearMonth": "2024;5",
+		"StationCount": 801,
+		"BikeCount": 7750,
+		"TripCount": 683952,
+		"AverageTripDuration": 19.24,
+		"AverageBikeUsage": 88.25,
+		"AverageStationUsage": 853.87
+	},
+	{
+		"Year": 2024,
+		"Month": 6,
+		"YearMonth": "2024;6",
+		"StationCount": 813,
+		"BikeCount": 7695,
+		"TripCount": 764496,
+		"AverageTripDuration": 17.9,
+		"AverageBikeUsage": 99.35,
+		"AverageStationUsage": 940.34
+	},
+	{
+		"Year": 2024,
+		"Month": 7,
+		"YearMonth": "2024;7",
+		"StationCount": 826,
+		"BikeCount": 7656,
+		"TripCount": 903496,
+		"AverageTripDuration": 17.05,
+		"AverageBikeUsage": 118.01,
+		"AverageStationUsage": 1093.82
+	},
+	{
+		"Year": 2024,
+		"Month": 8,
+		"YearMonth": "2024;8",
+		"StationCount": 840,
+		"BikeCount": 7590,
+		"TripCount": 904725,
+		"AverageTripDuration": 16.32,
+		"AverageBikeUsage": 119.2,
+		"AverageStationUsage": 1077.05
+	},
+	{
+		"Year": 2024,
+		"Month": 9,
+		"YearMonth": "2024;9",
+		"StationCount": 855,
+		"BikeCount": 7506,
+		"TripCount": 899279,
+		"AverageTripDuration": 15.29,
+		"AverageBikeUsage": 119.81,
+		"AverageStationUsage": 1051.79
+	},
+	{
+		"Year": 2024,
+		"Month": 10,
+		"YearMonth": "2024;10",
+		"StationCount": 853,
+		"BikeCount": 7409,
+		"TripCount": 792315,
+		"AverageTripDuration": 14.0,
+		"AverageBikeUsage": 106.94,
+		"AverageStationUsage": 928.86
+	},
+	{
+		"Year": 2024,
+		"Month": 11,
+		"YearMonth": "2024;11",
+		"StationCount": 856,
+		"BikeCount": 7245,
+		"TripCount": 554466,
+		"AverageTripDuration": 12.52,
+		"AverageBikeUsage": 76.53,
+		"AverageStationUsage": 647.74
+	},
+	{
+		"Year": 2024,
+		"Month": 12,
+		"YearMonth": "2024;12",
+		"StationCount": 848,
+		"BikeCount": 6325,
+		"TripCount": 251283,
+		"AverageTripDuration": 12.12,
+		"AverageBikeUsage": 39.73,
+		"AverageStationUsage": 296.32
+	}
+]
