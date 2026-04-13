@@ -13,8 +13,8 @@
 		{ Year: 2021, Ridership: 3500000 },
 		{ Year: 2022, Ridership: 4500000 },
 		{ Year: 2023, Ridership: 5700000 },
-		{ Year: 2024: Ridership: 6900000 },
-		{ Year: 2025: Ridership: 7800000 }
+		{ Year: 2024, Ridership: 6900000 },
+		{ Year: 2025, Ridership: 7800000 }
 	];
 
 </script>
