@@ -10,10 +10,7 @@
     const maxWidth = 650;
     const minWidth = 390;
     const heightPercentage = 0.5; // 60% of the screen width
-    let width = Math.min(
-        window.innerWidth - margin.left - margin.right,
-        maxWidth,
-    );
+    let width = maxWidth; // Default width, will be updated on mount
     let height = width * heightPercentage;
 
     export let csvData;
@@ -41,6 +38,14 @@
             ICONIC_normalized: +d.ICONIC_normalized,
             interval_start: +d.interval_start,
         }));
+
+        // Set initial width based on actual window size
+        width = Math.min(
+            window.innerWidth - margin.left - margin.right,
+            maxWidth,
+        );
+        width = Math.max(width, minWidth);
+        height = width * heightPercentage;
 
         drawLineChart();
         window.addEventListener('resize', handleResize);
