@@ -112,7 +112,7 @@
 	</div>
 
 	<div class="text">
-		<h3>Bike Share Ridership by Month</h3>
+		<h3>Bike Share Toronto ridership by month</h3>
 		<p class="note">
 			(we are missing monthly data from 0ct 2015 to June 2016)
 		</p>
@@ -156,7 +156,7 @@
 			in a relatively stable number of stations. In 2022, the expansion
 			occurred incrementally, with a few stations installed each month.
 		</p>
-		<h3>Number of Operating Bike Share Stations</h3>
+		<h3>Number of operating Bike Share stations in Toronto</h3>
 		<p class="note">
 			(we are missing monthly data from 0ct 2015 to June 2016)
 		</p>
@@ -179,7 +179,7 @@
 			February, with fewer than 200 rides started from each station during
 			these months, and much higher usage in the summer months.
 		</p>
-		<h3>Trips Per Station</h3>
+		<h3>Trips per station</h3>
 		<p class="note">
 			(we are missing monthly data from 0ct 2015 to June 2016)
 		</p>
@@ -211,7 +211,7 @@
 			during periods of low ridership, or if the bikes remain idle at the
 			stations, or both.
 		</p>
-		<h3>Number of Bikes in Operation</h3>
+		<h3>Number of bikes in operation</h3>
 		<p class="note">(data only available from 2019 onwards)</p>
 	</div>
 
@@ -224,7 +224,7 @@
 	/>
 
 	<div class="text">
-		<h3>Trips Per Bike</h3>
+		<h3>Trips per bike</h3>
 		<p class="note">(data only available from 2019 onwards)</p>
 	</div>
 
